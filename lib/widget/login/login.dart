@@ -20,6 +20,16 @@ class _LoginState extends State<Login> {
     super.initState();
   }
 
+    String _validatePin(String val){
+    if(val == null || val.trim().length == 0){
+      return 'Pin code could not be empty!';
+    }else if(val.trim().length!=6){
+      return 'Pin code`s length must be 6!';
+    }else {
+      return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new ScopedModelDescendant<LocalModel>(
@@ -38,7 +48,7 @@ class _LoginState extends State<Login> {
                     children: <Widget>[
                       new Container(
                         child: new MyInput(
-                          rules: '',
+                          rules: _validatePin,
                           inputController: controllerPin,
                           placeholder: 'PIN CODE',
                           inputFocuse: pinFocus,

@@ -21,7 +21,7 @@ class MyInput extends StatefulWidget {
 }
 
 class _MyInputState extends State<MyInput>{
-  var rules;
+  Function rules;
   var placeholder;
   var isPassword;
   var inputController;
@@ -45,6 +45,13 @@ class _MyInputState extends State<MyInput>{
       if (inputFocuse.hasFocus) {
         isFocus = true;
       } else {
+        print(123);
+        errorMsg = rules(inputController.text);
+        if(errorMsg != ''){
+          showBorder = true;
+        }else{
+          showBorder = false;
+        }
         isFocus = false;
       }
       setState(() {
@@ -55,6 +62,7 @@ class _MyInputState extends State<MyInput>{
       
     });
   }
+  
 @override
   Widget build(BuildContext context) {
     return new Container(

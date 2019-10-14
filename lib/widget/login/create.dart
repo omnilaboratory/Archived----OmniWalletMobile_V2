@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/loading.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/language/language.dart';
+import 'package:omni/model/global_model.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/model/mnemonic_phrase_model.dart';
+import 'package:omni/tools/Tools.dart';
+import 'package:omni/tools/key_config.dart';
+import 'package:omni/tools/net_config.dart';
+import 'package:omni/widget/backupWallet/backup_wallet_index.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class Create extends StatefulWidget {
@@ -61,7 +65,7 @@ class _CreateState extends State<Create> {
                     children: <Widget>[
                       new Container(
                         child: new MyInput(
-                          rules: '',
+                          rules: _validateNickName,
                           inputController: userController,
                           placeholder: 'NICKNAME',
                           inputFocuse: userFocus,
@@ -71,7 +75,7 @@ class _CreateState extends State<Create> {
                       ),
                       new Container(
                         child: new MyInput(
-                          rules: '',
+                          rules: _validatePin,
                           inputController: controllerPin,
                           placeholder: 'PIN',
                           inputFocuse: pinFocus,
@@ -81,7 +85,7 @@ class _CreateState extends State<Create> {
                       ),
                       new Container(
                         child: new MyInput(
-                          rules: '',
+                          rules: _validateRepeatPin,
                           inputController: controllerPinRepeate,
                           placeholder: 'PIN REAPTE',
                           inputFocuse: pinRepeateFocus,
@@ -118,12 +122,21 @@ class _CreateState extends State<Create> {
                   child: new Container(
                     child: new FlatButton(
                       onPressed: () {
-                        showDialog<Null>(
+                        /* showDialog<Null>(
                           context: context, //BuildContext对象
                           barrierDismissible: false,
                           builder: (BuildContext context) {
                             return new Loading();
-                          });
+                          }); */
+                          // submit();
+                          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return BackupWalletIndex();
+                  }
+              ),
+                  (route) => route == null,
+            );
                       },
                       child: Center(
                         child: Text(Language.submit[model.language]),
@@ -169,9 +182,10 @@ class _CreateState extends State<Create> {
 
   
   bool checkForm (){
+    print('check');
     nickNameErr =  _validateNickName(userController.text);
-    pinErr =  _validateNickName(controllerPin.text);
-    rePinErr =  _validateNickName(controllerPinRepeate.text);
+    pinErr =  _validatePin(controllerPin.text);
+    rePinErr =  _validateRepeatPin(controllerPinRepeate.text);
     setState(() {
       
     });
@@ -184,9 +198,69 @@ class _CreateState extends State<Create> {
   }
 
   void submit(){
+    print('submit');
     var isPass = checkForm();
+    print(isPass);
     if(isPass){
+       // 1. Create Mnemonic Phrase.
       String _mnemonic =  MnemonicPhrase.getInstance().createPhrases();
+      print('==> [Mnemonic Phrase] ==> $_mnemonic');
+
+      // 2. Encrypt the Mnemonic Phrase with the MD5 algorithm and
+      // save it locally and remotely as User ID. 
+      // (User ID is used to associate user data)
+      String _mnemonic_md5 =  Tools.convertMD5Str(_mnemonic);
+
+      // 3. Encrypt the PIN code with the MD5 algorithm.
+      String _pinCode_md5 = Tools.convertMD5Str(controllerPin.text);
+
+      // Show loading animation.
+      Tools.loadingAnimation(context);
+
+      // 4. Nick name (Clear text) , Mnemonic Phrase (MD5) and Pin Code (MD5) save to remotely.
+      Future data = NetConfig.post(context,
+        NetConfig.createUser,
+        {
+          'userId':_mnemonic_md5,
+          'nickname':userController.text,
+          'password':_pinCode_md5
+        },
+        errorCallback: (){
+          Navigator.of(context).pop();
+        }
+      );
+      data.then((data) {
+        if(NetConfig.checkData(data)) {
+          GlobalInfo.userInfo.userId   = _mnemonic_md5;
+          GlobalInfo.userInfo.mnemonic = _mnemonic;
+          GlobalInfo.userInfo.pinCode  = _pinCode_md5;
+          GlobalInfo.userInfo.nickname = userController.text;
+          GlobalInfo.userInfo.loginToken = data['token'];
+
+          // Save data to locally.
+          // Login Token
+          // Mnemonic Phrase (AES Encrypt and MD5)
+          // Pin code (MD5)
+          Tools.saveStringKeyValue(KeyConfig.user_login_token, GlobalInfo.userInfo.loginToken);
+          Tools.saveStringKeyValue(KeyConfig.user_mnemonic, Tools.encryptAes(_mnemonic));
+          Tools.saveStringKeyValue(KeyConfig.user_mnemonic_md5, _mnemonic_md5);
+          Tools.saveStringKeyValue(KeyConfig.user_pinCode_md5, _pinCode_md5);
+
+          GlobalInfo.userInfo.mnemonicSeed = null;
+
+          GlobalInfo.userInfo.init(context,(){
+            Navigator.of(context).pop();
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return BackupWalletIndex();
+                  }
+              ),
+                  (route) => route == null,
+            );
+          });
+        }
+      });
     }
   }
 }
