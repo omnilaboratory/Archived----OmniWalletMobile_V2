@@ -51,6 +51,8 @@ class BackupWalletIndex extends StatelessWidget{
                 ),
                 new Container(
                   child: new Container(
+                    width: ScreenUtil().setWidth(336),
+                    color: Colors.blueAccent,
                     child: new FlatButton(
                       onPressed: (){
                         Navigator.of(context).pushAndRemoveUntil(
@@ -64,7 +66,12 @@ class BackupWalletIndex extends StatelessWidget{
                       },
                       padding: EdgeInsets.all(0),
                       child: new Container(
-                        child: new Text('立即备份'),
+                        child: new Text(
+                          '立即备份',
+                          style: TextStyle(
+                            color: Colors.white
+                          ),
+                        ),
                       ),
                     ),
                   ),

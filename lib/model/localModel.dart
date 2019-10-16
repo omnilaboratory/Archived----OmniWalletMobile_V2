@@ -8,6 +8,13 @@ class LocalModel extends Model{
   int dexfaultOpenWallet = 0;
   int defaultOpenAddress;
   String address = '';
+  Map<String,Object> userInfo = {
+    'userId':'',
+    'mnemonic':'',
+    'pinCode':'',
+    'nickname':'',
+    'loginToken':'',
+  };
 
   void changeLang (String lang){
     language = lang;

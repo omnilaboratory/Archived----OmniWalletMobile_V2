@@ -5,6 +5,7 @@ import 'package:omni/language/language.dart';
 import 'package:omni/model/global_model.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/model/mnemonic_phrase_model.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/tools/Tools.dart';
 import 'package:omni/tools/key_config.dart';
 import 'package:omni/tools/net_config.dart';
@@ -128,15 +129,15 @@ class _CreateState extends State<Create> {
                           builder: (BuildContext context) {
                             return new Loading();
                           }); */
-                          // submit();
-                          Navigator.of(context).pushAndRemoveUntil(
+                          submit();
+                          /* Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
                   builder: (BuildContext context) {
                     return BackupWalletIndex();
                   }
               ),
                   (route) => route == null,
-            );
+            ); */
                       },
                       child: Center(
                         child: Text(Language.submit[model.language]),
@@ -192,6 +193,15 @@ class _CreateState extends State<Create> {
     if(nickNameErr==''&&pinErr==''&&rePinErr==''){
       return true;
     }else {
+      if(nickNameErr!=''){
+        Tools.showToast(nickNameErr,toastLength: Toast.LENGTH_LONG);
+      }else{
+        if(pinErr!=''){
+          Tools.showToast(pinErr,toastLength: Toast.LENGTH_LONG);
+        }else{
+          Tools.showToast(rePinErr,toastLength: Toast.LENGTH_LONG);
+        }
+      }
       return false;
     }
     
