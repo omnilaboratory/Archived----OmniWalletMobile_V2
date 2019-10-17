@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/model/localModel.dart';
+import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/login/login.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:omni/language/language.dart';
@@ -26,20 +27,10 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar: new AppBar(
-            automaticallyImplyLeading: false,
-            elevation: 0.0,
-            backgroundColor: Color.fromRGBO(242, 244, 248, 1),
-            title: new Container(
-              height: ScreenUtil().setHeight(46),
-              child: new Image.asset('images/headLogo.png'),
+          appBar: MyBaseBar(
+            child: LoginAppBar(
+              isHome:false
             ),
-            actions: <Widget>[
-              new IconButton(
-                icon: new Image.asset('images/menu.png'),
-                onPressed: () {},
-              )
-            ],
           ),
           body: new Container(
             color: Color.fromRGBO(242, 244, 248, 1),

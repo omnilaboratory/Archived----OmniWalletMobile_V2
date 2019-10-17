@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/model/localModel.dart';
+import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:omni/language/language.dart';
 
@@ -10,17 +11,13 @@ class Home extends StatelessWidget {
     return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: new AppBar(
-            elevation: 0.0,
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.10),
-            actions: <Widget>[
-              new IconButton(
-                icon: new Image.asset('images/menu.png'),
-                onPressed: () {},
-              )
-            ],
+          appBar: MyBaseBar(
+            child: LoginAppBar(
+              isHome:true
+            ),
           ),
           body: new Container(
+            // color: Color.fromRGBO(242, 244, 248, 1),
               height: ScreenUtil().setHeight(812),
               child: new Stack(
                 children: <Widget>[

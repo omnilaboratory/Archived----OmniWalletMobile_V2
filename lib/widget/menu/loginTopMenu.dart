@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FootMenu extends Dialog {
+class LoginTopMenu extends Dialog {
   @override
   Widget build(BuildContext context) {
     return new Material(
@@ -25,37 +25,30 @@ class FootMenu extends Dialog {
             ),
           ),
           new Positioned(
-            bottom: ScreenUtil().setHeight(50),
-            right: ScreenUtil().setWidth(38),
+            top: ScreenUtil().setHeight(35),
+            right: ScreenUtil().setWidth(24),
             child: new Container(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(15),
                   bottom: ScreenUtil().setHeight(15),
                   left: ScreenUtil().setWidth(24),
                   right: ScreenUtil().setWidth(24)),
-              width: ScreenUtil().setWidth(158),
-              height: ScreenUtil().setHeight(235),
+              width: ScreenUtil().setWidth(150),
+              height: ScreenUtil().setHeight(210),
               decoration: new BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(ScreenUtil().setHeight(44)),
                     bottomLeft: Radius.circular(ScreenUtil().setHeight(44)),
-                    topRight: Radius.circular(ScreenUtil().setHeight(44)),
+                    bottomRight: Radius.circular(ScreenUtil().setHeight(44)),
                   ),
                   color: Colors.white),
               child: new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   new MenuItem(
-                    menuName: 'MY WALLET',
-                    menuIcon: 'images/wallet.png',
-                    onPress: null,
-                  ),
-                  new MenuItem(
                     menuName: 'EXCHANGE',
                     menuIcon: 'images/exchange.png',
-                    onPress: (){
-                      Navigator.pushNamed(context, '/exchange');
-                    },
+                    onPress: null,
                   ),
                   new MenuItem(
                     menuName: 'EXPLORER',
@@ -72,7 +65,7 @@ class FootMenu extends Dialog {
                     menuIcon: 'images/about.png',
                     onPress: null,
                   ),
-                  ],
+                ],
               ),
             ),
           )
@@ -90,7 +83,7 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(32),
+      height: ScreenUtil().setHeight(40),
       child: FlatButton(
         onPressed: onPress,
         padding: EdgeInsets.all(0),

@@ -10,6 +10,7 @@ class UtilStyle{
   );
   static var tableHeadFont = new TextStyle(
     fontFamily: 'Helvetica',
+    fontWeight: FontWeight.bold,
     fontSize: ScreenUtil().setSp(10),
     color: Color.fromRGBO(0, 0, 0, 0.5)
   );
