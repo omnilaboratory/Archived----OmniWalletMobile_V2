@@ -54,7 +54,7 @@ class AfterLoginAppBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new AppBar(
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.10),
+            backgroundColor: Color.fromRGBO(70, 116, 182, 0.165),
             elevation: 0,
             automaticallyImplyLeading: false,
             title: new Container(

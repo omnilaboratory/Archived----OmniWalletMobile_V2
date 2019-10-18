@@ -4,6 +4,10 @@ import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/exchange/marketBuy.dart';
+import 'package:omni/widget/menu/footMenu.dart';
+
+import 'newMarket.dart';
 
 class Exchange extends StatefulWidget {
   _ExchangeState createState() => new _ExchangeState();
@@ -28,14 +32,10 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
 
   String tradeDataType = 'ALL';
   String offerDataType = 'ALL';
-  List<Map<String,Object>> tradeData = [
-    
-  ];
-  List<Map<String,Object>> offerData = [
-    
-  ];
-  List<Map<String,Object>> marketData=[];
-   // 获取Market数据
+  List<Map<String, Object>> tradeData = [];
+  List<Map<String, Object>> offerData = [];
+  List<Map<String, Object>> marketData = [];
+  // 获取Market数据
   void _getMarketData() {
     marketData = [
       {'id': '#3', 'name': 'MAIDSAFECOIN', 'price': '0.09', 'supply': '1735.0'},
@@ -65,6 +65,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
       {'id': '#33', 'name': 'usdt', 'price': '0.09', 'supply': '1735.0'},
     ];
   }
+
   // 获取Trade数据
   void _getTradeData() {
     tradeData = [
@@ -95,6 +96,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
       {'id': '#33', 'price': 'usdt', 'fees': '0.09', 'blocks': '7'},
     ];
   }
+
 // 获取Offer数据
   void _getOfferData() {
     offerData = [
@@ -125,7 +127,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
       {'id': '#33', 'price': 'usdt', 'amount': '0.09', 'total': '7'},
     ];
   }
-  
+
   @override
   void initState() {
     super.initState();
@@ -157,14 +159,11 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
       });
     offerController.forward();
     setState(() {});
-    Future.delayed(
-      Duration(milliseconds: 10),
-      (){
-        this._getMarketData();
-        this._getTradeData();
-        this._getOfferData();
-      }
-    );
+    Future.delayed(Duration(milliseconds: 10), () {
+      this._getMarketData();
+      this._getTradeData();
+      this._getOfferData();
+    });
   }
 
   @override
@@ -180,6 +179,24 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
     return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return Scaffold(
+          floatingActionButton: new Container(
+            width: ScreenUtil().setSp(45),
+            height: ScreenUtil().setSp(45),
+            child: new FlatButton(
+              onPressed: () {
+                showDialog<Null>(
+                    context: context, //BuildContext对象
+                    barrierDismissible: false,
+                    builder: (BuildContext context) {
+                      return new FootMenu();
+                    });
+              },
+              padding: EdgeInsets.all(0),
+              child: new Container(
+                child: new Image.asset('images/logo.png'),
+              ),
+            ),
+          ),
           appBar: MyBaseBar(
             child: AfterLoginAppBar(),
           ),
@@ -253,7 +270,13 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                       new Container(
                                         child: new FlatButton(
                                           padding: EdgeInsets.all(0),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.push(context,
+                                                  new MaterialPageRoute(
+                                                      builder: (BuildContext context) {
+                                                return new NewMarket();
+                                              }));
+                                          },
                                           child: new Container(
                                             child: new Row(
                                               children: <Widget>[
@@ -400,15 +423,14 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                     new Container(
                                       child: new PopupMenuButton(
                                         shape: new BeveledRectangleBorder(
-                                          borderRadius: BorderRadius.circular(4)
-                                        ),
+                                            borderRadius:
+                                                BorderRadius.circular(4)),
                                         padding: EdgeInsets.all(0),
-                                        offset: Offset(20,20),
+                                        offset: Offset(20, 20),
                                         onSelected: (val) {
-                                          tradeDataType = val.toString().toUpperCase();
-                                          setState(() {
-                                            
-                                          });
+                                          tradeDataType =
+                                              val.toString().toUpperCase();
+                                          setState(() {});
                                         },
                                         child: new Container(
                                           child: new Row(
@@ -449,34 +471,33 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                         itemBuilder: (BuildContext context) =>
                                             <PopupMenuEntry<String>>[
                                           new PopupMenuItem(
-                                              value: 'all',
-                                              child: new Text(
-                                                  "ALL",
-                                                  style: TextStyle(
-                                                    fontSize: ScreenUtil()
-                                                        .setHeight(10),
-                                                    fontFamily: 'Helvetica',
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color.fromRGBO(
-                                                        17, 27, 41, 1),
-                                                  ),
-                                                  textAlign: TextAlign.right,
-                                                ),
-                                                ),
-                                                new PopupMenuItem(
+                                            value: 'all',
+                                            child: new Text(
+                                              "ALL",
+                                              style: TextStyle(
+                                                fontSize:
+                                                    ScreenUtil().setHeight(10),
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.bold,
+                                                color: Color.fromRGBO(
+                                                    17, 27, 41, 1),
+                                              ),
+                                              textAlign: TextAlign.right,
+                                            ),
+                                          ),
+                                          new PopupMenuItem(
                                               value: 'sell',
                                               child: new Text(
-                                                  "SELL",
-                                                  style: TextStyle(
-                                                    fontSize: ScreenUtil()
-                                                        .setHeight(10),
-                                                    fontFamily: 'Helvetica',
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color.fromRGBO(
-                                                        17, 27, 41, 1),
-                                                  ),
-                                                )
+                                                "SELL",
+                                                style: TextStyle(
+                                                  fontSize: ScreenUtil()
+                                                      .setHeight(10),
+                                                  fontFamily: 'Helvetica',
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromRGBO(
+                                                      17, 27, 41, 1),
                                                 ),
+                                              )),
                                         ],
                                       ),
                                     )
@@ -490,7 +511,11 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                               left: ScreenUtil().setWidth(18),
                               right: ScreenUtil().setWidth(18),
                             ),
-                            child: new TradeTable(data:tradeData,isShow: tradeTableIsShow,tableHeight: tradeTableHeight,),
+                            child: new TradeTable(
+                              data: tradeData,
+                              isShow: tradeTableIsShow,
+                              tableHeight: tradeTableHeight,
+                            ),
                           )
                         ],
                       ),
@@ -499,9 +524,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                   Positioned(
                     bottom: (offerController.value - 1) * offerHeight,
                     child: new Container(
-                      padding: EdgeInsets.only(
-                        top: ScreenUtil().setHeight(18)
-                      ),
+                      padding: EdgeInsets.only(top: ScreenUtil().setHeight(18)),
                       width: ScreenUtil().setWidth(376),
                       height: offerHeight,
                       decoration: BoxDecoration(
@@ -568,15 +591,14 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                     new Container(
                                       child: new PopupMenuButton(
                                         shape: new BeveledRectangleBorder(
-                                          borderRadius: BorderRadius.circular(4)
-                                        ),
+                                            borderRadius:
+                                                BorderRadius.circular(4)),
                                         padding: EdgeInsets.all(0),
-                                        offset: Offset(20,20),
+                                        offset: Offset(20, 20),
                                         onSelected: (val) {
-                                          offerDataType = val.toString().toUpperCase();
-                                          setState(() {
-                                            
-                                          });
+                                          offerDataType =
+                                              val.toString().toUpperCase();
+                                          setState(() {});
                                         },
                                         child: new Container(
                                           child: new Row(
@@ -617,34 +639,33 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                         itemBuilder: (BuildContext context) =>
                                             <PopupMenuEntry<String>>[
                                           new PopupMenuItem(
-                                              value: 'all',
-                                              child: new Text(
-                                                  "ALL",
-                                                  style: TextStyle(
-                                                    fontSize: ScreenUtil()
-                                                        .setHeight(10),
-                                                    fontFamily: 'Helvetica',
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color.fromRGBO(
-                                                        17, 27, 41, 1),
-                                                  ),
-                                                  textAlign: TextAlign.right,
-                                                ),
-                                                ),
-                                                new PopupMenuItem(
+                                            value: 'all',
+                                            child: new Text(
+                                              "ALL",
+                                              style: TextStyle(
+                                                fontSize:
+                                                    ScreenUtil().setHeight(10),
+                                                fontFamily: 'Helvetica',
+                                                fontWeight: FontWeight.bold,
+                                                color: Color.fromRGBO(
+                                                    17, 27, 41, 1),
+                                              ),
+                                              textAlign: TextAlign.right,
+                                            ),
+                                          ),
+                                          new PopupMenuItem(
                                               value: 'sell',
                                               child: new Text(
-                                                  "SELL",
-                                                  style: TextStyle(
-                                                    fontSize: ScreenUtil()
-                                                        .setHeight(10),
-                                                    fontFamily: 'Helvetica',
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color.fromRGBO(
-                                                        17, 27, 41, 1),
-                                                  ),
-                                                )
+                                                "SELL",
+                                                style: TextStyle(
+                                                  fontSize: ScreenUtil()
+                                                      .setHeight(10),
+                                                  fontFamily: 'Helvetica',
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromRGBO(
+                                                      17, 27, 41, 1),
                                                 ),
+                                              )),
                                         ],
                                       ),
                                     )
@@ -656,8 +677,12 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                           new Container(
                             padding: EdgeInsets.only(
                               left: ScreenUtil().setWidth(18),
-                              right: ScreenUtil().setWidth(18),),
-                            child: new OfferTable(data: offerData,isShow: offerTableIsShow,tableHeight: offerTableHeight),
+                              right: ScreenUtil().setWidth(18),
+                            ),
+                            child: new OfferTable(
+                                data: offerData,
+                                isShow: offerTableIsShow,
+                                tableHeight: offerTableHeight),
                           )
                         ],
                       ),
@@ -749,7 +774,6 @@ class MarketTable extends StatelessWidget {
       child: buildContent(),
     );
   }
-
 }
 
 class MarketTableRow extends StatefulWidget {
@@ -757,71 +781,89 @@ class MarketTableRow extends StatefulWidget {
   final String name;
   final String price;
   final String supply;
-  MarketTableRow({Key key,this.id, this.name, this.price, this.supply}):super(key:key);
+  MarketTableRow({Key key, this.id, this.name, this.price, this.supply})
+      : super(key: key);
   _MarketTableRowState createState() => new _MarketTableRowState();
-  }
+}
 
-class _MarketTableRowState extends State<MarketTableRow>{
-   String id;
-   String name;
-   String price;
-   String supply;
+class _MarketTableRowState extends State<MarketTableRow> {
+  String id;
+  String name;
+  String price;
+  String supply;
 
-   @override
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-   id = widget.id;
-   name = widget.name;
-   price = widget.price;
-   supply = widget.supply;
+    id = widget.id;
+    name = widget.name;
+    price = widget.price;
+    supply = widget.supply;
   }
-   
+
   @override
   Widget build(BuildContext context) {
     return new Container(
-      padding: EdgeInsets.only(top: 12, bottom: 12),
-      child: new Row(
-        children: <Widget>[
-          new Container(
-            width: ScreenUtil().setWidth(56),
-            child: new Text(
-              id,
-              style: UtilStyle.tableContentFont,
-            ),
+      child: new FlatButton(
+        onPressed: (){
+          Map<String,Object> item = {
+            'id':id,
+            'name':name,
+            'price':price,
+            'supply':supply,
+          };
+          Navigator.push(context,
+              new MaterialPageRoute(
+                  builder: (BuildContext context) {
+            return new MarketBuy(item: item);
+          }));
+        },
+        padding: EdgeInsets.all(0),
+        child: new Container(
+          padding: EdgeInsets.only(top: 12, bottom: 12),
+          child: new Row(
+            children: <Widget>[
+              new Container(
+                width: ScreenUtil().setWidth(56),
+                child: new Text(
+                  id,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+              new Container(
+                width: ScreenUtil().setWidth(120),
+                child: new Text(
+                  name,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+              new Container(
+                width: ScreenUtil().setWidth(68),
+                child: new Text(
+                  price,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+              new Container(
+                width: ScreenUtil().setWidth(88),
+                child: new Text(
+                  supply,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+            ],
           ),
-          new Container(
-            width: ScreenUtil().setWidth(120),
-            child: new Text(
-              name,
-              style: UtilStyle.tableContentFont,
-            ),
-          ),
-          new Container(
-            width: ScreenUtil().setWidth(68),
-            child: new Text(
-              price,
-              style: UtilStyle.tableContentFont,
-            ),
-          ),
-          new Container(
-            width: ScreenUtil().setWidth(88),
-            child: new Text(
-              supply,
-              style: UtilStyle.tableContentFont,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
 }
 
-class TradeTable extends StatelessWidget{
+class TradeTable extends StatelessWidget {
   final List data;
   final bool isShow;
   final double tableHeight;
-  TradeTable({this.data,this.isShow,this.tableHeight});
+  TradeTable({this.data, this.isShow, this.tableHeight});
   Widget buildContent() {
     Widget content;
     List<Widget> listUI = [];
@@ -887,16 +929,20 @@ class TradeTable extends StatelessWidget{
     );
     return content;
   }
+
   @override
   Widget build(BuildContext context) {
-    return isShow?new Container(
-      child: buildContent(),
-    ):new Container();
+    return isShow
+        ? new Container(
+            child: buildContent(),
+          )
+        : new Container();
   }
 }
 
-class TradeTableRow extends StatefulWidget{
-  TradeTableRow({Key key,this.id,this.price,this.fees,this.blocks}):super(key:key);
+class TradeTableRow extends StatefulWidget {
+  TradeTableRow({Key key, this.id, this.price, this.fees, this.blocks})
+      : super(key: key);
   final String id;
   final String price;
   final String fees;
@@ -904,7 +950,7 @@ class TradeTableRow extends StatefulWidget{
   _TradeTableRowState createState() => new _TradeTableRowState();
 }
 
-class _TradeTableRowState extends State<TradeTableRow>{
+class _TradeTableRowState extends State<TradeTableRow> {
   String id;
   String price;
   String fees;
@@ -918,9 +964,10 @@ class _TradeTableRowState extends State<TradeTableRow>{
     fees = widget.fees;
     blocks = widget.blocks;
   }
+
   @override
   Widget build(BuildContext context) {
-     return new Container(
+    return new Container(
       padding: EdgeInsets.only(top: 12, bottom: 12),
       child: new Row(
         children: <Widget>[
@@ -958,11 +1005,11 @@ class _TradeTableRowState extends State<TradeTableRow>{
   }
 }
 
-class OfferTable extends StatelessWidget{
+class OfferTable extends StatelessWidget {
   final List data;
   final bool isShow;
   final double tableHeight;
-  OfferTable({this.data,this.isShow,this.tableHeight});
+  OfferTable({this.data, this.isShow, this.tableHeight});
   Widget buildContent() {
     Widget content;
     List<Widget> listUI = [];
@@ -1027,16 +1074,20 @@ class OfferTable extends StatelessWidget{
     );
     return content;
   }
+
   @override
   Widget build(BuildContext context) {
-    return isShow?new Container(
-      child: buildContent(),
-    ):new Container();
+    return isShow
+        ? new Container(
+            child: buildContent(),
+          )
+        : new Container();
   }
 }
 
-class OfferTableRow extends StatefulWidget{
-  OfferTableRow({Key key,this.id,this.price,this.amount,this.total}):super(key:key);
+class OfferTableRow extends StatefulWidget {
+  OfferTableRow({Key key, this.id, this.price, this.amount, this.total})
+      : super(key: key);
   final String id;
   final String price;
   final String amount;
@@ -1044,7 +1095,7 @@ class OfferTableRow extends StatefulWidget{
   _OfferTableRowState createState() => new _OfferTableRowState();
 }
 
-class _OfferTableRowState extends State<OfferTableRow>{
+class _OfferTableRowState extends State<OfferTableRow> {
   String id;
   String price;
   String amount;
@@ -1058,9 +1109,10 @@ class _OfferTableRowState extends State<OfferTableRow>{
     amount = widget.amount;
     total = widget.total;
   }
+
   @override
   Widget build(BuildContext context) {
-     return new Container(
+    return new Container(
       padding: EdgeInsets.only(top: 12, bottom: 12),
       child: new Row(
         children: <Widget>[

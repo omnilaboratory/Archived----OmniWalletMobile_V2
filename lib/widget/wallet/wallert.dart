@@ -65,14 +65,15 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   new Container(
+                    width: ScreenUtil().setWidth(376),
                     child: new FlatButton(
                       onPressed: () {
                         model.changeIsAddressFull(false);
                       },
                       child: new Container(
+                        alignment: Alignment.bottomLeft,
                         padding: EdgeInsets.only(
-                            top: ScreenUtil().setHeight(32),
-                            left: ScreenUtil().setWidth(19)),
+                            top: ScreenUtil().setHeight(32),),
                         child: new Text('WALLET',
                             textAlign: TextAlign.left,
                             style: new TextStyle(
@@ -98,7 +99,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                                 new Container(
                                   height: ScreenUtil().setHeight(24),
                                   width: ScreenUtil().setWidth(27),
-                                  color: Colors.red,
+                                  child: new Icon(Icons.mail),
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
