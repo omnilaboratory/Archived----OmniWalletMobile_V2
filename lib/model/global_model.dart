@@ -1,14 +1,13 @@
-import 'dart:convert';
 import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:bip39/bip39.dart' as bip39;
-import 'package:crypto/crypto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:omni/model/user_info.dart';
 import 'package:omni/tools/Tools.dart';
 import 'package:omni/tools/key_config.dart';
-/**
+/*
+ *
  * Global data
  */
 class  GlobalInfo{
@@ -40,7 +39,7 @@ class  GlobalInfo{
   static bool isLocked = false;
 
   /// 1: Splash 2:Background 11:Backup 12:Send
-  static int fromParent = null;
+  static int fromParent;
 
   /// From where - 0: reload  1: background.
   static int fromWhere;
@@ -62,7 +61,7 @@ class  GlobalInfo{
   static initBipSeed(String _mnemonic,{Function callback}) async {
     Future<SharedPreferences> prefs = SharedPreferences.getInstance();
     prefs.then((share) async {
-      var seed = share.get(KeyConfig.user_mnemonicSeed);
+      var seed = share.get(KeyConfig.userMnemonicSeed);
       if(seed!=null){
         var seedStr = seed.toString();
         //兼容没有加密的之前的种子
@@ -81,7 +80,7 @@ class  GlobalInfo{
 //        Tools.showToast('data is initing,please wait',toastLength: Toast.LENGTH_LONG);
         print('seed init begin ${DateTime.now()}');
         GlobalInfo.bip39Seed = await getSeed(_mnemonic);
-        share.setString(KeyConfig.user_mnemonicSeed,Tools.encryptAes(GlobalInfo.bip39Seed.toString()));
+        share.setString(KeyConfig.userMnemonicSeed,Tools.encryptAes(GlobalInfo.bip39Seed.toString()));
 
         print('seed init finish ${DateTime.now()}');
         callback();

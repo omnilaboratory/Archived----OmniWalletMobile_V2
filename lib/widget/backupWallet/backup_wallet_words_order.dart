@@ -15,8 +15,8 @@ class BackupWalletWordsOrder extends StatefulWidget {
 }
 
 class _BackupWalletWordsOrderState extends State<BackupWalletWordsOrder> {
-  List<WordInfo> words=null;
-  int backParentId = null;
+  List<WordInfo> words;
+  int backParentId;
 
   @override
   void initState() {
@@ -148,7 +148,7 @@ class _BackupWalletWordsOrderState extends State<BackupWalletWordsOrder> {
           share.remove(KeyConfig.backParentId);
 
           // User have finished to back up mnimonic.
-          share.setBool(KeyConfig.is_backup, true);
+          share.setBool(KeyConfig.isBackup, true);
         });
 
         if(this.backParentId !=null&&this.backParentId==1){

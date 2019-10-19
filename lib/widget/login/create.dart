@@ -219,10 +219,10 @@ class _CreateState extends State<Create> {
       // 2. Encrypt the Mnemonic Phrase with the MD5 algorithm and
       // save it locally and remotely as User ID. 
       // (User ID is used to associate user data)
-      String _mnemonic_md5 =  Tools.convertMD5Str(_mnemonic);
+      String _mnemonicMd5 =  Tools.convertMD5Str(_mnemonic);
 
       // 3. Encrypt the PIN code with the MD5 algorithm.
-      String _pinCode_md5 = Tools.convertMD5Str(controllerPin.text);
+      String _pinCodeMd5 = Tools.convertMD5Str(controllerPin.text);
 
       // Show loading animation.
       Tools.loadingAnimation(context);
@@ -231,9 +231,9 @@ class _CreateState extends State<Create> {
       Future data = NetConfig.post(context,
         NetConfig.createUser,
         {
-          'userId':_mnemonic_md5,
+          'userId':_mnemonicMd5,
           'nickname':userController.text,
-          'password':_pinCode_md5
+          'password':_pinCodeMd5
         },
         errorCallback: (){
           Navigator.of(context).pop();
@@ -241,9 +241,9 @@ class _CreateState extends State<Create> {
       );
       data.then((data) {
         if(NetConfig.checkData(data)) {
-          GlobalInfo.userInfo.userId   = _mnemonic_md5;
+          GlobalInfo.userInfo.userId   = _mnemonicMd5;
           GlobalInfo.userInfo.mnemonic = _mnemonic;
-          GlobalInfo.userInfo.pinCode  = _pinCode_md5;
+          GlobalInfo.userInfo.pinCode  = _pinCodeMd5;
           GlobalInfo.userInfo.nickname = userController.text;
           GlobalInfo.userInfo.loginToken = data['token'];
 
@@ -251,10 +251,10 @@ class _CreateState extends State<Create> {
           // Login Token
           // Mnemonic Phrase (AES Encrypt and MD5)
           // Pin code (MD5)
-          Tools.saveStringKeyValue(KeyConfig.user_login_token, GlobalInfo.userInfo.loginToken);
-          Tools.saveStringKeyValue(KeyConfig.user_mnemonic, Tools.encryptAes(_mnemonic));
-          Tools.saveStringKeyValue(KeyConfig.user_mnemonic_md5, _mnemonic_md5);
-          Tools.saveStringKeyValue(KeyConfig.user_pinCode_md5, _pinCode_md5);
+          Tools.saveStringKeyValue(KeyConfig.userLoginToken, GlobalInfo.userInfo.loginToken);
+          Tools.saveStringKeyValue(KeyConfig.userMnemonic, Tools.encryptAes(_mnemonic));
+          Tools.saveStringKeyValue(KeyConfig.userMnemonicMd5, _mnemonicMd5);
+          Tools.saveStringKeyValue(KeyConfig.userPinCodeMd5, _pinCodeMd5);
 
           GlobalInfo.userInfo.mnemonicSeed = null;
 

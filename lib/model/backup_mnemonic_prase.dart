@@ -5,7 +5,7 @@ import 'package:scoped_model/scoped_model.dart';
 class BackupMnemonicPhrase extends Model{
   BackupMnemonicPhrase of(context) => ScopedModel.of<BackupMnemonicPhrase>(context);
 
-  List<WordInfo> wordList=null;
+  List<WordInfo> wordList=[];
 
   List<WordInfo> createNewWords(String mnemonic){
     if(this.wordList!=null){

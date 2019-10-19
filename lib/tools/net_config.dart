@@ -54,7 +54,8 @@ class NetConfig{
   /// wallet/address/list  地址列表
   static String addressList ='wallet/address/list';
 
-  /**
+  /*
+   *
    * wallet/address/getTransactionsByAddress 根据address获取交易记录
    * wallet/address/getTransactionsByAddress?address=1JiSZQDAZ16Qm8BDmNRBWa6AVsJWWeLC2U
   */
@@ -106,7 +107,7 @@ class NetConfig{
   static String appVersionList ='common/getVersionList';
 
 
-  static post(BuildContext context,String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
+  static post(BuildContext context,String url,Map<String, String> data,{Function errorCallback,int timeOut=60,bool showToast =true}) async{
     return _sendData(context,"post", url, data,errorCallback: errorCallback,timeOut: timeOut,showToast: showToast);
   }
 
@@ -121,7 +122,7 @@ class NetConfig{
     return false;
   }
 
-  static _sendData(BuildContext context,String reqType, String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
+  static _sendData(BuildContext context,String reqType, String url,Map<String, String> data,{Function errorCallback,int timeOut=60,bool showToast =true}) async{
 
     Map<String, String> header = new Map();
     if(url.startsWith('common')==false){
@@ -136,7 +137,7 @@ class NetConfig{
     print(url);
     print('seed to server data: $data');
 //    showToast('begin get data from server ',toastLength:Toast.LENGTH_LONG);
-    Response response = null;
+    Response response;
     try{
       if(reqType=="get"){
         response = await http.get(url,headers: header).timeout(Duration(seconds: timeOut));
@@ -221,7 +222,7 @@ class NetConfig{
     bool flag = true;
 
     if(response.statusCode==200){
-      await response.stream.transform(utf8.decoder).listen((data){
+       response.stream.transform(utf8.decoder).listen((data){
         var result = json.decode(data);
         print(data);
         callback(result['data']);
@@ -250,7 +251,7 @@ class NetConfig{
 
     bool flag = true;
     if(response.statusCode==200){
-      await response.stream.transform(utf8.decoder).listen((data){
+      response.stream.transform(utf8.decoder).listen((data){
         var result = json.decode(data);
         callback(result['data']['faceUrl']);
         flag = false;

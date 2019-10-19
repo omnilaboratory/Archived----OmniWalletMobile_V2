@@ -10,7 +10,7 @@ import 'package:omni/tools/key_config.dart';
 
 class MnemonicPhrase{
 
-  static MnemonicPhrase _instance = null;
+  static MnemonicPhrase _instance;
 
    static MnemonicPhrase getInstance(){
     if(_instance==null){
@@ -35,7 +35,7 @@ class MnemonicPhrase{
       GlobalInfo.bip39Seed = bip39.mnemonicToSeed(phrases);
       Future<SharedPreferences> prefs = SharedPreferences.getInstance();
       prefs.then((share) {
-        share.setString(KeyConfig.user_mnemonicSeed,GlobalInfo.bip39Seed.toString());
+        share.setString(KeyConfig.userMnemonicSeed,GlobalInfo.bip39Seed.toString());
       });
     }
     if(hdWallet==null){

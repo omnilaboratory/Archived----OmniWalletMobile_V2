@@ -118,7 +118,7 @@ class Tools{
     } else {
       return CachedNetworkImage(
         placeholder: (BuildContext context, String url) {
-          CircularProgressIndicator();
+          return CircularProgressIndicator();
         },
         imageUrl: NetConfig.imageHost + url,
         width:  width,

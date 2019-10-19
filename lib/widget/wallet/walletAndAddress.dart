@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/menu/footMenu.dart';
-import 'package:omni/widget/menu/topMenu.dart';
 import 'package:omni/widget/wallet/address.dart';
 import 'package:omni/widget/wallet/wallert.dart';
 import 'package:scoped_model/scoped_model.dart';
