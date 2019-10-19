@@ -25,12 +25,13 @@ class UtilStyle {
       letterSpacing: ScreenUtil().setSp(-0.24));
   static var sellDate = new TextStyle(
       fontFamily: 'Helvetica',
-      fontSize: ScreenUtil().setSp(10),
+      fontSize: 10,
       color: Color.fromRGBO(0, 0, 0, 1),
       fontWeight: FontWeight.bold);
   static var sellTime = new TextStyle(
+    fontWeight: FontWeight.bold,
     fontFamily: 'Helvetica',
-    fontSize: ScreenUtil().setSp(8),
+    fontSize: 10,
     color: Color.fromRGBO(0, 0, 0, 0.74),
   );
   static var sellStatus = new TextStyle(
@@ -96,5 +97,11 @@ class UtilStyle {
       fontFamily: 'Helvetica',
       fontSize: ScreenUtil().setSp(12),
       color: Color.fromRGBO(74, 119, 183, 0.75),
+      letterSpacing: ScreenUtil().setHeight(3.5));
+  static var tagTitleFontActive = new TextStyle(
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Helvetica',
+      fontSize: ScreenUtil().setSp(12),
+      color: Color.fromRGBO(74, 119, 183, 1),
       letterSpacing: ScreenUtil().setHeight(3.5));
 }

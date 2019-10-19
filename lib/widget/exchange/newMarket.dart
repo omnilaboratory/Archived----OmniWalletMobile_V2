@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/model/state_lib.dart';
-import 'package:omni/widget/menu/topMenu.dart';
+import 'package:omni/widget/compnent/myAppBar.dart';
 
 class NewMarket extends StatefulWidget {
   final Map<String, Object> item;
@@ -49,61 +49,25 @@ class _NewMarketState extends State<NewMarket>
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
+          appBar: new MyBaseBar(
+            child: AfterLoginAppBar(),
+          ),
           body: new Container(
             height: ScreenUtil().setHeight(812),
             width: ScreenUtil().setWidth(376),
             child: new Column(
               children: <Widget>[
                 new Container(
-                  color: Color.fromRGBO(70, 116, 182, 0.10),
-                  height: ScreenUtil().setHeight(100),
-                  padding: EdgeInsets.only(
-                      left: ScreenUtil().setWidth(18),
-                      right: ScreenUtil().setWidth(18),
-                      top: ScreenUtil().setHeight(50)),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      new Container(
-                        height: ScreenUtil().setHeight(24),
-                        child: new Image(
-                          image: AssetImage('images/headLogo.png'),
-                        ),
-                      ),
-                      new Container(
-                        width: ScreenUtil().setHeight(32),
-                        child: new FlatButton(
-                          onPressed: () {
-                            showDialog<Null>(
-                                context: context, //BuildContext对象
-                                barrierDismissible: false,
-                                builder: (BuildContext context) {
-                                  return new TopMenu();
-                                });
-                          },
-                          padding: EdgeInsets.all(0),
-                          child: new Container(
-                            height: ScreenUtil().setHeight(32),
-                            child: new Image(
-                              image: AssetImage('images/defaultAvatar.png'),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                new Container(
-                  color: Color.fromRGBO(70, 116, 182, 0.1),
+                  color: Color.fromRGBO(70, 116, 182, 0.07),
                   height: ScreenUtil().setHeight(712),
                   child: new Stack(
                     children: <Widget>[
                       Positioned(
                         bottom: (marketController.value - 1) *
-                            ScreenUtil().setHeight(602),
+                            ScreenUtil().setHeight(652),
                         child: new Container(
                           width: ScreenUtil().setWidth(376),
-                          height: ScreenUtil().setHeight(602),
+                          height: ScreenUtil().setHeight(652),
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(242, 244, 248, 1),
                               borderRadius: BorderRadius.only(
@@ -112,7 +76,7 @@ class _NewMarketState extends State<NewMarket>
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                    color: Color.fromRGBO(70, 116, 182, 0.165),
+                                    color: Color.fromRGBO(70, 116, 182, 0.02),
                                     offset: Offset(
                                       ScreenUtil().setSp(0),
                                       ScreenUtil().setSp(-24),
@@ -148,7 +112,7 @@ class _NewMarketState extends State<NewMarket>
                                   ),
                                 ),
                                 Container(
-                                  height: ScreenUtil().setHeight(556),
+                                  height: 500,
                                   width: ScreenUtil().setWidth(376),
                                   color: Color.fromRGBO(242, 244, 248, 1),
                                   child: new Column(

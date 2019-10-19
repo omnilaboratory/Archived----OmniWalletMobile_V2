@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/menu/walletMenu.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -69,6 +70,10 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                     child: new FlatButton(
                       onPressed: () {
                         model.changeIsAddressFull(false);
+                        model.changeWalletIsActive(true);
+                        setState(() {
+                          
+                        });
                       },
                       child: new Container(
                         alignment: Alignment.bottomLeft,
@@ -76,11 +81,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                             top: ScreenUtil().setHeight(32),),
                         child: new Text('WALLET',
                             textAlign: TextAlign.left,
-                            style: new TextStyle(
-                                color: Color.fromRGBO(74, 119, 183, 0.75),
-                                fontFamily: 'Helvetica',
-                                fontSize: ScreenUtil().setSp(12),
-                                letterSpacing: ScreenUtil().setSp(3.5))),
+                            style: model.walletIsActive?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont),
                       ),
                     ),
                   ),

@@ -20,6 +20,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
   double activeHeight = 268;
   double activeTableHeight = 171;
   bool activeTableIsShow = true;
+  String nowShow = '';
 
   List<Map<String,Object>> assetsData=[];
   List<Map<String,Object>> activeData=[];
@@ -186,6 +187,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                               activeTableIsShow = false;
                               activeTableHeight = 0;
                               activeHeight = 68;
+                              nowShow = 'ASSETS';
                               setState(() {
                                 
                               });
@@ -197,7 +199,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                             left: 18,
                             right: 18
                           ),
-                          child: new Text('ASSETS',style: UtilStyle.tagTitleFont,textAlign: TextAlign.left,),
+                          child: new Text('ASSETS',style: nowShow=='ASSETS'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,textAlign: TextAlign.left,),
                         ),
                           ),
                         ),
@@ -242,6 +244,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                               activeTableIsShow = true;
                               activeTableHeight = 433;
                               activeHeight = 530;
+                              nowShow = 'Active';
                               setState(() {
                                 
                               });
@@ -253,7 +256,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                             left: 18,
                             right: 18
                           ),
-                          child: new Text('active crowdsales'.toUpperCase(),style: UtilStyle.tagTitleFont,textAlign: TextAlign.left,),
+                          child: new Text('active crowdsales'.toUpperCase(),style: nowShow=='Active'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,textAlign: TextAlign.left,),
                         ),
                           ),
                         ),

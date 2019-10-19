@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
-import 'package:omni/widget/menu/topMenu.dart';
+import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class WalletBackup extends StatefulWidget {
@@ -21,43 +22,11 @@ class _WalletBackupState extends State<WalletBackup> {
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            title: new Container(
-              height: ScreenUtil().setHeight(46),
-              child: new Image.asset('images/headLogo.png'),
-            ),
-            actions: <Widget>[
-              new Container(
-                height: ScreenUtil().setHeight(46),
-                width: ScreenUtil().setWidth(46),
-                decoration:
-                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
-                child: new FlatButton(
-                  padding: EdgeInsets.all(0),
-                  onPressed: () {
-                    showDialog<Null>(
-                        context: context, //BuildContext对象
-                        barrierDismissible: false,
-                        builder: (BuildContext context) {
-                          return new TopMenu();
-                        });
-                  },
-                  child: new Container(
-                    height: ScreenUtil().setHeight(46),
-                    width: ScreenUtil().setWidth(46),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(46)),
-                    // child: new Image.network(),
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
-              )
-            ],
+          appBar: new MyBaseBar(
+            child: AfterLoginAppBar(),
           ),
           body: Container(
+            color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
               children: <Widget>[
                 new Positioned(
@@ -77,10 +46,7 @@ class _WalletBackupState extends State<WalletBackup> {
                       boxShadow: [
                         BoxShadow(
                             color: Color.fromRGBO(82, 135, 210, 0.25),
-                            offset: Offset(
-                              ScreenUtil().setSp(0),
-                              ScreenUtil().setSp(24),
-                            ),
+                            offset: Offset(0,24),
                             blurRadius: 48.0,
                             spreadRadius: 2.0),
                       ],
@@ -91,12 +57,7 @@ class _WalletBackupState extends State<WalletBackup> {
                         new Container(
                           child: new Text('WALLET BACKUP',
                               textAlign: TextAlign.left,
-                              style: new TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Helvetica',
-                                  fontSize: ScreenUtil().setSp(12),
-                                  color: Color.fromRGBO(74, 119, 183, 1),
-                                  letterSpacing: ScreenUtil().setSp(3.5))),
+                              style: UtilStyle.tagTitleFontActive),
                         ),
                         new Container(
                           margin:
@@ -104,9 +65,9 @@ class _WalletBackupState extends State<WalletBackup> {
                           child: new Row(
                             children: <Widget>[
                               new Container(
-                                height: ScreenUtil().setHeight(24),
-                                width: ScreenUtil().setWidth(27),
-                                color: Colors.red,
+                                height: 24,
+                                width: 27,
+                                child: new Icon(Icons.mail),
                               ),
                               new Container(
                                 margin: EdgeInsets.only(
@@ -212,21 +173,24 @@ class _WalletBackupState extends State<WalletBackup> {
                                   child: new Text(
                                     'ACCEPT YOU`VE',
                                     style: new TextStyle(
+                                      fontWeight: FontWeight.bold,
                                         fontFamily: 'Helvetica',
-                                        fontSize: ScreenUtil().setSp(10)),
+                                        fontSize: 10),
                                   ),
                                 ),
                                 new Container(
                                   child: new FlatButton(
+                                    onPressed: (){},
                                     padding: EdgeInsets.all(0),
                                     child: new Container(
                                       child: new Text(
                                         ' READ THIS WARNING',
                                         style: new TextStyle(
+                                          fontWeight: FontWeight.bold,
                                             fontFamily: 'Helvetica',
-                                            fontSize: ScreenUtil().setSp(12),
+                                            fontSize: 10,
                                             color: Color.fromRGBO(
-                                                74, 119, 183, 0.5)),
+                                                74, 119, 183, 1)),
                                       ),
                                     ),
                                   ),
@@ -235,8 +199,9 @@ class _WalletBackupState extends State<WalletBackup> {
                                   child: new Text(
                                     ' AND UNDERSTAND',
                                     style: new TextStyle(
+                                        fontWeight: FontWeight.bold,
                                         fontFamily: 'Helvetica',
-                                        fontSize: ScreenUtil().setSp(10)),
+                                        fontSize: 10),
                                   ),
                                 ),
                               ],
@@ -292,8 +257,8 @@ class _WalletBackupState extends State<WalletBackup> {
                               new Container(
                                   margin: EdgeInsets.only(
                                       bottom: ScreenUtil().setHeight(12)),
-                                  height: ScreenUtil().setWidth(24),
-                                  child: new Image.asset('images/up.png')),
+                                  width: 24,
+                                  child: new Image.asset('images/upB.png')),
                               new Container(
                                   child: new Text(
                                 'BACKUP WALLET',

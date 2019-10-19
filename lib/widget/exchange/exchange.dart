@@ -36,6 +36,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
   List<Map<String, Object>> tradeData = [];
   List<Map<String, Object>> offerData = [];
   List<Map<String, Object>> marketData = [];
+
+  String nowShow = '';
   // 获取Market数据
   void _getMarketData() {
     marketData = [
@@ -202,7 +204,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
             child: AfterLoginAppBar(),
           ),
           body: new Container(
-            color: Color.fromRGBO(70, 116, 182, 0.10),
+            color: Color.fromRGBO(70, 116, 182, 0.02),
             height: ScreenUtil().setHeight(762),
             width: ScreenUtil().setWidth(376),
             child: new Container(
@@ -246,6 +248,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                   offerHeight = 68;
                                   tradeTableIsShow = false;
                                   offerTableIsShow = false;
+                                  nowShow = 'MARKET';
                                   setState(() {});
                                 },
                                 padding: EdgeInsets.all(0),
@@ -257,14 +260,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                       new Container(
                                         child: new Text(
                                           'MARKETS',
-                                          style: TextStyle(
-                                            fontFamily: 'Helvetica',
-                                            fontSize: 12,
-                                            color: Color.fromRGBO(
-                                                74, 119, 183, 0.75),
-                                            letterSpacing:
-                                                ScreenUtil().setHeight(3.5),
-                                          ),
+                                          style: nowShow=='MARKET'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,
                                         ),
                                       ),
                                       new Container(
@@ -370,6 +366,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                 tradeTableHeight = 420;
                                 tradeTableIsShow = true;
                                 offerTableIsShow = false;
+                                nowShow ='TRADE';
                                 setState(() {});
                               },
                               padding: EdgeInsets.all(0),
@@ -388,14 +385,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             margin: EdgeInsets.only(right: 6),
                                             child: new Text(
                                               'TRADE',
-                                              style: TextStyle(
-                                                fontFamily: 'Helvetica',
-                                                fontSize: 12,
-                                                color: Color.fromRGBO(
-                                                    74, 119, 183, 0.75),
-                                                letterSpacing:
-                                                    ScreenUtil().setHeight(3.5),
-                                              ),
+                                              style:nowShow=='TRADE'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,
                                             ),
                                           ),
                                           new Container(
@@ -555,6 +545,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                 offerTableHeight = 360;
                                 tradeTableIsShow = true;
                                 offerTableIsShow = true;
+                                nowShow = 'OFFER';
                                 setState(() {});
                               },
                               padding: EdgeInsets.all(0),
@@ -573,14 +564,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             margin: EdgeInsets.only(right: 6),
                                             child: new Text(
                                               'MY OFFERS',
-                                              style: TextStyle(
-                                                fontFamily: 'Helvetica',
-                                                fontSize: 12,
-                                                color: Color.fromRGBO(
-                                                    74, 119, 183, 0.75),
-                                                letterSpacing:
-                                                    ScreenUtil().setHeight(3.5),
-                                              ),
+                                              style: nowShow=='OFFER'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,
                                             ),
                                           ),
                                         ],

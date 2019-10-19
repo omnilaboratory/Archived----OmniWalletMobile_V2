@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/menu/addressMenu.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -75,11 +76,7 @@ class _AddressState extends State<Address> with SingleTickerProviderStateMixin {
                         new Container(
                           child: new Text('ADDRESSES',
                               textAlign: TextAlign.left,
-                              style: new TextStyle(
-                                  color: Color.fromRGBO(74, 119, 183, 0.75),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: ScreenUtil().setSp(12),
-                                  letterSpacing: ScreenUtil().setSp(3.5))),
+                              style: UtilStyle.tagTitleFont),
                         ),
                         new Container(
                           child: new FlatButton(
@@ -108,6 +105,7 @@ class _AddressState extends State<Address> with SingleTickerProviderStateMixin {
                                     new Container(
                                       child: new Text('ADD ADDRESS',
                                           style: new TextStyle(
+                                            fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                               fontFamily: 'Helvetica',
                                               fontSize: ScreenUtil().setSp(10),
@@ -203,6 +201,7 @@ class AddressTypeItem extends StatelessWidget {
                       model.changeIsAddressFull(true);
                     }
                     model.changeOpenWallet(idx);
+                    model.changeWalletIsActive(false);
                   },
                   contentPadding: EdgeInsets.all(0),
                   title: Container(

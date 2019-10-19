@@ -43,21 +43,22 @@ class AddressMenu extends Dialog {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   new Container(
-                      child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new Container(
-                          width: ScreenUtil().setWidth(232),
-                          padding:
-                              EdgeInsets.only(left: ScreenUtil().setWidth(16)),
-                          decoration: new BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                                      color:
-                                          Color.fromRGBO(74, 119, 183, 0.15)))),
-                          height: ScreenUtil().setHeight(42),
-                          child: new Container(
+                    width: ScreenUtil().setWidth(232),
+                    padding: EdgeInsets.only(left: ScreenUtil().setWidth(16)),
+                    decoration: new BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Color.fromRGBO(74, 119, 183, 0.15)))),
+                    height: ScreenUtil().setHeight(42),
+                    child: new FlatButton(
+                      padding: EdgeInsets.all(0),
+                      child: new Container(
+                          child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
+                              child: new Container(
                             child: new Text(
                               'CREATE NEW ADDRESS',
                               textAlign: TextAlign.left,
@@ -69,24 +70,30 @@ class AddressMenu extends Dialog {
                                   height: ScreenUtil().setSp(2.5)),
                             ),
                           )),
-                    ],
-                  )),
+                        ],
+                      )),
+                    ),
+                  ),
                   new Container(
-                      child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new Container(
-                          width: ScreenUtil().setWidth(232),
-                          padding:
-                              EdgeInsets.only(left: ScreenUtil().setWidth(16)),
-                          decoration: new BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                                      color:
-                                          Color.fromRGBO(74, 119, 183, 0.15)))),
-                          height: ScreenUtil().setHeight(42),
-                          child: new Container(
+                    width: ScreenUtil().setWidth(232),
+                    padding: EdgeInsets.only(left: ScreenUtil().setWidth(16)),
+                    decoration: new BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Color.fromRGBO(74, 119, 183, 0.15)))),
+                    height: ScreenUtil().setHeight(42),
+                    child: new FlatButton(
+                      onPressed: () {
+                        Navigator.popAndPushNamed(context, '/importAddress');
+                      },
+                      padding: EdgeInsets.all(0),
+                      child: new Container(
+                          child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
+                              child: new Container(
                             child: new Text(
                               'IMPORT ADDRESS WITH PRIVATE KEY',
                               textAlign: TextAlign.left,
@@ -98,58 +105,70 @@ class AddressMenu extends Dialog {
                                   height: ScreenUtil().setSp(2.5)),
                             ),
                           )),
-                    ],
-                  )),
+                        ],
+                      )),
+                    ),
+                  ),
                   new Container(
-                      width: ScreenUtil().setWidth(232),
-                      padding: EdgeInsets.only(left: ScreenUtil().setWidth(16)),
-                      decoration: new BoxDecoration(
-                          border: Border(
-                              bottom: BorderSide(
-                                  color: Color.fromRGBO(74, 119, 183, 0.15)))),
-                      child: new Row(
+                    width: ScreenUtil().setWidth(232),
+                    height: ScreenUtil().setHeight(42),
+                    padding: EdgeInsets.only(left: ScreenUtil().setWidth(16)),
+                    decoration: new BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Color.fromRGBO(74, 119, 183, 0.15)))),
+                    child: new FlatButton(
+                      padding: EdgeInsets.all(0),
+                      child: new Container(
+                          child: new Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           new Container(
-                              height: ScreenUtil().setHeight(42),
                               child: new Container(
-                                child: new Text(
-                                  'ADD WATCH ONLY ADDRESS',
-                                  textAlign: TextAlign.left,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Helvetica',
-                                      fontSize: ScreenUtil().setSp(10),
-                                      color: Color.fromRGBO(17, 27, 41, 1),
-                                      height: ScreenUtil().setSp(2.5)),
-                                ),
-                              )),
+                            child: new Text(
+                              'ADD WATCH ONLY ADDRESS',
+                              textAlign: TextAlign.left,
+                              style: new TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Helvetica',
+                                  fontSize: ScreenUtil().setSp(10),
+                                  color: Color.fromRGBO(17, 27, 41, 1),
+                                  height: ScreenUtil().setSp(2.5)),
+                            ),
+                          )),
                         ],
                       )),
+                    ),
+                  ),
                   new Container(
-                      width: ScreenUtil().setWidth(232),
-                      padding: EdgeInsets.only(left: ScreenUtil().setWidth(16)),
-                      child: new Row(
+                    width: ScreenUtil().setWidth(232),
+                    padding: EdgeInsets.only(left: ScreenUtil().setWidth(16)),
+                    height: ScreenUtil().setHeight(42),
+                    child: new FlatButton(
+                      padding: EdgeInsets.all(0),
+                      child: new Container(
+                          child: new Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           new Container(
-                              height: ScreenUtil().setHeight(42),
                               child: new Center(
-                                child: new Text(
-                                  'ADD MEMORY OFFLINE ADDRESS',
-                                  textAlign: TextAlign.left,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Helvetica',
-                                      fontSize: ScreenUtil().setSp(10),
-                                      color: Color.fromRGBO(17, 27, 41, 1),
-                                      height: ScreenUtil().setSp(2.5)),
-                                ),
-                              )),
+                            child: new Text(
+                              'ADD MEMORY OFFLINE ADDRESS',
+                              textAlign: TextAlign.left,
+                              style: new TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Helvetica',
+                                  fontSize: ScreenUtil().setSp(10),
+                                  color: Color.fromRGBO(17, 27, 41, 1),
+                                  height: ScreenUtil().setSp(2.5)),
+                            ),
+                          )),
                         ],
                       )),
+                    ),
+                  )
                 ],
               ),
             ),

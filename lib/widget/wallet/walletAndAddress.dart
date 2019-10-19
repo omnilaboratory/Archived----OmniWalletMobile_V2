@@ -15,6 +15,7 @@ class WalletAndAddress extends StatefulWidget {
 }
 
 class _WalletAndAddressState extends State<WalletAndAddress> {
+  
   @override
   void initState() {
     super.initState();
@@ -35,7 +36,7 @@ class _WalletAndAddressState extends State<WalletAndAddress> {
             ),
           ),
           body: new Container(
-            color: Colors.white,
+            color: Color.fromRGBO(70, 116, 182, 0.02),
             width: ScreenUtil().setWidth(376),
             height: ScreenUtil().setHeight(718),
             child: new Container(

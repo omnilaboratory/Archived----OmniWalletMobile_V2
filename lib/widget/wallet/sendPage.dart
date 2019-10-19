@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
+import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/menu/addressChildMenu.dart';
-import 'package:omni/widget/menu/topMenu.dart';
 import 'package:omni/widget/wallet/addressFull.dart';
 import 'package:omni/widget/wallet/sendProgress.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -26,44 +27,11 @@ class _SendPageState extends State<SendPage> {
     return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: AppBar(
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.10),
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            title: new Container(
-              height: ScreenUtil().setHeight(46),
-              child: new Image.asset('images/headLogo.png'),
-            ),
-            actions: <Widget>[
-              new Container(
-                height: ScreenUtil().setHeight(46),
-                width: ScreenUtil().setWidth(46),
-                decoration:
-                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
-                child: new FlatButton(
-                  padding: EdgeInsets.all(0),
-                  onPressed: () {
-                    showDialog<Null>(
-                        context: context, //BuildContext对象
-                        barrierDismissible: false,
-                        builder: (BuildContext context) {
-                          return new TopMenu();
-                        });
-                  },
-                  child: new Container(
-                    height: ScreenUtil().setHeight(46),
-                    width: ScreenUtil().setWidth(46),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(46)),
-                    // child: new Image.network(),
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
-              )
-            ],
+          appBar:new MyBaseBar(
+            child: AfterLoginAppBar(),
           ),
           body: new Container(
-            color: Color.fromRGBO(70, 116, 182, 0.10),
+            color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
               children: <Widget>[
                 new Positioned(
@@ -100,13 +68,7 @@ class _SendPageState extends State<SendPage> {
                                 new Container(
                                   child: new Text('ADDRESSES',
                                       textAlign: TextAlign.left,
-                                      style: new TextStyle(
-                                          color: Color.fromRGBO(
-                                              74, 119, 183, 0.75),
-                                          fontFamily: 'Helvetica',
-                                          fontSize: ScreenUtil().setSp(12),
-                                          letterSpacing:
-                                              ScreenUtil().setSp(3.5))),
+                                      style: UtilStyle.tagTitleFontActive),
                                 ),
                                 new Container(
                                   child: new FlatButton(
@@ -136,6 +98,7 @@ class _SendPageState extends State<SendPage> {
                                               child: new Text('ADD ADDRESS',
                                                   style: new TextStyle(
                                                       color: Colors.black,
+                                                      fontWeight: FontWeight.bold,
                                                       fontFamily: 'Helvetica',
                                                       fontSize: ScreenUtil()
                                                           .setSp(10),
@@ -432,8 +395,8 @@ class _SendPageState extends State<SendPage> {
                               new Container(
                                   margin: EdgeInsets.only(
                                       bottom: ScreenUtil().setHeight(12)),
-                                  height: ScreenUtil().setWidth(24),
-                                  child: new Image.asset('images/up.png')),
+                                  width: 24,
+                                  child: new Image.asset('images/upG.png')),
                               new Container(
                                   child: new Text(
                                 'SEND',

@@ -15,6 +15,7 @@ class LocalModel extends Model{
     'nickname':'',
     'loginToken':'',
   };
+  bool walletIsActive = false;
 
   void changeLang (String lang){
     language = lang;
@@ -38,6 +39,10 @@ class LocalModel extends Model{
   }
   void changeAddress(String addr){
     address = addr;
+    notifyListeners();
+  }
+  void changeWalletIsActive(bool isActive){
+    walletIsActive = isActive;
     notifyListeners();
   }
 }

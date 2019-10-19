@@ -27,7 +27,9 @@ class AddressSendDetail extends Dialog {
           new Positioned(
             bottom: 0,
             child: new Container(
-              height: ScreenUtil().setHeight(712),
+              padding: EdgeInsets.only(
+                bottom: 10
+              ),
               width: ScreenUtil().setWidth(376),
               decoration: BoxDecoration(
                   color: Color.fromRGBO(242, 244, 248, 1),
@@ -39,7 +41,7 @@ class AddressSendDetail extends Dialog {
                 child: new Column(
                   children: <Widget>[
                     new Container(
-                      height: ScreenUtil().setHeight(104),
+                      height: 84,
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(242, 244, 248, 1),
                           borderRadius: BorderRadius.only(
@@ -48,12 +50,10 @@ class AddressSendDetail extends Dialog {
                           ),
                           boxShadow: [
                             BoxShadow(
-                                color: Color.fromRGBO(70, 116, 182, 0.10),
-                                offset: Offset(
-                                  ScreenUtil().setSp(0),
-                                  ScreenUtil().setSp(24),
+                                color: Color.fromRGBO(70, 116, 182, 0.30),
+                                offset: Offset(0,-24
                                 ),
-                                blurRadius: 40.0,
+                                blurRadius: 48.0,
                                 spreadRadius: 2.0),
                           ]),
                       child: new Container(
@@ -61,22 +61,22 @@ class AddressSendDetail extends Dialog {
                           children: <Widget>[
                             new Container(
                               margin: EdgeInsets.only(
-                                top: ScreenUtil().setHeight(31.5),
-                                bottom: ScreenUtil().setHeight(37.5),
+                                top: 28,
+                                bottom: 28,
                                 left: ScreenUtil().setWidth(161),
                                 right: ScreenUtil().setWidth(161),
                               ),
-                              width: ScreenUtil().setWidth(54),
-                              height: ScreenUtil().setHeight(3),
+                              width: 54,
+                              height: 3,
                               decoration: BoxDecoration(
-                                  color: Color.fromRGBO(0, 0, 0, 0.5),
+                                  color: Color.fromRGBO(70, 116, 182, 0.30),
                                   borderRadius: BorderRadius.circular(3)),
                             ),
                             new Container(
                               width: ScreenUtil().setWidth(338),
                               margin: EdgeInsets.only(
-                                  left: ScreenUtil().setWidth(19),
-                                  right: ScreenUtil().setWidth(19)),
+                                  left: 18,
+                                  right: 18),
                               child: new Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -91,13 +91,12 @@ class AddressSendDetail extends Dialog {
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
                                                 fontFamily: 'Helvetica',
-                                                fontSize:
-                                                    ScreenUtil().setSp(12)),
+                                                fontSize:12),
                                           ),
                                         ),
                                         new Container(
                                           margin: EdgeInsets.only(
-                                              left: ScreenUtil().setWidth(6)),
+                                              left: 6),
                                           child: new Text(
                                             'SENT',
                                             style: new TextStyle(
@@ -105,7 +104,7 @@ class AddressSendDetail extends Dialog {
                                                     50, 231, 163, 1),
                                                 fontFamily: 'Helvetica',
                                                 fontSize:
-                                                    ScreenUtil().setSp(12)),
+                                                    12),
                                           ),
                                         ),
                                       ],
@@ -113,7 +112,7 @@ class AddressSendDetail extends Dialog {
                                   ),
                                   new Container(
                                     child: new Image(
-                                      width: ScreenUtil().setHeight(24),
+                                      width: 24,
                                       image:
                                           AssetImage('images/wallerInfo.png'),
                                     ),
@@ -127,7 +126,7 @@ class AddressSendDetail extends Dialog {
                     ),
                     new Container(
                       padding: EdgeInsets.only(
-                        top: ScreenUtil().setHeight(46),
+                        top: 25,
                         left: ScreenUtil().setWidth(19),
                         right: ScreenUtil().setWidth(19),
                       ),
@@ -136,8 +135,8 @@ class AddressSendDetail extends Dialog {
                           new Container(
                             child: new Row(
                               children: <Widget>[
-                                new Container(
-                                  width: ScreenUtil().setWidth(150),
+                                new Expanded(
+                                  child: new Container(
                                   child: new Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -149,25 +148,24 @@ class AddressSendDetail extends Dialog {
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.35),
                                                 fontFamily: 'Helvetica',
-                                                fontSize:
-                                                    ScreenUtil().setSp(10))),
+                                                fontSize:12)),
                                       ),
                                       new Container(
                                         margin: EdgeInsets.only(
-                                            top: ScreenUtil().setHeight(8)),
-                                        height: ScreenUtil().setHeight(24),
+                                            top: 8),
+                                        height: 20,
                                         child: new Text('\$' + '200',
                                             style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 color:
                                                     Color.fromRGBO(0, 0, 0, 1),
                                                 fontFamily: 'Helvetica',
-                                                fontSize:
-                                                    ScreenUtil().setSp(10),
+                                                fontSize:12,
                                                 height: 1.6)),
                                       )
                                     ],
                                   ),
+                                ),
                                 ),
                                 new Expanded(
                                   child: new Container(
@@ -182,13 +180,12 @@ class AddressSendDetail extends Dialog {
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                   fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10))),
+                                                  fontSize:12)),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 20,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -199,13 +196,12 @@ class AddressSendDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),
+                                                        fontSize: 12,
                                                         height: 1.6)),
                                               ),
                                               new Container(
                                                 height:
-                                                    ScreenUtil().setHeight(24),
+                                                    20,
                                                 width:
                                                     ScreenUtil().setHeight(38),
                                                 margin: EdgeInsets.only(
@@ -225,8 +221,7 @@ class AddressSendDetail extends Dialog {
                                                               0, 0, 0, 1),
                                                           fontFamily:
                                                               'Helvetica',
-                                                          fontSize: ScreenUtil()
-                                                              .setSp(8),
+                                                          fontSize: 10,
                                                           height: 1.6)),
                                                 ),
                                               )
@@ -248,15 +243,15 @@ class AddressSendDetail extends Dialog {
                               'FROM ADDRESS',
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 0, 0, 0.35),
-                                  fontSize: ScreenUtil().setHeight(10),
+                                  fontSize: 12,
                                   fontFamily: 'Helvetica',
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
                           new Container(
-                            height: ScreenUtil().setHeight(19),
+                            height: 19,
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(8)
+                              top: 8
                             ),
                             child: new Row(
                               children: <Widget>[
@@ -265,27 +260,26 @@ class AddressSendDetail extends Dialog {
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       borderRadius: BorderRadius.circular(3)),
                                   width: ScreenUtil().setHeight(27),
-                                  height: ScreenUtil().setHeight(19),
+                                  height: 19,
                                   child: new Center(
                                     child: new Text('ID',
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: ScreenUtil().setHeight(10),
+                                          fontSize: 10,
                                           fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.bold,
-                                          letterSpacing:
-                                              ScreenUtil().setSp(2.89))),
+                                          letterSpacing:2.89)),
                                   ),
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(6)
+                                    left: 6
                                   ),
                                   child: new Text(
                                     '1YjsJhJH12918nmHkKUwjaAHj2341Aj',
                                     style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: ScreenUtil().setHeight(10),
+                                          fontSize: 12,
                                           fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.bold)
                                   ),
@@ -295,21 +289,21 @@ class AddressSendDetail extends Dialog {
                           ),
                           new Container(
                             margin: EdgeInsets.only(
-                                top: ScreenUtil().setHeight(28)),
+                                top: 28),
                             alignment: Alignment.centerLeft,
                             child: new Text(
                               'TO ADDRESS',
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 0, 0, 0.35),
-                                  fontSize: ScreenUtil().setHeight(10),
+                                  fontSize: 12,
                                   fontFamily: 'Helvetica',
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
                           new Container(
-                            height: ScreenUtil().setHeight(19),
+                            height: 19,
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(8)
+                              top: 8
                             ),
                             child: new Row(
                               children: <Widget>[
@@ -317,28 +311,27 @@ class AddressSendDetail extends Dialog {
                                   decoration: BoxDecoration(
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       borderRadius: BorderRadius.circular(3)),
-                                  width: ScreenUtil().setHeight(27),
-                                  height: ScreenUtil().setHeight(19),
+                                  width: 27,
+                                  height: 19,
                                   child: new Center(
                                     child: new Text('ID',
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: ScreenUtil().setHeight(10),
+                                          fontSize: 10,
                                           fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.bold,
-                                          letterSpacing:
-                                              ScreenUtil().setSp(2.89))),
+                                          letterSpacing:2.89)),
                                   ),
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(6)
+                                    left: 6
                                   ),
                                   child: new Text(
                                     '1PbtpQ2gsUZBhqLuPgHsJreVrNBVM',
                                     style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: ScreenUtil().setHeight(10),
+                                          fontSize: 12,
                                           fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.bold)
                                   ),
@@ -348,7 +341,7 @@ class AddressSendDetail extends Dialog {
                           ),
                           new Container(
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(24)
+                              top: 20
                             ),
                                     child: new Column(
                                       crossAxisAlignment:
@@ -361,13 +354,12 @@ class AddressSendDetail extends Dialog {
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                   fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10))),
+                                                  fontSize:12)),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 20,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -378,18 +370,14 @@ class AddressSendDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),
+                                                        fontSize: 12,
                                                         height: 1.6)),
                                               ),
                                               new Container(
-                                                height:
-                                                    ScreenUtil().setHeight(24),
-                                                width:
-                                                    ScreenUtil().setHeight(38),
+                                                height:20,
+                                                width:38,
                                                 margin: EdgeInsets.only(
-                                                    left: ScreenUtil()
-                                                        .setWidth(6)),
+                                                    left: 6),
                                                 decoration: BoxDecoration(
                                                     color: Colors.white,
                                                     borderRadius:
@@ -404,8 +392,7 @@ class AddressSendDetail extends Dialog {
                                                               0, 0, 0, 1),
                                                           fontFamily:
                                                               'Helvetica',
-                                                          fontSize: ScreenUtil()
-                                                              .setSp(8),
+                                                          fontSize: 12,
                                                           height: 1.6)),
                                                 ),
                                               )
@@ -417,7 +404,7 @@ class AddressSendDetail extends Dialog {
                                   ),
                           new Container(
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(24)
+                              top: 20
                             ),
                                     child: new Column(
                                       crossAxisAlignment:
@@ -430,13 +417,12 @@ class AddressSendDetail extends Dialog {
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                   fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10))),
+                                                  fontSize:12)),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 20,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -447,8 +433,7 @@ class AddressSendDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),
+                                                        fontSize: 12,
                                                         height: 1.6)),
                                               ),
                                               ],
@@ -459,7 +444,7 @@ class AddressSendDetail extends Dialog {
                                   ),
                           new Container(
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(24)
+                              top: 20
                             ),
                                     child: new Column(
                                       crossAxisAlignment:
@@ -472,13 +457,12 @@ class AddressSendDetail extends Dialog {
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                   fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10))),
+                                                  fontSize:12)),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 20,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -489,8 +473,7 @@ class AddressSendDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),
+                                                        fontSize: 12,
                                                         height: 1.6)),
                                               ),
                                               ],
@@ -501,7 +484,7 @@ class AddressSendDetail extends Dialog {
                                   ),
                           new Container(
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(24)
+                              top: 20
                             ),
                                     child: new Column(
                                       crossAxisAlignment:
@@ -514,13 +497,12 @@ class AddressSendDetail extends Dialog {
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                   fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10))),
+                                                  fontSize:12)),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 20,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -531,8 +513,7 @@ class AddressSendDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),
+                                                        fontSize: 12,
                                                         height: 1.6)),
                                               ),
                                               ],
@@ -543,7 +524,7 @@ class AddressSendDetail extends Dialog {
                                   ),
                           new Container(
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(24)
+                              top: 20
                             ),
                                     child: new Column(
                                       crossAxisAlignment:
@@ -556,13 +537,12 @@ class AddressSendDetail extends Dialog {
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                   fontFamily: 'Helvetica',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10))),
+                                                  fontSize:12)),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 28,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -574,8 +554,7 @@ class AddressSendDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),)),
+                                                        fontSize: 12,)),
                                               ),
                                               ],
                                           ),

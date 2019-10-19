@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/model/localModel.dart';
-import 'package:omni/widget/menu/topMenu.dart';
+import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class WalletImport extends StatefulWidget {
@@ -15,43 +15,11 @@ class _WalletImportState extends State<WalletImport> {
     return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            title: new Container(
-              height: ScreenUtil().setHeight(46),
-              child: new Image.asset('images/headLogo.png'),
-            ),
-            actions: <Widget>[
-              new Container(
-                height: ScreenUtil().setHeight(46),
-                width: ScreenUtil().setWidth(46),
-                decoration:
-                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
-                child: new FlatButton(
-                  padding: EdgeInsets.all(0),
-                  onPressed: () {
-                    showDialog<Null>(
-                        context: context, //BuildContext对象
-                        barrierDismissible: false,
-                        builder: (BuildContext context) {
-                          return new TopMenu();
-                        });
-                  },
-                  child: new Container(
-                    height: ScreenUtil().setHeight(46),
-                    width: ScreenUtil().setWidth(46),
-                    decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.circular(46)),
-                    // child: new Image.network(),
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
-              )
-            ],
+          appBar: MyBaseBar(
+            child: AfterLoginAppBar(),
           ),
           body: Container(
+            color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
               children: <Widget>[
                 new Positioned(
@@ -296,8 +264,8 @@ class _WalletImportState extends State<WalletImport> {
                               new Container(
                                   margin: EdgeInsets.only(
                                       bottom: ScreenUtil().setHeight(12)),
-                                  height: ScreenUtil().setWidth(24),
-                                  child: new Image.asset('images/up.png')),
+                                  width: 24,
+                                  child: new Image.asset('images/upB.png')),
                               new Container(
                                   child: new Text(
                                 'IMPORT WALLET',

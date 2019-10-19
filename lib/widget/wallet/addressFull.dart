@@ -81,11 +81,7 @@ class _AddressFullState extends State<AddressFull>
                         new Container(
                           child: new Text('ADDRESSES',
                               textAlign: TextAlign.left,
-                              style: new TextStyle(
-                                  color: Color.fromRGBO(74, 119, 183, 0.75),
-                                  fontFamily: 'Helvetica',
-                                  fontSize: ScreenUtil().setSp(12),
-                                  letterSpacing: ScreenUtil().setSp(3.5))),
+                              style: UtilStyle.tagTitleFontActive),
                         ),
                         new Container(
                           child: new FlatButton(
@@ -114,6 +110,7 @@ class _AddressFullState extends State<AddressFull>
                                     new Container(
                                       child: new Text('ADD ADDRESS',
                                           style: new TextStyle(
+                                              fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                               fontFamily: 'Helvetica',
                                               fontSize: ScreenUtil().setSp(10),
@@ -226,6 +223,7 @@ class AddressTypeItem extends StatelessWidget {
                   onTap: () {
                     if (!model.isAddressFull) {
                       model.changeIsAddressFull(true);
+                      model.changeWalletIsActive(false);
                     }
                     if (model.dexfaultOpenWallet == idx) {
                       model.changeOpenWallet(null);

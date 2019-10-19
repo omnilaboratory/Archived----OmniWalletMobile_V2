@@ -35,7 +35,7 @@ class _OfferPopState extends State<OfferPop> {
           body: new Container(
             padding: EdgeInsets.only(top: 32),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(70, 116, 182, 0.165),
+              color: Color.fromRGBO(70, 116, 182, 0.07),
             ),
             child: new SingleChildScrollView(
               child: new Column(
@@ -53,7 +53,7 @@ class _OfferPopState extends State<OfferPop> {
                         color: Color.fromRGBO(242, 244, 248, 1),
                         boxShadow: [
                           BoxShadow(
-                              color: Color.fromRGBO(70, 116, 182, 0.1),
+                              color: Color.fromRGBO(70, 116, 182, 0.02),
                               offset: Offset(0, -24),
                               blurRadius: 48),
                         ],

@@ -46,17 +46,7 @@ class AddressSellDetail extends Dialog {
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(44),
                             topRight: Radius.circular(44),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color.fromRGBO(70, 116, 182, 0.10),
-                                offset: Offset(
-                                  ScreenUtil().setSp(0),
-                                  ScreenUtil().setSp(24),
-                                ),
-                                blurRadius: 40.0,
-                                spreadRadius: 2.0),
-                          ]),
+                          ),),
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -67,9 +57,9 @@ class AddressSellDetail extends Dialog {
                                 right: ScreenUtil().setWidth(161),
                               ),
                               width: ScreenUtil().setWidth(54),
-                              height: ScreenUtil().setHeight(3),
+                              height: ScreenUtil().setHeight(5),
                               decoration: BoxDecoration(
-                                  color: Color.fromRGBO(0, 0, 0, 0.5),
+                                  color: Color.fromRGBO(70, 116, 182, 0.30),
                                   borderRadius: BorderRadius.circular(3)),
                             ),
                             ],
@@ -98,33 +88,27 @@ class AddressSellDetail extends Dialog {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           new Container(
-                            width: ScreenUtil().setWidth(69),
+                            width: 80,
                             child: new Text(
                               'STATUS',
                               textAlign: TextAlign.right,
-                              style: TextStyle(
-                                fontFamily: 'Helvetica',
-                                color: Color.fromRGBO(74, 119, 183, 0.75),
-                                fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(12),
-                                letterSpacing: ScreenUtil().setSp(3.5)
-                              ),
+                              style: UtilStyle.tagTitleFont
                             ),
                           ),
                           new Container(
-                            height: ScreenUtil().setWidth(28),
+                            height: 28,
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(28)
+                              top: 28
                             ),
                             child: new Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
                                 new Container(
-                                  height: ScreenUtil().setWidth(28),
+                                  height: 28,
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         child: new Text(
                                           '25/AUG',
                                           textAlign: TextAlign.right,
@@ -132,9 +116,9 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         margin: EdgeInsets.only(
-                                          top: ScreenUtil().setHeight(4)
+                                          top: 4
                                         ),
                                         child: new Text(
                                           '10:10AM',
@@ -146,16 +130,16 @@ class AddressSellDetail extends Dialog {
                                   ),
                                 ),
                                 new Container(
-                                  height: ScreenUtil().setWidth(24),
+                                  height: 24,
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(12),
-                                    right: ScreenUtil().setWidth(12),
+                                    left: 12,
+                                    right: 12,
                                   ),
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(24),
-                                        height: ScreenUtil().setWidth(24),
+                                        width: 24,
+                                        height: 24,
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 1.5,
@@ -165,8 +149,8 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       child: new Center(
                                         child: new Container(
-                                          width: ScreenUtil().setWidth(16),
-                                        height: ScreenUtil().setWidth(16),
+                                          width: 16,
+                                        height: 16,
                                         decoration: BoxDecoration(
                                           color: Color.fromRGBO(54, 220, 158, 1),
                                           borderRadius: BorderRadius.circular(18)
@@ -178,7 +162,7 @@ class AddressSellDetail extends Dialog {
                                   ),
                                 ),
                                 new Container(
-                                  height: ScreenUtil().setHeight(24),
+                                  height: 24,
                                   child: Center(
                                     child: new Text(
                                     'SALE POSTED',
@@ -190,7 +174,7 @@ class AddressSellDetail extends Dialog {
                             ),
                           ),
                           new Container(
-                            height: ScreenUtil().setHeight(83),
+                            height: 60,
                             child: new Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
@@ -199,7 +183,7 @@ class AddressSellDetail extends Dialog {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         child: new Text(
                                           '25/AUG',
                                           textAlign: TextAlign.right,
@@ -207,9 +191,9 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         margin: EdgeInsets.only(
-                                          top: ScreenUtil().setHeight(4)
+                                          top: 4
                                         ),
                                         child: new Text(
                                           '10:10AM',
@@ -222,19 +206,19 @@ class AddressSellDetail extends Dialog {
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(12),
-                                    right: ScreenUtil().setWidth(12),
+                                    left: 12,
+                                    right: 12,
                                   ),
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
                                         width: 1.5,
-                                        height: ScreenUtil().setHeight(56),
+                                        height: 36,
                                         color: Color.fromRGBO(54, 220, 158, 1),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(24),
-                                        height: ScreenUtil().setWidth(24),
+                                        width: 24,
+                                        height:  24,
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 1.5,
@@ -244,8 +228,8 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       child: new Center(
                                         child: new Container(
-                                          width: ScreenUtil().setWidth(16),
-                                        height: ScreenUtil().setWidth(16),
+                                          width: 16,
+                                        height: 16,
                                         decoration: BoxDecoration(
                                           color: Color.fromRGBO(54, 220, 158, 1),
                                           borderRadius: BorderRadius.circular(18)
@@ -257,7 +241,7 @@ class AddressSellDetail extends Dialog {
                                   ),
                                 ),
                                 new Container(
-                                  height: ScreenUtil().setHeight(24),
+                                  height: 24,
                                   child: Center( child: new Text(
                                     'BUYER RESERVED',
                                     style: UtilStyle.sellStatus,
@@ -268,7 +252,7 @@ class AddressSellDetail extends Dialog {
                             ),
                           ),
                           new Container(
-                            height: ScreenUtil().setHeight(83),
+                            height: 60,
                             child: new Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
@@ -277,7 +261,7 @@ class AddressSellDetail extends Dialog {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         child: new Text(
                                           '25/AUG',
                                           textAlign: TextAlign.right,
@@ -285,9 +269,9 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         margin: EdgeInsets.only(
-                                          top: ScreenUtil().setHeight(4)
+                                          top: 4
                                         ),
                                         child: new Text(
                                           '10:10AM',
@@ -300,19 +284,19 @@ class AddressSellDetail extends Dialog {
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(12),
-                                    right: ScreenUtil().setWidth(12),
+                                    left: 12,
+                                    right: 12,
                                   ),
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
                                         width: 1.5,
-                                        height: ScreenUtil().setHeight(56),
+                                        height: 36,
                                         color: Color.fromRGBO(54, 220, 158, 1),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(24),
-                                        height: ScreenUtil().setWidth(24),
+                                        width:  24,
+                                        height:  24,
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 1.5,
@@ -322,8 +306,8 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       child: new Center(
                                         child: new Container(
-                                          width: ScreenUtil().setWidth(16),
-                                        height: ScreenUtil().setWidth(16),
+                                          width: 16,
+                                        height: 16,
                                         decoration: BoxDecoration(
                                           color: Color.fromRGBO(54, 220, 158, 1),
                                           borderRadius: BorderRadius.circular(18)
@@ -335,7 +319,7 @@ class AddressSellDetail extends Dialog {
                                   ),
                                 ),
                                 new Container(
-                                  height: ScreenUtil().setHeight(24),
+                                  height: 24,
                                   child: Center( child: new Text(
                                     'PAYMENT IN TRANSIT',
                                     style: UtilStyle.sellStatus,
@@ -346,7 +330,7 @@ class AddressSellDetail extends Dialog {
                             ),
                           ),
                         new Container(
-                            height: ScreenUtil().setHeight(83),
+                            height: 60,
                             child: new Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
@@ -355,7 +339,7 @@ class AddressSellDetail extends Dialog {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         child: new Text(
                                           '25/AUG',
                                           textAlign: TextAlign.right,
@@ -363,9 +347,9 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         margin: EdgeInsets.only(
-                                          top: ScreenUtil().setHeight(4)
+                                          top: 4
                                         ),
                                         child: new Text(
                                           '10:10AM',
@@ -378,19 +362,19 @@ class AddressSellDetail extends Dialog {
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(12),
-                                    right: ScreenUtil().setWidth(12),
+                                    left: 12,
+                                    right: 12,
                                   ),
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
                                         width: 1.5,
-                                        height: ScreenUtil().setHeight(56),
+                                        height: 36,
                                         color: Color.fromRGBO(54, 220, 158, 1),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(24),
-                                        height: ScreenUtil().setWidth(24),
+                                        width:  24,
+                                        height:  24,
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 1.5,
@@ -400,8 +384,8 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       child: new Center(
                                         child: new Container(
-                                          width: ScreenUtil().setWidth(16),
-                                        height: ScreenUtil().setWidth(16),
+                                          width: 16,
+                                        height: 16,
                                         decoration: BoxDecoration(
                                           color: Color.fromRGBO(54, 220, 158, 1),
                                           borderRadius: BorderRadius.circular(18)
@@ -413,7 +397,7 @@ class AddressSellDetail extends Dialog {
                                   ),
                                 ),
                                 new Container(
-                                  height: ScreenUtil().setHeight(24),
+                                  height: 24,
                                   child: Center( child: new Text(
                                     'PAYMENT COMPLETED',
                                     style: UtilStyle.sellStatus,
@@ -424,7 +408,7 @@ class AddressSellDetail extends Dialog {
                             ),
                           ),
                         new Container(
-                            height: ScreenUtil().setHeight(83),
+                            height: 60,
                             child: new Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
@@ -433,7 +417,7 @@ class AddressSellDetail extends Dialog {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         child: new Text(
                                           '25/AUG',
                                           textAlign: TextAlign.right,
@@ -441,9 +425,9 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(69),
+                                        width: 80,
                                         margin: EdgeInsets.only(
-                                          top: ScreenUtil().setHeight(4)
+                                          top: 4
                                         ),
                                         child: new Text(
                                           '10:10AM',
@@ -456,19 +440,19 @@ class AddressSellDetail extends Dialog {
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(12),
-                                    right: ScreenUtil().setWidth(12),
+                                    left: 12,
+                                    right: 12,
                                   ),
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
                                         width: 1.5,
-                                        height: ScreenUtil().setHeight(56),
+                                        height: 36,
                                         color: Color.fromRGBO(54, 220, 158, 1),
                                       ),
                                       new Container(
-                                        width: ScreenUtil().setWidth(24),
-                                        height: ScreenUtil().setWidth(24),
+                                        width:  24,
+                                        height:  24,
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 1.5,
@@ -478,8 +462,8 @@ class AddressSellDetail extends Dialog {
                                         ),
                                       child: new Center(
                                         child: new Container(
-                                          width: ScreenUtil().setWidth(16),
-                                        height: ScreenUtil().setWidth(16),
+                                          width: 16,
+                                        height: 16,
                                         decoration: BoxDecoration(
                                           color: Color.fromRGBO(54, 220, 158, 1),
                                           borderRadius: BorderRadius.circular(18)
@@ -491,7 +475,7 @@ class AddressSellDetail extends Dialog {
                                   ),
                                 ),
                                 new Container(
-                                  height: ScreenUtil().setHeight(24),
+                                  height: 24,
                                   child: Center( child: new Text(
                                     'SALE FINALIZED',
                                     style: UtilStyle.sellStatus,
@@ -520,19 +504,13 @@ class AddressSellDetail extends Dialog {
                             child: new Text(
                               'FROM ADDRESS',
                               textAlign: TextAlign.left,
-                              style:TextStyle(
-                                fontFamily: 'Helvetica',
-                                color: Color.fromRGBO(74, 119, 183, 0.75),
-                                fontWeight: FontWeight.bold,
-                                fontSize: ScreenUtil().setSp(12),
-                                letterSpacing: ScreenUtil().setSp(3.5)
-                              )
+                              style:UtilStyle.tagTitleFont
                             ),
                           ),
                           new Container(
-                            height: ScreenUtil().setHeight(19),
+                            height: 19,
                             margin: EdgeInsets.only(
-                              top: ScreenUtil().setHeight(24)
+                              top: 24
                             ),
                             child: new Row(
                               children: <Widget>[
@@ -540,17 +518,16 @@ class AddressSellDetail extends Dialog {
                                   decoration: BoxDecoration(
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       borderRadius: BorderRadius.circular(3)),
-                                  width: ScreenUtil().setHeight(27),
-                                  height: ScreenUtil().setHeight(19),
+                                  width: 27,
+                                  height: 19,
                                   child: new Center(
                                     child: new Text('ID',
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: ScreenUtil().setHeight(10),
+                                          fontSize: 10,
                                           fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.bold,
-                                          letterSpacing:
-                                              ScreenUtil().setSp(2.89))),
+                                          letterSpacing:2.89)),
                                   ),
                                 ),
                                 new Container(
@@ -561,7 +538,7 @@ class AddressSellDetail extends Dialog {
                                     '1YjsJhJH12918nmHkKUwjaAHj2341Aj',
                                     style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: ScreenUtil().setHeight(10),
+                                          fontSize: 12,
                                           fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.bold)
                                   ),
@@ -570,7 +547,7 @@ class AddressSellDetail extends Dialog {
                             ),
                           ),
                           new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 24,
                                           margin: EdgeInsets.only(
                                               top: ScreenUtil().setHeight(8)),
                                           child: new Row(
@@ -581,12 +558,11 @@ class AddressSellDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(20))),
+                                                        fontSize: 20)),
                                               ),
                                               new Container(
                                                 height:
-                                                    ScreenUtil().setHeight(24),
+                                                    24,
                                                 width:
                                                     ScreenUtil().setHeight(38),
                                                 margin: EdgeInsets.only(
@@ -606,8 +582,7 @@ class AddressSellDetail extends Dialog {
                                                               0, 0, 0, 1),
                                                           fontFamily:
                                                               'Helvetica',
-                                                          fontSize: ScreenUtil()
-                                                              .setSp(8),
+                                                          fontSize: 10,
                                                           height: 1.6)),
                                                 ),
                                               )
@@ -615,9 +590,9 @@ class AddressSellDetail extends Dialog {
                                           ),
                                         ),
                                         new Container(
-                                          height: ScreenUtil().setHeight(24),
+                                          height: 24,
                                           margin: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(8)),
+                                              top: 8),
                                           child: new Row(
                                             children: <Widget>[
                                               new Container(
@@ -626,12 +601,11 @@ class AddressSellDetail extends Dialog {
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         fontFamily: 'Helvetica',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(20),)),
+                                                        fontSize: 20,)),
                                               ),
                                               new Container(
                                                 height:
-                                                    ScreenUtil().setHeight(24),
+                                                    24,
                                                 width:
                                                     ScreenUtil().setHeight(38),
                                                 margin: EdgeInsets.only(
@@ -651,8 +625,7 @@ class AddressSellDetail extends Dialog {
                                                               0, 0, 0, 1),
                                                           fontFamily:
                                                               'Helvetica',
-                                                          fontSize: ScreenUtil()
-                                                              .setSp(8),
+                                                          fontSize: 10,
                                                           height: 1.6)),
                                                 ),
                                               )
