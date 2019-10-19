@@ -5,6 +5,7 @@ import 'package:omni/model/localModel.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/exchange/marketBuy.dart';
+import 'package:omni/widget/exchange/offerPop.dart';
 import 'package:omni/widget/menu/footMenu.dart';
 
 import 'newMarket.dart';
@@ -23,10 +24,10 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
   Animation<double> offerAnimation;
   AnimationController offerController;
 
-  double tradeHeight = ScreenUtil().setHeight(465);
-  double offerHeight = ScreenUtil().setHeight(250);
-  double tradeTableHeight = ScreenUtil().setHeight(290);
-  double offerTableHeight = ScreenUtil().setHeight(140);
+  double tradeHeight = 465;
+  double offerHeight = 250;
+  double tradeTableHeight = 290;
+  double offerTableHeight = 140;
   bool tradeTableIsShow = true;
   bool offerTableIsShow = true;
 
@@ -241,9 +242,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                               ),
                               child: new FlatButton(
                                 onPressed: () {
-                                  print(123);
-                                  tradeHeight = ScreenUtil().setHeight(134);
-                                  offerHeight = ScreenUtil().setHeight(68);
+                                  tradeHeight = 134;
+                                  offerHeight = 68;
                                   tradeTableIsShow = false;
                                   offerTableIsShow = false;
                                   setState(() {});
@@ -337,7 +337,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                   Positioned(
                     bottom: (tradeController.value - 1) * tradeHeight,
                     child: new Container(
-                      padding: EdgeInsets.only(top: ScreenUtil().setHeight(19)),
+                      padding: EdgeInsets.only(top: 19),
                       width: ScreenUtil().setWidth(376),
                       height: tradeHeight,
                       decoration: BoxDecoration(
@@ -365,9 +365,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                             ),
                             child: new FlatButton(
                               onPressed: () {
-                                tradeHeight = ScreenUtil().setHeight(638);
-                                offerHeight = ScreenUtil().setHeight(68);
-                                tradeTableHeight = ScreenUtil().setHeight(520);
+                                tradeHeight = 538;
+                                offerHeight = 68;
+                                tradeTableHeight = 420;
                                 tradeTableIsShow = true;
                                 offerTableIsShow = false;
                                 setState(() {});
@@ -379,7 +379,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     new Container(
-                                      height: ScreenUtil().setHeight(36),
+                                      height: 36,
                                       child: new Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
@@ -399,7 +399,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           new Container(
-                                            height: ScreenUtil().setHeight(24),
+                                            height: 24,
                                             decoration: BoxDecoration(
                                                 color: Color.fromRGBO(
                                                     50, 231, 163, 0.12),
@@ -439,7 +439,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                 width:
                                                     ScreenUtil().setWidth(24),
                                                 height:
-                                                    ScreenUtil().setWidth(24),
+                                                   24,
                                                 child: new Image(
                                                   width: 14,
                                                   height: 14,
@@ -449,8 +449,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               ),
                                               new Container(
                                                 margin: EdgeInsets.only(
-                                                    left: ScreenUtil()
-                                                        .setHeight(4)),
+                                                    left: 4),
                                                 child: new Text(
                                                   '$tradeDataType',
                                                   style: TextStyle(
@@ -476,7 +475,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               "ALL",
                                               style: TextStyle(
                                                 fontSize:
-                                                    ScreenUtil().setHeight(10),
+                                                    10,
                                                 fontFamily: 'Helvetica',
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
@@ -490,8 +489,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               child: new Text(
                                                 "SELL",
                                                 style: TextStyle(
-                                                  fontSize: ScreenUtil()
-                                                      .setHeight(10),
+                                                  fontSize: 10,
                                                   fontFamily: 'Helvetica',
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
@@ -524,7 +522,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                   Positioned(
                     bottom: (offerController.value - 1) * offerHeight,
                     child: new Container(
-                      padding: EdgeInsets.only(top: ScreenUtil().setHeight(18)),
+                      padding: EdgeInsets.only(top: 18),
                       width: ScreenUtil().setWidth(376),
                       height: offerHeight,
                       decoration: BoxDecoration(
@@ -552,9 +550,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                             ),
                             child: new FlatButton(
                               onPressed: () {
-                                tradeHeight = ScreenUtil().setHeight(638);
-                                offerHeight = ScreenUtil().setHeight(570);
-                                offerTableHeight = ScreenUtil().setHeight(460);
+                                tradeHeight = 538;
+                                offerHeight = 470;
+                                offerTableHeight = 360;
                                 tradeTableIsShow = true;
                                 offerTableIsShow = true;
                                 setState(() {});
@@ -566,7 +564,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     new Container(
-                                      height: ScreenUtil().setHeight(36),
+                                      height: 36,
                                       child: new Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
@@ -607,7 +605,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                 width:
                                                     ScreenUtil().setWidth(24),
                                                 height:
-                                                    ScreenUtil().setWidth(24),
+                                                    24,
                                                 child: new Image(
                                                   width: 14,
                                                   height: 14,
@@ -643,8 +641,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             child: new Text(
                                               "ALL",
                                               style: TextStyle(
-                                                fontSize:
-                                                    ScreenUtil().setHeight(10),
+                                                fontSize:10,
                                                 fontFamily: 'Helvetica',
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
@@ -658,8 +655,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               child: new Text(
                                                 "SELL",
                                                 style: TextStyle(
-                                                  fontSize: ScreenUtil()
-                                                      .setHeight(10),
+                                                  fontSize: 10,
                                                   fontFamily: 'Helvetica',
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
@@ -1113,6 +1109,22 @@ class _OfferTableRowState extends State<OfferTableRow> {
   @override
   Widget build(BuildContext context) {
     return new Container(
+      child: new FlatButton(
+        padding: EdgeInsets.all(0),
+        onPressed: (){
+          Map<String,Object> item = {
+            'id':id,
+            'amount':amount,
+            'price':price,
+            'total':total,
+          };
+          Navigator.push(context,
+              new MaterialPageRoute(
+                  builder: (BuildContext context) {
+            return new OfferPop(item: item);
+          }));
+        },
+        child: new Container(
       padding: EdgeInsets.only(top: 12, bottom: 12),
       child: new Row(
         children: <Widget>[
@@ -1145,6 +1157,8 @@ class _OfferTableRowState extends State<OfferTableRow> {
             ),
           ),
         ],
+      ),
+    ),
       ),
     );
   }

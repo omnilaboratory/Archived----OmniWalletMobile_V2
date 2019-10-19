@@ -54,11 +54,11 @@ class AfterLoginAppBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new AppBar(
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.165),
+            backgroundColor: Color.fromRGBO(70, 116, 182, 0.07),
             elevation: 0,
             automaticallyImplyLeading: false,
             title: new Container(
-              height: ScreenUtil().setHeight(24),
+              height: ScreenUtil().setHeight(32),
               child: new Image.asset('images/headLogo.png'),
             ),
             actions: <Widget>[

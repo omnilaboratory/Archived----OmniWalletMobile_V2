@@ -13,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/widget/home/home.dart';
 import 'package:omni/widget/login/LoginAndCreate.dart';
 import 'package:omni/widget/exchange/exchange.dart';
+import 'package:omni/widget/explorer/explorer.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/importAddress':(BuildContext context) => new ImportAddress(),
         '/signMessage':(BuildContext context) => new SignMessage(),
         '/exchange':(BuildContext context) => new Exchange(),
+        '/explorer':(BuildContext context) => new Explorer(),
       },
     ),
     );

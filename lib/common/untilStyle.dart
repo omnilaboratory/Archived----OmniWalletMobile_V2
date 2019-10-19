@@ -7,6 +7,12 @@ class UtilStyle {
       fontFamily: 'Helvetica',
       fontSize: ScreenUtil().setSp(10),
       fontWeight: FontWeight.bold);
+  static var tableContentFontB = new TextStyle(
+      fontFamily: 'Helvetica',
+      fontSize: ScreenUtil().setSp(10),
+      color: Color.fromRGBO(74, 119, 183, 1),
+      fontWeight: FontWeight.bold,
+      letterSpacing: -0.3);
   static var tableHeadFont = new TextStyle(
       fontFamily: 'Helvetica',
       fontWeight: FontWeight.bold,
@@ -79,4 +85,16 @@ class UtilStyle {
       fontSize: ScreenUtil().setSp(20),
       color: Color.fromRGBO(255, 255, 255, 0.5),
       letterSpacing: ScreenUtil().setHeight(-0.61));
+  static var formCacularFontB = new TextStyle(
+      // fontWeight: FontWeight.bold,
+      fontFamily: 'Helvetica',
+      fontSize: ScreenUtil().setSp(20),
+      color: Color.fromRGBO(0, 0, 0, 0.5),
+      letterSpacing: ScreenUtil().setHeight(-0.61));
+  static var tagTitleFont = new TextStyle(
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Helvetica',
+      fontSize: ScreenUtil().setSp(12),
+      color: Color.fromRGBO(74, 119, 183, 0.75),
+      letterSpacing: ScreenUtil().setHeight(3.5));
 }

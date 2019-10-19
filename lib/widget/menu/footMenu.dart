@@ -48,7 +48,9 @@ class FootMenu extends Dialog {
                   new MenuItem(
                     menuName: 'MY WALLET',
                     menuIcon: 'images/wallet.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pushNamed(context, '/walletAndAddress');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'EXCHANGE',
@@ -60,7 +62,9 @@ class FootMenu extends Dialog {
                   new MenuItem(
                     menuName: 'EXPLORER',
                     menuIcon: 'images/explorer.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pushNamed(context, '/explorer');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'FAQ',

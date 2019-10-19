@@ -120,8 +120,6 @@ class _MarketBuyState extends State<MarketBuy>
                                     spreadRadius: 2.0),
                               ]),
                           child: new Container(
-                            padding: EdgeInsets.only(
-                                top: ScreenUtil().setHeight(19)),
                             child: new Column(
                               children: <Widget>[
                                 new Container(
@@ -565,7 +563,7 @@ class _MarketBuyState extends State<MarketBuy>
             ),
           ),
           new Container(
-            margin: EdgeInsets.only(top: ScreenUtil().setHeight(40)),
+            margin: EdgeInsets.only(top: ScreenUtil().setHeight(20)),
             child: new Row(
               children: <Widget>[
                 new Expanded(
@@ -815,7 +813,7 @@ Widget buildSell() {
             ),
           ),
           new Container(
-            margin: EdgeInsets.only(top: ScreenUtil().setHeight(40)),
+            margin: EdgeInsets.only(top: ScreenUtil().setHeight(25)),
             child: new Row(
               children: <Widget>[
                 new Expanded(
