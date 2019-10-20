@@ -137,8 +137,8 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: Helvetica
-      fonts:
-        - asset: fonts/Helvetica.ttf
-        - asset: fonts/HelveticaBold.ttf
+    - family: GothamRnd
+      fonts: 
+        - asset: fonts/GothamRnd-Book.otf
+        - asset: fonts/GothamRnd-Medium.otf
           weight: 600

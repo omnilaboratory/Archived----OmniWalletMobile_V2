@@ -112,7 +112,7 @@ class _AddressFullState extends State<AddressFull>
                                           style: new TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black,
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontSize: ScreenUtil().setSp(10),
                                               letterSpacing:
                                                   ScreenUtil().setSp(0.91))),
@@ -264,7 +264,7 @@ class AddressTypeItem extends StatelessWidget {
                                     style: TextStyle(
                                         color: Color.fromRGBO(0, 0, 0, 1),
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'Helvetica',
+                                        fontFamily: 'GothamRnd',
                                         fontSize: ScreenUtil().setSp(10),
                                         letterSpacing: ScreenUtil().setSp(1.5)),
                                   ),
@@ -299,7 +299,7 @@ class AddressTypeItem extends StatelessWidget {
                             '\$' + itemData['countAmount'].toString(),
                             style: TextStyle(
                                 color: Color.fromRGBO(47, 214, 151, 1),
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(14),
                                 letterSpacing: ScreenUtil().setSp(-0.6),
                                 fontWeight: FontWeight.bold),
@@ -440,7 +440,7 @@ class _AddressItemState extends State<AddressItem> {
                                       height: ScreenUtil().setHeight(1.9),
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: ScreenUtil().setSp(2.89),
-                                      fontFamily: 'Helvetica'),
+                                      fontFamily: 'GothamRnd'),
                                 ),
                               ),
                               new Container(
@@ -453,7 +453,7 @@ class _AddressItemState extends State<AddressItem> {
                                   style: TextStyle(
                                       fontSize: ScreenUtil().setSp(10),
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'Helvetica'),
+                                      fontFamily: 'GothamRnd'),
                                 ),
                               ),
                               new Container(
@@ -483,7 +483,7 @@ class _AddressItemState extends State<AddressItem> {
                                             style: TextStyle(
                                               fontSize:
                                                   ScreenUtil().setHeight(16),
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -500,7 +500,7 @@ class _AddressItemState extends State<AddressItem> {
                                             style: TextStyle(
                                               fontSize:
                                                   ScreenUtil().setHeight(16),
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -517,7 +517,7 @@ class _AddressItemState extends State<AddressItem> {
                                             style: TextStyle(
                                               fontSize:
                                                   ScreenUtil().setHeight(16),
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -554,7 +554,7 @@ class _AddressItemState extends State<AddressItem> {
                                                   fontSize:
                                                       ScreenUtil().setSp(20),
                                                   // fontWeight: FontWeight.bold,
-                                                  fontFamily: 'Helvetica',
+                                                  fontFamily: 'GothamRnd',
                                                   letterSpacing: ScreenUtil()
                                                       .setSp(-0.61)),
                                             ),
@@ -581,7 +581,7 @@ class _AddressItemState extends State<AddressItem> {
                                                     fontSize:
                                                         ScreenUtil().setSp(8),
                                                     fontWeight: FontWeight.bold,
-                                                    fontFamily: 'Helvetica',
+                                                    fontFamily: 'GothamRnd',
                                                     letterSpacing: ScreenUtil()
                                                         .setSp(-0.24),
                                                     height: ScreenUtil()
@@ -606,7 +606,7 @@ class _AddressItemState extends State<AddressItem> {
                                                   fontSize:
                                                       ScreenUtil().setSp(20),
                                                   // fontWeight: FontWeight.bold,
-                                                  fontFamily: 'Helvetica',
+                                                  fontFamily: 'GothamRnd',
                                                   letterSpacing: ScreenUtil()
                                                       .setSp(-0.61)),
                                             ),
@@ -629,7 +629,7 @@ class _AddressItemState extends State<AddressItem> {
                                                     fontSize:
                                                         ScreenUtil().setSp(8),
                                                     fontWeight: FontWeight.bold,
-                                                    fontFamily: 'Helvetica',
+                                                    fontFamily: 'GothamRnd',
                                                     letterSpacing: ScreenUtil()
                                                         .setSp(-0.24),
                                                     height: ScreenUtil()
@@ -793,7 +793,7 @@ class _AddressItemState extends State<AddressItem> {
                               new Container(
                                 child: new Text('TRANSACTIONS',
                                     style: new TextStyle(
-                                        fontFamily: 'Helvetica',
+                                        fontFamily: 'GothamRnd',
                                         fontSize: ScreenUtil().setSp(12),
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: ScreenUtil().setSp(3.5),
@@ -822,7 +822,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             '$transactionType',
                                             style: TextStyle(
-                                                fontFamily: 'Helvetica',
+                                                fontFamily: 'GothamRnd',
                                                 fontSize:
                                                     ScreenUtil().setSp(10),
                                                 fontWeight: FontWeight.bold,
@@ -846,7 +846,7 @@ class _AddressItemState extends State<AddressItem> {
                                             style: TextStyle(
                                               fontSize: 
                                                   ScreenUtil().setHeight(10),
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -862,7 +862,7 @@ class _AddressItemState extends State<AddressItem> {
                                             style: TextStyle(
                                               fontSize:
                                                   ScreenUtil().setHeight(10),
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -878,7 +878,7 @@ class _AddressItemState extends State<AddressItem> {
                                             style: TextStyle(
                                               fontSize:
                                                   ScreenUtil().setHeight(10),
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),

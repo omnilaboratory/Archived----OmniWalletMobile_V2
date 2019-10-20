@@ -99,7 +99,7 @@ class _SendPageState extends State<SendPage> {
                                                   style: new TextStyle(
                                                       color: Colors.black,
                                                       fontWeight: FontWeight.bold,
-                                                      fontFamily: 'Helvetica',
+                                                      fontFamily: 'GothamRnd',
                                                       fontSize: ScreenUtil()
                                                           .setSp(10),
                                                       letterSpacing:
@@ -160,7 +160,7 @@ class _SendPageState extends State<SendPage> {
                                     style: new TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(12),
-                                        fontFamily: 'Helvetica',
+                                        fontFamily: 'GothamRnd',
                                         color: Color.fromRGBO(0, 0, 0, 0.45),
                                         letterSpacing:
                                             ScreenUtil().setSp(3.47)),
@@ -172,7 +172,7 @@ class _SendPageState extends State<SendPage> {
                                   child: new Text('AMOUNT (USD)',
                                       style: new TextStyle(
                                         fontSize: ScreenUtil().setSp(10),
-                                        fontFamily: 'Helvetica',
+                                        fontFamily: 'GothamRnd',
                                         color:
                                             Color.fromRGBO(255, 255, 255, 0.75),
                                       )),
@@ -196,7 +196,7 @@ class _SendPageState extends State<SendPage> {
                                                 fontWeight: FontWeight.normal,
                                                 fontSize:
                                                     ScreenUtil().setHeight(41),
-                                                fontFamily: 'Helvetica',
+                                                fontFamily: 'GothamRnd',
                                                 color: Colors.white,
                                                 letterSpacing:
                                                     ScreenUtil().setSp(3.47)),
@@ -227,7 +227,7 @@ class _SendPageState extends State<SendPage> {
                                             style: new TextStyle(
                                                 fontSize:
                                                     ScreenUtil().setHeight(20),
-                                                fontFamily: 'Helvetica',
+                                                fontFamily: 'GothamRnd',
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
                                                 letterSpacing:
@@ -248,7 +248,7 @@ class _SendPageState extends State<SendPage> {
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: ScreenUtil().setSp(8),
-                                                fontFamily: 'Helvetica',
+                                                fontFamily: 'GothamRnd',
                                                 color:
                                                     Color.fromRGBO(0, 0, 0, 1),
                                                 letterSpacing:
@@ -268,7 +268,7 @@ class _SendPageState extends State<SendPage> {
                                     style: new TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(12),
-                                        fontFamily: 'Helvetica',
+                                        fontFamily: 'GothamRnd',
                                         color: Color.fromRGBO(0, 0, 0, 0.4),
                                         letterSpacing:
                                             ScreenUtil().setSp(3.47)),
@@ -305,7 +305,7 @@ class _SendPageState extends State<SendPage> {
                                                     style:TextStyle(
                                                       fontWeight: FontWeight.bold,
                                                       color:Colors.white,
-                                                      fontFamily:'Helvetica',
+                                                      fontFamily:'GothamRnd',
                                                       fontSize:ScreenUtil().setHeight(10),
                                                       letterSpacing:ScreenUtil().setHeight(2.89)
                                                     )
@@ -318,7 +318,7 @@ class _SendPageState extends State<SendPage> {
                                           style:TextStyle(
                                                       fontWeight: FontWeight.bold,
                                                       color:Colors.black,
-                                                      fontFamily:'Helvetica',
+                                                      fontFamily:'GothamRnd',
                                                       fontSize:ScreenUtil().setSp(10),
                                                     )
                                         ),
@@ -370,7 +370,7 @@ class _SendPageState extends State<SendPage> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'Helvetica',
+                                      fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       letterSpacing: ScreenUtil().setSp(3.5)),
@@ -403,7 +403,7 @@ class _SendPageState extends State<SendPage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'Helvetica',
+                                    fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setSp(12),
                                     color: Color.fromRGBO(0, 0, 0, 1),
                                     letterSpacing: ScreenUtil().setSp(3.5)),

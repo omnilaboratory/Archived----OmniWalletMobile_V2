@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                           child: new Text('OMNI',
                               textAlign: TextAlign.center,
                               style: new TextStyle(
-                                  fontFamily: 'Helvetica',
+                                  fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(26),
                                   color: Color.fromRGBO(93, 93, 93, 1),
                                   letterSpacing: ScreenUtil().setSp(10))),
@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                           child: new Text('WALLET',
                               textAlign: TextAlign.center,
                               style: new TextStyle(
-                                  fontFamily: 'Helvetica',
+                                  fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(11),
                                   color: Color.fromRGBO(128, 168, 226, 1),
                                   letterSpacing: ScreenUtil().setSp(12))),
@@ -100,7 +100,7 @@ class Home extends StatelessWidget {
                                         Language.login[model.language],
                                         textAlign: TextAlign.center,
                                         style: new TextStyle(
-                                            fontFamily: 'Helvetica',
+                                            fontFamily: 'GothamRnd',
                                             fontSize: ScreenUtil().setSp(12),
                                             color: Color.fromRGBO(
                                                 128, 168, 226, 1),
@@ -123,7 +123,7 @@ class Home extends StatelessWidget {
                                         Language.create[model.language],
                                         textAlign: TextAlign.center,
                                         style: new TextStyle(
-                                            fontFamily: 'Helvetica',
+                                            fontFamily: 'GothamRnd',
                                             fontSize: ScreenUtil().setSp(12),
                                             color: Color.fromRGBO(
                                                 128, 168, 226, 1),
@@ -151,7 +151,7 @@ class Home extends StatelessWidget {
                                   Language.checkBlance[model.language],
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
-                                      fontFamily: 'Helvetica',
+                                      fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(10),
                                       color: Colors.white,
                                       letterSpacing: ScreenUtil().setSp(5)),

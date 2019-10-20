@@ -74,7 +74,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                               child: new Text(Language.login[model.language],
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
-                                      fontFamily: 'Helvetica',
+                                      fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(128, 168, 226, 1),
                                       letterSpacing: ScreenUtil().setSp(3))),
@@ -95,7 +95,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                               child: new Text(Language.create[model.language],
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
-                                      fontFamily: 'Helvetica',
+                                      fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(128, 168, 226, 1),
                                       letterSpacing: ScreenUtil().setSp(3))),

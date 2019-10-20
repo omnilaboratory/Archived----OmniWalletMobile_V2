@@ -98,7 +98,7 @@ class MenuItem extends StatelessWidget {
                 textAlign: TextAlign.right,
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Helvetica',
+                    fontFamily: 'GothamRnd',
                     fontSize: ScreenUtil().setSp(10),
                     color: Colors.black),
               ),

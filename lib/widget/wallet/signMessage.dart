@@ -61,7 +61,7 @@ class _SignMessageState extends State<SignMessage> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'Helvetica',
+                                  fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(12),
                                   color: Color.fromRGBO(74, 119, 183, 1),
                                   letterSpacing: ScreenUtil().setSp(3.5))),
@@ -73,7 +73,7 @@ class _SignMessageState extends State<SignMessage> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 0.35),
                               )),
@@ -85,7 +85,7 @@ class _SignMessageState extends State<SignMessage> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 1),
                               )),
@@ -97,7 +97,7 @@ class _SignMessageState extends State<SignMessage> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 0.35),
                               )),
@@ -154,7 +154,7 @@ class _SignMessageState extends State<SignMessage> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'Helvetica',
+                                      fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       letterSpacing: ScreenUtil().setSp(3.5)),
@@ -179,7 +179,7 @@ class _SignMessageState extends State<SignMessage> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'Helvetica',
+                                    fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setSp(12),
                                     color: Color.fromRGBO(0, 0, 0, 1),
                                     letterSpacing: ScreenUtil().setSp(3.5)),

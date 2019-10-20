@@ -107,7 +107,7 @@ class _AddressState extends State<Address> with SingleTickerProviderStateMixin {
                                           style: new TextStyle(
                                             fontWeight: FontWeight.bold,
                                               color: Colors.black,
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontSize: ScreenUtil().setSp(10),
                                               letterSpacing:
                                                   ScreenUtil().setSp(0.91))),
@@ -237,7 +237,7 @@ class AddressTypeItem extends StatelessWidget {
                                     style: TextStyle(
                                         color: Color.fromRGBO(0, 0, 0, 1),
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'Helvetica',
+                                        fontFamily: 'GothamRnd',
                                         fontSize: ScreenUtil().setSp(10),
                                         letterSpacing: ScreenUtil().setSp(1.5)),
                                   ),
@@ -249,7 +249,7 @@ class AddressTypeItem extends StatelessWidget {
                             '\$' + itemData['countAmount'].toString(),
                             style: TextStyle(
                                 color: Color.fromRGBO(47, 214, 151, 1),
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(14),
                                 letterSpacing: ScreenUtil().setSp(-0.6),
                                 fontWeight: FontWeight.bold),

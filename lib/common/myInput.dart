@@ -92,7 +92,7 @@ class _MyInputState extends State<MyInput>{
                     '$placeholder',
                     style: TextStyle(
                       color: isFocus?Color.fromRGBO(0, 0, 0, 1):Color.fromRGBO(0, 0, 0, 0.35),
-                      fontFamily: "Helvetica",
+                      fontFamily: "GothamRnd",
                       fontSize: ScreenUtil().setSp(10)
                     ),
                   ),

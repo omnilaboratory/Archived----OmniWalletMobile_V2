@@ -102,7 +102,7 @@ class _NewMarketState extends State<NewMarket>
                                             'START NEW MARKET',
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontFamily: 'Helvetica',
+                                              fontFamily: 'GothamRnd',
                                               fontSize: 12,
                                               color: Color.fromRGBO(
                                                   0, 0, 0, 0.5),
@@ -208,7 +208,7 @@ Widget buildSell() {
                                 "1YjsJhJH12918nmHkKUwjaAHj2341Aj",
                                 style: TextStyle(
                                   fontSize: ScreenUtil().setHeight(10),
-                                  fontFamily: 'Helvetica',
+                                  fontFamily: 'GothamRnd',
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                 ),
@@ -228,7 +228,7 @@ Widget buildSell() {
                           'CHOOSE COIN TO SELL',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Helvetica',
+                            fontFamily: 'GothamRnd',
                             fontSize: ScreenUtil().setWidth(10),
                             color: Color.fromRGBO(0, 0, 0, 0.5)
                           ),
@@ -340,7 +340,7 @@ Widget buildSell() {
                     focusNode: sellFocus,
                     style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Helvetica',
+                        fontFamily: 'GothamRnd',
                         fontWeight: FontWeight.w300,
                         fontSize: ScreenUtil().setSp(40)),
                     decoration: InputDecoration(
@@ -353,7 +353,7 @@ Widget buildSell() {
                         hintText: '0.0',
                         hintStyle: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'Helvetica',
+                            fontFamily: 'GothamRnd',
                             fontWeight: FontWeight.w300,
                             fontSize: ScreenUtil().setSp(40))),
                   ),
@@ -384,7 +384,7 @@ Widget buildSell() {
                               child: new Text('BTC',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontFamily: 'Helvetica',
+                                    fontFamily: 'GothamRnd',
                                     fontWeight: FontWeight.bold,
                                     fontSize: ScreenUtil().setHeight(10),
                                     color: Color.fromRGBO(0, 0, 0, 1),

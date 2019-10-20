@@ -525,7 +525,7 @@ class AddressSellDetail extends Dialog {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 10,
-                                          fontFamily: 'Helvetica',
+                                          fontFamily: 'GothamRnd',
                                           fontWeight: FontWeight.bold,
                                           letterSpacing:2.89)),
                                   ),
@@ -539,7 +539,7 @@ class AddressSellDetail extends Dialog {
                                     style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 12,
-                                          fontFamily: 'Helvetica',
+                                          fontFamily: 'GothamRnd',
                                           fontWeight: FontWeight.bold)
                                   ),
                                 ),
@@ -557,7 +557,7 @@ class AddressSellDetail extends Dialog {
                                                     style: new TextStyle(
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'Helvetica',
+                                                        fontFamily: 'GothamRnd',
                                                         fontSize: 20)),
                                               ),
                                               new Container(
@@ -581,7 +581,7 @@ class AddressSellDetail extends Dialog {
                                                           color: Color.fromRGBO(
                                                               0, 0, 0, 1),
                                                           fontFamily:
-                                                              'Helvetica',
+                                                              'GothamRnd',
                                                           fontSize: 10,
                                                           height: 1.6)),
                                                 ),
@@ -600,7 +600,7 @@ class AddressSellDetail extends Dialog {
                                                     style: new TextStyle(
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'Helvetica',
+                                                        fontFamily: 'GothamRnd',
                                                         fontSize: 20,)),
                                               ),
                                               new Container(
@@ -624,7 +624,7 @@ class AddressSellDetail extends Dialog {
                                                           color: Color.fromRGBO(
                                                               0, 0, 0, 1),
                                                           fontFamily:
-                                                              'Helvetica',
+                                                              'GothamRnd',
                                                           fontSize: 10,
                                                           height: 1.6)),
                                                 ),
