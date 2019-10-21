@@ -66,7 +66,11 @@ class _MyInputState extends State<MyInput>{
 @override
   Widget build(BuildContext context) {
     return new Container(
-      width: ScreenUtil().setWidth(338),
+      margin: EdgeInsets.only(
+        top: 10,
+        bottom: 10
+      ),
+      width: ScreenUtil().setWidth(300),
       height: ScreenUtil().setHeight(78),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(44),
@@ -80,7 +84,7 @@ class _MyInputState extends State<MyInput>{
       child: new Column(
         children: <Widget>[
           new Container(
-            width: ScreenUtil().setWidth(338),
+            width: ScreenUtil().setWidth(300),
             margin: EdgeInsets.only(top: ScreenUtil().setHeight(5)),
             height: ScreenUtil().setHeight(22),
             child: new Row(
@@ -108,11 +112,11 @@ class _MyInputState extends State<MyInput>{
           ),
           new Container(
             height: ScreenUtil().setHeight(22),
-            width: ScreenUtil().setWidth(338),
+            width: ScreenUtil().setWidth(300),
             child: new Row(
               children: <Widget>[
                 new Container(
-                  width: ScreenUtil().setWidth(300),
+                  width: ScreenUtil().setWidth(262),
                   child:new TextField(
                     controller: inputController,
                     focusNode: inputFocuse,
@@ -133,7 +137,15 @@ class _MyInputState extends State<MyInput>{
           ),
         new Container(
           child: isTrue?new Container():new Container(
-            child: new Text('$errorMsg'),
+            margin: EdgeInsets.only(top: 3),
+            child: new Text(
+              '$errorMsg',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                  color: Colors.red
+                ),
+              ),
           ),
         ),
         new Container(

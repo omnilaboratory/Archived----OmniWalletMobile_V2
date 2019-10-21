@@ -31,20 +31,36 @@ class LoginAppBar extends StatelessWidget{
             automaticallyImplyLeading: false,
             elevation: 0.0,
             backgroundColor: isHome?Color.fromRGBO(70, 116, 182, 0.10):Color.fromRGBO(242, 244, 248, 1),
-            leading: new Container(
-              child: isHome?null:new Image.asset('images/headLogo.png'),
+            title: new Container(
+              height: ScreenUtil().setHeight(32),
+              child: new Image.asset('images/headLogo.png'),
             ),
             actions: <Widget>[
-              new IconButton(
-                icon: new Image.asset('images/menu.png'),
-                onPressed: () {
-                  showDialog<Null>(
+              new Container(
+                margin: EdgeInsets.only(right: ScreenUtil().setWidth(10)),
+                height: ScreenUtil().setHeight(32),
+                width: ScreenUtil().setWidth(32),
+                decoration:
+                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
+                child: new FlatButton(
+                  padding: EdgeInsets.all(0),
+                  onPressed: () {
+                    showDialog<Null>(
                         context: context, //BuildContext对象
                         barrierDismissible: false,
                         builder: (BuildContext context) {
                           return new LoginTopMenu();
                         });
-                },
+                  },
+                  child: new Container(
+                    height: 26,
+                    width: 26,
+                    decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(46)),
+                    // child: new Image.network(),
+                    child: Image.asset('images/menu.png'),
+                  ),
+                ),
               )
             ],
           );

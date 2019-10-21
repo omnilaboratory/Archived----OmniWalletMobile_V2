@@ -61,7 +61,7 @@ class WalletMenu extends Dialog {
                           textAlign: TextAlign.center,
                           style: new TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'GothamRnd',
+                              // fontFamily: 'GothamRnd',
                               fontSize: ScreenUtil().setSp(12),
                               color: Color.fromRGBO(17, 27, 41, 1),
                               height: ScreenUtil().setSp(1)),
@@ -84,7 +84,7 @@ class WalletMenu extends Dialog {
                           textAlign: TextAlign.center,
                           style: new TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'GothamRnd',
+                              // fontFamily: 'GothamRnd',
                               fontSize: ScreenUtil().setSp(12),
                               color: Color.fromRGBO(17, 27, 41, 1),
                               height: ScreenUtil().setSp(1)),

@@ -90,7 +90,7 @@ class AddressSendDetail extends Dialog {
                                             style: new TextStyle(
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontSize:12),
                                           ),
                                         ),
@@ -102,7 +102,7 @@ class AddressSendDetail extends Dialog {
                                             style: new TextStyle(
                                                 color: Color.fromRGBO(
                                                     50, 231, 163, 1),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontSize:
                                                     12),
                                           ),
@@ -147,7 +147,7 @@ class AddressSendDetail extends Dialog {
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.35),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontSize:12)),
                                       ),
                                       new Container(
@@ -159,7 +159,7 @@ class AddressSendDetail extends Dialog {
                                                 fontWeight: FontWeight.bold,
                                                 color:
                                                     Color.fromRGBO(0, 0, 0, 1),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontSize:12,
                                                 height: 1.6)),
                                       )
@@ -179,7 +179,7 @@ class AddressSendDetail extends Dialog {
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:12)),
                                         ),
                                         new Container(
@@ -195,7 +195,7 @@ class AddressSendDetail extends Dialog {
                                                             FontWeight.bold,
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: 12,
                                                         height: 1.6)),
                                               ),
@@ -244,7 +244,7 @@ class AddressSendDetail extends Dialog {
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 0, 0, 0.35),
                                   fontSize: 12,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -266,7 +266,7 @@ class AddressSendDetail extends Dialog {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 10,
-                                          fontFamily: 'GothamRnd',
+                                          // fontFamily: 'GothamRnd',
                                           fontWeight: FontWeight.bold,
                                           letterSpacing:2.89)),
                                   ),
@@ -280,7 +280,7 @@ class AddressSendDetail extends Dialog {
                                     style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 12,
-                                          fontFamily: 'GothamRnd',
+                                          // fontFamily: 'GothamRnd',
                                           fontWeight: FontWeight.bold)
                                   ),
                                 ),
@@ -296,7 +296,7 @@ class AddressSendDetail extends Dialog {
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 0, 0, 0.35),
                                   fontSize: 12,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -318,7 +318,7 @@ class AddressSendDetail extends Dialog {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 10,
-                                          fontFamily: 'GothamRnd',
+                                          // fontFamily: 'GothamRnd',
                                           fontWeight: FontWeight.bold,
                                           letterSpacing:2.89)),
                                   ),
@@ -332,7 +332,7 @@ class AddressSendDetail extends Dialog {
                                     style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 12,
-                                          fontFamily: 'GothamRnd',
+                                          // fontFamily: 'GothamRnd',
                                           fontWeight: FontWeight.bold)
                                   ),
                                 ),
@@ -353,7 +353,7 @@ class AddressSendDetail extends Dialog {
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:12)),
                                         ),
                                         new Container(
@@ -369,7 +369,7 @@ class AddressSendDetail extends Dialog {
                                                             FontWeight.bold,
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: 12,
                                                         height: 1.6)),
                                               ),
@@ -416,7 +416,7 @@ class AddressSendDetail extends Dialog {
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:12)),
                                         ),
                                         new Container(
@@ -432,7 +432,7 @@ class AddressSendDetail extends Dialog {
                                                             FontWeight.bold,
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: 12,
                                                         height: 1.6)),
                                               ),
@@ -456,7 +456,7 @@ class AddressSendDetail extends Dialog {
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:12)),
                                         ),
                                         new Container(
@@ -472,7 +472,7 @@ class AddressSendDetail extends Dialog {
                                                             FontWeight.bold,
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: 12,
                                                         height: 1.6)),
                                               ),
@@ -496,7 +496,7 @@ class AddressSendDetail extends Dialog {
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:12)),
                                         ),
                                         new Container(
@@ -512,7 +512,7 @@ class AddressSendDetail extends Dialog {
                                                             FontWeight.bold,
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: 12,
                                                         height: 1.6)),
                                               ),
@@ -536,7 +536,7 @@ class AddressSendDetail extends Dialog {
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:12)),
                                         ),
                                         new Container(
@@ -553,7 +553,7 @@ class AddressSendDetail extends Dialog {
                                                             FontWeight.bold,
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: 12,)),
                                               ),
                                               ],

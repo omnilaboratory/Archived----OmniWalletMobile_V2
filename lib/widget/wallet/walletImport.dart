@@ -55,7 +55,7 @@ class _WalletImportState extends State<WalletImport> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(12),
                                   color: Color.fromRGBO(74, 119, 183, 1),
                                   letterSpacing: ScreenUtil().setSp(3.5))),
@@ -67,7 +67,7 @@ class _WalletImportState extends State<WalletImport> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'GothamRnd',
+                                // fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 0.35),
                               )),
@@ -134,7 +134,7 @@ class _WalletImportState extends State<WalletImport> {
                                               textAlign: TextAlign.center,
                                               style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontSize:
                                                     ScreenUtil().setSp(12),
                                                 color: Colors.white,
@@ -147,7 +147,7 @@ class _WalletImportState extends State<WalletImport> {
                                             child: new Text('NO FILE CHOOSEN',
                                                 textAlign: TextAlign.center,
                                                 style: new TextStyle(
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:
                                                       ScreenUtil().setSp(10),
                                                   color: Color.fromRGBO(
@@ -165,7 +165,7 @@ class _WalletImportState extends State<WalletImport> {
                                                 textAlign: TextAlign.right,
                                                 style: new TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:
                                                       ScreenUtil().setSp(10),
                                                   color: Color.fromRGBO(
@@ -205,7 +205,7 @@ class _WalletImportState extends State<WalletImport> {
                                             child: new Text('NO FILE CHOOSEN',
                                                 textAlign: TextAlign.center,
                                                 style: new TextStyle(
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontSize:
                                                       ScreenUtil().setSp(12),
                                                   color: Colors.white,
@@ -247,7 +247,7 @@ class _WalletImportState extends State<WalletImport> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'GothamRnd',
+                                      // fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       letterSpacing: ScreenUtil().setSp(3.5)),
@@ -272,7 +272,7 @@ class _WalletImportState extends State<WalletImport> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'GothamRnd',
+                                    // fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setSp(12),
                                     color: Color.fromRGBO(0, 0, 0, 1),
                                     letterSpacing: ScreenUtil().setSp(3.5)),

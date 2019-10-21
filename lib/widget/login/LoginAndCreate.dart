@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/login/login.dart';
@@ -23,8 +24,9 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
+        print(model.loginType);
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
           appBar: MyBaseBar(
@@ -73,11 +75,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                               },
                               child: new Text(Language.login[model.language],
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(128, 168, 226, 1),
-                                      letterSpacing: ScreenUtil().setSp(3))),
+                                  style: model.loginType == 'login'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont),
                             ),
                           ),
                           new Container(
@@ -94,11 +92,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                               },
                               child: new Text(Language.create[model.language],
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(128, 168, 226, 1),
-                                      letterSpacing: ScreenUtil().setSp(3))),
+                                  style: model.loginType == 'create'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont)
                             ),
                           ),
                         ],

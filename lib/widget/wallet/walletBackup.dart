@@ -81,7 +81,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                     child: new Text(
                                       '43021736-625b-42f3-9b79-21fd0216f00d',
                                       style: TextStyle(
-                                          fontFamily: 'GothamRnd',
+                                          // fontFamily: 'GothamRnd',
                                           fontSize: ScreenUtil().setSp(12),
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -98,7 +98,7 @@ class _WalletBackupState extends State<WalletBackup> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'GothamRnd',
+                                // fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 0.35),
                               )),
@@ -127,7 +127,7 @@ class _WalletBackupState extends State<WalletBackup> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'GothamRnd',
+                                // fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 0.35),
                               )),
@@ -174,7 +174,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                     'ACCEPT YOU`VE',
                                     style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                        fontFamily: 'GothamRnd',
+                                        // fontFamily: 'GothamRnd',
                                         fontSize: 10),
                                   ),
                                 ),
@@ -187,7 +187,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                         ' READ THIS WARNING',
                                         style: new TextStyle(
                                           fontWeight: FontWeight.bold,
-                                            fontFamily: 'GothamRnd',
+                                            // fontFamily: 'GothamRnd',
                                             fontSize: 10,
                                             color: Color.fromRGBO(
                                                 74, 119, 183, 1)),
@@ -200,7 +200,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                     ' AND UNDERSTAND',
                                     style: new TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'GothamRnd',
+                                        // fontFamily: 'GothamRnd',
                                         fontSize: 10),
                                   ),
                                 ),
@@ -240,7 +240,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'GothamRnd',
+                                      // fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       letterSpacing: ScreenUtil().setSp(3.5)),
@@ -265,7 +265,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'GothamRnd',
+                                    // fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setSp(12),
                                     color: Color.fromRGBO(0, 0, 0, 1),
                                     letterSpacing: ScreenUtil().setSp(3.5)),

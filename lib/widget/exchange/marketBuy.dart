@@ -101,7 +101,7 @@ class _MarketBuyState extends State<MarketBuy>
                                           child: new Text(
                                             'MARKETS',
                                             style: TextStyle(
-                                              fontFamily: 'GothamRnd',
+                                              // fontFamily: 'GothamRnd',
                                               fontSize: 12,
                                               color: Color.fromRGBO(
                                                   74, 119, 183, 0.75),
@@ -144,7 +144,7 @@ class _MarketBuyState extends State<MarketBuy>
                                                       style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.w700,
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         fontSize: ScreenUtil()
                                                             .setSp(10),
                                                         color: Color.fromRGBO(
@@ -420,7 +420,7 @@ class _MarketBuyState extends State<MarketBuy>
                                 "1YjsJhJH12918nmHkKUwjaAHj2341Aj",
                                 style: TextStyle(
                                   fontSize: ScreenUtil().setHeight(10),
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                 ),
@@ -478,7 +478,7 @@ class _MarketBuyState extends State<MarketBuy>
                     focusNode: buyFocus,
                     style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'GothamRnd',
+                        // fontFamily: 'GothamRnd',
                         fontWeight: FontWeight.w300,
                         fontSize: ScreenUtil().setSp(40)),
                     decoration: InputDecoration(
@@ -491,7 +491,7 @@ class _MarketBuyState extends State<MarketBuy>
                         hintText: '0.0',
                         hintStyle: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'GothamRnd',
+                            // fontFamily: 'GothamRnd',
                             fontWeight: FontWeight.w300,
                             fontSize: ScreenUtil().setSp(40))),
                   ),
@@ -513,7 +513,7 @@ class _MarketBuyState extends State<MarketBuy>
                           child: new Container(
                             child: new Text('MADESAFECOIN',
                                 style: TextStyle(
-                                    fontFamily: 'GothamRnd',
+                                    // fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setHeight(14),
                                     color: Color.fromRGBO(17, 27, 41, 0.5),
                                     letterSpacing:
@@ -670,7 +670,7 @@ Widget buildSell() {
                                 "1YjsJhJH12918nmHkKUwjaAHj2341Aj",
                                 style: TextStyle(
                                   fontSize: ScreenUtil().setHeight(10),
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                 ),
@@ -728,7 +728,7 @@ Widget buildSell() {
                     focusNode: sellFocus,
                     style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'GothamRnd',
+                        // fontFamily: 'GothamRnd',
                         fontWeight: FontWeight.w300,
                         fontSize: ScreenUtil().setSp(40)),
                     decoration: InputDecoration(
@@ -741,7 +741,7 @@ Widget buildSell() {
                         hintText: '0.0',
                         hintStyle: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'GothamRnd',
+                            // fontFamily: 'GothamRnd',
                             fontWeight: FontWeight.w300,
                             fontSize: ScreenUtil().setSp(40))),
                   ),
@@ -763,7 +763,7 @@ Widget buildSell() {
                           child: new Container(
                             child: new Text('MADESAFECOIN',
                                 style: TextStyle(
-                                    fontFamily: 'GothamRnd',
+                                    // fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setHeight(14),
                                     color: Color.fromRGBO(17, 27, 41, 0.5),
                                     letterSpacing:

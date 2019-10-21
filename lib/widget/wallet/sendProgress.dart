@@ -99,7 +99,7 @@ class _SendProgressState extends State<SendProgress> {
                                             style: new TextStyle(
                                               fontWeight: FontWeight.bold,
                                                 color: Colors.black,
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontSize:
                                                     ScreenUtil().setSp(10),
                                                 letterSpacing:

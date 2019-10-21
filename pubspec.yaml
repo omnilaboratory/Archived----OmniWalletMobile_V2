@@ -139,6 +139,6 @@ flutter:
   fonts:
     - family: GothamRnd
       fonts: 
-        - asset: fonts/GothamRnd-Book.otf
+        - asset: fonts/GothamRnd-Book.otf        
         - asset: fonts/GothamRnd-Medium.otf
           weight: 600

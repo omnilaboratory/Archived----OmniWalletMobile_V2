@@ -48,7 +48,9 @@ class TopMenu extends Dialog {
                   new MenuItem(
                     menuName: 'ACCOUNT SETTING',
                     menuIcon: 'images/settings.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pushNamed(context, '/setting');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'LOG OUT',
@@ -88,7 +90,7 @@ class MenuItem extends StatelessWidget {
                 textAlign: TextAlign.right,
                 style: new TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'GothamRnd',
+                    // fontFamily: 'GothamRnd',
                     fontSize: ScreenUtil().setSp(10),
                     color: Colors.black),
               ),

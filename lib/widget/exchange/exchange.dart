@@ -297,7 +297,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                     style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w700,
-                                                      fontFamily: 'GothamRnd',
+                                                      // fontFamily: 'GothamRnd',
                                                       fontSize: ScreenUtil()
                                                           .setSp(10),
                                                       color: Color.fromRGBO(
@@ -401,7 +401,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               textAlign: TextAlign.center,
                                               style: new TextStyle(
                                                   fontSize: 10,
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   color: Color.fromRGBO(
                                                       50, 231, 163, 1),
                                                   height: 2),
@@ -444,7 +444,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                   '$tradeDataType',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w700,
-                                                    fontFamily: 'GothamRnd',
+                                                    // fontFamily: 'GothamRnd',
                                                     fontSize:
                                                         ScreenUtil().setSp(10),
                                                     color: Color.fromRGBO(
@@ -466,7 +466,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               style: TextStyle(
                                                 fontSize:
                                                     10,
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
                                                     17, 27, 41, 1),
@@ -480,7 +480,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                 "SELL",
                                                 style: TextStyle(
                                                   fontSize: 10,
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       17, 27, 41, 1),
@@ -605,7 +605,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                   '$offerDataType',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w700,
-                                                    fontFamily: 'GothamRnd',
+                                                    // fontFamily: 'GothamRnd',
                                                     fontSize:
                                                         ScreenUtil().setSp(10),
                                                     color: Color.fromRGBO(
@@ -626,7 +626,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               "ALL",
                                               style: TextStyle(
                                                 fontSize:10,
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
                                                     17, 27, 41, 1),
@@ -640,7 +640,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                 "SELL",
                                                 style: TextStyle(
                                                   fontSize: 10,
-                                                  fontFamily: 'GothamRnd',
+                                                  // fontFamily: 'GothamRnd',
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       17, 27, 41, 1),

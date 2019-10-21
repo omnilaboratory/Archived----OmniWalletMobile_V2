@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/login/LoginAndCreate.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:omni/language/language.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
           appBar: MyBaseBar(
@@ -39,10 +41,10 @@ class Home extends StatelessWidget {
                           child: new Text('OMNI',
                               textAlign: TextAlign.center,
                               style: new TextStyle(
-                                  fontFamily: 'GothamRnd',
-                                  fontSize: ScreenUtil().setSp(26),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 26,
                                   color: Color.fromRGBO(93, 93, 93, 1),
-                                  letterSpacing: ScreenUtil().setSp(10))),
+                                  letterSpacing: 10)),
                         ),
                         new Container(
                           padding:
@@ -50,10 +52,10 @@ class Home extends StatelessWidget {
                           child: new Text('WALLET',
                               textAlign: TextAlign.center,
                               style: new TextStyle(
-                                  fontFamily: 'GothamRnd',
-                                  fontSize: ScreenUtil().setSp(11),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
                                   color: Color.fromRGBO(128, 168, 226, 1),
-                                  letterSpacing: ScreenUtil().setSp(12))),
+                                  letterSpacing: 12)),
                         ),
                       ],
                     ),
@@ -93,19 +95,19 @@ class Home extends StatelessWidget {
                                   width: ScreenUtil().setWidth(186),
                                   child: new FlatButton(
                                     onPressed: () {
+                                      print(model.loginType);
                                       model.changeLoginType('login');
-                                      Navigator.pushNamed(context, '/login');
+                                      print(model.loginType);
+                                      Navigator.push(context,
+                                                  new MaterialPageRoute(
+                                                      builder: (BuildContext context) {
+                                                return new LoginAndCreate();
+                                              }));
                                     },
                                     child: new Text(
                                         Language.login[model.language],
                                         textAlign: TextAlign.center,
-                                        style: new TextStyle(
-                                            fontFamily: 'GothamRnd',
-                                            fontSize: ScreenUtil().setSp(12),
-                                            color: Color.fromRGBO(
-                                                128, 168, 226, 1),
-                                            letterSpacing:
-                                                ScreenUtil().setSp(3))),
+                                        style: UtilStyle.tagTitleFontActive),
                                   ),
                                 ),
                                 new Container(
@@ -117,18 +119,16 @@ class Home extends StatelessWidget {
                                   child: new FlatButton(
                                     onPressed: () {
                                       model.changeLoginType('create');
-                                      Navigator.pushNamed(context, '/login');
+                                      Navigator.push(context,
+                                                  new MaterialPageRoute(
+                                                      builder: (BuildContext context) {
+                                                return new LoginAndCreate();
+                                              }));
                                     },
                                     child: new Text(
                                         Language.create[model.language],
                                         textAlign: TextAlign.center,
-                                        style: new TextStyle(
-                                            fontFamily: 'GothamRnd',
-                                            fontSize: ScreenUtil().setSp(12),
-                                            color: Color.fromRGBO(
-                                                128, 168, 226, 1),
-                                            letterSpacing:
-                                                ScreenUtil().setSp(3))),
+                                        style: UtilStyle.tagTitleFontActive),
                                   ),
                                 ),
                               ],
@@ -151,10 +151,10 @@ class Home extends StatelessWidget {
                                   Language.checkBlance[model.language],
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
-                                      fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(10),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10,
                                       color: Colors.white,
-                                      letterSpacing: ScreenUtil().setSp(5)),
+                                      letterSpacing: 4.5),
                                 ),
                               ),
                               onPressed: () {},

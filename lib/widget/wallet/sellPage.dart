@@ -99,7 +99,7 @@ class _SellPageState extends State<SellPage> {
                                                   style: new TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                       color: Colors.black,
-                                                      fontFamily: 'GothamRnd',
+                                                      // fontFamily: 'GothamRnd',
                                                       fontSize: ScreenUtil()
                                                           .setSp(10),
                                                       letterSpacing:
@@ -160,7 +160,7 @@ class _SellPageState extends State<SellPage> {
                                     style: new TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: ScreenUtil().setSp(12),
-                                        fontFamily: 'GothamRnd',
+                                        // fontFamily: 'GothamRnd',
                                         color: Color.fromRGBO(0, 0, 0, 0.45),
                                         letterSpacing:
                                             ScreenUtil().setSp(3.47)),
@@ -172,7 +172,7 @@ class _SellPageState extends State<SellPage> {
                                   child: new Text('AMOUNT (USD)',
                                       style: new TextStyle(
                                         fontSize: ScreenUtil().setSp(10),
-                                        fontFamily: 'GothamRnd',
+                                        // fontFamily: 'GothamRnd',
                                         color:
                                             Color.fromRGBO(255, 255, 255, 0.75),
                                       )),
@@ -196,7 +196,7 @@ class _SellPageState extends State<SellPage> {
                                                 fontWeight: FontWeight.normal,
                                                 fontSize:
                                                     ScreenUtil().setHeight(41),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 color: Colors.white,
                                                 letterSpacing:
                                                     ScreenUtil().setSp(3.47)),
@@ -229,7 +229,7 @@ class _SellPageState extends State<SellPage> {
                                             style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 10,
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
                                                 letterSpacing:
@@ -263,7 +263,7 @@ class _SellPageState extends State<SellPage> {
                                                             FontWeight.bold,
                                                         fontSize: ScreenUtil()
                                                             .setSp(8),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         letterSpacing:
@@ -288,7 +288,7 @@ class _SellPageState extends State<SellPage> {
                                             style: new TextStyle(
                                                 fontSize:
                                                     ScreenUtil().setHeight(20),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
                                                 letterSpacing:
@@ -311,7 +311,7 @@ class _SellPageState extends State<SellPage> {
                                             style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 10,
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
                                                 letterSpacing:
@@ -345,7 +345,7 @@ class _SellPageState extends State<SellPage> {
                                                             FontWeight.bold,
                                                         fontSize: ScreenUtil()
                                                             .setSp(8),
-                                                        fontFamily: 'GothamRnd',
+                                                        // fontFamily: 'GothamRnd',
                                                         color: Color.fromRGBO(
                                                             0, 0, 0, 1),
                                                         letterSpacing:
@@ -370,7 +370,7 @@ class _SellPageState extends State<SellPage> {
                                             style: new TextStyle(
                                                 fontSize:
                                                     ScreenUtil().setHeight(20),
-                                                fontFamily: 'GothamRnd',
+                                                // fontFamily: 'GothamRnd',
                                                 color: Color.fromRGBO(
                                                     0, 0, 0, 0.5),
                                                 letterSpacing:
@@ -416,7 +416,7 @@ class _SellPageState extends State<SellPage> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'GothamRnd',
+                                      // fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       letterSpacing: ScreenUtil().setSp(3.5)),
@@ -451,7 +451,7 @@ class _SellPageState extends State<SellPage> {
                                     textAlign: TextAlign.center,
                                     style: new TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'GothamRnd',
+                                        // fontFamily: 'GothamRnd',
                                         fontSize: ScreenUtil().setSp(12),
                                         color: Color.fromRGBO(0, 0, 0, 1),
                                         letterSpacing: ScreenUtil().setSp(3.5)),

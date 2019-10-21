@@ -69,7 +69,7 @@ class _OfferPopState extends State<OfferPop> {
                             'ACCEPT OFFER',
                             style: TextStyle(
                               color: Color.fromRGBO(0, 0, 0, 0.5),
-                              fontFamily: 'GothamRnd',
+                              // fontFamily: 'GothamRnd',
                             ),
                           ),
                         ),
@@ -85,7 +85,7 @@ class _OfferPopState extends State<OfferPop> {
                                     new Container(
                                       child: new Text('BUYING ADDRESS',
                                           style: TextStyle(
-                                              fontFamily: 'GothamRnd',
+                                              // fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               fontSize: 10,
                                               color: Color.fromRGBO(
@@ -139,7 +139,7 @@ class _OfferPopState extends State<OfferPop> {
                                                     style: TextStyle(
                                                       fontSize: ScreenUtil()
                                                           .setHeight(10),
-                                                      fontFamily: 'GothamRnd',
+                                                      // fontFamily: 'GothamRnd',
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: Color.fromRGBO(
@@ -160,7 +160,7 @@ class _OfferPopState extends State<OfferPop> {
                                     new Container(
                                       child: new Text('SELLERS ADDRESS',
                                           style: TextStyle(
-                                              fontFamily: 'GothamRnd',
+                                              // fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               fontSize: 10,
                                               color: Color.fromRGBO(
@@ -184,7 +184,7 @@ class _OfferPopState extends State<OfferPop> {
                                     new Container(
                                       child: new Text('SALE OFFER ID',
                                           style: TextStyle(
-                                              fontFamily: 'GothamRnd',
+                                              // fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               fontSize: 10,
                                               color: Color.fromRGBO(
@@ -213,7 +213,7 @@ class _OfferPopState extends State<OfferPop> {
                                             new Container(
                                               child: new Text('PRICE PER COIN',
                                                   style: TextStyle(
-                                                      fontFamily: 'GothamRnd',
+                                                      // fontFamily: 'GothamRnd',
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 10,
@@ -240,7 +240,7 @@ class _OfferPopState extends State<OfferPop> {
                                             new Container(
                                               child: new Text('SALE FEES',
                                                   style: TextStyle(
-                                                      fontFamily: 'GothamRnd',
+                                                      // fontFamily: 'GothamRnd',
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 10,
@@ -267,7 +267,7 @@ class _OfferPopState extends State<OfferPop> {
                                             new Container(
                                               child: new Text('TIMEFRAME',
                                                   style: TextStyle(
-                                                      fontFamily: 'GothamRnd',
+                                                      // fontFamily: 'GothamRnd',
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 10,
@@ -339,7 +339,7 @@ class _OfferPopState extends State<OfferPop> {
                     focusNode: acceptFocus,
                     style: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'GothamRnd',
+                        // fontFamily: 'GothamRnd',
                         fontWeight: FontWeight.w300,
                         fontSize: 41),
                     decoration: InputDecoration(
@@ -352,7 +352,7 @@ class _OfferPopState extends State<OfferPop> {
                         hintText: '0.0',
                         hintStyle: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'GothamRnd',
+                            // fontFamily: 'GothamRnd',
                             fontWeight: FontWeight.w300,
                             fontSize: 41)),
                   ),
@@ -381,7 +381,7 @@ class _OfferPopState extends State<OfferPop> {
                               child: new Text('BTC',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontFamily: 'GothamRnd',
+                                    // fontFamily: 'GothamRnd',
                                     fontWeight: FontWeight.bold,
                                     fontSize: ScreenUtil().setHeight(10),
                                     color: Color.fromRGBO(0, 0, 0, 1),

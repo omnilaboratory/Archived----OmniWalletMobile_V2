@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:omni/widget/setting/setting.dart';
 import 'package:omni/widget/wallet/importAddress.dart';
 import 'package:omni/widget/wallet/signMessage.dart';
 import 'package:omni/widget/wallet/walletAndAddress.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
       child: new MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.white,
+        fontFamily: 'GothamRnd'
       ),
       home: new MyHomePage(),
       routes: <String,WidgetBuilder>{
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
         '/signMessage':(BuildContext context) => new SignMessage(),
         '/exchange':(BuildContext context) => new Exchange(),
         '/explorer':(BuildContext context) => new Explorer(),
+        '/setting':(BuildContext context) => new Setting(),
+
       },
     ),
     );
@@ -57,10 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 376, height: 812,allowFontScaling:true)..init(context);
     // return new Splash();
-    final LocalModel localModel = new LocalModel();
-    return new ScopedModel(
-      model: localModel,
-      child: new Home()
+    return ScopedModelDescendant<LocalModel>(
+      builder: (context,child,model){
+        return new Home();
+      },
     );
   }
 }

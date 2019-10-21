@@ -114,7 +114,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                                       child: new Text(
                                         '43021736-625b-42f3-9b79-21fd0216f00d',
                                         style: TextStyle(
-                                            fontFamily: 'GothamRnd',
+                                            // fontFamily: 'GothamRnd',
                                             fontSize: ScreenUtil().setSp(12),
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -150,7 +150,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                               '\$4,133.04',
                               style: TextStyle(
                                 color: Color.fromRGBO(47, 214, 151, 1),
-                                fontFamily: 'GothamRnd',
+                                // fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(41.5),
                               ),
                             ),
@@ -162,7 +162,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                               '* ESTIMATED TOTAL VALUE',
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 0, 0, 0.5),
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   height: 1.2),
                             ),

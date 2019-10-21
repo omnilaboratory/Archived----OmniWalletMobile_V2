@@ -61,7 +61,7 @@ class _ImportAddressState extends State<ImportAddress> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(12),
                                   color: Color.fromRGBO(74, 119, 183, 1),
                                   letterSpacing: ScreenUtil().setSp(3.5))),
@@ -73,7 +73,7 @@ class _ImportAddressState extends State<ImportAddress> {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'GothamRnd',
+                                // fontFamily: 'GothamRnd',
                                 fontSize: ScreenUtil().setSp(10),
                                 color: Color.fromRGBO(0, 0, 0, 0.35),
                               )),
@@ -129,7 +129,7 @@ class _ImportAddressState extends State<ImportAddress> {
                                   textAlign: TextAlign.center,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'GothamRnd',
+                                      // fontFamily: 'GothamRnd',
                                       fontSize: ScreenUtil().setSp(12),
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                       letterSpacing: ScreenUtil().setSp(3.5)),
@@ -154,7 +154,7 @@ class _ImportAddressState extends State<ImportAddress> {
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'GothamRnd',
+                                    // fontFamily: 'GothamRnd',
                                     fontSize: ScreenUtil().setSp(12),
                                     color: Color.fromRGBO(0, 0, 0, 1),
                                     letterSpacing: ScreenUtil().setSp(3.5)),

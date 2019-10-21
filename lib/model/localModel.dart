@@ -2,8 +2,8 @@ import 'package:scoped_model/scoped_model.dart';
 
 class LocalModel extends Model{
   LocalModel of(context) => ScopedModel.of<LocalModel>(context);
-  String language = 'cn';
-  String loginType = 'login';
+  String language = 'en';
+  String loginType = '';
   bool isAddressFull = false;
   int dexfaultOpenWallet = 0;
   int defaultOpenAddress;

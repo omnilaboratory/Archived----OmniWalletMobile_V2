@@ -64,7 +64,7 @@ class AddressFullMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
@@ -99,7 +99,7 @@ class AddressFullMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
@@ -131,7 +131,7 @@ class AddressFullMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
@@ -159,7 +159,7 @@ class AddressFullMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'GothamRnd',
+                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
