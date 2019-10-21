@@ -69,7 +69,9 @@ class FootMenu extends Dialog {
                   new MenuItem(
                     menuName: 'FAQ',
                     menuIcon: 'images/faq.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pushNamed(context, '/faq');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'ABOUT',

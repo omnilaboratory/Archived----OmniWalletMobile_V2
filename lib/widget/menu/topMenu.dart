@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TopMenu extends Dialog {
@@ -48,7 +49,10 @@ class TopMenu extends Dialog {
                   new MenuItem(
                     menuName: 'ACCOUNT SETTING',
                     menuIcon: 'images/settings.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/setting');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'LOG OUT',
