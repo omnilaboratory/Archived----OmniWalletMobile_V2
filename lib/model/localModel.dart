@@ -3,11 +3,12 @@ import 'package:scoped_model/scoped_model.dart';
 class LocalModel extends Model{
   LocalModel of(context) => ScopedModel.of<LocalModel>(context);
   String language = 'en';
-  String loginType = '';
+  String loginType = 'login';
   bool isAddressFull = false;
   int dexfaultOpenWallet = 0;
   int defaultOpenAddress;
   String address = '';
+  int faqOpenIdx = 0;
   Map<String,Object> userInfo = {
     'userId':'',
     'mnemonic':'',
@@ -43,6 +44,10 @@ class LocalModel extends Model{
   }
   void changeWalletIsActive(bool isActive){
     walletIsActive = isActive;
+    notifyListeners();
+  }
+  void changeFaqOpenIdx(int idx){
+    faqOpenIdx = idx;
     notifyListeners();
   }
 }

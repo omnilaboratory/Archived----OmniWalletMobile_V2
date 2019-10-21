@@ -70,7 +70,50 @@ class AfterLoginAppBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new AppBar(
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.07),
+            backgroundColor: Color.fromRGBO(70, 116, 182, 0.1),
+            elevation: 0,
+            automaticallyImplyLeading: false,
+            title: new Container(
+              height: ScreenUtil().setHeight(32),
+              child: new Image.asset('images/headLogo.png'),
+            ),
+            actions: <Widget>[
+              new Container(
+                margin: EdgeInsets.only(right: ScreenUtil().setWidth(10)),
+                height: ScreenUtil().setHeight(32),
+                width: ScreenUtil().setWidth(32),
+                decoration:
+                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
+                child: new FlatButton(
+                  padding: EdgeInsets.all(0),
+                  onPressed: () {
+                    showDialog<Null>(
+                        context: context, //BuildContext对象
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return new TopMenu();
+                        });
+                  },
+                  child: new Container(
+                    height: ScreenUtil().setHeight(46),
+                    width: ScreenUtil().setWidth(46),
+                    decoration: new BoxDecoration(
+                        borderRadius: BorderRadius.circular(46)),
+                    // child: new Image.network(),
+                    child: Image.asset('images/defaultAvatar.png'),
+                  ),
+                ),
+              )
+            ],
+          );
+  }
+}
+
+class AfterLoginFaqAppBar extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return new AppBar(
+            backgroundColor: Color.fromRGBO(70, 116, 182, 0.10),
             elevation: 0,
             automaticallyImplyLeading: false,
             title: new Container(

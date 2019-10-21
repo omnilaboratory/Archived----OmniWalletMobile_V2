@@ -104,7 +104,7 @@ class _MyInputState extends State<MyInput>{
                 new Container(
                   child: new Container(
                     height: ScreenUtil().setHeight(22),
-                    child: new Image.asset('images/info.png'),
+                    child: new Image.asset('images/alertInfo.png'),
                   ),
                 )
               ],

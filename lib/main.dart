@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:omni/widget/faq/faq.dart';
+
+import 'package:scoped_model/scoped_model.dart';
+import 'package:omni/model/localModel.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:omni/widget/setting/setting.dart';
 import 'package:omni/widget/wallet/importAddress.dart';
 import 'package:omni/widget/wallet/signMessage.dart';
 import 'package:omni/widget/wallet/walletAndAddress.dart';
 import 'package:omni/widget/wallet/walletBackup.dart';
 import 'package:omni/widget/wallet/walletImport.dart';
-import 'package:scoped_model/scoped_model.dart';
-import 'package:omni/model/localModel.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
-
 import 'package:omni/widget/home/home.dart';
 import 'package:omni/widget/login/LoginAndCreate.dart';
 import 'package:omni/widget/exchange/exchange.dart';
 import 'package:omni/widget/explorer/explorer.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
+void main( ){
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(new MyApp());
+    });
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -28,7 +35,7 @@ class MyApp extends StatelessWidget {
       child: new MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // primarySwatch: Colors.white,
+        primarySwatch: Colors.blue,
         fontFamily: 'GothamRnd'
       ),
       home: new MyHomePage(),
@@ -42,7 +49,7 @@ class MyApp extends StatelessWidget {
         '/exchange':(BuildContext context) => new Exchange(),
         '/explorer':(BuildContext context) => new Explorer(),
         '/setting':(BuildContext context) => new Setting(),
-
+        '/faq':(BuildContext context) => new Faq(),
       },
     ),
     );
@@ -61,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 376, height: 812,allowFontScaling:true)..init(context);
     // return new Splash();
-    return ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context,child,model){
         return new Home();
       },
