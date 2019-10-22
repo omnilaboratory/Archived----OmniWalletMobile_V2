@@ -17,8 +17,8 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
   Animation<double> activeAnimation;
   AnimationController activeController;
 
-  double activeHeight = 268;
-  double activeTableHeight = 171;
+  double activeHeight = ScreenUtil().setHeight(420);
+  double activeTableHeight = ScreenUtil().setHeight(320);
   bool activeTableIsShow = true;
   String nowShow = '';
 
@@ -129,6 +129,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
             width: ScreenUtil().setSp(45),
             height: ScreenUtil().setSp(45),
             child: new FlatButton(
+              
               onPressed: () {
                 showDialog<Null>(
                     context: context, //BuildContext对象
@@ -182,6 +183,8 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                           ),
                           width: ScreenUtil().setWidth(376),
                           child: new FlatButton(
+                            splashColor: Color(0xFFF2F4F8),
+              highlightColor:Color(0xFFF2F4F8),
                             padding: EdgeInsets.all(0),
                             onPressed: (){
                               activeTableIsShow = false;
@@ -239,11 +242,13 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                           ),
                           width: ScreenUtil().setWidth(376),
                           child: new FlatButton(
+                            splashColor: Color(0xFFF2F4F8),
+                            highlightColor:Color(0xFFF2F4F8),
                             padding: EdgeInsets.all(0),
                             onPressed: (){
                               activeTableIsShow = true;
-                              activeTableHeight = 433;
-                              activeHeight = 530;
+                              activeTableHeight = ScreenUtil().setHeight(540);
+                              activeHeight = ScreenUtil().setHeight(640);
                               nowShow = 'Active';
                               setState(() {
                                 
@@ -328,7 +333,7 @@ class AssetTable extends StatelessWidget{
             child: tableHead,
           ),
           new Container(
-            height: 425,
+            height: ScreenUtil().setHeight(540),
             child: new SingleChildScrollView(
               child: new Container(
                 child: new Column(

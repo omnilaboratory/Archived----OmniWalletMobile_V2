@@ -100,7 +100,7 @@ class UtilStyle {
       fontWeight: FontWeight.bold,
       fontSize: 12,
       color: Color.fromRGBO(74, 119, 183, 1),
-      letterSpacing: ScreenUtil().setHeight(3.5));
+      letterSpacing: 3.5);
   static var faqContentFontActive = new TextStyle(
       fontWeight: FontWeight.bold,
       fontFamily: 'GothamRnd',
