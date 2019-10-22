@@ -53,21 +53,14 @@ class _MarketBuyState extends State<MarketBuy>
           ),
           resizeToAvoidBottomPadding: false,
           body: new Container(
-            
-            height: ScreenUtil().setHeight(812),
-            width: ScreenUtil().setWidth(376),
-            child: new Column(
-              children: <Widget>[
-                new Container(
-                  height: ScreenUtil().setHeight(712),
-                  child: new Stack(
+            color: Color.fromRGBO(70, 116, 182, 0.07),
+            child: new Stack(
                     children: <Widget>[
                       Positioned(
                         bottom: (marketController.value - 1) *
-                            ScreenUtil().setHeight(702),
+                            ScreenUtil().setHeight(712),
                         child: new Container(
                           width: ScreenUtil().setWidth(376),
-                          height: ScreenUtil().setHeight(702),
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(242, 244, 248, 1),
                               borderRadius: BorderRadius.only(
@@ -100,14 +93,7 @@ class _MarketBuyState extends State<MarketBuy>
                                         new Container(
                                           child: new Text(
                                             'MARKETS',
-                                            style: TextStyle(
-                                              // fontFamily: 'GothamRnd',
-                                              fontSize: 12,
-                                              color: Color.fromRGBO(
-                                                  74, 119, 183, 0.75),
-                                              letterSpacing:
-                                                  ScreenUtil().setHeight(3.5),
-                                            ),
+                                            style: UtilStyle.tagTitleFontActive
                                           ),
                                         ),
                                         new Container(
@@ -343,9 +329,6 @@ class _MarketBuyState extends State<MarketBuy>
                       ),
                     ],
                   ),
-                )
-              ],
-            ),
           ),
         );
       },

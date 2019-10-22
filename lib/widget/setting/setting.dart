@@ -4,6 +4,7 @@ import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/menu/footMenu.dart';
 
 class Setting extends StatefulWidget {
   _SettingState createState() => new _SettingState();
@@ -85,6 +86,25 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
     return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return Scaffold(
+          floatingActionButton: new Container(
+            width: ScreenUtil().setSp(45),
+            height: ScreenUtil().setSp(45),
+            child: new FlatButton(
+              onPressed: () {
+                showDialog<Null>(
+                    context: context, //BuildContext对象
+                    barrierDismissible: false,
+                    builder: (BuildContext context) {
+                      return new FootMenu();
+                    });
+              },
+              padding: EdgeInsets.all(0),
+              child: new Container(
+                child: new Image.asset('images/logo.png'),
+              ),
+            ),
+          ),
+          
           appBar: new MyBaseBar(
             child: new AfterLoginAppBar(),
           ),

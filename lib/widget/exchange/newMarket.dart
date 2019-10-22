@@ -55,11 +55,7 @@ class _NewMarketState extends State<NewMarket>
           body: new Container(
             height: ScreenUtil().setHeight(812),
             width: ScreenUtil().setWidth(376),
-            child: new Column(
-              children: <Widget>[
-                new Container(
-                  color: Color.fromRGBO(70, 116, 182, 0.07),
-                  height: ScreenUtil().setHeight(712),
+            color: Color.fromRGBO(70, 116, 182, 0.1),
                   child: new Stack(
                     children: <Widget>[
                       Positioned(
@@ -112,7 +108,6 @@ class _NewMarketState extends State<NewMarket>
                                   ),
                                 ),
                                 Container(
-                                  height: 500,
                                   width: ScreenUtil().setWidth(376),
                                   color: Color.fromRGBO(242, 244, 248, 1),
                                   child: new Column(
@@ -130,9 +125,7 @@ class _NewMarketState extends State<NewMarket>
                       ),
                     ],
                   ),
-                )
-              ],
-            ),
+                
           ),
         );
       },
@@ -450,7 +443,7 @@ Widget buildSell() {
                                 width: ScreenUtil().setWidth(24),
                                 margin: EdgeInsets.only(
                                     bottom: ScreenUtil().setHeight(12)),
-                                child: new Image.asset('images/up.png'),
+                                child: new Image.asset('images/upB.png'),
                               ),
                               new Container(
                                 child: new Text(

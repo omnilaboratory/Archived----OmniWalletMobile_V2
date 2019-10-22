@@ -48,17 +48,26 @@ class LoginTopMenu extends Dialog {
                   new MenuItem(
                     menuName: 'EXCHANGE',
                     menuIcon: 'images/exchange.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/exchange');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'EXPLORER',
                     menuIcon: 'images/explorer.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/explorer');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'FAQ',
                     menuIcon: 'images/faq.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/faq');
+                    },
                   ),
                   new MenuItem(
                     menuName: 'ABOUT',

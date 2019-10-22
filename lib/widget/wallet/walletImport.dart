@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -39,9 +40,7 @@ class _WalletImportState extends State<WalletImport> {
                       boxShadow: [
                         BoxShadow(
                             color: Color.fromRGBO(82, 135, 210, 0.25),
-                            offset: Offset(
-                              ScreenUtil().setSp(0),
-                              ScreenUtil().setSp(24),
+                            offset: Offset(0,24
                             ),
                             blurRadius: 48.0,
                             spreadRadius: 2.0),
@@ -53,12 +52,7 @@ class _WalletImportState extends State<WalletImport> {
                         new Container(
                           child: new Text('IMPORT WALLET BACKUP',
                               textAlign: TextAlign.left,
-                              style: new TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  // fontFamily: 'GothamRnd',
-                                  fontSize: ScreenUtil().setSp(12),
-                                  color: Color.fromRGBO(74, 119, 183, 1),
-                                  letterSpacing: ScreenUtil().setSp(3.5))),
+                              style: UtilStyle.tagTitleFontActive),
                         ),
                         new Container(
                           margin:
@@ -83,16 +77,13 @@ class _WalletImportState extends State<WalletImport> {
                             decoration: BoxDecoration(
                               color: Color.fromRGBO(74, 119, 183, 0.1),
                               borderRadius:
-                                  BorderRadius.circular(ScreenUtil().setSp(8)),
+                                  BorderRadius.circular(8),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.12),
-                                    offset: Offset(
-                                      ScreenUtil().setSp(0),
-                                      ScreenUtil().setHeight(12),
-                                    ),
-                                    blurRadius: ScreenUtil().setSp(24),
-                                    spreadRadius: 2.0),
+                                    offset: Offset(0,8),
+                                    blurRadius: 24,
+                                    spreadRadius: 0),
                               ],
                             ),
                             child: new Container(
@@ -121,13 +112,9 @@ class _WalletImportState extends State<WalletImport> {
                                               BoxShadow(
                                                   color: Color.fromRGBO(
                                                       74, 119, 183, 0.5),
-                                                  offset: Offset(
-                                                    ScreenUtil().setSp(0),
-                                                    ScreenUtil().setHeight(12),
-                                                  ),
-                                                  blurRadius:
-                                                      ScreenUtil().setSp(24),
-                                                  spreadRadius: 2.0),
+                                                  offset: Offset(0,12),
+                                                  blurRadius:24,
+                                                  spreadRadius: 0.0),
                                             ],
                                           ),
                                           child: new Text('CHOOSE FILE',
@@ -135,8 +122,7 @@ class _WalletImportState extends State<WalletImport> {
                                               style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 // fontFamily: 'GothamRnd',
-                                                fontSize:
-                                                    ScreenUtil().setSp(12),
+                                                fontSize:12,
                                                 color: Colors.white,
                                               )),
                                         ),
@@ -148,6 +134,7 @@ class _WalletImportState extends State<WalletImport> {
                                                 textAlign: TextAlign.center,
                                                 style: new TextStyle(
                                                   // fontFamily: 'GothamRnd',
+                                                  fontWeight: FontWeight.bold,
                                                   fontSize:
                                                       ScreenUtil().setSp(10),
                                                   color: Color.fromRGBO(
@@ -166,8 +153,7 @@ class _WalletImportState extends State<WalletImport> {
                                                 style: new TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   // fontFamily: 'GothamRnd',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(10),
+                                                  fontSize:10,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                 )),
@@ -192,22 +178,17 @@ class _WalletImportState extends State<WalletImport> {
                                                 BoxShadow(
                                                     color: Color.fromRGBO(
                                                         74, 119, 183, 0.5),
-                                                    offset: Offset(
-                                                      ScreenUtil().setSp(0),
-                                                      ScreenUtil()
-                                                          .setHeight(12),
-                                                    ),
-                                                    blurRadius:
-                                                        ScreenUtil().setSp(24),
-                                                    spreadRadius: 2.0),
+                                                    offset: Offset(0,12),
+                                                    blurRadius:24,
+                                                    spreadRadius: 0.0),
                                               ],
                                             ),
                                             child: new Text('NO FILE CHOOSEN',
                                                 textAlign: TextAlign.center,
                                                 style: new TextStyle(
                                                   // fontFamily: 'GothamRnd',
-                                                  fontSize:
-                                                      ScreenUtil().setSp(12),
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize:12,
                                                   color: Colors.white,
                                                 )))
                                       ],
@@ -245,12 +226,7 @@ class _WalletImportState extends State<WalletImport> {
                                     child: new Text(
                                   'CANCEL',
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      // fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      letterSpacing: ScreenUtil().setSp(3.5)),
+                                  style: UtilStyle.formSubmitFont,
                                 ))
                               ],
                             ),
@@ -270,12 +246,7 @@ class _WalletImportState extends State<WalletImport> {
                                   child: new Text(
                                 'IMPORT WALLET',
                                 textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    // fontFamily: 'GothamRnd',
-                                    fontSize: ScreenUtil().setSp(12),
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    letterSpacing: ScreenUtil().setSp(3.5)),
+                                style: UtilStyle.formSubmitFont,
                               ))
                             ],
                           ),

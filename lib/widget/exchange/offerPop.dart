@@ -35,9 +35,11 @@ class _OfferPopState extends State<OfferPop> {
           body: new Container(
             padding: EdgeInsets.only(top: 32),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(70, 116, 182, 0.07),
+              color: Color.fromRGBO(70, 116, 182, 0.1),
             ),
-            child: new SingleChildScrollView(
+            child: new Container(
+              height: ScreenUtil().setHeight(712),
+              child: new SingleChildScrollView(
               child: new Column(
                 children: <Widget>[
                   new Container(
@@ -69,6 +71,7 @@ class _OfferPopState extends State<OfferPop> {
                             'ACCEPT OFFER',
                             style: TextStyle(
                               color: Color.fromRGBO(0, 0, 0, 0.5),
+                              fontWeight: FontWeight.bold
                               // fontFamily: 'GothamRnd',
                             ),
                           ),
@@ -85,7 +88,6 @@ class _OfferPopState extends State<OfferPop> {
                                     new Container(
                                       child: new Text('BUYING ADDRESS',
                                           style: TextStyle(
-                                              // fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
                                               fontSize: 10,
                                               color: Color.fromRGBO(
@@ -94,7 +96,7 @@ class _OfferPopState extends State<OfferPop> {
                                     new Container(
                                       margin: EdgeInsets.only(
                                           top: ScreenUtil().setHeight(12),
-                                          bottom: ScreenUtil().setHeight(32)),
+                                          bottom: ScreenUtil().setHeight(20)),
                                       padding: EdgeInsets.only(
                                           bottom: ScreenUtil().setHeight(7)),
                                       decoration: BoxDecoration(
@@ -177,7 +179,7 @@ class _OfferPopState extends State<OfferPop> {
                                 ),
                               ),
                               new Container(
-                                margin: EdgeInsets.only(top: 24),
+                                margin: EdgeInsets.only(top: 16),
                                 child: new Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
@@ -201,7 +203,7 @@ class _OfferPopState extends State<OfferPop> {
                                 ),
                               ),
                               new Container(
-                                margin: EdgeInsets.only(top: 24),
+                                margin: EdgeInsets.only(top: 16),
                                 child: new Row(
                                   children: <Widget>[
                                     new Expanded(
@@ -297,7 +299,7 @@ class _OfferPopState extends State<OfferPop> {
                   new Container(
                     padding: EdgeInsets.only(
                       top: 32,
-                      bottom: 32,
+                      bottom: 16,
                       left: 18,
                       right: 18
                     ),
@@ -470,7 +472,7 @@ class _OfferPopState extends State<OfferPop> {
                 ],
               ),
             ),
-          ),
+            )),
         );
       },
     );

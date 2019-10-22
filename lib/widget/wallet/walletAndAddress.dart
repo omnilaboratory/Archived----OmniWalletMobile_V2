@@ -36,11 +36,9 @@ class _WalletAndAddressState extends State<WalletAndAddress> {
             ),
           ),
           body: new Container(
-            color: Color.fromRGBO(70, 116, 182, 0.02),
+            color: Color.fromRGBO(70, 116, 182, 0.05),
             width: ScreenUtil().setWidth(376),
-            height: ScreenUtil().setHeight(718),
             child: new Container(
-              height: ScreenUtil().setHeight(718),
               child: Stack(
                 children: <Widget>[
                   new Positioned(

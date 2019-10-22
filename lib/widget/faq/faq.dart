@@ -116,12 +116,12 @@ class _FaqState extends State<Faq>{
             ),
           ),
           appBar: new MyBaseBar(
-            child: new AfterLoginAppBar(),
+            child: new AfterLoginFaqAppBar(),
           ),
           body: new Container(
             color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Container(
-              padding: EdgeInsets.only(top: 60),
+              // padding: EdgeInsets.only(top: 60),
               decoration: BoxDecoration(
                 color: Color(0xf2f4f8),
                 boxShadow: [
@@ -182,7 +182,7 @@ class _FaqItemState extends State<FaqItem>{
             ),
             boxShadow: [
               BoxShadow(
-                color: Color.fromRGBO(70, 116, 182, 0.09),
+                color: Color.fromRGBO(70, 116, 182, 0.03),
                               offset: Offset(0, -24),
                               blurRadius: 48)
             ]

@@ -223,7 +223,7 @@ class _SellPageState extends State<SellPage> {
                                   child: new Row(
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(25),
+                                        width: 40,
                                         child: new Text('FROM',
                                         textAlign: TextAlign.right,
                                             style: new TextStyle(
@@ -246,7 +246,6 @@ class _SellPageState extends State<SellPage> {
                                                 BorderRadius.circular(4)),
                                         child: new FlatButton(
                                           padding: EdgeInsets.all(0),
-                                          onPressed: (){},
                                           child: new Center(
                                           child: new Container(
                                             padding: EdgeInsets.only(
@@ -305,7 +304,7 @@ class _SellPageState extends State<SellPage> {
                                   child: new Row(
                                     children: <Widget>[
                                       new Container(
-                                        width: ScreenUtil().setWidth(25),
+                                        width: 40,
                                         child: new Text('TO',
                                         textAlign: TextAlign.right,
                                             style: new TextStyle(
@@ -328,7 +327,6 @@ class _SellPageState extends State<SellPage> {
                                                 BorderRadius.circular(4)),
                                         child: new FlatButton(
                                           padding: EdgeInsets.all(0),
-                                          onPressed: (){},
                                           child: new Center(
                                           child: new Container(
                                             padding: EdgeInsets.only(
@@ -414,12 +412,7 @@ class _SellPageState extends State<SellPage> {
                                     child: new Text(
                                   'CANCEL',
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      // fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      letterSpacing: ScreenUtil().setSp(3.5)),
+                                  style: UtilStyle.formSubmitFont,
                                 ))
                               ],
                             ),
@@ -449,12 +442,7 @@ class _SellPageState extends State<SellPage> {
                                       child: new Text(
                                     'SELL',
                                     textAlign: TextAlign.center,
-                                    style: new TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        // fontFamily: 'GothamRnd',
-                                        fontSize: ScreenUtil().setSp(12),
-                                        color: Color.fromRGBO(0, 0, 0, 1),
-                                        letterSpacing: ScreenUtil().setSp(3.5)),
+                                    style: UtilStyle.formSubmitFont,
                                   ))
                                 ],
                               ),

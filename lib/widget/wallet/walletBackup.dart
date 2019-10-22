@@ -65,9 +65,13 @@ class _WalletBackupState extends State<WalletBackup> {
                           child: new Row(
                             children: <Widget>[
                               new Container(
-                                height: 24,
+                                height: 21,
                                 width: 27,
-                                child: new Icon(Icons.mail),
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(4)
+                                ),
+                                child: new Icon(Icons.mail_outline,color: Colors.white,size: 14,),
                               ),
                               new Container(
                                 margin: EdgeInsets.only(
@@ -82,7 +86,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                       '43021736-625b-42f3-9b79-21fd0216f00d',
                                       style: TextStyle(
                                           // fontFamily: 'GothamRnd',
-                                          fontSize: ScreenUtil().setSp(12),
+                                          fontSize: 12,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -151,7 +155,8 @@ class _WalletBackupState extends State<WalletBackup> {
                                 hintStyle: TextStyle(
                                     fontSize: ScreenUtil().setSp(10),
                                     color: Color.fromRGBO(0, 0, 0, 0.35),
-                                    fontFamily: 'GothamRnd')),
+                                    fontWeight: FontWeight.bold
+                                    )),
                           ),
                         ),
                         new Container(
@@ -238,12 +243,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                     child: new Text(
                                   'CANCEL',
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      // fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      letterSpacing: ScreenUtil().setSp(3.5)),
+                                  style: UtilStyle.formSubmitFont,
                                 ))
                               ],
                             ),
@@ -263,12 +263,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                   child: new Text(
                                 'BACKUP WALLET',
                                 textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    // fontFamily: 'GothamRnd',
-                                    fontSize: ScreenUtil().setSp(12),
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    letterSpacing: ScreenUtil().setSp(3.5)),
+                                style: UtilStyle.formSubmitFont,
                               ))
                             ],
                           ),

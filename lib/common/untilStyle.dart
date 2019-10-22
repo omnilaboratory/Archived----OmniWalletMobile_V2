@@ -19,7 +19,7 @@ class UtilStyle {
       fontSize: 10,
       color: Color.fromRGBO(0, 0, 0, 0.5));
   static var addressButtonFont = new TextStyle(
-      // fontFamily: 'GothamRnd',
+    fontWeight: FontWeight.bold,
       fontSize: 10,
       color: Color.fromRGBO(0, 0, 0, 0.5),
       letterSpacing: -0.24);
@@ -52,9 +52,9 @@ class UtilStyle {
   static var formSubmitFont = new TextStyle(
       fontWeight: FontWeight.bold,
       // fontFamily: 'GothamRnd',
-      fontSize: 12,
+      fontSize: 13,
       color: Color.fromRGBO(0, 0, 0, 1),
-      letterSpacing: 3.5);
+      letterSpacing: 2);
   static var formTitleFont = new TextStyle(
       fontWeight: FontWeight.bold,
       // fontFamily: 'GothamRnd',
@@ -67,8 +67,7 @@ class UtilStyle {
       color: Color.fromRGBO(0, 0, 0, 0.5),);
   static var formSelectFont = new TextStyle(
       fontWeight: FontWeight.bold,
-      // fontFamily: 'GothamRnd',
-      fontSize: 10,
+      fontSize: 12,
       color: Color.fromRGBO(0, 0, 0, 1));
   static var formKeyFont = new TextStyle(
       fontWeight: FontWeight.bold,

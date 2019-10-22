@@ -451,9 +451,8 @@ class _AddressItemState extends State<AddressItem> {
                                   item['id'],
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      fontSize: ScreenUtil().setSp(10),
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'GothamRnd'),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,),
                                 ),
                               ),
                               new Container(
@@ -481,9 +480,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             "PUBKEY",
                                             style: TextStyle(
-                                              fontSize:
-                                                  ScreenUtil().setHeight(16),
-                                              // fontFamily: 'GothamRnd',
+                                              fontSize:16,
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -498,9 +495,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             "SIGN MESSAGE",
                                             style: TextStyle(
-                                              fontSize:
-                                                  ScreenUtil().setHeight(16),
-                                              // fontFamily: 'GothamRnd',
+                                              fontSize:16,
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -515,9 +510,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             "REMOVE FROM WALLET",
                                             style: TextStyle(
-                                              fontSize:
-                                                  ScreenUtil().setHeight(16),
-                                              // fontFamily: 'GothamRnd',
+                                              fontSize:16,
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),

@@ -31,9 +31,33 @@ class LoginAppBar extends StatelessWidget{
             automaticallyImplyLeading: false,
             elevation: 0.0,
             backgroundColor: isHome?Color.fromRGBO(70, 116, 182, 0.10):Color.fromRGBO(242, 244, 248, 1),
-            title: new Container(
-              height: ScreenUtil().setHeight(32),
-              child: new Image.asset('images/headLogo.png'),
+            title: isHome?new Container():new Container(
+              height: 40,
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusDirectional.circular(32),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(70, 116, 182, 0.15),
+                          offset: Offset(3, 8),
+                          blurRadius: 8
+                        )
+                      ]
+                    ),
+                    child: new Image.asset('images/logo.png'),
+                  ),
+                  new Container(
+                    margin: EdgeInsets.only(left: 5),
+                    height: 26,
+                    child: new Image.asset('images/omni.png'),
+                  )
+                ],
+              )
             ),
             actions: <Widget>[
               new Container(
@@ -70,20 +94,46 @@ class AfterLoginAppBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new AppBar(
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.1),
+            backgroundColor: Color.fromRGBO(70, 116, 182, 0.068),
             elevation: 0,
             automaticallyImplyLeading: false,
             title: new Container(
-              height: ScreenUtil().setHeight(32),
-              child: new Image.asset('images/headLogo.png'),
+              height: 40,
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusDirectional.circular(32),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(70, 116, 182, 0.12),
+                          offset: Offset(4, 4),
+                          blurRadius: 4
+
+                        )
+                      ]
+                    ),
+                    child: new Image.asset('images/logo.png'),
+                  ),
+                  new Container(
+                    margin: EdgeInsets.only(left: 5),
+                    height: 26,
+                    child: new Image.asset('images/omni.png'),
+                  )
+                ],
+              )
             ),
             actions: <Widget>[
               new Container(
                 margin: EdgeInsets.only(right: ScreenUtil().setWidth(10)),
-                height: ScreenUtil().setHeight(32),
-                width: ScreenUtil().setWidth(32),
-                decoration:
-                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
+                height: 36,
+                    width: 36,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusDirectional.circular(32),
+                    ),
                 child: new FlatButton(
                   padding: EdgeInsets.all(0),
                   onPressed: () {
@@ -113,20 +163,44 @@ class AfterLoginFaqAppBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new AppBar(
-            backgroundColor: Color.fromRGBO(70, 116, 182, 0.10),
+            backgroundColor: Color.fromRGBO(70, 116, 182, 0.07),
             elevation: 0,
             automaticallyImplyLeading: false,
             title: new Container(
-              height: ScreenUtil().setHeight(32),
-              child: new Image.asset('images/headLogo.png'),
+              height: 40,
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusDirectional.circular(32),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(70, 116, 182, 0.12),
+                          offset: Offset(4, 4),
+                          blurRadius: 4
+
+                        )
+                      ]
+                    ),
+                    child: new Image.asset('images/logo.png'),
+                  ),
+                  new Container(
+                    margin: EdgeInsets.only(left: 5),
+                    height: 26,
+                    child: new Image.asset('images/omni.png'),
+                  )
+                ],
+              )
             ),
             actions: <Widget>[
               new Container(
                 margin: EdgeInsets.only(right: ScreenUtil().setWidth(10)),
                 height: ScreenUtil().setHeight(32),
                 width: ScreenUtil().setWidth(32),
-                decoration:
-                    new BoxDecoration(borderRadius: BorderRadius.circular(46)),
+                decoration:new BoxDecoration(borderRadius: BorderRadius.circular(46)),
                 child: new FlatButton(
                   padding: EdgeInsets.all(0),
                   onPressed: () {

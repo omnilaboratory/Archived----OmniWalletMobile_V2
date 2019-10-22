@@ -368,12 +368,7 @@ class _SendPageState extends State<SendPage> {
                                     child: new Text(
                                   'CANCEL',
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      // fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      letterSpacing: ScreenUtil().setSp(3.5)),
+                                  style: UtilStyle.formSubmitFont,
                                 ))
                               ],
                             ),
@@ -401,12 +396,7 @@ class _SendPageState extends State<SendPage> {
                                   child: new Text(
                                 'SEND',
                                 textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    // fontFamily: 'GothamRnd',
-                                    fontSize: ScreenUtil().setSp(12),
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    letterSpacing: ScreenUtil().setSp(3.5)),
+                                style: UtilStyle.formSubmitFont,
                               ))
                             ],
                           ),

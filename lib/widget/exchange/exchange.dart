@@ -361,9 +361,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                             ),
                             child: new FlatButton(
                               onPressed: () {
-                                tradeHeight = 538;
+                                tradeHeight = ScreenUtil().setHeight(630);
                                 offerHeight = 68;
-                                tradeTableHeight = 420;
+                                tradeTableHeight = ScreenUtil().setHeight(510);
                                 tradeTableIsShow = true;
                                 offerTableIsShow = false;
                                 nowShow ='TRADE';
@@ -540,9 +540,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                             ),
                             child: new FlatButton(
                               onPressed: () {
-                                tradeHeight = 538;
-                                offerHeight = 470;
-                                offerTableHeight = 360;
+                                tradeHeight = ScreenUtil().setHeight(630);
+                                offerHeight = ScreenUtil().setHeight(560);
+                                offerTableHeight = ScreenUtil().setHeight(450);
                                 tradeTableIsShow = true;
                                 offerTableIsShow = true;
                                 nowShow = 'OFFER';

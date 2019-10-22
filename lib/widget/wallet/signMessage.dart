@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -152,12 +153,7 @@ class _SignMessageState extends State<SignMessage> {
                                     child: new Text(
                                   'CANCEL',
                                   textAlign: TextAlign.center,
-                                  style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      // fontFamily: 'GothamRnd',
-                                      fontSize: ScreenUtil().setSp(12),
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      letterSpacing: ScreenUtil().setSp(3.5)),
+                                  style: UtilStyle.formSubmitFont,
                                 ))
                               ],
                             ),
@@ -177,12 +173,7 @@ class _SignMessageState extends State<SignMessage> {
                                   child: new Text(
                                 'SIGN MESSAGE',
                                 textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    // fontFamily: 'GothamRnd',
-                                    fontSize: ScreenUtil().setSp(12),
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    letterSpacing: ScreenUtil().setSp(3.5)),
+                                style: UtilStyle.formSubmitFont,
                               ))
                             ],
                           ),

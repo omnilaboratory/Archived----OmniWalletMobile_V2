@@ -51,12 +51,8 @@ class Home extends StatelessWidget {
                               EdgeInsets.only(top: ScreenUtil().setHeight(12)),
                           child: new Text('WALLET',
                               textAlign: TextAlign.center,
-                              style: new TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 11,
-                                  color: Color.fromRGBO(128, 168, 226, 1),
-                                  letterSpacing: 12)),
-                        ),
+                              style: UtilStyle.tagTitleFontActive,
+                        ),)
                       ],
                     ),
                   ),
