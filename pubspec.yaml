@@ -86,6 +86,9 @@ dependencies:
 
   url_launcher: ^5.0.2
 
+  # for use svg
+  flutter_svg: ^0.14.3
+
 
   
 
@@ -108,6 +111,14 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - images/
+   - svg/security.svg
+   - svg/usability.svg
+   - svg/support.svg
+   - svg/foundation.svg
+   - svg/book.svg
+   - svg/github.svg
+   - svg/mail.svg
+   - svg/protocol.svg
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

@@ -16,6 +16,7 @@ import 'package:omni/widget/home/home.dart';
 import 'package:omni/widget/login/LoginAndCreate.dart';
 import 'package:omni/widget/exchange/exchange.dart';
 import 'package:omni/widget/explorer/explorer.dart';
+import 'package:omni/widget/about/about.dart';
 
 // void main() => runApp(MyApp());
 void main( ){
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/explorer':(BuildContext context) => new Explorer(),
         '/setting':(BuildContext context) => new Setting(),
         '/faq':(BuildContext context) => new Faq(),
+        '/about':(BuildContext context) => new About(),
       },
     ),
     );

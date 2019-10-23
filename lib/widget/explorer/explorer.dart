@@ -132,7 +132,7 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
               
               onPressed: () {
                 showDialog<Null>(
-                    context: context, //BuildContext对象
+                    context: context, 
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();

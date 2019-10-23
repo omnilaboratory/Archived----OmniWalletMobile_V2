@@ -88,7 +88,7 @@ class _AddressFullState extends State<AddressFull>
                               padding: EdgeInsets.all(0),
                               onPressed: () {
                                 showDialog<Null>(
-                                    context: context, //BuildContext对象
+                                    context: context, 
                                     barrierDismissible: false,
                                     builder: (BuildContext context) {
                                       return new AddressFullMenu();
@@ -968,7 +968,7 @@ class _TransctionTable extends State<TransctionTable> {
       Widget item = new Container(
         child: new FlatButton(
           onPressed: (){
-            showDialog<Null>(context: context, //BuildContext对象
+            showDialog<Null>(context: context, 
               barrierDismissible: false,
               builder: (BuildContext context) {
                 // return new AddressSendDetail();

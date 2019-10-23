@@ -38,7 +38,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
   List<Map<String, Object>> marketData = [];
 
   String nowShow = '';
-  // 获取Market数据
+  // get data about market
   void _getMarketData() {
     marketData = [
       {'id': '#3', 'name': 'MAIDSAFECOIN', 'price': '0.09', 'supply': '1735.0'},
@@ -69,7 +69,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
     ];
   }
 
-  // 获取Trade数据
+  // get data about trade
   void _getTradeData() {
     tradeData = [
       {'id': '#3', 'price': 'MAIDSAFECOIN', 'fees': '0.09', 'blocks': '100'},
@@ -100,7 +100,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
     ];
   }
 
-// 获取Offer数据
+// get data about offer
   void _getOfferData() {
     offerData = [
       {'id': '#3', 'price': 'MAIDSAFECOIN', 'amount': '0.09', 'total': '100'},
@@ -188,7 +188,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
             child: new FlatButton(
               onPressed: () {
                 showDialog<Null>(
-                    context: context, //BuildContext对象
+                    context: context, 
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();
@@ -297,7 +297,6 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                     style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w700,
-                                                      // fontFamily: 'GothamRnd',
                                                       fontSize: ScreenUtil()
                                                           .setSp(10),
                                                       color: Color.fromRGBO(

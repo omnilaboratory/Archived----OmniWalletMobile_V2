@@ -85,6 +85,7 @@ class _FaqState extends State<Faq>{
       'content':"Just like buying coins, you can sell your coins. On the Trade page click 'Start new Sale Offer'. Choose the type of coin to sell and the address you.re selling from. Set a price per coin, payment time frame and buyer.s fee. Confirm the information and create your sale. If your sale is accepted/valid the number of coins you put up for sale will be reserved from your available balance until it is sold."
     },
   ];
+
   List<Widget> buildFaqList(){
     List<Widget> listUI = [];
     for (var i =0;i<faqData.length;i++){
@@ -92,6 +93,7 @@ class _FaqState extends State<Faq>{
     }
     return listUI;
   }
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<LocalModel>(
@@ -103,7 +105,7 @@ class _FaqState extends State<Faq>{
             child: new FlatButton(
               onPressed: () {
                 showDialog<Null>(
-                    context: context, //BuildContext对象
+                    context: context, 
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();
@@ -150,21 +152,25 @@ class _FaqState extends State<Faq>{
 }
 
 class FaqItem extends StatefulWidget{
+  FaqItem({Key key,this.data,this.idx}):super(key:key);
+
   final Map<String,Object> data;
   final int idx;
-  FaqItem({Key key,this.data,this.idx}):super(key:key);
+
   _FaqItemState createState() => new _FaqItemState();
 }
 
 class _FaqItemState extends State<FaqItem>{
   Map<String,Object> data;
   int idx;
+
   @override
   void initState() {
     super.initState();
     data = widget.data;
     idx = widget.idx;
   }
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<LocalModel>(

@@ -75,7 +75,7 @@ class _SellPageState extends State<SellPage> {
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {
                                         showDialog<Null>(
-                                            context: context, //BuildContext对象
+                                            context: context, 
                                             barrierDismissible: false,
                                             builder: (BuildContext context) {
                                               return new AddressChildMenu();
