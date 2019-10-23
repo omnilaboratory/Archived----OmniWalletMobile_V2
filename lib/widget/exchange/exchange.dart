@@ -188,7 +188,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
             child: new FlatButton(
               onPressed: () {
                 showDialog<Null>(
-                    context: context, 
+                    context: context,
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();
@@ -260,7 +260,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                       new Container(
                                         child: new Text(
                                           'MARKETS',
-                                          style: nowShow=='MARKET'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,
+                                          style: nowShow == 'MARKET'
+                                              ? UtilStyle.tagTitleFontActive
+                                              : UtilStyle.tagTitleFont,
                                         ),
                                       ),
                                       new Container(
@@ -268,10 +270,10 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                           padding: EdgeInsets.all(0),
                                           onPressed: () {
                                             Navigator.push(context,
-                                                  new MaterialPageRoute(
-                                                      builder: (BuildContext context) {
-                                                return new NewMarket();
-                                              }));
+                                                new MaterialPageRoute(builder:
+                                                    (BuildContext context) {
+                                              return new NewMarket();
+                                            }));
                                           },
                                           child: new Container(
                                             child: new Row(
@@ -365,7 +367,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                 tradeTableHeight = ScreenUtil().setHeight(510);
                                 tradeTableIsShow = true;
                                 offerTableIsShow = false;
-                                nowShow ='TRADE';
+                                nowShow = 'TRADE';
                                 setState(() {});
                               },
                               padding: EdgeInsets.all(0),
@@ -384,7 +386,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             margin: EdgeInsets.only(right: 6),
                                             child: new Text(
                                               'TRADE',
-                                              style:nowShow=='TRADE'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,
+                                              style: nowShow == 'TRADE'
+                                                  ? UtilStyle.tagTitleFontActive
+                                                  : UtilStyle.tagTitleFont,
                                             ),
                                           ),
                                           new Container(
@@ -427,8 +431,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               new Container(
                                                 width:
                                                     ScreenUtil().setWidth(24),
-                                                height:
-                                                   24,
+                                                height: 24,
                                                 child: new Image(
                                                   width: 14,
                                                   height: 14,
@@ -437,8 +440,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                               new Container(
-                                                margin: EdgeInsets.only(
-                                                    left: 4),
+                                                margin:
+                                                    EdgeInsets.only(left: 4),
                                                 child: new Text(
                                                   '$tradeDataType',
                                                   style: TextStyle(
@@ -463,8 +466,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             child: new Text(
                                               "ALL",
                                               style: TextStyle(
-                                                fontSize:
-                                                    10,
+                                                fontSize: 10,
                                                 // fontFamily: 'GothamRnd',
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
@@ -563,7 +565,9 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             margin: EdgeInsets.only(right: 6),
                                             child: new Text(
                                               'MY OFFERS',
-                                              style: nowShow=='OFFER'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,
+                                              style: nowShow == 'OFFER'
+                                                  ? UtilStyle.tagTitleFontActive
+                                                  : UtilStyle.tagTitleFont,
                                             ),
                                           ),
                                         ],
@@ -587,8 +591,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                               new Container(
                                                 width:
                                                     ScreenUtil().setWidth(24),
-                                                height:
-                                                    24,
+                                                height: 24,
                                                 child: new Image(
                                                   width: 14,
                                                   height: 14,
@@ -624,7 +627,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                             child: new Text(
                                               "ALL",
                                               style: TextStyle(
-                                                fontSize:10,
+                                                fontSize: 10,
                                                 // fontFamily: 'GothamRnd',
                                                 fontWeight: FontWeight.bold,
                                                 color: Color.fromRGBO(
@@ -784,16 +787,15 @@ class _MarketTableRowState extends State<MarketTableRow> {
   Widget build(BuildContext context) {
     return new Container(
       child: new FlatButton(
-        onPressed: (){
-          Map<String,Object> item = {
-            'id':id,
-            'name':name,
-            'price':price,
-            'supply':supply,
+        onPressed: () {
+          Map<String, Object> item = {
+            'id': id,
+            'name': name,
+            'price': price,
+            'supply': supply,
           };
           Navigator.push(context,
-              new MaterialPageRoute(
-                  builder: (BuildContext context) {
+              new MaterialPageRoute(builder: (BuildContext context) {
             return new MarketBuy(item: item);
           }));
         },
@@ -1094,54 +1096,53 @@ class _OfferTableRowState extends State<OfferTableRow> {
     return new Container(
       child: new FlatButton(
         padding: EdgeInsets.all(0),
-        onPressed: (){
-          Map<String,Object> item = {
-            'id':id,
-            'amount':amount,
-            'price':price,
-            'total':total,
+        onPressed: () {
+          Map<String, Object> item = {
+            'id': id,
+            'amount': amount,
+            'price': price,
+            'total': total,
           };
           Navigator.push(context,
-              new MaterialPageRoute(
-                  builder: (BuildContext context) {
+              new MaterialPageRoute(builder: (BuildContext context) {
             return new OfferPop(item: item);
           }));
         },
         child: new Container(
-      padding: EdgeInsets.only(top: 12, bottom: 12),
-      child: new Row(
-        children: <Widget>[
-          new Container(
-            width: ScreenUtil().setWidth(114),
-            child: new Text(
-              id,
-              style: UtilStyle.tableContentFont,
-            ),
+          padding: EdgeInsets.only(top: 12, bottom: 12),
+          child: new Row(
+            children: <Widget>[
+              new Container(
+                width: ScreenUtil().setWidth(114),
+                child: new Text(
+                  id,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+              new Container(
+                width: ScreenUtil().setWidth(119),
+                child: new Text(
+                  price,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+              new Container(
+                width: ScreenUtil().setWidth(68),
+                child: new Text(
+                  amount,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+              new Container(
+                width: ScreenUtil().setWidth(39),
+                child: new Text(
+                  total,
+                  style: UtilStyle.tableContentFont,
+                ),
+              ),
+            ],
           ),
-          new Container(
-            width: ScreenUtil().setWidth(119),
-            child: new Text(
-              price,
-              style: UtilStyle.tableContentFont,
-            ),
-          ),
-          new Container(
-            width: ScreenUtil().setWidth(68),
-            child: new Text(
-              amount,
-              style: UtilStyle.tableContentFont,
-            ),
-          ),
-          new Container(
-            width: ScreenUtil().setWidth(39),
-            child: new Text(
-              total,
-              style: UtilStyle.tableContentFont,
-            ),
-          ),
-        ],
-      ),
-    ),
+        ),
       ),
     );
   }

@@ -75,7 +75,7 @@ class _SellPageState extends State<SellPage> {
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {
                                         showDialog<Null>(
-                                            context: context, 
+                                            context: context,
                                             barrierDismissible: false,
                                             builder: (BuildContext context) {
                                               return new AddressChildMenu();
@@ -97,7 +97,8 @@ class _SellPageState extends State<SellPage> {
                                             new Container(
                                               child: new Text('ADD ADDRESS',
                                                   style: new TextStyle(
-                                                    fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       color: Colors.black,
                                                       // fontFamily: 'GothamRnd',
                                                       fontSize: ScreenUtil()
@@ -225,7 +226,7 @@ class _SellPageState extends State<SellPage> {
                                       new Container(
                                         width: 40,
                                         child: new Text('FROM',
-                                        textAlign: TextAlign.right,
+                                            textAlign: TextAlign.right,
                                             style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 10,
@@ -247,37 +248,42 @@ class _SellPageState extends State<SellPage> {
                                         child: new FlatButton(
                                           padding: EdgeInsets.all(0),
                                           child: new Center(
-                                          child: new Container(
-                                            padding: EdgeInsets.only(
-                                              left: ScreenUtil().setWidth(4)
-                                            ),
-                                            child: new Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: <Widget>[
-                                                new Container(
-                                                  child: new Text(
-                                                    'OMNI',
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(8),
-                                                        // fontFamily: 'GothamRnd',
-                                                        color: Color.fromRGBO(
-                                                            0, 0, 0, 1),
-                                                        letterSpacing:
-                                                            ScreenUtil()
-                                                                .setSp(-0.24)),
+                                            child: new Container(
+                                              padding: EdgeInsets.only(
+                                                  left:
+                                                      ScreenUtil().setWidth(4)),
+                                              child: new Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: <Widget>[
+                                                  new Container(
+                                                    child: new Text(
+                                                      'OMNI',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: ScreenUtil()
+                                                              .setSp(8),
+                                                          // fontFamily: 'GothamRnd',
+                                                          color: Color.fromRGBO(
+                                                              0, 0, 0, 1),
+                                                          letterSpacing:
+                                                              ScreenUtil()
+                                                                  .setSp(
+                                                                      -0.24)),
+                                                    ),
                                                   ),
-                                                ),
-                                                new Container(
-                                                  child: new Icon(Icons.keyboard_arrow_down,size: ScreenUtil().setHeight(20),),
-                                                )
-                                              ],
+                                                  new Container(
+                                                    child: new Icon(
+                                                      Icons.keyboard_arrow_down,
+                                                      size: ScreenUtil()
+                                                          .setHeight(20),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      
                                         ),
                                       ),
                                       new Container(
@@ -306,7 +312,7 @@ class _SellPageState extends State<SellPage> {
                                       new Container(
                                         width: 40,
                                         child: new Text('TO',
-                                        textAlign: TextAlign.right,
+                                            textAlign: TextAlign.right,
                                             style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 10,
@@ -328,37 +334,42 @@ class _SellPageState extends State<SellPage> {
                                         child: new FlatButton(
                                           padding: EdgeInsets.all(0),
                                           child: new Center(
-                                          child: new Container(
-                                            padding: EdgeInsets.only(
-                                              left: ScreenUtil().setWidth(4)
-                                            ),
-                                            child: new Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: <Widget>[
-                                                new Container(
-                                                  child: new Text(
-                                                    'OMNI',
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(8),
-                                                        // fontFamily: 'GothamRnd',
-                                                        color: Color.fromRGBO(
-                                                            0, 0, 0, 1),
-                                                        letterSpacing:
-                                                            ScreenUtil()
-                                                                .setSp(-0.24)),
+                                            child: new Container(
+                                              padding: EdgeInsets.only(
+                                                  left:
+                                                      ScreenUtil().setWidth(4)),
+                                              child: new Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: <Widget>[
+                                                  new Container(
+                                                    child: new Text(
+                                                      'OMNI',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: ScreenUtil()
+                                                              .setSp(8),
+                                                          // fontFamily: 'GothamRnd',
+                                                          color: Color.fromRGBO(
+                                                              0, 0, 0, 1),
+                                                          letterSpacing:
+                                                              ScreenUtil()
+                                                                  .setSp(
+                                                                      -0.24)),
+                                                    ),
                                                   ),
-                                                ),
-                                                new Container(
-                                                  child: new Icon(Icons.keyboard_arrow_down,size: ScreenUtil().setHeight(20),),
-                                                )
-                                              ],
+                                                  new Container(
+                                                    child: new Icon(
+                                                      Icons.keyboard_arrow_down,
+                                                      size: ScreenUtil()
+                                                          .setHeight(20),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      
                                         ),
                                       ),
                                       new Container(
@@ -377,7 +388,6 @@ class _SellPageState extends State<SellPage> {
                                     ],
                                   ),
                                 ),
-                              
                               ],
                             ),
                           )

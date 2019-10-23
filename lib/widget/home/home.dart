@@ -14,12 +14,10 @@ class Home extends StatelessWidget {
       builder: (context, child, model) {
         return new Scaffold(
           appBar: MyBaseBar(
-            child: LoginAppBar(
-              isHome:true
-            ),
+            child: LoginAppBar(isHome: true),
           ),
           body: new Container(
-            // color: Color.fromRGBO(242, 244, 248, 1),
+              // color: Color.fromRGBO(242, 244, 248, 1),
               height: ScreenUtil().setHeight(812),
               child: new Stack(
                 children: <Widget>[
@@ -49,10 +47,12 @@ class Home extends StatelessWidget {
                         new Container(
                           padding:
                               EdgeInsets.only(top: ScreenUtil().setHeight(12)),
-                          child: new Text('WALLET',
-                              textAlign: TextAlign.center,
-                              style: UtilStyle.tagTitleFontActive,
-                        ),)
+                          child: new Text(
+                            'WALLET',
+                            textAlign: TextAlign.center,
+                            style: UtilStyle.tagTitleFontActive,
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -95,10 +95,10 @@ class Home extends StatelessWidget {
                                       model.changeLoginType('login');
                                       print(model.loginType);
                                       Navigator.push(context,
-                                                  new MaterialPageRoute(
-                                                      builder: (BuildContext context) {
-                                                return new LoginAndCreate();
-                                              }));
+                                          new MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                        return new LoginAndCreate();
+                                      }));
                                     },
                                     child: new Text(
                                         Language.login[model.language],
@@ -116,10 +116,10 @@ class Home extends StatelessWidget {
                                     onPressed: () {
                                       model.changeLoginType('create');
                                       Navigator.push(context,
-                                                  new MaterialPageRoute(
-                                                      builder: (BuildContext context) {
-                                                return new LoginAndCreate();
-                                              }));
+                                          new MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                        return new LoginAndCreate();
+                                      }));
                                     },
                                     child: new Text(
                                         Language.create[model.language],

@@ -30,9 +30,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
           appBar: MyBaseBar(
-            child: LoginAppBar(
-              isHome:false
-            ),
+            child: LoginAppBar(isHome: false),
           ),
           body: new Container(
             color: Color.fromRGBO(242, 244, 248, 1),
@@ -75,7 +73,9 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                               },
                               child: new Text(Language.login[model.language],
                                   textAlign: TextAlign.center,
-                                  style: model.loginType == 'login'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont),
+                                  style: model.loginType == 'login'
+                                      ? UtilStyle.tagTitleFontActive
+                                      : UtilStyle.tagTitleFont),
                             ),
                           ),
                           new Container(
@@ -87,13 +87,14 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                             width: ScreenUtil().setWidth(186),
                             height: ScreenUtil().setHeight(48),
                             child: new FlatButton(
-                              onPressed: () {
-                                model.changeLoginType('create');
-                              },
-                              child: new Text(Language.create[model.language],
-                                  textAlign: TextAlign.center,
-                                  style: model.loginType == 'create'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont)
-                            ),
+                                onPressed: () {
+                                  model.changeLoginType('create');
+                                },
+                                child: new Text(Language.create[model.language],
+                                    textAlign: TextAlign.center,
+                                    style: model.loginType == 'create'
+                                        ? UtilStyle.tagTitleFontActive
+                                        : UtilStyle.tagTitleFont)),
                           ),
                         ],
                       ),

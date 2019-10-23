@@ -40,8 +40,7 @@ class _WalletImportState extends State<WalletImport> {
                       boxShadow: [
                         BoxShadow(
                             color: Color.fromRGBO(82, 135, 210, 0.25),
-                            offset: Offset(0,24
-                            ),
+                            offset: Offset(0, 24),
                             blurRadius: 48.0,
                             spreadRadius: 2.0),
                       ],
@@ -76,12 +75,11 @@ class _WalletImportState extends State<WalletImport> {
                             height: ScreenUtil().setHeight(65),
                             decoration: BoxDecoration(
                               color: Color.fromRGBO(74, 119, 183, 0.1),
-                              borderRadius:
-                                  BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color.fromRGBO(0, 0, 0, 0.12),
-                                    offset: Offset(0,8),
+                                    offset: Offset(0, 8),
                                     blurRadius: 24,
                                     spreadRadius: 0),
                               ],
@@ -112,8 +110,8 @@ class _WalletImportState extends State<WalletImport> {
                                               BoxShadow(
                                                   color: Color.fromRGBO(
                                                       74, 119, 183, 0.5),
-                                                  offset: Offset(0,12),
-                                                  blurRadius:24,
+                                                  offset: Offset(0, 12),
+                                                  blurRadius: 24,
                                                   spreadRadius: 0.0),
                                             ],
                                           ),
@@ -122,7 +120,7 @@ class _WalletImportState extends State<WalletImport> {
                                               style: new TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 // fontFamily: 'GothamRnd',
-                                                fontSize:12,
+                                                fontSize: 12,
                                                 color: Colors.white,
                                               )),
                                         ),
@@ -153,7 +151,7 @@ class _WalletImportState extends State<WalletImport> {
                                                 style: new TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   // fontFamily: 'GothamRnd',
-                                                  fontSize:10,
+                                                  fontSize: 10,
                                                   color: Color.fromRGBO(
                                                       0, 0, 0, 0.35),
                                                 )),
@@ -178,8 +176,8 @@ class _WalletImportState extends State<WalletImport> {
                                                 BoxShadow(
                                                     color: Color.fromRGBO(
                                                         74, 119, 183, 0.5),
-                                                    offset: Offset(0,12),
-                                                    blurRadius:24,
+                                                    offset: Offset(0, 12),
+                                                    blurRadius: 24,
                                                     spreadRadius: 0.0),
                                               ],
                                             ),
@@ -188,7 +186,7 @@ class _WalletImportState extends State<WalletImport> {
                                                 style: new TextStyle(
                                                   // fontFamily: 'GothamRnd',
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize:12,
+                                                  fontSize: 12,
                                                   color: Colors.white,
                                                 )))
                                       ],

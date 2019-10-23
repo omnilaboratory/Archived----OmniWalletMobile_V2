@@ -83,7 +83,7 @@ class _AddressState extends State<Address> with SingleTickerProviderStateMixin {
                               padding: EdgeInsets.all(0),
                               onPressed: () {
                                 showDialog<Null>(
-                                    context: context, 
+                                    context: context,
                                     barrierDismissible: false,
                                     builder: (BuildContext context) {
                                       return new AddressMenu();
@@ -105,7 +105,7 @@ class _AddressState extends State<Address> with SingleTickerProviderStateMixin {
                                     new Container(
                                       child: new Text('ADD ADDRESS',
                                           style: new TextStyle(
-                                            fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                               // fontFamily: 'GothamRnd',
                                               fontSize: ScreenUtil().setSp(10),
@@ -242,7 +242,7 @@ class AddressTypeItem extends StatelessWidget {
                                         letterSpacing: ScreenUtil().setSp(1.5)),
                                   ),
                                 ),
-                                ],
+                              ],
                             )),
                         new Container(
                           child: new Text(

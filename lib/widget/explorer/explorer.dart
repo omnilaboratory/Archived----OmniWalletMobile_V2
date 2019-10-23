@@ -6,11 +6,11 @@ import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/menu/footMenu.dart';
 
-class Explorer extends StatefulWidget{
+class Explorer extends StatefulWidget {
   _ExplorerState createState() => new _ExplorerState();
 }
 
-class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
+class _ExplorerState extends State<Explorer> with TickerProviderStateMixin {
   Animation<double> assetsAnimation;
   AnimationController assetsController;
 
@@ -22,64 +22,261 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
   bool activeTableIsShow = true;
   String nowShow = '';
 
-  List<Map<String,Object>> assetsData=[];
-  List<Map<String,Object>> activeData=[];
+  List<Map<String, Object>> assetsData = [];
+  List<Map<String, Object>> activeData = [];
 
-  void _getAssetsData(){
+  void _getAssetsData() {
     assetsData = [
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
-      {'id':'343','name':'aal','amount':'69.00000001','url':'faucethub.io/mining'},
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
+      {
+        'id': '343',
+        'name': 'aal',
+        'amount': '69.00000001',
+        'url': 'faucethub.io/mining'
+      },
     ];
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
-  void _getActiveData(){
+  void _getActiveData() {
     activeData = [
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
-      {'name':'BITKRUBITKRU','currency':'OMNI TOKEN','bought':'409834994','created':'409834994'},
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
+      {
+        'name': 'BITKRUBITKRU',
+        'currency': 'OMNI TOKEN',
+        'bought': '409834994',
+        'created': '409834994'
+      },
     ];
-    setState(() {
-      
-    });
+    setState(() {});
   }
+
   @override
   void initState() {
     super.initState();
@@ -101,16 +298,11 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
         });
       });
     activeController.forward();
-    setState(() {
-      
+    setState(() {});
+    Future.delayed(Duration(milliseconds: 10), () {
+      this._getAssetsData();
+      this._getActiveData();
     });
-    Future.delayed(
-      Duration(milliseconds:10),
-      (){
-        this._getAssetsData();
-        this._getActiveData();
-      }
-    );
   }
 
   @override
@@ -123,16 +315,15 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<LocalModel>(
-      builder: (context,child,model){
+      builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new Container(
             width: ScreenUtil().setSp(45),
             height: ScreenUtil().setSp(45),
             child: new FlatButton(
-              
               onPressed: () {
                 showDialog<Null>(
-                    context: context, 
+                    context: context,
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();
@@ -144,7 +335,6 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
               ),
             ),
           ),
-          
           appBar: MyBaseBar(
             child: AfterLoginAppBar(),
           ),
@@ -154,56 +344,55 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
               children: <Widget>[
                 Positioned(
                   bottom: (assetsController.value - 1) *
-                        ScreenUtil().setHeight(702),
+                      ScreenUtil().setHeight(702),
                   child: new Container(
                     width: ScreenUtil().setWidth(376),
-                      height: ScreenUtil().setHeight(702),
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(242, 244, 248, 1),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(44),
-                            topRight: Radius.circular(44),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color.fromRGBO(70, 116, 182, 0.10),
-                                offset: Offset(
-                                  ScreenUtil().setSp(0),
-                                  ScreenUtil().setSp(-24),
-                                ),
-                                blurRadius: 48.0,
-                                spreadRadius: 2.0),
-                          ]),
+                    height: ScreenUtil().setHeight(702),
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(242, 244, 248, 1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(44),
+                          topRight: Radius.circular(44),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(70, 116, 182, 0.10),
+                              offset: Offset(
+                                ScreenUtil().setSp(0),
+                                ScreenUtil().setSp(-24),
+                              ),
+                              blurRadius: 48.0,
+                              spreadRadius: 2.0),
+                        ]),
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Container(
-                          margin: EdgeInsets.only(
-                            bottom: 12
-                          ),
+                          margin: EdgeInsets.only(bottom: 12),
                           width: ScreenUtil().setWidth(376),
                           child: new FlatButton(
                             splashColor: Color(0xFFF2F4F8),
-              highlightColor:Color(0xFFF2F4F8),
+                            highlightColor: Color(0xFFF2F4F8),
                             padding: EdgeInsets.all(0),
-                            onPressed: (){
+                            onPressed: () {
                               activeTableIsShow = false;
                               activeTableHeight = 0;
                               activeHeight = 68;
                               nowShow = 'ASSETS';
-                              setState(() {
-                                
-                              });
+                              setState(() {});
                             },
                             child: new Container(
                               alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(
-                            top: 32,
-                            left: 18,
-                            right: 18
-                          ),
-                          child: new Text('ASSETS',style: nowShow=='ASSETS'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,textAlign: TextAlign.left,),
-                        ),
+                              padding:
+                                  EdgeInsets.only(top: 32, left: 18, right: 18),
+                              child: new Text(
+                                'ASSETS',
+                                style: nowShow == 'ASSETS'
+                                    ? UtilStyle.tagTitleFontActive
+                                    : UtilStyle.tagTitleFont,
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
                           ),
                         ),
                         new Container(
@@ -217,57 +406,59 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
                   bottom: (activeController.value - 1) * activeHeight,
                   child: new Container(
                     width: ScreenUtil().setWidth(376),
-                      height: activeHeight,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(242, 244, 248, 1),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(44),
-                            topRight: Radius.circular(44),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color.fromRGBO(70, 116, 182, 0.10),
-                                offset: Offset(
-                                  ScreenUtil().setSp(0),
-                                  ScreenUtil().setSp(-24),
-                                ),
-                                blurRadius: 48.0,
-                                spreadRadius: 2.0),
-                          ]),
+                    height: activeHeight,
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(242, 244, 248, 1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(44),
+                          topRight: Radius.circular(44),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(70, 116, 182, 0.10),
+                              offset: Offset(
+                                ScreenUtil().setSp(0),
+                                ScreenUtil().setSp(-24),
+                              ),
+                              blurRadius: 48.0,
+                              spreadRadius: 2.0),
+                        ]),
                     child: new Column(
                       children: <Widget>[
                         new Container(
-                          margin: EdgeInsets.only(
-                            bottom: 12
-                          ),
+                          margin: EdgeInsets.only(bottom: 12),
                           width: ScreenUtil().setWidth(376),
                           child: new FlatButton(
                             splashColor: Color(0xFFF2F4F8),
-                            highlightColor:Color(0xFFF2F4F8),
+                            highlightColor: Color(0xFFF2F4F8),
                             padding: EdgeInsets.all(0),
-                            onPressed: (){
+                            onPressed: () {
                               activeTableIsShow = true;
                               activeTableHeight = ScreenUtil().setHeight(540);
                               activeHeight = ScreenUtil().setHeight(640);
                               nowShow = 'Active';
-                              setState(() {
-                                
-                              });
+                              setState(() {});
                             },
                             child: new Container(
                               alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(
-                            top: 32,
-                            left: 18,
-                            right: 18
+                              padding:
+                                  EdgeInsets.only(top: 32, left: 18, right: 18),
+                              child: new Text(
+                                'active crowdsales'.toUpperCase(),
+                                style: nowShow == 'Active'
+                                    ? UtilStyle.tagTitleFontActive
+                                    : UtilStyle.tagTitleFont,
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
                           ),
-                          child: new Text('active crowdsales'.toUpperCase(),style: nowShow=='Active'?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont,textAlign: TextAlign.left,),
                         ),
-                          ),
-                        ),
-                        activeTableIsShow? new Container(
-                          child: ActiveTable(activeData,activeTableHeight),
-                        ):new Container()
+                        activeTableIsShow
+                            ? new Container(
+                                child:
+                                    ActiveTable(activeData, activeTableHeight),
+                              )
+                            : new Container()
                       ],
                     ),
                   ),
@@ -279,16 +470,15 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin{
       },
     );
   }
-
 }
 
-class AssetTable extends StatelessWidget{
-  final List<Map<String,Object>> data;
+class AssetTable extends StatelessWidget {
+  final List<Map<String, Object>> data;
   AssetTable(this.data);
-  Widget buildTable(){
+  Widget buildTable() {
     Widget content;
     Widget tableHead = new Container(
-      padding: EdgeInsets.only(top: 12, bottom: 12,left: 18,right: 18),
+      padding: EdgeInsets.only(top: 12, bottom: 12, left: 18, right: 18),
       child: new Row(
         children: <Widget>[
           new Container(
@@ -322,9 +512,9 @@ class AssetTable extends StatelessWidget{
         ],
       ),
     );
-    List<Widget>listUI = [];
-    for(var i=0;i<data.length;i++){
-      listUI.add(AssetTableRow(item:data[i]));
+    List<Widget> listUI = [];
+    for (var i = 0; i < data.length; i++) {
+      listUI.add(AssetTableRow(item: data[i]));
     }
     content = new Container(
       child: new Column(
@@ -347,32 +537,32 @@ class AssetTable extends StatelessWidget{
     );
     return content;
   }
+
   @override
   Widget build(BuildContext context) {
     return buildTable();
   }
 }
 
-class AssetTableRow extends StatefulWidget{
-  final Map<String,Object> item;
-  AssetTableRow({Key key,this.item}):super(key:key);
+class AssetTableRow extends StatefulWidget {
+  final Map<String, Object> item;
+  AssetTableRow({Key key, this.item}) : super(key: key);
   _AssetTableRowState createState() => new _AssetTableRowState();
 }
 
-class _AssetTableRowState extends State<AssetTableRow>{
-  Map<String,Object> item;
+class _AssetTableRowState extends State<AssetTableRow> {
+  Map<String, Object> item;
   @override
   void initState() {
     super.initState();
     item = widget.item;
-    setState(() {
-      
-    });
+    setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     return new Container(
-      padding: EdgeInsets.only(top: 12, bottom: 12,left: 18,right: 18),
+      padding: EdgeInsets.only(top: 12, bottom: 12, left: 18, right: 18),
       child: new Row(
         children: <Widget>[
           new Container(
@@ -410,14 +600,14 @@ class _AssetTableRowState extends State<AssetTableRow>{
   }
 }
 
-class ActiveTable extends StatelessWidget{
-  final List<Map<String,Object>> data;
+class ActiveTable extends StatelessWidget {
+  final List<Map<String, Object>> data;
   final double tableHeight;
-  ActiveTable(this.data,this.tableHeight);
-  Widget buildTable(){
+  ActiveTable(this.data, this.tableHeight);
+  Widget buildTable() {
     Widget content;
     Widget tableHead = new Container(
-      padding: EdgeInsets.only(top: 12, bottom: 12,left: 18,right: 18),
+      padding: EdgeInsets.only(top: 12, bottom: 12, left: 18, right: 18),
       child: new Row(
         children: <Widget>[
           new Container(
@@ -451,9 +641,9 @@ class ActiveTable extends StatelessWidget{
         ],
       ),
     );
-    List<Widget>listUI = [];
-    for(var i=0;i<data.length;i++){
-      listUI.add(ActiveTableRow(item:data[i]));
+    List<Widget> listUI = [];
+    for (var i = 0; i < data.length; i++) {
+      listUI.add(ActiveTableRow(item: data[i]));
     }
     content = new Container(
       child: new Column(
@@ -476,39 +666,37 @@ class ActiveTable extends StatelessWidget{
     );
     return content;
   }
+
   @override
   Widget build(BuildContext context) {
     return buildTable();
   }
 }
 
-class ActiveTableRow extends StatefulWidget{
-  final Map<String,Object> item;
-  ActiveTableRow({Key key,this.item}):super(key:key);
+class ActiveTableRow extends StatefulWidget {
+  final Map<String, Object> item;
+  ActiveTableRow({Key key, this.item}) : super(key: key);
   _ActiveTableRowState createState() => new _ActiveTableRowState();
 }
 
-class _ActiveTableRowState extends State<ActiveTableRow>{
-  Map<String,Object> item;
+class _ActiveTableRowState extends State<ActiveTableRow> {
+  Map<String, Object> item;
   @override
   void initState() {
     super.initState();
     item = widget.item;
-    setState(() {
-      
-    });
+    setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     return new Container(
-      padding: EdgeInsets.only(top: 12, bottom: 12,left: 18,right: 18),
+      padding: EdgeInsets.only(top: 12, bottom: 12, left: 18, right: 18),
       child: new Row(
         children: <Widget>[
           new Container(
             width: ScreenUtil().setWidth(67),
-            padding: EdgeInsets.only(
-              right: 16
-            ),
+            padding: EdgeInsets.only(right: 16),
             child: new Text(
               item['name'],
               overflow: TextOverflow.ellipsis,

@@ -22,7 +22,7 @@ class _SignMessageState extends State<SignMessage> {
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar:new MyBaseBar(
+          appBar: new MyBaseBar(
             child: AfterLoginAppBar(),
           ),
           body: Container(

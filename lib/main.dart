@@ -19,11 +19,11 @@ import 'package:omni/widget/explorer/explorer.dart';
 import 'package:omni/widget/about/about.dart';
 
 // void main() => runApp(MyApp());
-void main( ){
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-    .then((_) {
-      runApp(new MyApp());
-    });
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -34,26 +34,23 @@ class MyApp extends StatelessWidget {
     return ScopedModel<LocalModel>(
       model: localModel,
       child: new MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'GothamRnd'
+        title: 'Flutter Demo',
+        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'GothamRnd'),
+        home: new MyHomePage(),
+        routes: <String, WidgetBuilder>{
+          '/login': (BuildContext context) => new LoginAndCreate(),
+          '/walletAndAddress': (BuildContext context) => new WalletAndAddress(),
+          '/walletImport': (BuildContext context) => new WalletImport(),
+          '/walletBackup': (BuildContext context) => new WalletBackup(),
+          '/importAddress': (BuildContext context) => new ImportAddress(),
+          '/signMessage': (BuildContext context) => new SignMessage(),
+          '/exchange': (BuildContext context) => new Exchange(),
+          '/explorer': (BuildContext context) => new Explorer(),
+          '/setting': (BuildContext context) => new Setting(),
+          '/faq': (BuildContext context) => new Faq(),
+          '/about': (BuildContext context) => new About(),
+        },
       ),
-      home: new MyHomePage(),
-      routes: <String,WidgetBuilder>{
-        '/login':(BuildContext context) => new LoginAndCreate(),
-        '/walletAndAddress':(BuildContext context) => new WalletAndAddress(),
-        '/walletImport':(BuildContext context) => new WalletImport(),
-        '/walletBackup':(BuildContext context) => new WalletBackup(),
-        '/importAddress':(BuildContext context) => new ImportAddress(),
-        '/signMessage':(BuildContext context) => new SignMessage(),
-        '/exchange':(BuildContext context) => new Exchange(),
-        '/explorer':(BuildContext context) => new Explorer(),
-        '/setting':(BuildContext context) => new Setting(),
-        '/faq':(BuildContext context) => new Faq(),
-        '/about':(BuildContext context) => new About(),
-      },
-    ),
     );
   }
 }
@@ -68,10 +65,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 376, height: 812,allowFontScaling:true)..init(context);
+    ScreenUtil.instance =
+        ScreenUtil(width: 376, height: 812, allowFontScaling: true)
+          ..init(context);
     // return new Splash();
     return new ScopedModelDescendant<LocalModel>(
-      builder: (context,child,model){
+      builder: (context, child, model) {
         return new Home();
       },
     );

@@ -10,9 +10,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  //pinCodeController 的输入框
+  
   TextEditingController controllerPin = new TextEditingController();
-  // pinCode聚焦
+  
   FocusNode pinFocus = new FocusNode();
 
   @override
@@ -20,12 +20,12 @@ class _LoginState extends State<Login> {
     super.initState();
   }
 
-    String _validatePin(String val){
-    if(val == null || val.trim().length == 0){
+  String _validatePin(String val) {
+    if (val == null || val.trim().length == 0) {
       return 'Pin code could not be empty!';
-    }else if(val.trim().length!=6){
+    } else if (val.trim().length != 6) {
       return 'Pin code`s length must be 6!';
-    }else {
+    } else {
       return '';
     }
   }

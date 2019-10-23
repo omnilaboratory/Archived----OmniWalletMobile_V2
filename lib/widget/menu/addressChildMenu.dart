@@ -28,7 +28,6 @@ class AddressChildMenu extends Dialog {
             top: ScreenUtil().setHeight(145),
             right: ScreenUtil().setWidth(20),
             child: new Container(
-              // padding: EdgeInsets.only(top: ScreenUtil().setHeight(30),bottom: ScreenUtil().setHeight(30),left: ScreenUtil().setWidth(24),right: ScreenUtil().setWidth(24) ),
               width: ScreenUtil().setWidth(232),
               height: ScreenUtil().setHeight(172),
               decoration: new BoxDecoration(
@@ -99,7 +98,6 @@ class AddressChildMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
@@ -131,7 +129,6 @@ class AddressChildMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
@@ -159,7 +156,6 @@ class AddressChildMenu extends Dialog {
                               textAlign: TextAlign.left,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  // fontFamily: 'GothamRnd',
                                   fontSize: ScreenUtil().setSp(10),
                                   color: Color.fromRGBO(17, 27, 41, 1),
                                   height: ScreenUtil().setSp(2.5)),
@@ -169,7 +165,6 @@ class AddressChildMenu extends Dialog {
                       )),
                     ),
                   ),
-                  
                 ],
               ),
             ),

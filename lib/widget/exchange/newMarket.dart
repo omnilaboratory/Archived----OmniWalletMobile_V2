@@ -18,10 +18,10 @@ class _NewMarketState extends State<NewMarket>
   Animation<double> marketAnimation;
   AnimationController marketController;
   String selectedAddress = '1YjsJhJH12918nmHkKUwjaAHj2341Aj';
-  
+
   TextEditingController buyController = new TextEditingController();
   TextEditingController sellController = new TextEditingController();
-  
+
   FocusNode buyFocus = new FocusNode();
   FocusNode sellFocus = new FocusNode();
 
@@ -56,84 +56,79 @@ class _NewMarketState extends State<NewMarket>
             height: ScreenUtil().setHeight(812),
             width: ScreenUtil().setWidth(376),
             color: Color.fromRGBO(70, 116, 182, 0.1),
-                  child: new Stack(
-                    children: <Widget>[
-                      Positioned(
-                        bottom: (marketController.value - 1) *
-                            ScreenUtil().setHeight(652),
-                        child: new Container(
-                          width: ScreenUtil().setWidth(376),
-                          height: ScreenUtil().setHeight(652),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(242, 244, 248, 1),
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(44),
-                                topRight: Radius.circular(44),
+            child: new Stack(
+              children: <Widget>[
+                Positioned(
+                  bottom: (marketController.value - 1) *
+                      ScreenUtil().setHeight(652),
+                  child: new Container(
+                    width: ScreenUtil().setWidth(376),
+                    height: ScreenUtil().setHeight(652),
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(242, 244, 248, 1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(44),
+                          topRight: Radius.circular(44),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(70, 116, 182, 0.02),
+                              offset: Offset(
+                                ScreenUtil().setSp(0),
+                                ScreenUtil().setSp(-24),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(70, 116, 182, 0.02),
-                                    offset: Offset(
-                                      ScreenUtil().setSp(0),
-                                      ScreenUtil().setSp(-24),
-                                    ),
-                                    blurRadius: 48.0,
-                                    spreadRadius: 2.0),
-                              ]),
-                          child: new Container(
+                              blurRadius: 48.0,
+                              spreadRadius: 2.0),
+                        ]),
+                    child: new Container(
+                      padding: EdgeInsets.only(top: ScreenUtil().setHeight(20)),
+                      child: new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          new Container(
                             padding: EdgeInsets.only(
-                                top: ScreenUtil().setHeight(20)),
+                              left: ScreenUtil().setWidth(18),
+                              right: ScreenUtil().setWidth(18),
+                            ),
+                            child: new Container(
+                              child: new Container(
+                                child: new Text(
+                                  'START NEW MARKET',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    // fontFamily: 'GothamRnd',
+                                    fontSize: 12,
+                                    color: Color.fromRGBO(0, 0, 0, 0.5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: ScreenUtil().setWidth(376),
+                            color: Color.fromRGBO(242, 244, 248, 1),
                             child: new Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 new Container(
-                                  padding: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(18),
-                                    right: ScreenUtil().setWidth(18),
-                                  ),
-                                  child: new Container(
-                                    child: 
-                                        new Container(
-                                          child: new Text(
-                                            'START NEW MARKET',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              // fontFamily: 'GothamRnd',
-                                              fontSize: 12,
-                                              color: Color.fromRGBO(
-                                                  0, 0, 0, 0.5),
-                                            ),
-                                          ),
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: ScreenUtil().setWidth(376),
-                                  color: Color.fromRGBO(242, 244, 248, 1),
-                                  child: new Column(
-                                    children: <Widget>[
-                                      new Container(
-                                        child:buildSell(),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                  child: buildSell(),
+                                )
                               ],
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                
+                ),
+              ],
+            ),
           ),
         );
       },
     );
   }
 
- 
-Widget buildSell() {
+  Widget buildSell() {
     Widget content;
     content = new Container(
       margin: EdgeInsets.only(top: ScreenUtil().setHeight(32)),
@@ -211,60 +206,49 @@ Widget buildSell() {
                           ]),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(
-                    bottom: ScreenUtil().setHeight(32)
-                  ),
+                  margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(32)),
                   child: new Row(
                     children: <Widget>[
                       new Container(
                         child: new Text(
                           'CHOOSE COIN TO SELL',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            // fontFamily: 'GothamRnd',
-                            fontSize: ScreenUtil().setWidth(10),
-                            color: Color.fromRGBO(0, 0, 0, 0.5)
-                          ),
+                              fontWeight: FontWeight.bold,
+                              // fontFamily: 'GothamRnd',
+                              fontSize: ScreenUtil().setWidth(10),
+                              color: Color.fromRGBO(0, 0, 0, 0.5)),
                         ),
                       ),
                       new Container(
-                        margin: EdgeInsets.only(
-                          left: ScreenUtil().setWidth(8)
-                        ),
+                        margin: EdgeInsets.only(left: ScreenUtil().setWidth(8)),
                         width: ScreenUtil().setWidth(50),
                         height: ScreenUtil().setWidth(24),
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(4),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(138,168,212,0.25),
-                              offset: Offset(0,2),
-                              blurRadius: 12
-                            )
-                          ]
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(4),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromRGBO(138, 168, 212, 0.25),
+                                  offset: Offset(0, 2),
+                                  blurRadius: 12)
+                            ]),
                         child: new PopupMenuButton(
-                          onSelected: (val){
+                          onSelected: (val) {
                             selectType = val;
-                            setState(() {
-                              
-                            });
+                            setState(() {});
                           },
                           child: new Row(
                             children: <Widget>[
                               new Expanded(
                                 child: new Container(
-                                  child: new Text(
-                                    selectType,
-                                    textAlign: TextAlign.center,
-                                    style:TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize:ScreenUtil().setWidth(8),
-                                      color: Colors.black,
-                                      letterSpacing: ScreenUtil().setHeight(-0.24)
-                                    )
-                                  ),
+                                  child: new Text(selectType,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: ScreenUtil().setWidth(8),
+                                          color: Colors.black,
+                                          letterSpacing:
+                                              ScreenUtil().setHeight(-0.24))),
                                 ),
                               ),
                               new Container(
@@ -273,7 +257,8 @@ Widget buildSell() {
                               )
                             ],
                           ),
-                          itemBuilder: (BuildContext context)=><PopupMenuItem<String>>[
+                          itemBuilder: (BuildContext context) =>
+                              <PopupMenuItem<String>>[
                             PopupMenuItem(
                               value: 'OMNI',
                               child: new Text('OMNI'),
@@ -365,26 +350,24 @@ Widget buildSell() {
                           child: new Text('0.00648945',
                               style: UtilStyle.formCacularFont),
                         ),
-                         new Container(
+                        new Container(
                             width: ScreenUtil().setWidth(38),
                             height: ScreenUtil().setWidth(24),
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(4)
-                            ),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(4)),
                             alignment: Alignment.centerLeft,
                             child: new Center(
                               child: new Text('BTC',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    // fontFamily: 'GothamRnd',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: ScreenUtil().setHeight(10),
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    letterSpacing:
-                                        ScreenUtil().setHeight(-0.43))),
-                            )
-                          ),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      // fontFamily: 'GothamRnd',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: ScreenUtil().setHeight(10),
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      letterSpacing:
+                                          ScreenUtil().setHeight(-0.43))),
+                            )),
                       ],
                     ),
                   ),

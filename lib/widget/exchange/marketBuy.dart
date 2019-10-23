@@ -20,10 +20,10 @@ class _MarketBuyState extends State<MarketBuy>
   AnimationController marketController;
   String showContent = 'BUY';
   String selectedAddress = '1YjsJhJH12918nmHkKUwjaAHj2341Aj';
-  
+
   TextEditingController buyController = new TextEditingController();
   TextEditingController sellController = new TextEditingController();
-  
+
   FocusNode buyFocus = new FocusNode();
   FocusNode sellFocus = new FocusNode();
   @override
@@ -55,280 +55,257 @@ class _MarketBuyState extends State<MarketBuy>
           body: new Container(
             color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
-                    children: <Widget>[
-                      Positioned(
-                        bottom: (marketController.value - 1) *
-                            ScreenUtil().setHeight(712),
-                        child: new Container(
-                          width: ScreenUtil().setWidth(376),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(242, 244, 248, 1),
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(44),
-                                topRight: Radius.circular(44),
+              children: <Widget>[
+                Positioned(
+                  bottom: (marketController.value - 1) *
+                      ScreenUtil().setHeight(712),
+                  child: new Container(
+                    width: ScreenUtil().setWidth(376),
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(242, 244, 248, 1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(44),
+                          topRight: Radius.circular(44),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(70, 116, 182, 0.1),
+                              offset: Offset(
+                                ScreenUtil().setSp(0),
+                                ScreenUtil().setSp(-24),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(70, 116, 182, 0.1),
-                                    offset: Offset(
-                                      ScreenUtil().setSp(0),
-                                      ScreenUtil().setSp(-24),
-                                    ),
-                                    blurRadius: 48.0,
-                                    spreadRadius: 2.0),
-                              ]),
-                          child: new Container(
-                            child: new Column(
-                              children: <Widget>[
-                                new Container(
-                                  padding: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(18),
-                                    right: ScreenUtil().setWidth(18),
+                              blurRadius: 48.0,
+                              spreadRadius: 2.0),
+                        ]),
+                    child: new Container(
+                      child: new Column(
+                        children: <Widget>[
+                          new Container(
+                            padding: EdgeInsets.only(
+                              left: ScreenUtil().setWidth(18),
+                              right: ScreenUtil().setWidth(18),
+                            ),
+                            child: new Container(
+                              child: new Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  new Container(
+                                    child: new Text('MARKETS',
+                                        style: UtilStyle.tagTitleFontActive),
                                   ),
-                                  child: new Container(
-                                    child: new Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        new Container(
-                                          child: new Text(
-                                            'MARKETS',
-                                            style: UtilStyle.tagTitleFontActive
-                                          ),
-                                        ),
-                                        new Container(
-                                          child: new FlatButton(
-                                            padding: EdgeInsets.all(0),
-                                            onPressed: () {
-                                              Navigator.push(context,
-                                                  new MaterialPageRoute(
-                                                      builder: (BuildContext context) {
-                                                return new NewMarket();
-                                              }));
-                                            },
-                                            child: new Container(
-                                              child: new Row(
-                                                children: <Widget>[
-                                                  new Container(
-                                                    width: ScreenUtil()
-                                                        .setWidth(24),
-                                                    height: ScreenUtil()
-                                                        .setWidth(24),
-                                                    child: new Image(
-                                                      width: 14,
-                                                      height: 14,
-                                                      image: AssetImage(
-                                                          'images/add.png'),
-                                                    ),
-                                                  ),
-                                                  new Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: ScreenUtil()
-                                                            .setHeight(4)),
-                                                    child: new Text(
-                                                      'START NEW MARKET',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        // fontFamily: 'GothamRnd',
-                                                        fontSize: ScreenUtil()
-                                                            .setSp(10),
-                                                        color: Color.fromRGBO(
-                                                            74, 119, 183, 1),
-                                                        letterSpacing:
-                                                            ScreenUtil()
-                                                                .setHeight(0.3),
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                new Container(
-                                  padding: EdgeInsets.only(
-                                    left: ScreenUtil().setWidth(18),
-                                    right: ScreenUtil().setWidth(18),
-                                  ),
-                                  child: new Column(
-                                    children: <Widget>[
-                                      new Container(
-                                        padding: EdgeInsets.only(
-                                            top: 12, bottom: 12),
+                                  new Container(
+                                    child: new FlatButton(
+                                      padding: EdgeInsets.all(0),
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            new MaterialPageRoute(builder:
+                                                (BuildContext context) {
+                                          return new NewMarket();
+                                        }));
+                                      },
+                                      child: new Container(
                                         child: new Row(
                                           children: <Widget>[
                                             new Container(
-                                              width: ScreenUtil().setWidth(56),
-                                              child: new Text(
-                                                'ID',
-                                                style: UtilStyle.tableHeadFont,
+                                              width: ScreenUtil().setWidth(24),
+                                              height: ScreenUtil().setWidth(24),
+                                              child: new Image(
+                                                width: 14,
+                                                height: 14,
+                                                image: AssetImage(
+                                                    'images/add.png'),
                                               ),
                                             ),
                                             new Container(
-                                              width: ScreenUtil().setWidth(120),
+                                              margin: EdgeInsets.only(
+                                                  left: ScreenUtil()
+                                                      .setHeight(4)),
                                               child: new Text(
-                                                'NAME',
-                                                style: UtilStyle.tableHeadFont,
+                                                'START NEW MARKET',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w700,
+                                                  // fontFamily: 'GothamRnd',
+                                                  fontSize:
+                                                      ScreenUtil().setSp(10),
+                                                  color: Color.fromRGBO(
+                                                      74, 119, 183, 1),
+                                                  letterSpacing: ScreenUtil()
+                                                      .setHeight(0.3),
+                                                ),
                                               ),
-                                            ),
-                                            new Container(
-                                              width: ScreenUtil().setWidth(68),
-                                              child: new Text(
-                                                'PRICE',
-                                                style: UtilStyle.tableHeadFont,
-                                              ),
-                                            ),
-                                            new Container(
-                                              width: ScreenUtil().setWidth(88),
-                                              child: new Text(
-                                                'SUPPLY',
-                                                style: UtilStyle.tableHeadFont,
-                                              ),
-                                            ),
+                                            )
                                           ],
                                         ),
                                       ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          new Container(
+                            padding: EdgeInsets.only(
+                              left: ScreenUtil().setWidth(18),
+                              right: ScreenUtil().setWidth(18),
+                            ),
+                            child: new Column(
+                              children: <Widget>[
+                                new Container(
+                                  padding: EdgeInsets.only(top: 12, bottom: 12),
+                                  child: new Row(
+                                    children: <Widget>[
                                       new Container(
-                                        padding: EdgeInsets.only(
-                                            top: 12, bottom: 12),
-                                        child: new Row(
-                                          children: <Widget>[
-                                            new Container(
-                                              width: ScreenUtil().setWidth(56),
-                                              child: new Text(
-                                                item['id'],
-                                                style:
-                                                    UtilStyle.tableContentFont,
-                                              ),
-                                            ),
-                                            new Container(
-                                              width: ScreenUtil().setWidth(120),
-                                              child: new Text(
-                                                item['name'],
-                                                style:
-                                                    UtilStyle.tableContentFont,
-                                              ),
-                                            ),
-                                            new Container(
-                                              width: ScreenUtil().setWidth(68),
-                                              child: new Text(
-                                                item['price'],
-                                                style:
-                                                    UtilStyle.tableContentFont,
-                                              ),
-                                            ),
-                                            new Container(
-                                              width: ScreenUtil().setWidth(88),
-                                              child: new Text(
-                                                item['supply'],
-                                                style:
-                                                    UtilStyle.tableContentFont,
-                                              ),
-                                            ),
-                                          ],
+                                        width: ScreenUtil().setWidth(56),
+                                        child: new Text(
+                                          'ID',
+                                          style: UtilStyle.tableHeadFont,
+                                        ),
+                                      ),
+                                      new Container(
+                                        width: ScreenUtil().setWidth(120),
+                                        child: new Text(
+                                          'NAME',
+                                          style: UtilStyle.tableHeadFont,
+                                        ),
+                                      ),
+                                      new Container(
+                                        width: ScreenUtil().setWidth(68),
+                                        child: new Text(
+                                          'PRICE',
+                                          style: UtilStyle.tableHeadFont,
+                                        ),
+                                      ),
+                                      new Container(
+                                        width: ScreenUtil().setWidth(88),
+                                        child: new Text(
+                                          'SUPPLY',
+                                          style: UtilStyle.tableHeadFont,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  height: ScreenUtil().setHeight(556),
-                                  width: ScreenUtil().setWidth(376),
-                                  color: Colors.white,
-                                  child: new Column(
+                                new Container(
+                                  padding: EdgeInsets.only(top: 12, bottom: 12),
+                                  child: new Row(
                                     children: <Widget>[
                                       new Container(
-                                        height: ScreenUtil().setHeight(46),
-                                        child: new Row(
-                                          children: <Widget>[
-                                            new Expanded(
-                                              child: Container(
-                                                  height: ScreenUtil()
-                                                      .setHeight(46),
-                                                  decoration: BoxDecoration(
-                                                      border: Border(
-                                                          bottom: BorderSide(
-                                                              width: 2,
-                                                              color: showContent ==
-                                                                      'BUY'
-                                                                  ? Color
-                                                                      .fromRGBO(
-                                                                          50,
-                                                                          231,
-                                                                          163,
-                                                                          1)
-                                                                  : Colors
-                                                                      .white))),
-                                                  child: FlatButton(
-                                                    onPressed: () {
-                                                      showContent = 'BUY';
-                                                      setState(() {});
-                                                    },
-                                                    child: Text(
-                                                      'BUY',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: showContent ==
-                                                              'BUY'
-                                                          ? UtilStyle
-                                                              .tabSelectedFont
-                                                          : UtilStyle
-                                                              .tabUnselectedFont,
-                                                    ),
-                                                  )),
-                                            ),
-                                            new Expanded(
-                                              child: Container(
-                                                  height: ScreenUtil()
-                                                      .setHeight(46),
-                                                  decoration: BoxDecoration(
-                                                      border: Border(
-                                                          bottom: BorderSide(
-                                                              width: 2,
-                                                              color: showContent ==
-                                                                      'SELL'
-                                                                  ?  Color.fromRGBO(82, 135, 210, 1)
-                                                                  : Colors
-                                                                      .white))),
-                                                  child: FlatButton(
-                                                    onPressed: () {
-                                                      showContent = 'SELL';
-                                                      setState(() {});
-                                                    },
-                                                    child: Text(
-                                                      'SELL',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: showContent ==
-                                                              'SELL'
-                                                          ? UtilStyle
-                                                              .tabSelectedFont
-                                                          : UtilStyle
-                                                              .tabUnselectedFont,
-                                                    ),
-                                                  )),
-                                            ),
-                                          ],
+                                        width: ScreenUtil().setWidth(56),
+                                        child: new Text(
+                                          item['id'],
+                                          style: UtilStyle.tableContentFont,
                                         ),
                                       ),
                                       new Container(
-                                        child: showContent=='BUY'? buildBuy():buildSell(),
-                                      )
+                                        width: ScreenUtil().setWidth(120),
+                                        child: new Text(
+                                          item['name'],
+                                          style: UtilStyle.tableContentFont,
+                                        ),
+                                      ),
+                                      new Container(
+                                        width: ScreenUtil().setWidth(68),
+                                        child: new Text(
+                                          item['price'],
+                                          style: UtilStyle.tableContentFont,
+                                        ),
+                                      ),
+                                      new Container(
+                                        width: ScreenUtil().setWidth(88),
+                                        child: new Text(
+                                          item['supply'],
+                                          style: UtilStyle.tableContentFont,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
+                          Container(
+                            height: ScreenUtil().setHeight(556),
+                            width: ScreenUtil().setWidth(376),
+                            color: Colors.white,
+                            child: new Column(
+                              children: <Widget>[
+                                new Container(
+                                  height: ScreenUtil().setHeight(46),
+                                  child: new Row(
+                                    children: <Widget>[
+                                      new Expanded(
+                                        child: Container(
+                                            height: ScreenUtil().setHeight(46),
+                                            decoration: BoxDecoration(
+                                                border: Border(
+                                                    bottom: BorderSide(
+                                                        width: 2,
+                                                        color: showContent ==
+                                                                'BUY'
+                                                            ? Color.fromRGBO(
+                                                                50, 231, 163, 1)
+                                                            : Colors.white))),
+                                            child: FlatButton(
+                                              onPressed: () {
+                                                showContent = 'BUY';
+                                                setState(() {});
+                                              },
+                                              child: Text(
+                                                'BUY',
+                                                textAlign: TextAlign.center,
+                                                style: showContent == 'BUY'
+                                                    ? UtilStyle.tabSelectedFont
+                                                    : UtilStyle
+                                                        .tabUnselectedFont,
+                                              ),
+                                            )),
+                                      ),
+                                      new Expanded(
+                                        child: Container(
+                                            height: ScreenUtil().setHeight(46),
+                                            decoration: BoxDecoration(
+                                                border: Border(
+                                                    bottom: BorderSide(
+                                                        width: 2,
+                                                        color: showContent ==
+                                                                'SELL'
+                                                            ? Color.fromRGBO(
+                                                                82, 135, 210, 1)
+                                                            : Colors.white))),
+                                            child: FlatButton(
+                                              onPressed: () {
+                                                showContent = 'SELL';
+                                                setState(() {});
+                                              },
+                                              child: Text(
+                                                'SELL',
+                                                textAlign: TextAlign.center,
+                                                style: showContent == 'SELL'
+                                                    ? UtilStyle.tabSelectedFont
+                                                    : UtilStyle
+                                                        .tabUnselectedFont,
+                                              ),
+                                            )),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                new Container(
+                                  child: showContent == 'BUY'
+                                      ? buildBuy()
+                                      : buildSell(),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -585,7 +562,7 @@ class _MarketBuyState extends State<MarketBuy>
     return content;
   }
 
-Widget buildSell() {
+  Widget buildSell() {
     Widget content;
     content = new Container(
       margin: EdgeInsets.only(top: ScreenUtil().setHeight(32)),
