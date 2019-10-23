@@ -56,10 +56,6 @@ dependencies:
   # Add features to the Android / iOS keyboard
   keyboard_actions: ^1.0.3
 
-  # Flutter plugin for selecting images from the Android and iOS image library, 
-  # and taking new pictures with the camera.
-  image_picker: ^0.6.0+16
-
   # A collection of loading indicators animated.
   flutter_spinkit: ^3.1.0
   
@@ -88,6 +84,10 @@ dependencies:
 
   # for use svg
   flutter_svg: ^0.14.3
+  # pick image
+  image_picker: ^0.6.1+8
+  # crop image
+  image_cropper: ^1.1.0
 
 
   

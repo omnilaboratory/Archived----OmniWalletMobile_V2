@@ -25,8 +25,8 @@ class FootMenu extends Dialog {
             ),
           ),
           new Positioned(
-            bottom: ScreenUtil().setHeight(50),
-            right: ScreenUtil().setWidth(38),
+            bottom: 40,
+            right: 40,
             child: new Container(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(15),
