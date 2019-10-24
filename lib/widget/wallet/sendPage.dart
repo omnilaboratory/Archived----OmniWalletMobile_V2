@@ -27,7 +27,7 @@ class _SendPageState extends State<SendPage> {
     return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar:new MyBaseBar(
+          appBar: new MyBaseBar(
             child: AfterLoginAppBar(),
           ),
           body: new Container(
@@ -75,7 +75,7 @@ class _SendPageState extends State<SendPage> {
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {
                                         showDialog<Null>(
-                                            context: context, //BuildContext对象
+                                            context: context,
                                             barrierDismissible: false,
                                             builder: (BuildContext context) {
                                               return new AddressChildMenu();
@@ -98,7 +98,8 @@ class _SendPageState extends State<SendPage> {
                                               child: new Text('ADD ADDRESS',
                                                   style: new TextStyle(
                                                       color: Colors.black,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       // fontFamily: 'GothamRnd',
                                                       fontSize: ScreenUtil()
                                                           .setSp(10),
@@ -140,16 +141,16 @@ class _SendPageState extends State<SendPage> {
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(44),
                                   bottomRight: Radius.circular(44)),
-                                  boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(50,231,163,0.50),
-                            offset: Offset(
-                              ScreenUtil().setSp(0),
-                              ScreenUtil().setSp(24),
-                            ),
-                            blurRadius: 48.0,
-                            spreadRadius: 2.0),
-                      ],
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromRGBO(50, 231, 163, 0.50),
+                                    offset: Offset(
+                                      ScreenUtil().setSp(0),
+                                      ScreenUtil().setSp(24),
+                                    ),
+                                    blurRadius: 48.0,
+                                    spreadRadius: 2.0),
+                              ],
                             ),
                             child: new Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -276,60 +277,59 @@ class _SendPageState extends State<SendPage> {
                                 ),
                                 new Container(
                                   margin: EdgeInsets.only(
-                                            top: ScreenUtil().setHeight(8),),
+                                    top: ScreenUtil().setHeight(8),
+                                  ),
                                   width: ScreenUtil().setWidth(276),
                                   height: ScreenUtil().setHeight(35),
                                   decoration: BoxDecoration(
-                                    color: Color.fromRGBO(255, 255, 255, 0.4),
-                                    borderRadius: BorderRadius.circular(ScreenUtil().setHeight(17.5))
-                                  ),
+                                      color: Color.fromRGBO(255, 255, 255, 0.4),
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().setHeight(17.5))),
                                   child: new Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       new Container(
                                         margin: EdgeInsets.only(
-                                            top: ScreenUtil().setHeight(8),
-                                            bottom: ScreenUtil().setHeight(8),
-                                            left: ScreenUtil().setWidth(13),
-                                            right: ScreenUtil().setWidth(8.5),
-                                          ),
+                                          top: ScreenUtil().setHeight(8),
+                                          bottom: ScreenUtil().setHeight(8),
+                                          left: ScreenUtil().setWidth(13),
+                                          right: ScreenUtil().setWidth(8.5),
+                                        ),
                                         height: ScreenUtil().setHeight(19),
                                         width: ScreenUtil().setWidth(27),
                                         decoration: BoxDecoration(
                                             color: Colors.black,
                                             borderRadius:
                                                 BorderRadius.circular(4)),
-                                                child: new Center(
-                                                  child: new Text(
-                                                    'ID',
-                                                    style:TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      color:Colors.white,
-                                                      fontFamily:'GothamRnd',
-                                                      fontSize:ScreenUtil().setHeight(10),
-                                                      letterSpacing:ScreenUtil().setHeight(2.89)
-                                                    )
-                                                  ),
-                                                ),
+                                        child: new Center(
+                                          child: new Text('ID',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  fontFamily: 'GothamRnd',
+                                                  fontSize: ScreenUtil()
+                                                      .setHeight(10),
+                                                  letterSpacing: ScreenUtil()
+                                                      .setHeight(2.89))),
+                                        ),
                                       ),
                                       new Container(
-                                        child: new Text(
-                                          item['id'],
-                                          style:TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      color:Colors.black,
-                                                      fontFamily:'GothamRnd',
-                                                      fontSize:ScreenUtil().setSp(10),
-                                                    )
-                                        ),
+                                        child: new Text(item['id'],
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                              fontFamily: 'GothamRnd',
+                                              fontSize: ScreenUtil().setSp(10),
+                                            )),
                                       ),
                                       new Container(
                                         height: ScreenUtil().setHeight(35),
                                         width: ScreenUtil().setHeight(35),
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(ScreenUtil().setHeight(35)),
-                                          color: Colors.white
-                                        ),
+                                            borderRadius: BorderRadius.circular(
+                                                ScreenUtil().setHeight(35)),
+                                            color: Colors.white),
                                       )
                                     ],
                                   ),
@@ -378,31 +378,31 @@ class _SendPageState extends State<SendPage> {
                           margin:
                               EdgeInsets.only(right: ScreenUtil().setWidth(64)),
                           child: new FlatButton(
-                            onPressed: (){
-                              Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context){
-                              return new SendProgress(item: item);
-                            }));
+                            onPressed: () {
+                              Navigator.push(context, new MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                return new SendProgress(item: item);
+                              }));
                             },
                             padding: EdgeInsets.all(0),
                             child: new Container(
                               child: new Column(
-                            children: <Widget>[
-                              new Container(
-                                  margin: EdgeInsets.only(
-                                      bottom: ScreenUtil().setHeight(12)),
-                                  width: 24,
-                                  child: new Image.asset('images/upG.png')),
-                              new Container(
-                                  child: new Text(
-                                'SEND',
-                                textAlign: TextAlign.center,
-                                style: UtilStyle.formSubmitFont,
-                              ))
-                            ],
-                          ),
-                        
+                                children: <Widget>[
+                                  new Container(
+                                      margin: EdgeInsets.only(
+                                          bottom: ScreenUtil().setHeight(12)),
+                                      width: 24,
+                                      child: new Image.asset('images/upG.png')),
+                                  new Container(
+                                      child: new Text(
+                                    'SEND',
+                                    textAlign: TextAlign.center,
+                                    style: UtilStyle.formSubmitFont,
+                                  ))
+                                ],
+                              ),
                             ),
-                          ),  
+                          ),
                         ),
                       ],
                     ),

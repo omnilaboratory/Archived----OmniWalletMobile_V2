@@ -88,7 +88,7 @@ class _AddressFullState extends State<AddressFull>
                               padding: EdgeInsets.all(0),
                               onPressed: () {
                                 showDialog<Null>(
-                                    context: context, //BuildContext对象
+                                    context: context,
                                     barrierDismissible: false,
                                     builder: (BuildContext context) {
                                       return new AddressFullMenu();
@@ -387,6 +387,7 @@ class _AddressItemState extends State<AddressItem> {
     itemIdx = widget.itemIdx;
     idx = widget.idx;
   }
+
   var transactionType = 'ALL';
 
   @override
@@ -451,8 +452,9 @@ class _AddressItemState extends State<AddressItem> {
                                   item['id'],
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               new Container(
@@ -480,7 +482,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             "PUBKEY",
                                             style: TextStyle(
-                                              fontSize:16,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -495,7 +497,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             "SIGN MESSAGE",
                                             style: TextStyle(
-                                              fontSize:16,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -510,7 +512,7 @@ class _AddressItemState extends State<AddressItem> {
                                           child: new Text(
                                             "REMOVE FROM WALLET",
                                             style: TextStyle(
-                                              fontSize:16,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color:
                                                   Color.fromRGBO(17, 27, 41, 1),
@@ -795,11 +797,10 @@ class _AddressItemState extends State<AddressItem> {
                               ),
                               new Container(
                                 child: new PopupMenuButton(
-                                  onSelected: (value){
-                                    transactionType = value.toString().toUpperCase();
-                                    setState(() {
-                                      
-                                    });
+                                  onSelected: (value) {
+                                    transactionType =
+                                        value.toString().toUpperCase();
+                                    setState(() {});
                                   },
                                   offset: Offset(0, 20),
                                   child: new Container(
@@ -837,7 +838,7 @@ class _AddressItemState extends State<AddressItem> {
                                             "ALL",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              fontSize: 
+                                              fontSize:
                                                   ScreenUtil().setHeight(10),
                                               // fontFamily: 'GothamRnd',
                                               fontWeight: FontWeight.bold,
@@ -962,18 +963,19 @@ class _TransctionTable extends State<TransctionTable> {
       ),
     );
     Widget content;
-    
+
     items.add(tableHead);
     for (var i = 0; i < data.length; i++) {
       Widget item = new Container(
         child: new FlatButton(
-          onPressed: (){
-            showDialog<Null>(context: context, //BuildContext对象
-              barrierDismissible: false,
-              builder: (BuildContext context) {
-                // return new AddressSendDetail();
-                return new AddressSellDetail();
-              });
+          onPressed: () {
+            showDialog<Null>(
+                context: context,
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  // return new AddressSendDetail();
+                  return new AddressSellDetail();
+                });
           },
           padding: EdgeInsets.all(0),
           child: new Container(

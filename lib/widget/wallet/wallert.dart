@@ -71,17 +71,18 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                       onPressed: () {
                         model.changeIsAddressFull(false);
                         model.changeWalletIsActive(true);
-                        setState(() {
-                          
-                        });
+                        setState(() {});
                       },
                       child: new Container(
                         alignment: Alignment.bottomLeft,
                         padding: EdgeInsets.only(
-                            top: ScreenUtil().setHeight(32),),
+                          top: ScreenUtil().setHeight(32),
+                        ),
                         child: new Text('WALLET',
                             textAlign: TextAlign.left,
-                            style: model.walletIsActive?UtilStyle.tagTitleFontActive:UtilStyle.tagTitleFont),
+                            style: model.walletIsActive
+                                ? UtilStyle.tagTitleFontActive
+                                : UtilStyle.tagTitleFont),
                       ),
                     ),
                   ),
@@ -128,7 +129,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                                     padding: EdgeInsets.all(0),
                                     onPressed: () {
                                       showDialog<Null>(
-                                          context: context, //BuildContext对象
+                                          context: context,
                                           barrierDismissible: false,
                                           builder: (BuildContext context) {
                                             return new WalletMenu();

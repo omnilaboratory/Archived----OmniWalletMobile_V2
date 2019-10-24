@@ -6,37 +6,37 @@ class UtilFunction {
     } else {
       String returnStr;
       String str = double.parse(c.toString()).toString();
-      // 分开截取
+      // split String by "."
       List<String> sub = str.split('.');
-      // 处理值
+      // deal num
       List val = List.from(sub[0].split(''));
-      // 处理点
+      // deal point
       List<String> ds = List.from(sub[1].split(''));
-      //处理分割符
+      
       for (int index = 0, i = val.length - 1;
           index < val.length;
           index++, i--) {
-        // 除以三没有余数、不等于零并且不等于1 就加个逗号
+        // deal num by ","
         if (index % 3 == 0 && index != 0) {
           val[i] = val[i] + ',';
         }
       }
-      // 处理小数点
+      // deal demic
       for (int i = 0; i <= d - ds.length; i++) {
         ds.add('0');
       }
-      //如果大于长度就截取
+      // if longer than length 
       if (ds.length > d) {
-        // 截取数组
+        // sub to array
         ds = ds.sublist(0, d);
       }
-      // 判断是否有长度
+      // to know has length
       if (ds.length > 0) {
         returnStr = '${val.join('')}.${ds.join('')}';
       } else {
         returnStr = val.join('');
       }
-      if(c<1){
+      if (c < 1) {
         returnStr = returnStr.substring(1);
       }
       return returnStr;

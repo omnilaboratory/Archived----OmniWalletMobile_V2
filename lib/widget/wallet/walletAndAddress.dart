@@ -15,7 +15,6 @@ class WalletAndAddress extends StatefulWidget {
 }
 
 class _WalletAndAddressState extends State<WalletAndAddress> {
-  
   @override
   void initState() {
     super.initState();
@@ -32,8 +31,7 @@ class _WalletAndAddressState extends State<WalletAndAddress> {
       builder: (context, child, model) {
         return new Scaffold(
           appBar: MyBaseBar(
-            child: AfterLoginAppBar(
-            ),
+            child: AfterLoginAppBar(),
           ),
           body: new Container(
             color: Color.fromRGBO(70, 116, 182, 0.05),
@@ -60,7 +58,7 @@ class _WalletAndAddressState extends State<WalletAndAddress> {
             child: new FlatButton(
               onPressed: () {
                 showDialog<Null>(
-                    context: context, //BuildContext对象
+                    context: context,
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();

@@ -5,6 +5,10 @@ import 'package:omni/model/localModel.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/menu/footMenu.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'dart:io';
 
 class Setting extends StatefulWidget {
   _SettingState createState() => new _SettingState();
@@ -92,7 +96,7 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
             child: new FlatButton(
               onPressed: () {
                 showDialog<Null>(
-                    context: context, //BuildContext对象
+                    context: context,
                     barrierDismissible: false,
                     builder: (BuildContext context) {
                       return new FootMenu();
@@ -104,7 +108,6 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
               ),
             ),
           ),
-          
           appBar: new MyBaseBar(
             child: new AfterLoginAppBar(),
           ),
@@ -137,6 +140,8 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
                           new Container(
                             padding: EdgeInsets.fromLTRB(18, 16, 18, 0),
                             child: new FlatButton(
+                              splashColor: Color(0xffF2F4F8),
+                              highlightColor: Color(0xffF2F4F8),
                               onPressed: () {
                                 this._showTab('profile');
                                 securityHeight = 134;
@@ -286,6 +291,49 @@ class ProfileContent extends StatefulWidget {
 class _ProfileContentState extends State<ProfileContent> {
   bool emailEnabled = false;
   bool showAlert = false;
+  File imageFile;
+  int verifiedState = 0;
+  Future<Null> _pickImage() async {
+    imageFile = await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {});
+  }
+
+  Future<Null> _cropImage() async {
+    print(imageFile);
+    File croppedFile = await ImageCropper.cropImage(
+      sourcePath: imageFile.path,
+      aspectRatioPresets: Platform.isAndroid
+          ? [
+              CropAspectRatioPreset.square,
+              CropAspectRatioPreset.ratio3x2,
+              CropAspectRatioPreset.original,
+              CropAspectRatioPreset.ratio4x3,
+              CropAspectRatioPreset.ratio16x9
+            ]
+          : [
+              CropAspectRatioPreset.original,
+              CropAspectRatioPreset.square,
+              CropAspectRatioPreset.ratio3x2,
+              CropAspectRatioPreset.ratio4x3,
+              CropAspectRatioPreset.ratio5x3,
+              CropAspectRatioPreset.ratio5x4,
+              CropAspectRatioPreset.ratio7x5,
+              CropAspectRatioPreset.ratio16x9
+            ],
+      androidUiSettings: AndroidUiSettings(
+          toolbarTitle: 'Cropper',
+          toolbarColor: Colors.deepOrange,
+          toolbarWidgetColor: Colors.white,
+          initAspectRatio: CropAspectRatioPreset.original,
+          lockAspectRatio: false),
+    );
+    if (croppedFile != null) {
+      imageFile = croppedFile;
+      print(imageFile);
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<LocalModel>(
@@ -296,8 +344,16 @@ class _ProfileContentState extends State<ProfileContent> {
               child: new Row(
                 children: <Widget>[
                   new Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(64),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: imageFile == null
+                              ? AssetImage('images/defaultAvatar.png')
+                              : AssetImage(imageFile.path),
+                        )),
                     width: 64,
-                    child: new Image.asset('images/defaultAvatar.png'),
+                    height: 64,
                   ),
                   new Container(
                     margin: EdgeInsets.only(left: 16),
@@ -307,7 +363,12 @@ class _ProfileContentState extends State<ProfileContent> {
                         border: Border.all(width: 1, color: Colors.black),
                         borderRadius: BorderRadius.circular(4)),
                     child: new FlatButton(
-                      onPressed: () {},
+                      splashColor: Color(0xffF2F4F8),
+                      highlightColor: Color(0xffF2F4F8),
+                      onPressed: () async {
+                        await _pickImage();
+                        await _cropImage();
+                      },
                       padding: EdgeInsets.all(0),
                       child: new Text(
                         'UPLOAD NEW',
@@ -372,21 +433,61 @@ class _ProfileContentState extends State<ProfileContent> {
                               textAlign: TextAlign.left,
                             ),
                           ),
-                          new Container(
-                            margin: EdgeInsets.only(left: 6),
-                            width: 60,
-                            height: 18,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(width: 1)),
-                            child: Center(
-                              child: new Text(
-                                'VERIFIED',
-                                style: TextStyle(
-                                    fontSize: 8, fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          )
+                          verifiedState == 0
+                              ? new Container(
+                                  margin: EdgeInsets.only(left: 6),
+                                  width: 60,
+                                  height: 18,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(width: 1)),
+                                  child: Center(
+                                    child: new Text(
+                                      'VERIFIED',
+                                      style: TextStyle(
+                                          fontSize: 8,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                )
+                              : (verifiedState == 1
+                                  ? new Container(
+                                      margin: EdgeInsets.only(left: 6),
+                                      width: 72,
+                                      height: 18,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                              width: 1,
+                                              color: Color(0xffFF0000))),
+                                      child: Center(
+                                        child: new Text(
+                                          'UNVERIFIED',
+                                          style: TextStyle(
+                                              color: Color(0xffff0000),
+                                              fontSize: 8,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    )
+                                  : new Container(
+                                      margin: EdgeInsets.only(left: 6),
+                                      width: 60,
+                                      height: 18,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(width: 1)),
+                                      child: Center(
+                                        child: new Text(
+                                          'VERIFIED',
+                                          style: TextStyle(
+                                              fontSize: 8,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    ))
                         ],
                       ),
                     ),
@@ -472,9 +573,11 @@ class _ProfileContentState extends State<ProfileContent> {
     );
   }
 
+  // update user email address
   void _updateEmail() {
     emailEnabled = false;
     showAlert = true;
+    verifiedState = 1;
     setState(() {});
   }
 }
@@ -507,7 +610,8 @@ class _SecurityState extends State<Security> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          new Container(width: 24,
+                          new Container(
+                            width: 24,
                             child: Image.asset('images/alertInfo.png'),
                           )
                         ],
@@ -522,17 +626,17 @@ class _SecurityState extends State<Security> {
                           borderRadius: BorderRadius.circular(4)),
                       child: new Container(
                         child: FlatButton(
-                        onPressed: () {},
-                        padding: EdgeInsets.all(0),
-                        child: new Container(
-                          padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
-                          child: new Text(
-                          'ENABLE',
-                          style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
+                          onPressed: () {},
+                          padding: EdgeInsets.all(0),
+                          child: new Container(
+                            padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
+                            child: new Text(
+                              'ENABLE',
+                              style: TextStyle(
+                                  fontSize: 10, fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ),
-                        ),
-                      ),
                       ),
                     )
                   ],
@@ -567,17 +671,17 @@ class _SecurityState extends State<Security> {
                           borderRadius: BorderRadius.circular(4)),
                       child: new Container(
                         child: FlatButton(
-                        onPressed: () {},
-                        padding: EdgeInsets.all(0),
-                        child: new Container(
-                          padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
-                          child: new Text(
-                          'CHANGE PASSWORD',
-                          style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
+                          onPressed: () {},
+                          padding: EdgeInsets.all(0),
+                          child: new Container(
+                            padding: EdgeInsets.fromLTRB(15, 7, 15, 7),
+                            child: new Text(
+                              'CHANGE PASSWORD',
+                              style: TextStyle(
+                                  fontSize: 10, fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ),
-                        ),
-                      ),
                       ),
                     )
                   ],

@@ -46,7 +46,7 @@ class _WalletBackupState extends State<WalletBackup> {
                       boxShadow: [
                         BoxShadow(
                             color: Color.fromRGBO(82, 135, 210, 0.25),
-                            offset: Offset(0,24),
+                            offset: Offset(0, 24),
                             blurRadius: 48.0,
                             spreadRadius: 2.0),
                       ],
@@ -68,10 +68,13 @@ class _WalletBackupState extends State<WalletBackup> {
                                 height: 21,
                                 width: 27,
                                 decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(4)
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: new Icon(
+                                  Icons.mail_outline,
+                                  color: Colors.white,
+                                  size: 14,
                                 ),
-                                child: new Icon(Icons.mail_outline,color: Colors.white,size: 14,),
                               ),
                               new Container(
                                 margin: EdgeInsets.only(
@@ -155,8 +158,7 @@ class _WalletBackupState extends State<WalletBackup> {
                                 hintStyle: TextStyle(
                                     fontSize: ScreenUtil().setSp(10),
                                     color: Color.fromRGBO(0, 0, 0, 0.35),
-                                    fontWeight: FontWeight.bold
-                                    )),
+                                    fontWeight: FontWeight.bold)),
                           ),
                         ),
                         new Container(
@@ -178,20 +180,20 @@ class _WalletBackupState extends State<WalletBackup> {
                                   child: new Text(
                                     'ACCEPT YOU`VE',
                                     style: new TextStyle(
-                                      fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.bold,
                                         // fontFamily: 'GothamRnd',
                                         fontSize: 10),
                                   ),
                                 ),
                                 new Container(
                                   child: new FlatButton(
-                                    onPressed: (){},
+                                    onPressed: () {},
                                     padding: EdgeInsets.all(0),
                                     child: new Container(
                                       child: new Text(
                                         ' READ THIS WARNING',
                                         style: new TextStyle(
-                                          fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.bold,
                                             // fontFamily: 'GothamRnd',
                                             fontSize: 10,
                                             color: Color.fromRGBO(

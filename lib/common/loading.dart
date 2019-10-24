@@ -9,30 +9,33 @@ class Loading extends Dialog {
       color: Colors.white,
       child: new Container(
         child: new AnimatedLogo(),
-        ),
+      ),
     );
   }
 }
 
-class AnimatedLogo extends StatefulWidget{
+class AnimatedLogo extends StatefulWidget {
   _AnimatedLogoState createState() => new _AnimatedLogoState();
 }
 
-class _AnimatedLogoState extends State <AnimatedLogo> with SingleTickerProviderStateMixin{
+class _AnimatedLogoState extends State<AnimatedLogo>
+    with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> animation;
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
+    controller = AnimationController(
+        duration: const Duration(milliseconds: 600), vsync: this);
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         controller.reset();
         controller.forward();
-      } 
+      }
     });
     controller.forward();
   }
+
   @override
   Widget build(BuildContext context) {
     return new Container(

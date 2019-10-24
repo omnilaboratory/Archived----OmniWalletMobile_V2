@@ -70,7 +70,7 @@ class LoginAppBar extends StatelessWidget{
                   padding: EdgeInsets.all(0),
                   onPressed: () {
                     showDialog<Null>(
-                        context: context, //BuildContext对象
+                        context: context, 
                         barrierDismissible: false,
                         builder: (BuildContext context) {
                           return new LoginTopMenu();
@@ -81,7 +81,6 @@ class LoginAppBar extends StatelessWidget{
                     width: 26,
                     decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(46)),
-                    // child: new Image.network(),
                     child: Image.asset('images/menu.png'),
                   ),
                 ),
@@ -138,7 +137,7 @@ class AfterLoginAppBar extends StatelessWidget{
                   padding: EdgeInsets.all(0),
                   onPressed: () {
                     showDialog<Null>(
-                        context: context, //BuildContext对象
+                        context: context, 
                         barrierDismissible: false,
                         builder: (BuildContext context) {
                           return new TopMenu();
@@ -149,7 +148,6 @@ class AfterLoginAppBar extends StatelessWidget{
                     width: ScreenUtil().setWidth(46),
                     decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(46)),
-                    // child: new Image.network(),
                     child: Image.asset('images/defaultAvatar.png'),
                   ),
                 ),
@@ -205,7 +203,7 @@ class AfterLoginFaqAppBar extends StatelessWidget{
                   padding: EdgeInsets.all(0),
                   onPressed: () {
                     showDialog<Null>(
-                        context: context, //BuildContext对象
+                        context: context, 
                         barrierDismissible: false,
                         builder: (BuildContext context) {
                           return new TopMenu();
@@ -216,7 +214,6 @@ class AfterLoginFaqAppBar extends StatelessWidget{
                     width: ScreenUtil().setWidth(46),
                     decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(46)),
-                    // child: new Image.network(),
                     child: Image.asset('images/defaultAvatar.png'),
                   ),
                 ),

@@ -79,7 +79,9 @@ class LoginTopMenu extends Dialog {
                   new MenuItem(
                     menuName: 'ABOUT',
                     menuIcon: 'images/about.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pushNamed(context, '/about');
+                    },
                   ),
                 ],
               ),

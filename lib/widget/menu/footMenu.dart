@@ -25,8 +25,8 @@ class FootMenu extends Dialog {
             ),
           ),
           new Positioned(
-            bottom: ScreenUtil().setHeight(50),
-            right: ScreenUtil().setWidth(38),
+            bottom: 40,
+            right: 40,
             child: new Container(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(15),
@@ -83,7 +83,9 @@ class FootMenu extends Dialog {
                   new MenuItem(
                     menuName: 'ABOUT',
                     menuIcon: 'images/about.png',
-                    onPress: null,
+                    onPress: (){
+                      Navigator.pushNamed(context, '/about');
+                    },
                   ),
                   ],
               ),
