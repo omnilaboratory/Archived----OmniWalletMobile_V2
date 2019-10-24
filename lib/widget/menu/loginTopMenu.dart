@@ -54,6 +54,13 @@ class LoginTopMenu extends Dialog {
                     },
                   ),
                   new MenuItem(
+                    menuName: 'MY TOKEN',
+                    menuIcon: 'images/wallet.png',
+                    onPress: (){
+                      Navigator.pushNamed(context, '/walletAndAddress');
+                    },
+                  ),
+                  new MenuItem(
                     menuName: 'EXPLORER',
                     menuIcon: 'images/explorer.png',
                     onPress: (){

@@ -53,6 +53,13 @@ class FootMenu extends Dialog {
                     },
                   ),
                   new MenuItem(
+                    menuName: 'MY TOKEN',
+                    menuIcon: 'images/wallet.png',
+                    onPress: (){
+                      Navigator.pushNamed(context, '/walletAndAddress');
+                    },
+                  ),
+                  new MenuItem(
                     menuName: 'EXCHANGE',
                     menuIcon: 'images/exchange.png',
                     onPress: (){
