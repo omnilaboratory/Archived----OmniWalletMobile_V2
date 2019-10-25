@@ -7,6 +7,11 @@ class UtilStyle {
     fontWeight: FontWeight.bold,
     fontSize: 10
   );
+  static var selectOptionStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 12
+  );
   static var timeTagFont= new TextStyle(
     color: Color.fromRGBO(0, 0, 0, 1),
     fontWeight: FontWeight.bold,

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/tokenInput.dart';
@@ -1078,7 +1077,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
               ),
               categoryShow
                   ? new Positioned(
-                      top: ScreenUtil().setHeight(324),
+                      top: ScreenUtil().setHeight(317),
+                      left: 18,
                       child: new Container(
                         decoration: BoxDecoration(
                             color: Color(0xffffffff),
@@ -1090,18 +1090,30 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                         child: new SingleChildScrollView(
                           child: new Container(
                             padding: EdgeInsets.only(
-                                left: 18, right: 18, top: 32, bottom: 32),
+                                left: 18, right: 18, top: 0, bottom: 0),
                             child: new Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 new Container(
-                                  child: new Text('123'),
+                                  margin: EdgeInsets.only(
+                                    top: 16,
+                                    bottom: 16
+                                  ),
+                                  child: new Text('123',style: UtilStyle.selectOptionStyle,),
                                 ),
                                 new Container(
-                                  child: new Text('123'),
+                                  margin: EdgeInsets.only(
+                                    top: 16,
+                                    bottom: 16
+                                  ),
+                                  child: new Text('123',style: UtilStyle.selectOptionStyle,),
                                 ),
                                 new Container(
-                                  child: new Text('123'),
+                                  margin: EdgeInsets.only(
+                                    top: 16,
+                                    bottom: 16
+                                  ),
+                                  child: new Text('123',style: UtilStyle.selectOptionStyle,),
                                 ),
                               ],
                             ),
@@ -1112,7 +1124,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                   : new Container(),
               subCategoryShow
                   ? new Positioned(
-                      top: ScreenUtil().setHeight(414),
+                    left: 18,
+                      top: ScreenUtil().setHeight(406),
                       child: new Container(
                         decoration: BoxDecoration(
                             color: Color(0xffffffff),
@@ -1146,7 +1159,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                   : new Container(),
               addressShow
                   ? new Positioned(
-                      top: ScreenUtil().setHeight(502),
+                      top: ScreenUtil().setHeight(495),
+                      left: 18,
                       child: new Container(
                         decoration: BoxDecoration(
                             color: Color(0xffffffff),
