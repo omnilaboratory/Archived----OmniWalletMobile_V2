@@ -914,15 +914,15 @@ class _TransctionTable extends State<TransctionTable> {
   int idx;
   List<Map<String, Object>> data = [
     {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
+    {'transType': 'send', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
+    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
+    {'transType': 'send', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
+    {'transType': 'send', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
     {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
     {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
+    {'transType': 'send', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
     {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
-    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
-    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
-    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
-    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
-    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
-    {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
+    {'transType': 'send', 'date': '7/20', 'amount': 31.45, 'status': 'sold'},
     {'transType': 'sell', 'date': '7/20', 'amount': 31.45, 'status': 'sold'}
   ];
   @override
@@ -974,7 +974,11 @@ class _TransctionTable extends State<TransctionTable> {
                 barrierDismissible: false,
                 builder: (BuildContext context) {
                   // return new AddressSendDetail();
-                  return new AddressSellDetail();
+                  if(data[i]['transType'] == 'sell'){
+                    return new AddressSellDetail();
+                  }else{
+                    return new AddressSendDetail();
+                  }
                 });
           },
           padding: EdgeInsets.all(0),

@@ -49,6 +49,7 @@ class FootMenu extends Dialog {
                     menuName: 'MY WALLET',
                     menuIcon: 'images/wallet.png',
                     onPress: (){
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/walletAndAddress');
                     },
                   ),
@@ -56,13 +57,15 @@ class FootMenu extends Dialog {
                     menuName: 'MY TOKEN',
                     menuIcon: 'images/wallet.png',
                     onPress: (){
-                      Navigator.pushNamed(context, '/walletAndAddress');
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/tokenHome');
                     },
                   ),
                   new MenuItem(
                     menuName: 'EXCHANGE',
                     menuIcon: 'images/exchange.png',
                     onPress: (){
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/exchange');
                     },
                   ),
@@ -70,6 +73,7 @@ class FootMenu extends Dialog {
                     menuName: 'EXPLORER',
                     menuIcon: 'images/explorer.png',
                     onPress: (){
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/explorer');
                     },
                   ),
@@ -77,6 +81,7 @@ class FootMenu extends Dialog {
                     menuName: 'FAQ',
                     menuIcon: 'images/faq.png',
                     onPress: (){
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/faq');
                     },
                   ),
@@ -84,6 +89,7 @@ class FootMenu extends Dialog {
                     menuName: 'ABOUT',
                     menuIcon: 'images/about.png',
                     onPress: (){
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/about');
                     },
                   ),

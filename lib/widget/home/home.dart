@@ -91,9 +91,7 @@ class Home extends StatelessWidget {
                                   width: ScreenUtil().setWidth(186),
                                   child: new FlatButton(
                                     onPressed: () {
-                                      print(model.loginType);
                                       model.changeLoginType('login');
-                                      print(model.loginType);
                                       Navigator.push(context,
                                           new MaterialPageRoute(
                                               builder: (BuildContext context) {

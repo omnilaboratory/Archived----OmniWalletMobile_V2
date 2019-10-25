@@ -26,7 +26,6 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
   Widget build(BuildContext context) {
     return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
-        print(model.loginType);
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
           appBar: MyBaseBar(

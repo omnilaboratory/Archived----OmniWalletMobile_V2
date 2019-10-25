@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:omni/widget/faq/faq.dart';
+import 'package:omni/widget/token/tokenHome.dart';
 
 import 'package:scoped_model/scoped_model.dart';
 import 'package:omni/model/localModel.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
           '/setting': (BuildContext context) => new Setting(),
           '/faq': (BuildContext context) => new Faq(),
           '/about': (BuildContext context) => new About(),
+          '/tokenHome': (BuildContext context) => new TokenHome(),
         },
       ),
     );

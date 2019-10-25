@@ -47,7 +47,6 @@ class _MyInputState extends State<MyInput> {
       if (inputFocuse.hasFocus) {
         isFocus = true;
       } else {
-        print(123);
         errorMsg = rules(inputController.text);
         if (errorMsg != '') {
           showBorder = true;

@@ -2,7 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UtilStyle {
+  static var tokenInputStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
+  static var timeTagFont= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 8,
+    letterSpacing: -0.24
+  );
+  static var timeTagFontActive= new TextStyle(
+    color: Color.fromRGBO(255, 255, 255, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 8,
+    letterSpacing: -0.24
+  );
+  static var tokenInputTagStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 8
+  );
+
+  static var lengthFont= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.5),
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
+
+  static var lengthErrorFont= new TextStyle(
+    color: Colors.red,
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
+
+  static var tokenMenuFont= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 12,
+  );
+
   UtilStyle._();
+  static var tokenTitleFont = new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.35),
+    fontWeight: FontWeight.bold,
+    fontSize: 12
+  );
   static var tableContentFont = new TextStyle(
       //
       fontSize: 10,

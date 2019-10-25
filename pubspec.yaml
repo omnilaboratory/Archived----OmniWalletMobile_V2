@@ -23,15 +23,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  # 狀態
+  # state
   scoped_model: ^1.0.1
-  # 本地存储
+  # save for local
   shared_preferences: ^0.5.3+4
-  # 屏幕适配
+  # fit screen
   flutter_screenutil: ^0.6.0
-  # 接口请求
+  # http
   dio: ^2.1.13 
-  # 上拉加载下拉刷新
+  # refresh and load
   pull_to_refresh: ^1.5.6
     #日期，正则，倒计时，定时任务，时间轴等
   common_utils: ^1.1.3
@@ -80,7 +80,7 @@ dependencies:
   #  Flutter plugin to encrypt, decrypt (RSA/ECB/PCSK1), verify and sign string with a public and a private key
   encrypt: ^3.0.0
 
-  url_launcher: ^5.0.2
+  url_launcher: ^5.2.3
 
   # for use svg
   flutter_svg: ^0.14.3

@@ -34,7 +34,7 @@ class LoginTopMenu extends Dialog {
                   left: ScreenUtil().setWidth(24),
                   right: ScreenUtil().setWidth(24)),
               width: ScreenUtil().setWidth(150),
-              height: ScreenUtil().setHeight(210),
+              height: ScreenUtil().setHeight(235),
               decoration: new BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(ScreenUtil().setHeight(44)),
@@ -57,7 +57,8 @@ class LoginTopMenu extends Dialog {
                     menuName: 'MY TOKEN',
                     menuIcon: 'images/wallet.png',
                     onPress: (){
-                      Navigator.pushNamed(context, '/walletAndAddress');
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/tokenHome');
                     },
                   ),
                   new MenuItem(
@@ -80,6 +81,7 @@ class LoginTopMenu extends Dialog {
                     menuName: 'ABOUT',
                     menuIcon: 'images/about.png',
                     onPress: (){
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/about');
                     },
                   ),

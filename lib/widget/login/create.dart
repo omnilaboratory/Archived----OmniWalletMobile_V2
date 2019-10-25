@@ -178,7 +178,6 @@ class _CreateState extends State<Create> {
   }
 
   bool checkForm() {
-    print('check');
     nickNameErr = _validateNickName(userController.text);
     pinErr = _validatePin(controllerPin.text);
     rePinErr = _validateRepeatPin(controllerPinRepeate.text);
@@ -200,9 +199,7 @@ class _CreateState extends State<Create> {
   }
 
   void submit() {
-    print('submit');
     var isPass = checkForm();
-    print(isPass);
     if (isPass) {
       // 1. Create Mnemonic Phrase.
       String _mnemonic = MnemonicPhrase.getInstance().createPhrases();

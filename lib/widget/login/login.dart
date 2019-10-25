@@ -34,7 +34,6 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
-        print(model.loginType);
         return new Container(
           height: ScreenUtil().setHeight(541),
           width: ScreenUtil().setWidth(376),
