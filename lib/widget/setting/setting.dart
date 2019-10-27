@@ -626,7 +626,9 @@ class _SecurityState extends State<Security> {
                           borderRadius: BorderRadius.circular(4)),
                       child: new Container(
                         child: FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/mfa');
+                          },
                           padding: EdgeInsets.all(0),
                           child: new Container(
                             padding: EdgeInsets.fromLTRB(15, 7, 15, 7),

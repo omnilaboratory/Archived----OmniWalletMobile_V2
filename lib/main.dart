@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:omni/widget/faq/faq.dart';
+import 'package:omni/widget/setting/mfaEnable.dart';
 import 'package:omni/widget/token/tokenHome.dart';
 
 import 'package:scoped_model/scoped_model.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           '/faq': (BuildContext context) => new Faq(),
           '/about': (BuildContext context) => new About(),
           '/tokenHome': (BuildContext context) => new TokenHome(),
+          '/mfa': (BuildContext context) => new MFAEnable(),
         },
       ),
     );

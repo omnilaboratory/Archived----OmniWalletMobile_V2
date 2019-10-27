@@ -2,6 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UtilStyle {
+  static var mfaTitleStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.5),
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
+  static var mfaContentStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 10,
+    height: 1.6
+  );
+  static var tokenDetailTitleStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.5),
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
+  static var tokenDetailContentStyle= new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 1),
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
   static var tokenInputStyle= new TextStyle(
     color: Color.fromRGBO(0, 0, 0, 1),
     fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/tokenInput.dart';
 import 'package:omni/common/untilStyle.dart';
@@ -6,6 +7,7 @@ import 'package:omni/model/localModel.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/menu/footMenu.dart';
+import 'package:omni/widget/token/tokenDetail.dart';
 
 class TokenHome extends StatefulWidget {
   _TokenHomeState createState() => new _TokenHomeState();
@@ -28,8 +30,7 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
   FocusNode rateFocus;
 
   double historyHeight = ScreenUtil().setHeight(420);
-  double historyTableHeight = ScreenUtil().setHeight(320);
-  bool historyTableIsShow = true;
+  double historyTableHeight = ScreenUtil().setHeight(310);
   String nowShow = '';
 
   bool categoryShow = false;
@@ -38,6 +39,7 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
   bool showPadding = false;
   int _issuanceValue = 1;
   String timeType = '';
+  bool tableShow = true;
 
   @override
   void initState() {
@@ -141,7 +143,9 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                               highlightColor: Color(0xfff2f4f8),
                               onPressed: () {
                                 nowShow = 'token';
-                                historyHeight = ScreenUtil().setHeight(68);
+                                historyHeight = 68;
+                                historyTableHeight = 0;
+                                tableShow = false;
                                 setState(() {});
                               },
                               padding: EdgeInsets.all(0),
@@ -191,6 +195,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                               onPressed: () {
                                 nowShow = "history";
                                 historyHeight = ScreenUtil().setHeight(642);
+                                tableShow = true;
+                                historyTableHeight = ScreenUtil().setHeight(520);
                                 setState(() {});
                               },
                               padding: EdgeInsets.all(0),
@@ -203,7 +209,9 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
-                          new Container()
+                          tableShow?new Container(
+                            child: _historyContent([]),
+                          ):new Container()
                         ],
                       ),
                     ),
@@ -1200,8 +1208,124 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
     return content;
   }
 
-  Widget _historyContent() {
+  Widget _historyContent(List historyList) {
+    List<Widget> listUI = [];
+    for(var i =0;i<20;i++){
+      listUI.add(HistoryTableRow(123));
+    }
+    Widget tableHead = new Container(
+      padding: EdgeInsets.only(left: 18,right: 18,top: 8,bottom: 8),
+      child: new Row(
+        children: <Widget>[
+          new Container(
+            width: 58,
+            child: new Text(
+              'COIN',
+              style: UtilStyle.tableHeadFont,
+            ),
+          ),
+          new Container(
+            width: 91,
+            child: new Text(
+              'NAME',
+              style: UtilStyle.tableHeadFont,
+            ),
+          ),
+          new Container(
+            width: 100,
+            child: new Text(
+              'TYPE',
+              style: UtilStyle.tableHeadFont,
+            ),
+          ),
+          new Container(
+            width: 99,
+            child: new Text(
+              'STATUS',
+              style: UtilStyle.tableHeadFont,
+            ),
+          ),
+        ],
+      ),
+    );
     Widget content;
+    content = new Container(
+      child: new Column(
+        children: <Widget>[
+          new Container(
+            child: tableHead,
+          ),
+          new Container(
+            height: historyTableHeight,
+            child: new SingleChildScrollView(
+              child: new Container(
+                child: new Column(
+                  children: listUI,
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
     return content;
+  }
+}
+
+class  HistoryTableRow extends StatelessWidget {
+  final data;
+  HistoryTableRow(this.data);
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      child: new FlatButton(
+        splashColor: Color(0xfff2f4f8),
+        highlightColor: Color(0xfff2f4f8),
+        onPressed: (){
+          showDialog<Null>(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return new TokenDetailDilog(data);
+            });
+        },
+        padding: EdgeInsets.all(0),
+        child: Container(
+      padding: EdgeInsets.only(left: 18,right: 18,top: 8,bottom: 8),
+      child: new Row(
+        children: <Widget>[
+          new Container(
+            width: 58,
+            child: new Text(
+              'COIN',
+              style: UtilStyle.tableContentFont,
+            ),
+          ),
+          new Container(
+            width: 91,
+            child: new Text(
+              'NAME',
+              style: UtilStyle.tableContentFont,
+            ),
+          ),
+          new Container(
+            width: 100,
+            child: new Text(
+              'TYPE',
+              style: UtilStyle.tableContentFont,
+            ),
+          ),
+          new Container(
+            width: 99,
+            child: new Text(
+              'STATUS',
+              style: UtilStyle.tableContentFont,
+            ),
+          ),
+        ],
+      ),
+    ),
+      ),
+    );
   }
 }
