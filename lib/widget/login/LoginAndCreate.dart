@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/model/localModel.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/login/login.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:omni/language/language.dart';
@@ -28,17 +28,17 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar: MyBaseBar(
-            child: LoginAppBar(isHome: false),
-          ),
           body: new Container(
             color: Color.fromRGBO(242, 244, 248, 1),
             child: Stack(
               children: <Widget>[
                 new Positioned(
+                  child: new BeforLoginHead(),
+                ),
+                new Positioned(
                   bottom: 0,
                   child: new Container(
-                    height: ScreenUtil().setHeight(637),
+                    height: ScreenUtil().setHeight(682),
                     width: ScreenUtil().setWidth(376),
                     decoration: new BoxDecoration(
                       color: Color.fromRGBO(242, 244, 248, 1),
@@ -49,16 +49,13 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                       boxShadow: [
                         BoxShadow(
                             color: Color.fromRGBO(70, 116, 182, 0.10),
-                            offset: Offset(
-                              ScreenUtil().setSp(0),
-                              ScreenUtil().setSp(0),
-                            ),
-                            blurRadius: 40.0,
+                            offset: Offset(0,-24),
+                            blurRadius: 48.0,
                             spreadRadius: 2.0),
                       ],
                     ),
                     child: new Container(
-                      padding: EdgeInsets.only(top: ScreenUtil().setHeight(32)),
+                      padding: EdgeInsets.only(top: 20),
                       height: ScreenUtil().setHeight(48),
                       child: new Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +77,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                           new Container(
                             width: ScreenUtil().setWidth(2),
                             height: ScreenUtil().setHeight(48),
-                            color: Color.fromRGBO(151, 151, 151, 1),
+                            color: Color.fromRGBO(97, 97, 97, 0.2),
                           ),
                           new Container(
                             width: ScreenUtil().setWidth(186),
@@ -103,7 +100,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                 new Positioned(
                   bottom: 0,
                   child: new Container(
-                    height: ScreenUtil().setHeight(541),
+                    height: ScreenUtil().setHeight(605),
                     width: ScreenUtil().setWidth(376),
                     decoration: new BoxDecoration(
                       color: Color.fromRGBO(242, 244, 248, 1),
@@ -114,11 +111,9 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                       boxShadow: [
                         BoxShadow(
                             color: Color.fromRGBO(70, 116, 182, 0.10),
-                            offset: Offset(
-                              ScreenUtil().setSp(0),
-                              ScreenUtil().setSp(0),
+                            offset: Offset(0,-24
                             ),
-                            blurRadius: 40.0,
+                            blurRadius: 48.0,
                             spreadRadius: 2.0),
                       ],
                     ),
@@ -133,6 +128,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                     ),
                   ),
                 ),
+              
               ],
             ),
           ),

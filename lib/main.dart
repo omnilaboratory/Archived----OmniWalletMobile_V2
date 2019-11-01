@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
       model: localModel,
       child: new MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'GothamRnd'),
         home: new MyHomePage(),
         routes: <String, WidgetBuilder>{

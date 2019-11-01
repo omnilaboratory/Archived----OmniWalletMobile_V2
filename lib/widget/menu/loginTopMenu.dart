@@ -25,8 +25,8 @@ class LoginTopMenu extends Dialog {
             ),
           ),
           new Positioned(
-            top: ScreenUtil().setHeight(35),
-            right: ScreenUtil().setWidth(24),
+            top: ScreenUtil().setHeight(50),
+            right: ScreenUtil().setWidth(40),
             child: new Container(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(15),

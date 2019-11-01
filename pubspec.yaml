@@ -119,6 +119,9 @@ flutter:
    - svg/github.svg
    - svg/mail.svg
    - svg/protocol.svg
+   - svg/back.svg
+   - svg/coin.svg
+   - svg/arrowUp.svg
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

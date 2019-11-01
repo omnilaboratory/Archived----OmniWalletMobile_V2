@@ -7,6 +7,37 @@ class UtilStyle {
     fontWeight: FontWeight.bold,
     fontSize: 10
   );
+  static var titleFont= new TextStyle(
+    color: Color(0xff4a77b7),
+    fontWeight: FontWeight.bold,
+    fontSize: 13
+  );
+  static var inputStyle= new TextStyle(
+    color: Color(0XFF000000),
+    fontWeight: FontWeight.bold,
+    fontSize: 12
+  );
+  static var inputStyleM= new TextStyle(
+    color: Color(0XFF000000),
+    fontWeight: FontWeight.bold,
+    fontSize: 12
+  );
+  static var submitFont = new TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.25),
+    fontWeight: FontWeight.bold,
+    fontSize: 12,
+    letterSpacing: 3.5
+  );
+  static var hintTextFont= new TextStyle(
+    color: Color(0XFFB6BAC9),
+    fontWeight: FontWeight.bold,
+    fontSize: 10
+  );
+  static var hintTextFontM= new TextStyle(
+    color: Color(0XFFB6BAC9),
+    fontWeight: FontWeight.bold,
+    fontSize: 12
+  );
   static var mfaContentStyle= new TextStyle(
     color: Color.fromRGBO(0, 0, 0, 1),
     fontWeight: FontWeight.bold,

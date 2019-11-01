@@ -96,6 +96,14 @@ class FootMenu extends Dialog {
                   ],
               ),
             ),
+          ),
+          Positioned(
+            bottom: 16,
+            right: 16,
+            child: new Container(
+              width: 50,
+              child: Image.asset('images/logo.png'),
+            ),
           )
         ],
       ),

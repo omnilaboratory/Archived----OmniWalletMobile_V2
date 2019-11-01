@@ -25,8 +25,8 @@ class TopMenu extends Dialog {
             ),
           ),
           new Positioned(
-            top: ScreenUtil().setHeight(24),
-            right: ScreenUtil().setWidth(48),
+            top: ScreenUtil().setHeight(22),
+            right: ScreenUtil().setWidth(24),
             child: new Container(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(15),
@@ -36,10 +36,12 @@ class TopMenu extends Dialog {
               width: ScreenUtil().setWidth(200),
               height: ScreenUtil().setHeight(120),
               decoration: new BoxDecoration(
+                  shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(ScreenUtil().setHeight(44)),
-                    bottomLeft: Radius.circular(ScreenUtil().setHeight(44)),
-                    bottomRight: Radius.circular(ScreenUtil().setHeight(44)),
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
                   ),
                   color: Colors.white),
               child: new Column(
@@ -60,6 +62,15 @@ class TopMenu extends Dialog {
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            top: ScreenUtil().setHeight(4),
+            right: ScreenUtil().setWidth(6),
+            child: new Container(
+              width: ScreenUtil().setWidth(40),
+              height: ScreenUtil().setHeight(40),
+              child: Image.asset('images/defaultAvatar.png'),
             ),
           )
         ],

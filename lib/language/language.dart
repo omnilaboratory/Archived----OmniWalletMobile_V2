@@ -1,8 +1,8 @@
 class Language{
   Language._();
   static const login = {
-    'cn':'登录',
-    'en':'LOGIN',
+    'cn':'恢复钱包',
+    'en':'RESTORE',
   };
   static const create = {
     'cn':'注册',
