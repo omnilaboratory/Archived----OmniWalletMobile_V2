@@ -235,7 +235,7 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 136),
+                      margin: EdgeInsets.only(top: 122),
                       child: new FlatButton(
                         splashColor: Color(0xfff2f4f8),
                         highlightColor: Color(0xfff2f4f8),

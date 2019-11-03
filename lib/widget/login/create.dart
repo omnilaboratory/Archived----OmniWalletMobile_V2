@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/language/language.dart';
-import 'package:omni/model/global_model.dart';
 import 'package:omni/model/localModel.dart';
-import 'package:omni/model/mnemonic_phrase_model.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/tools/Tools.dart';
-import 'package:omni/tools/key_config.dart';
-import 'package:omni/tools/net_config.dart';
-import 'package:omni/widget/backupWallet/backup_wallet_index.dart';
+import 'package:omni/widget/login/backupWallet.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class Create extends StatefulWidget {
@@ -63,6 +59,7 @@ class _CreateState extends State<Create> {
                           rules: _validateNickName,
                           inputController: userController,
                           placeholder: 'NICKNAME',
+                          hinText: 'NICKNAME',
                           inputFocuse: userFocus,
                           isPassword: false,
                           errorMsg: nickNameErr,
@@ -74,6 +71,7 @@ class _CreateState extends State<Create> {
                           inputController: controllerPin,
                           placeholder: 'PIN',
                           inputFocuse: pinFocus,
+                          hinText: 'PIN CODE',
                           isPassword: false,
                           errorMsg: pinErr,
                         ),
@@ -83,6 +81,7 @@ class _CreateState extends State<Create> {
                           rules: _validateRepeatPin,
                           inputController: controllerPinRepeate,
                           placeholder: 'PIN REAPTE',
+                          hinText: 'PIN CONFIRM',
                           inputFocuse: pinRepeateFocus,
                           isPassword: false,
                           errorMsg: rePinErr,
@@ -199,63 +198,12 @@ class _CreateState extends State<Create> {
   }
 
   void submit() {
-    var isPass = checkForm();
-    if (isPass) {
-      // 1. Create Mnemonic Phrase.
-      String _mnemonic = MnemonicPhrase.getInstance().createPhrases();
-      print('==> [Mnemonic Phrase] ==> $_mnemonic');
-
-      // 2. Encrypt the Mnemonic Phrase with the MD5 algorithm and
-      // save it locally and remotely as User ID.
-      // (User ID is used to associate user data)
-      String _mnemonicMd5 = Tools.convertMD5Str(_mnemonic);
-
-      // 3. Encrypt the PIN code with the MD5 algorithm.
-      String _pinCodeMd5 = Tools.convertMD5Str(controllerPin.text);
-
-      // Show loading animation.
-      Tools.loadingAnimation(context);
-
-      // 4. Nick name (Clear text) , Mnemonic Phrase (MD5) and Pin Code (MD5) save to remotely.
-      Future data = NetConfig.post(context, NetConfig.createUser, {
-        'userId': _mnemonicMd5,
-        'nickname': userController.text,
-        'password': _pinCodeMd5
-      }, errorCallback: () {
-        Navigator.of(context).pop();
-      });
-      data.then((data) {
-        if (NetConfig.checkData(data)) {
-          GlobalInfo.userInfo.userId = _mnemonicMd5;
-          GlobalInfo.userInfo.mnemonic = _mnemonic;
-          GlobalInfo.userInfo.pinCode = _pinCodeMd5;
-          GlobalInfo.userInfo.nickname = userController.text;
-          GlobalInfo.userInfo.loginToken = data['token'];
-
-          // Save data to locally.
-          // Login Token
-          // Mnemonic Phrase (AES Encrypt and MD5)
-          // Pin code (MD5)
-          Tools.saveStringKeyValue(
-              KeyConfig.userLoginToken, GlobalInfo.userInfo.loginToken);
-          Tools.saveStringKeyValue(
-              KeyConfig.userMnemonic, Tools.encryptAes(_mnemonic));
-          Tools.saveStringKeyValue(KeyConfig.userMnemonicMd5, _mnemonicMd5);
-          Tools.saveStringKeyValue(KeyConfig.userPinCodeMd5, _pinCodeMd5);
-
-          GlobalInfo.userInfo.mnemonicSeed = null;
-
-          GlobalInfo.userInfo.init(context, () {
-            Navigator.of(context).pop();
-            Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) {
-                return BackupWalletIndex();
-              }),
-              (route) => route == null,
-            );
-          });
+    Navigator.push(context, 
+      new MaterialPageRoute(
+        builder: (BuildContext context){
+          return new BackupWalletHome();
         }
-      });
-    }
+      )
+    );
   }
 }

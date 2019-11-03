@@ -27,7 +27,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
     return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          resizeToAvoidBottomPadding: false,
+          // resizeToAvoidBottomPadding: false,
           body: new Container(
             color: Color.fromRGBO(242, 244, 248, 1),
             child: Stack(

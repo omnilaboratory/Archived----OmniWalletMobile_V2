@@ -188,7 +188,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 136),
+                      margin: EdgeInsets.only(top: 96),
                       child: new FlatButton(
                         splashColor: Color(0xfff2f4f8),
                         highlightColor: Color(0xfff2f4f8),

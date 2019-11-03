@@ -125,7 +125,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                           )),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 136),
+                      margin: EdgeInsets.only(top: 76),
                       child: new FlatButton(
                         splashColor: Color(0xfff2f4f8),
                         highlightColor: Color(0xfff2f4f8),
