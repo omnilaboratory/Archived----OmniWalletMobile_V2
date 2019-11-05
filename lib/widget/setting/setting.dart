@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/model/localModel.dart';
-import 'package:omni/model/state_lib.dart';
+import 'package:omni/widget/compnent/floatButton.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
-import 'package:omni/widget/menu/footMenu.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'dart:async';
 import 'dart:io';
+
+import 'package:scoped_model/scoped_model.dart';
 
 class Setting extends StatefulWidget {
   _SettingState createState() => new _SettingState();
@@ -87,27 +88,10 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return Scaffold(
-          floatingActionButton: new Container(
-            width: ScreenUtil().setSp(45),
-            height: ScreenUtil().setSp(45),
-            child: new FlatButton(
-              onPressed: () {
-                showDialog<Null>(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return new FootMenu();
-                    });
-              },
-              padding: EdgeInsets.all(0),
-              child: new Container(
-                child: new Image.asset('images/logo.png'),
-              ),
-            ),
-          ),
+          floatingActionButton: new FloatButton(),
           appBar: new MyBaseBar(
             child: new AfterLoginAppBar(),
           ),
@@ -336,7 +320,7 @@ class _ProfileContentState extends State<ProfileContent> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Column(
           children: <Widget>[
@@ -589,7 +573,7 @@ class Security extends StatefulWidget {
 class _SecurityState extends State<Security> {
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Container(
           child: new Column(

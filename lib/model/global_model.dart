@@ -1,13 +1,14 @@
+import 'dart:convert';
 import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:bip39/bip39.dart' as bip39;
+import 'package:crypto/crypto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:omni/model/user_info.dart';
 import 'package:omni/tools/Tools.dart';
 import 'package:omni/tools/key_config.dart';
 /*
- *
  * Global data
  */
 class  GlobalInfo{

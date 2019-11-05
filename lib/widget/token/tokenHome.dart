@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/tokenInput.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/model/localModel.dart';
-import 'package:omni/model/state_lib.dart';
+import 'package:omni/widget/compnent/floatButton.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
-import 'package:omni/widget/menu/footMenu.dart';
 import 'package:omni/widget/token/tokenDetail.dart';
+import 'package:omni/widget/view_model/main_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class TokenHome extends StatefulWidget {
   _TokenHomeState createState() => new _TokenHomeState();
@@ -84,28 +84,11 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return Scaffold(
           resizeToAvoidBottomPadding: false,
-          floatingActionButton: new Container(
-            width: ScreenUtil().setSp(45),
-            height: ScreenUtil().setSp(45),
-            child: new FlatButton(
-              onPressed: () {
-                showDialog<Null>(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return new FootMenu();
-                    });
-              },
-              padding: EdgeInsets.all(0),
-              child: new Container(
-                child: new Image.asset('images/logo.png'),
-              ),
-            ),
-          ),
+          floatingActionButton: new FloatButton(),
           appBar: MyBaseBar(
             child: AfterLoginAppBar(),
           ),

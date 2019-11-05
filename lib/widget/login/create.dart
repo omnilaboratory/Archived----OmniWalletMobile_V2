@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/myInput.dart';
+import 'package:omni/common/utilFunction.dart';
 import 'package:omni/language/language.dart';
-import 'package:omni/model/localModel.dart';
-import 'package:omni/model/state_lib.dart';
-import 'package:omni/tools/Tools.dart';
 import 'package:omni/widget/login/backupWallet.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class Create extends StatefulWidget {
@@ -40,7 +40,7 @@ class _CreateState extends State<Create> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Container(
           height: ScreenUtil().setHeight(541),
@@ -181,29 +181,40 @@ class _CreateState extends State<Create> {
     pinErr = _validatePin(controllerPin.text);
     rePinErr = _validateRepeatPin(controllerPinRepeate.text);
     setState(() {});
-    if (nickNameErr == '' && pinErr == '' && rePinErr == '') {
+    if(nickNameErr==''&&pinErr==''&&rePinErr==''){
       return true;
-    } else {
-      if (nickNameErr != '') {
-        Tools.showToast(nickNameErr, toastLength: Toast.LENGTH_LONG);
-      } else {
-        if (pinErr != '') {
-          Tools.showToast(pinErr, toastLength: Toast.LENGTH_LONG);
-        } else {
-          Tools.showToast(rePinErr, toastLength: Toast.LENGTH_LONG);
-        }
-      }
+    }else{
       return false;
     }
   }
-
+  /*
+   * author:Tong
+   * time:2019/11/14
+   * 英文注释：
+   * step1:Create mnemonic words
+   * step2:Encrypt the words with the md5 and save it at location
+   * step3:Encrypt the PIN cod with the md5
+   * step4:Nickname and PIN code in md5 save to remotely、mnemonic wods in md5 as user ID save to remotely
+   * Chinese note:
+   * 第一步:生成助记单词
+   * 第二步:将助记单词 转换为MD5
+   * 第三步:将PIN code 转换为MD5
+   * 第四部:将昵称和PIN code的md5存入服务器、将助记单词的md5以User ID存入服务器
+   */
   void submit() {
-    Navigator.push(context, 
+    // step1 第一步
+    String mnemonic = Mnemonic.getInstance().createPhrases();
+    // step2 第二步
+    String mnemonicMd5 = UtilFunction.convertMD5Str(mnemonic);
+    // step3 第三步
+    String pinCodeMd5 = UtilFunction.convertMD5Str(controllerPin.text);
+    // step4 第四步
+    /* Navigator.push(context, 
       new MaterialPageRoute(
         builder: (BuildContext context){
           return new BackupWalletHome();
         }
       )
-    );
+    ); */
   }
 }

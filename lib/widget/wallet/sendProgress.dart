@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/menu/addressChildMenu.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'package:omni/widget/wallet/addressFull.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -23,7 +23,7 @@ class _SendProgressState extends State<SendProgress> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
           appBar: new MyBaseBar(

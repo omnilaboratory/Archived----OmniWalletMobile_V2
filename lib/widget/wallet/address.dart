@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/menu/addressMenu.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class Address extends StatefulWidget {
@@ -37,7 +37,7 @@ class _AddressState extends State<Address> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Positioned(
           bottom: (controllerAddress.value - 1) * ScreenUtil().setHeight(406),
@@ -189,7 +189,7 @@ class AddressTypeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Container(
           child: new Column(

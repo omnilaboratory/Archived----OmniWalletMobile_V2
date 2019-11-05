@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UtilStyle {
+  UtilStyle._();
   static var mfaTitleStyle= new TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.5),
     fontWeight: FontWeight.bold,
@@ -99,8 +100,6 @@ class UtilStyle {
     fontWeight: FontWeight.bold,
     fontSize: 12,
   );
-
-  UtilStyle._();
   static var tokenTitleFont = new TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.35),
     fontWeight: FontWeight.bold,

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/compnent/myAppBar.dart';
 import 'package:omni/widget/login/LoginAndCreate.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:omni/language/language.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
           appBar: MyBaseBar(

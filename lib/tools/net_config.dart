@@ -7,13 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:omni/model/global_model.dart';
 import 'package:omni/widget/home/home.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:omni/model/state_lib.dart';
-
-import 'Tools.dart';
+// import 'package:omni//welcome/welcome_page_1.dart';
+import 'package:omni/widget/view_model/state_lib.dart';
 
 class NetConfig{
 //  static String apiHost='http://192.168.0.103:8080/api/';
@@ -55,7 +53,6 @@ class NetConfig{
   static String addressList ='wallet/address/list';
 
   /*
-   *
    * wallet/address/getTransactionsByAddress 根据address获取交易记录
    * wallet/address/getTransactionsByAddress?address=1JiSZQDAZ16Qm8BDmNRBWa6AVsJWWeLC2U
   */
@@ -222,7 +219,7 @@ class NetConfig{
     bool flag = true;
 
     if(response.statusCode==200){
-       response.stream.transform(utf8.decoder).listen((data){
+      await response.stream.transform(utf8.decoder).listen((data){
         var result = json.decode(data);
         print(data);
         callback(result['data']);
@@ -251,7 +248,7 @@ class NetConfig{
 
     bool flag = true;
     if(response.statusCode==200){
-      response.stream.transform(utf8.decoder).listen((data){
+      await response.stream.transform(utf8.decoder).listen((data){
         var result = json.decode(data);
         callback(result['data']['faceUrl']);
         flag = false;

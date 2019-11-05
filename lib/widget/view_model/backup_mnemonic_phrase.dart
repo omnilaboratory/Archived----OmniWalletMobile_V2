@@ -1,11 +1,8 @@
-import 'package:omni/model/state_lib.dart';
-import 'package:omni/object/wordInfo.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:omni/widget/view_model/state_lib.dart';
 
 class BackupMnemonicPhrase extends Model{
-  BackupMnemonicPhrase of(context) => ScopedModel.of<BackupMnemonicPhrase>(context);
 
-  List<WordInfo> wordList=[];
+  List<WordInfo> wordList=null;
 
   List<WordInfo> createNewWords(String mnemonic){
     if(this.wordList!=null){
@@ -27,7 +24,6 @@ class BackupMnemonicPhrase extends Model{
   }
 
   List<WordInfo> get randomSortMnemonicPhrases{
-    createNewWords(GlobalInfo.userInfo.mnemonic);
     var temp = this.wordList.sublist(0);
     for(var item in temp){
       item.visible=true;

@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:omni/widget/faq/faq.dart';
 import 'package:omni/widget/setting/mfaEnable.dart';
 import 'package:omni/widget/token/tokenHome.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 
 import 'package:scoped_model/scoped_model.dart';
-import 'package:omni/model/localModel.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:omni/widget/setting/setting.dart';
@@ -30,10 +30,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  final LocalModel localModel = LocalModel();
+  final MainStateModel localModel = MainStateModel();
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<LocalModel>(
+    return ScopedModel<MainStateModel>(
       model: localModel,
       child: new MaterialApp(
         title: 'Flutter Demo',
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ScreenUtil(width: 376, height: 812, allowFontScaling: true)
           ..init(context);
     // return new Splash();
-    return new ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Home();
       },

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/language/language.dart';
-import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/login/backupWallet.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class Login extends StatefulWidget {
@@ -59,7 +60,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Container(
           height: ScreenUtil().setHeight(605),

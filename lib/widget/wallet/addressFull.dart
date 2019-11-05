@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/menu/addressFulMenu.dart';
+import 'package:omni/widget/view_model/main_model.dart';
 import 'package:omni/widget/wallet/addressSellDetail.dart';
 import 'package:omni/widget/wallet/addressSendDetail.dart';
 import 'package:omni/widget/wallet/sellPage.dart';
@@ -43,7 +43,7 @@ class _AddressFullState extends State<AddressFull>
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Positioned(
           bottom:
@@ -213,7 +213,7 @@ class AddressTypeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<LocalModel>(
+    return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Container(
           child: new Column(
@@ -392,7 +392,7 @@ class _AddressItemState extends State<AddressItem> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Container(
             child: new Column(
@@ -997,7 +997,7 @@ class _TransctionTable extends State<TransctionTable> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<LocalModel>(
+    return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return Container(
           padding: EdgeInsets.only(

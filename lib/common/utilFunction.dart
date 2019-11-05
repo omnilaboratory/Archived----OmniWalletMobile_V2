@@ -1,5 +1,24 @@
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:shared_preferences/shared_preferences.dart';
+
+
 class UtilFunction {
   UtilFunction._();
+  static UtilFunction instance;
+  static UtilFunction getInstance() {
+    if (instance == null) {
+      instance = new UtilFunction();
+    }
+    return instance;
+  }
+  UtilFunction(){
+    UtilFunction._();
+  }
+  Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+  // format numbers
   static formatCount(c, d) {
     if (c == 0 || c == null) {
       return '0';
@@ -41,5 +60,37 @@ class UtilFunction {
       }
       return returnStr;
     }
+  }
+  // Encrypt item in the MD5
+  static String convertMD5Str(String data){
+    return md5.convert(Utf8Encoder().convert(md5.convert(Utf8Encoder().convert(data)).toString())).toString();
+  }
+  static showToast(String msg,{Toast toastLength = Toast.LENGTH_SHORT}){
+    Fluttertoast.cancel();
+    Fluttertoast.showToast(
+      msg: msg,
+      toastLength: toastLength,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIos: 1,
+    );
+  }
+  encryptAes(String content) {
+    prefs.then((share){
+      final key = encrypt.Key.fromUtf8(share.get('userInfo').pinCode);
+      final iv = encrypt.IV.fromUtf8(share.get('userInfo').userId.substring(0,16));
+      final encrypter = encrypt.Encrypter(encrypt.AES(key,mode:encrypt.AESMode.cbc));
+      final encrypted = encrypter.encrypt(content, iv: iv);
+      return encrypted.base64;
+    });
+  }
+
+  decryptAes(String encryptedString) {
+    prefs.then((share){
+      final key = encrypt.Key.fromUtf8(share.get('userInfo').pinCode);
+      final iv = encrypt.IV.fromUtf8(share.get('userInfo').userId.substring(0,16));
+      final encrypter = encrypt.Encrypter(encrypt.AES(key,mode:encrypt.AESMode.cbc));
+      final decrypted = encrypter.decrypt64(encryptedString, iv: iv);
+      return decrypted;
+    });
   }
 }

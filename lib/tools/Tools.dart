@@ -16,7 +16,7 @@ import 'package:omni/tools/net_config.dart';
 
 class Tools{
 
-  /* 返回当前时间戳 */
+  /** 返回当前时间戳 */
   static bool getCurrRunningMode() {
     return bool.fromEnvironment("dart.vm.product");
   }

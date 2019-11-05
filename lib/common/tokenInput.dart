@@ -117,22 +117,6 @@ class _TokenSelectState extends State <TokenSelect>{
     });
   }
 
-  List<PopupMenuEntry<String>> _menuList(){
-    List <PopupMenuEntry<String>> listUI;
-    for(var i = 0;i<selectList.length;i++){
-      Widget item = new PopupMenuItem<String>(
-        value: selectList[i]['value'],
-      
-          child: new Text(
-            selectList[i]['value'],
-            style: UtilStyle.tokenMenuFont,
-          
-        ),
-      );
-      listUI.add(item);
-    }
-    return listUI;
-  }
   @override
   Widget build(BuildContext context) {
     return Container(
