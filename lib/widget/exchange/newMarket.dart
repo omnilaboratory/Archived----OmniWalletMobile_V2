@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -49,15 +49,15 @@ class _NewMarketState extends State<NewMarket>
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar: new MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: new Container(
             height: ScreenUtil().setHeight(812),
             width: ScreenUtil().setWidth(376),
             color: Color.fromRGBO(70, 116, 182, 0.1),
             child: new Stack(
               children: <Widget>[
+                Positioned(
+                  child: new AfterLoginHead(),
+                ),
                 Positioned(
                   bottom: (marketController.value - 1) *
                       ScreenUtil().setHeight(652),
@@ -72,7 +72,7 @@ class _NewMarketState extends State<NewMarket>
                         ),
                         boxShadow: [
                           BoxShadow(
-                              color: Color.fromRGBO(70, 116, 182, 0.02),
+                              color: Color.fromRGBO(70, 116, 182, 0.1),
                               offset: Offset(
                                 ScreenUtil().setSp(0),
                                 ScreenUtil().setSp(-24),
@@ -383,6 +383,8 @@ class _NewMarketState extends State<NewMarket>
                   child: new Center(
                     child: new Container(
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: () {
                           this._cancel();
                         },
@@ -415,6 +417,8 @@ class _NewMarketState extends State<NewMarket>
                   child: new Center(
                     child: new Container(
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: () {
                           this._newMarket();
                         },

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/exchange/marketBuy.dart';
 import 'package:omni/widget/exchange/offerPop.dart';
 import 'package:omni/widget/view_model/main_model.dart';
@@ -183,16 +183,15 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
       builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new FloatButton(),
-          appBar: MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: new Container(
-            color: Color.fromRGBO(70, 116, 182, 0.02),
-            height: ScreenUtil().setHeight(762),
+            height: ScreenUtil().setHeight(812),
             width: ScreenUtil().setWidth(376),
             child: new Container(
               child: new Stack(
                 children: <Widget>[
+                  Positioned(
+                    child: new AfterLoginHead(),
+                  ),
                   Positioned(
                     bottom: (marketController.value - 1) *
                         ScreenUtil().setHeight(702),
@@ -226,6 +225,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                 right: ScreenUtil().setWidth(18),
                               ),
                               child: new FlatButton(
+                                splashColor: UtilStyle.buttonColor,
+                                highlightColor: UtilStyle.buttonColor,
                                 onPressed: () {
                                   tradeHeight = 134;
                                   offerHeight = 68;
@@ -250,6 +251,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                                       ),
                                       new Container(
                                         child: new FlatButton(
+                                          splashColor: UtilStyle.buttonColor,
+                                          highlightColor: UtilStyle.buttonColor,
                                           padding: EdgeInsets.all(0),
                                           onPressed: () {
                                             Navigator.push(context,
@@ -344,6 +347,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                               right: ScreenUtil().setWidth(18),
                             ),
                             child: new FlatButton(
+                              splashColor: UtilStyle.buttonColor,
+                                highlightColor: UtilStyle.buttonColor,
                               onPressed: () {
                                 tradeHeight = ScreenUtil().setHeight(630);
                                 offerHeight = 68;
@@ -523,6 +528,8 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
                               right: ScreenUtil().setWidth(18),
                             ),
                             child: new FlatButton(
+                              splashColor: UtilStyle.buttonColor,
+                                highlightColor: UtilStyle.buttonColor,
                               onPressed: () {
                                 tradeHeight = ScreenUtil().setHeight(630);
                                 offerHeight = ScreenUtil().setHeight(560);
@@ -770,6 +777,8 @@ class _MarketTableRowState extends State<MarketTableRow> {
   Widget build(BuildContext context) {
     return new Container(
       child: new FlatButton(
+        splashColor: UtilStyle.buttonColor,
+        highlightColor: UtilStyle.buttonColor,
         onPressed: () {
           Map<String, Object> item = {
             'id': id,
@@ -1078,6 +1087,8 @@ class _OfferTableRowState extends State<OfferTableRow> {
   Widget build(BuildContext context) {
     return new Container(
       child: new FlatButton(
+        splashColor: UtilStyle.buttonColor,
+        highlightColor: UtilStyle.buttonColor,
         padding: EdgeInsets.all(0),
         onPressed: () {
           Map<String, Object> item = {

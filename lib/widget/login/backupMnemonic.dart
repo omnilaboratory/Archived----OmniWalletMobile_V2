@@ -55,7 +55,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
         child: new Stack(
           children: <Widget>[
             new Positioned(
-              child: new BeforLoginHead(),
+              child: new BeforLoginHead(isHome: false,),
             ),
             Positioned(
               bottom: 0,
@@ -80,6 +80,8 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                     new Container(
                       height: 24,
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: (){
                           Navigator.pop(context);
                         },
@@ -134,8 +136,8 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       child: new FlatButton(
                         padding: EdgeInsets.all(0),
                         onPressed: (){},
-                        splashColor: Color(0xff4a77b7),
-                        highlightColor:  Color(0xff4a77b7),
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)
                         ),
@@ -190,8 +192,8 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                     new Container(
                       margin: EdgeInsets.only(top: 96),
                       child: new FlatButton(
-                        splashColor: Color(0xfff2f4f8),
-                        highlightColor: Color(0xfff2f4f8),
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: (){
                           Navigator.push(context, 
                             new MaterialPageRoute(

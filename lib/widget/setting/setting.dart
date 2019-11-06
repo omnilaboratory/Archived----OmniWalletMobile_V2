@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:omni/widget/view_model/main_model.dart';
@@ -92,9 +92,6 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
       builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new FloatButton(),
-          appBar: new MyBaseBar(
-            child: new AfterLoginAppBar(),
-          ),
           body: Container(
             color: Color.fromRGBO(70, 116, 182, 0.1),
             width: ScreenUtil().setWidth(376),
@@ -102,10 +99,13 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
             child: new Stack(
               children: <Widget>[
                 new Positioned(
+                  child: new AfterLoginHead(),
+                ),
+                new Positioned(
                   bottom: (profileController.value - 1) * 620,
                   child: new Container(
                     width: ScreenUtil().setWidth(376),
-                    height: 600,
+                    height: ScreenUtil().setHeight(702),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(44),
@@ -180,6 +180,8 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
                           new Container(
                             padding: EdgeInsets.fromLTRB(18, 16, 18, 0),
                             child: new FlatButton(
+                              splashColor: Color(0xffF2F4F8),
+                              highlightColor: Color(0xffF2F4F8),
                               onPressed: () {
                                 this._showTab('security');
                                 securityHeight = 538;
@@ -233,6 +235,8 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
                           new Container(
                             padding: EdgeInsets.fromLTRB(18, 16, 18, 0),
                             child: new FlatButton(
+                              splashColor: Color(0xffF2F4F8),
+                              highlightColor: Color(0xffF2F4F8),
                               onPressed: () {
                                 this._showTab('preferences');
                                 securityHeight = 538;
@@ -508,6 +512,8 @@ class _ProfileContentState extends State<ProfileContent> {
                                 height: 12,
                                 padding: EdgeInsets.all(0),
                                 child: new FlatButton(
+                                  splashColor: Color(0x00ffffff),
+                                  highlightColor: Color(0x00ffffff),
                                   onPressed: () {
                                     if (!emailEnabled) {
                                       emailEnabled = true;
@@ -610,6 +616,8 @@ class _SecurityState extends State<Security> {
                           borderRadius: BorderRadius.circular(4)),
                       child: new Container(
                         child: FlatButton(
+                          splashColor: Color(0x00ffffff),
+                          highlightColor: Color(0x00ffffff),
                           onPressed: () {
                             Navigator.pushNamed(context, '/mfa');
                           },
@@ -657,6 +665,8 @@ class _SecurityState extends State<Security> {
                           borderRadius: BorderRadius.circular(4)),
                       child: new Container(
                         child: FlatButton(
+                          splashColor: Color(0x00ffffff),
+                          highlightColor: Color(0x00ffffff),
                           onPressed: () {},
                           padding: EdgeInsets.all(0),
                           child: new Container(

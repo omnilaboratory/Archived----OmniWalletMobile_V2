@@ -71,8 +71,9 @@ class  GlobalInfo{
         }
         seedStr = seedStr.substring(1,seedStr.length-1);
         List<String> seedStrArr = seedStr.split(',');
+        print(seedStrArr);
         List<int> seedArr = [];
-        for(int i=0;i<seedStrArr.length;i++){
+        for(int i=1;i<seedStrArr.length;i++){
           seedArr.add(int.parse(seedStrArr[i]));
         }
         GlobalInfo.bip39Seed = Uint8List.fromList(seedArr);

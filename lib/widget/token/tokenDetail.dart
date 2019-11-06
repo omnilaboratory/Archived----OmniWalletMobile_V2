@@ -16,6 +16,8 @@ class TokenDetailDilog extends Dialog {
             left: 0,
             child: new Container(
               child: new FlatButton(
+                splashColor: Color(0x00ffffff),
+                highlightColor: Color(0x00ffffff),
                 padding: EdgeInsets.all(0),
                 onPressed: () {
                   Navigator.pop(context);

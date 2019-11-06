@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'loading.dart';
 
 
 class UtilFunction {
@@ -83,7 +86,6 @@ class UtilFunction {
       return encrypted.base64;
     });
   }
-
   decryptAes(String encryptedString) {
     prefs.then((share){
       final key = encrypt.Key.fromUtf8(share.get('userInfo').pinCode);
@@ -92,5 +94,13 @@ class UtilFunction {
       final decrypted = encrypter.decrypt64(encryptedString, iv: iv);
       return decrypted;
     });
+  }
+  static showLoading(context){
+    showDialog<Null>(
+      context: context, 
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return new Loading();
+      });
   }
 }

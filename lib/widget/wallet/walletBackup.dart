@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -22,15 +22,15 @@ class _WalletBackupState extends State<WalletBackup> {
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar: new MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: Container(
-            color: Color.fromRGBO(70, 116, 182, 0.07),
+            color: Color.fromRGBO(70, 116, 182, 0.1),
             child: new Stack(
               children: <Widget>[
                 new Positioned(
-                  top: ScreenUtil().setHeight(100),
+                  child: new AfterLoginHead(),
+                ),
+                new Positioned(
+                  bottom: ScreenUtil().setHeight(200),
                   child: new Container(
                     width: ScreenUtil().setWidth(376),
                     height: ScreenUtil().setHeight(440),
@@ -187,6 +187,8 @@ class _WalletBackupState extends State<WalletBackup> {
                                 ),
                                 new Container(
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     onPressed: () {},
                                     padding: EdgeInsets.all(0),
                                     child: new Container(
@@ -229,6 +231,8 @@ class _WalletBackupState extends State<WalletBackup> {
                           margin:
                               EdgeInsets.only(left: ScreenUtil().setWidth(52)),
                           child: new FlatButton(
+                            splashColor: Color(0x00ffffff),
+                            highlightColor: Color(0x00ffffff),
                             onPressed: () {
                               Navigator.pop(context);
                             },

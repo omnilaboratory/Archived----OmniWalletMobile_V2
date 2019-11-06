@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/login/LoginAndCreate.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -13,17 +13,18 @@ class Home extends StatelessWidget {
     return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: MyBaseBar(
-            child: LoginAppBar(isHome: true),
-          ),
           body: new Container(
               // color: Color.fromRGBO(242, 244, 248, 1),
               height: ScreenUtil().setHeight(812),
               child: new Stack(
                 children: <Widget>[
-                  new Container(
+                  new Positioned(
+                    child: new BeforLoginHead(isHome: true),
+                  ),
+                  new Positioned(
+                    top: ScreenUtil().setHeight(150),
+                    child: new Container(
                     width: ScreenUtil().setWidth(376),
-                    color: Color.fromRGBO(70, 116, 182, 0.10),
                     child: new Column(
                       children: <Widget>[
                         new Container(
@@ -55,6 +56,7 @@ class Home extends StatelessWidget {
                         )
                       ],
                     ),
+                  ),
                   ),
                   new Positioned(
                     bottom: 0,
@@ -90,6 +92,8 @@ class Home extends StatelessWidget {
                                 new Container(
                                   width: ScreenUtil().setWidth(186),
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     onPressed: () {
                                       model.changeLoginType('login');
                                       Navigator.push(context,
@@ -111,6 +115,8 @@ class Home extends StatelessWidget {
                                 new Container(
                                   width: ScreenUtil().setWidth(186),
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     onPressed: () {
                                       model.changeLoginType('create');
                                       Navigator.push(context,
@@ -140,6 +146,8 @@ class Home extends StatelessWidget {
                                   Color.fromRGBO(74, 119, 183, 1)
                                 ])),
                             child: FlatButton(
+                              splashColor: Color(0x00ffffff),
+                              highlightColor: Color(0x00ffffff),
                               child: new Container(
                                 child: new Text(
                                   Language.checkBlance[model.language],

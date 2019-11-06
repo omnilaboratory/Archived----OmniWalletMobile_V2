@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:omni/widget/wallet/address.dart';
 import 'package:omni/widget/wallet/wallert.dart';
@@ -30,15 +30,15 @@ class _WalletAndAddressState extends State<WalletAndAddress> {
     return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: new Container(
-            color: Color.fromRGBO(70, 116, 182, 0.05),
+            color: Color.fromRGBO(70, 116, 182, 0.1),
             width: ScreenUtil().setWidth(376),
             child: new Container(
               child: Stack(
                 children: <Widget>[
+                  new Positioned(
+                    child: new AfterLoginHead(),
+                  ),
                   new Positioned(
                     bottom: 0,
                     child: new Container(

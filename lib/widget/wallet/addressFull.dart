@@ -85,6 +85,8 @@ class _AddressFullState extends State<AddressFull>
                         ),
                         new Container(
                           child: new FlatButton(
+                              splashColor: Color(0x00ffffff),
+                              highlightColor: Color(0x00ffffff),
                               padding: EdgeInsets.all(0),
                               onPressed: () {
                                 showDialog<Null>(
@@ -276,6 +278,8 @@ class AddressTypeItem extends StatelessWidget {
                                   height: ScreenUtil().setHeight(48),
                                   color: Color.fromRGBO(0, 0, 0, 0.3),
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     padding: EdgeInsets.all(0),
                                     onPressed: () {},
                                     child: new Container(
@@ -399,6 +403,8 @@ class _AddressItemState extends State<AddressItem> {
           children: <Widget>[
             new Container(
               child: new FlatButton(
+                  splashColor: Color(0x00ffffff),
+                  highlightColor: Color(0x00ffffff),
                   padding: EdgeInsets.all(0),
                   onPressed: () {
                     model.changeOpenAddress(idx);
@@ -670,6 +676,8 @@ class _AddressItemState extends State<AddressItem> {
                                 child: new Container(
                                   width: ScreenUtil().setWidth(32),
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     onPressed: () {
                                       model.changeOpenAddress(null);
                                       model.changeOpenWallet(null);
@@ -719,6 +727,8 @@ class _AddressItemState extends State<AddressItem> {
                                 child: new Container(
                                   width: ScreenUtil().setWidth(32),
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     onPressed: () {
                                       model.changeOpenAddress(null);
                                       model.changeOpenWallet(null);
@@ -968,6 +978,8 @@ class _TransctionTable extends State<TransctionTable> {
     for (var i = 0; i < data.length; i++) {
       Widget item = new Container(
         child: new FlatButton(
+          splashColor: Color(0x00ffffff),
+          highlightColor: Color(0x00ffffff),
           onPressed: () {
             showDialog<Null>(
                 context: context,

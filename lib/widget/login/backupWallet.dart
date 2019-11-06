@@ -17,7 +17,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
         child: new Stack(
           children: <Widget>[
             Positioned(
-              child: new BeforLoginHead(),
+              child: new BeforLoginHead(isHome: false,),
             ),
             Positioned(
               bottom: 0,
@@ -57,8 +57,8 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                               width: 50,
                               height: 24,
                               child: new FlatButton(
-                                splashColor: Color(0xfff2f4f8),
-                                highlightColor: Color(0xfff2f4f8),
+                                splashColor: Color(0x00ffffff),
+                                highlightColor: Color(0x00ffffff),
                                 onPressed: () {
                                   Navigator.pushNamed(
                                       context, '/walletAndAddress');
@@ -127,8 +127,8 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                     new Container(
                       margin: EdgeInsets.only(top: 76),
                       child: new FlatButton(
-                        splashColor: Color(0xfff2f4f8),
-                        highlightColor: Color(0xfff2f4f8),
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: (){
                           Navigator.push(context, 
                             new MaterialPageRoute(

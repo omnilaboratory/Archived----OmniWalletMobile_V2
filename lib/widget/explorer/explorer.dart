@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -318,13 +318,13 @@ class _ExplorerState extends State<Explorer> with TickerProviderStateMixin {
       builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new FloatButton(),
-          appBar: MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: new Container(
             color: Color.fromRGBO(70, 116, 182, 0.02),
             child: new Stack(
               children: <Widget>[
+                Positioned(
+                  child: new AfterLoginHead(),
+                ),
                 Positioned(
                   bottom: (assetsController.value - 1) *
                       ScreenUtil().setHeight(702),

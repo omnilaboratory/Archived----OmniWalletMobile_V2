@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/menu/addressChildMenu.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:omni/widget/wallet/addressFull.dart';
@@ -26,12 +26,18 @@ class _SendProgressState extends State<SendProgress> {
     return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: new MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: new Container(
               color: Color.fromRGBO(70, 116, 182, 0.10),
-              child: new FlatButton(
+              child: new Stack(
+                children: <Widget>[
+                  Positioned(
+                    child: new AfterLoginHead(),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    child: new FlatButton(
+                splashColor: Color(0x00ffffff),
+                highlightColor: Color(0x00ffffff),
                 onPressed: () {
                   Navigator.pushNamed(context, '/walletAndAddress');
                 },
@@ -162,7 +168,11 @@ class _SendProgressState extends State<SendProgress> {
                         )
                       ],
                     )),
-              )),
+              )
+                  )
+                ],
+              ),
+          ),
         );
       },
     );

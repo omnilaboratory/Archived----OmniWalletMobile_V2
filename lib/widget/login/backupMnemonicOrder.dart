@@ -152,7 +152,7 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
         child: new Stack(
           children: <Widget>[
             new Positioned(
-              child: new BeforLoginHead(),
+              child: new BeforLoginHead(isHome: false,),
             ),
             Positioned(
               bottom: 0,
@@ -177,6 +177,8 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
                     new Container(
                       height: 24,
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: (){
                           Navigator.pop(context);
                         },
@@ -237,8 +239,8 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
                     new Container(
                       margin: EdgeInsets.only(top: 122),
                       child: new FlatButton(
-                        splashColor: Color(0xfff2f4f8),
-                        highlightColor: Color(0xfff2f4f8),
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: (){
                           Navigator.push(context, 
                             new MaterialPageRoute(

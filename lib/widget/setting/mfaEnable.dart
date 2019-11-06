@@ -369,7 +369,9 @@ class _MFAEnableState extends State<MFAEnable> {
                         new Expanded(
                           child: new Container(
                             child: new FlatButton(
-                              onPressed: (){},
+                              onPressed: (){
+                                Navigator.pop(context);
+                              },
                               splashColor: Color.fromRGBO(238, 241, 246, 0.1),
                               highlightColor:
                                   Color.fromRGBO(238, 241, 246, 0.1),

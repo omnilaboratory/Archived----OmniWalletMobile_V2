@@ -37,6 +37,13 @@ class _AnimatedLogoState extends State<AnimatedLogo>
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    controller.stop();
+    controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return new Container(
       child: new Center(

@@ -8,6 +8,8 @@ class UtilStyle {
     fontWeight: FontWeight.bold,
     fontSize: 10
   );
+  static var buttonColor= Color(0xfff2f4f8);
+  static var buttonColorW= Color(0x00ffffff);
   static var titleFont= new TextStyle(
     color: Color(0xff4a77b7),
     fontWeight: FontWeight.bold,

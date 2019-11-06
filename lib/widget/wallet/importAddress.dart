@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -22,13 +22,13 @@ class _ImportAddressState extends State<ImportAddress> {
       builder: (context, child, model) {
         return new Scaffold(
           resizeToAvoidBottomPadding: false,
-          appBar: new MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: Container(
             color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
               children: <Widget>[
+                new Positioned(
+                  child: new AfterLoginHead(),
+                ),
                 new Positioned(
                   top: ScreenUtil().setHeight(231),
                   child: new Container(

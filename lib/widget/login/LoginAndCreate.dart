@@ -27,13 +27,13 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
     return new ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          // resizeToAvoidBottomPadding: false,
+          resizeToAvoidBottomPadding: false,
           body: new Container(
             color: Color.fromRGBO(242, 244, 248, 1),
             child: Stack(
               children: <Widget>[
                 new Positioned(
-                  child: new BeforLoginHead(),
+                  child: new BeforLoginHead(isHome: false,),
                 ),
                 new Positioned(
                   bottom: 0,
@@ -64,6 +64,8 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                             width: ScreenUtil().setWidth(186),
                             height: ScreenUtil().setHeight(48),
                             child: new FlatButton(
+                              splashColor: Color(0x00ffffff),
+                              highlightColor: Color(0x00ffffff),
                               onPressed: () {
                                 model.changeLoginType('login');
                               },
@@ -83,6 +85,8 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                             width: ScreenUtil().setWidth(186),
                             height: ScreenUtil().setHeight(48),
                             child: new FlatButton(
+                                splashColor: Color(0x00ffffff),
+                                highlightColor: Color(0x00ffffff),
                                 onPressed: () {
                                   model.changeLoginType('create');
                                 },

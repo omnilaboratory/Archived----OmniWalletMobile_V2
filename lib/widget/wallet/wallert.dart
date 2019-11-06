@@ -68,6 +68,8 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                   new Container(
                     width: ScreenUtil().setWidth(376),
                     child: new FlatButton(
+                      splashColor: Color(0x00ffffff),
+                      highlightColor: Color(0x00ffffff),
                       onPressed: () {
                         model.changeIsAddressFull(false);
                         model.changeWalletIsActive(true);
@@ -126,6 +128,8 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
                                   height: ScreenUtil().setHeight(24),
                                   width: ScreenUtil().setHeight(24),
                                   child: new FlatButton(
+                                    splashColor: Color(0x00ffffff),
+                                    highlightColor: Color(0x00ffffff),
                                     padding: EdgeInsets.all(0),
                                     onPressed: () {
                                       showDialog<Null>(

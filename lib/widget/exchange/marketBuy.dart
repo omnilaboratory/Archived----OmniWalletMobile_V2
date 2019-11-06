@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/exchange/newMarket.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -48,14 +48,13 @@ class _MarketBuyState extends State<MarketBuy>
     return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: new MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           resizeToAvoidBottomPadding: false,
           body: new Container(
-            color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
               children: <Widget>[
+                Positioned(
+                  child: new AfterLoginHead(),
+                ),
                 Positioned(
                   bottom: (marketController.value - 1) *
                       ScreenUtil().setHeight(712),
@@ -96,6 +95,8 @@ class _MarketBuyState extends State<MarketBuy>
                                   ),
                                   new Container(
                                     child: new FlatButton(
+                                      splashColor: UtilStyle.buttonColor,
+                                      highlightColor: UtilStyle.buttonColor,
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {
                                         Navigator.push(context,
@@ -247,6 +248,8 @@ class _MarketBuyState extends State<MarketBuy>
                                                                 50, 231, 163, 1)
                                                             : Colors.white))),
                                             child: FlatButton(
+                                              splashColor: UtilStyle.buttonColorW,
+                                              highlightColor: UtilStyle.buttonColorW,
                                               onPressed: () {
                                                 showContent = 'BUY';
                                                 setState(() {});
@@ -274,6 +277,8 @@ class _MarketBuyState extends State<MarketBuy>
                                                                 82, 135, 210, 1)
                                                             : Colors.white))),
                                             child: FlatButton(
+                                              splashColor: UtilStyle.buttonColorW,
+                                              highlightColor: UtilStyle.buttonColorW,
                                               onPressed: () {
                                                 showContent = 'SELL';
                                                 setState(() {});
@@ -495,6 +500,8 @@ class _MarketBuyState extends State<MarketBuy>
                   child: new Center(
                     child: new Container(
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: () {
                           this._cancel();
                         },
@@ -527,6 +534,8 @@ class _MarketBuyState extends State<MarketBuy>
                   child: new Center(
                     child: new Container(
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: () {
                           this._buy();
                         },
@@ -745,6 +754,8 @@ class _MarketBuyState extends State<MarketBuy>
                   child: new Center(
                     child: new Container(
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: () {
                           this._cancel();
                         },
@@ -777,6 +788,8 @@ class _MarketBuyState extends State<MarketBuy>
                   child: new Center(
                     child: new Container(
                       child: new FlatButton(
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: () {
                           this._sell();
                         },

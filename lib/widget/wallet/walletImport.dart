@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -16,15 +16,15 @@ class _WalletImportState extends State<WalletImport> {
     return ScopedModelDescendant<MainStateModel>(
       builder: (context, child, model) {
         return new Scaffold(
-          appBar: MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: Container(
             color: Color.fromRGBO(70, 116, 182, 0.07),
             child: new Stack(
               children: <Widget>[
                 new Positioned(
-                  top: ScreenUtil().setHeight(231),
+                  child: new AfterLoginHead(),
+                ),
+                new Positioned(
+                  bottom: ScreenUtil().setHeight(320),
                   child: new Container(
                     width: ScreenUtil().setWidth(376),
                     height: ScreenUtil().setHeight(192),
@@ -86,6 +86,8 @@ class _WalletImportState extends State<WalletImport> {
                             ),
                             child: new Container(
                                 child: new FlatButton(
+                                  splashColor: Color(0x00ffffff),
+                                  highlightColor: Color(0x00ffffff),
                               onPressed: () {
                                 isChooseFile = !isChooseFile;
                                 setState(() {});
@@ -208,6 +210,8 @@ class _WalletImportState extends State<WalletImport> {
                           margin:
                               EdgeInsets.only(left: ScreenUtil().setWidth(52)),
                           child: new FlatButton(
+                            splashColor: Color(0x00ffffff),
+                            highlightColor: Color(0x00ffffff),
                             onPressed: () {
                               Navigator.pop(context);
                             },

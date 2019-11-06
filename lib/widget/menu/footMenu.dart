@@ -13,6 +13,8 @@ class FootMenu extends Dialog {
             left: 0,
             child: new Container(
               child: new FlatButton(
+                splashColor: Color(0x00ffffff),
+                highlightColor: Color(0x00ffffff),
                 padding: EdgeInsets.all(0),
                 onPressed: () {
                   Navigator.pop(context);
@@ -121,6 +123,8 @@ class MenuItem extends StatelessWidget {
     return Container(
       height: ScreenUtil().setHeight(32),
       child: FlatButton(
+        splashColor: Color(0x00ffffff),
+        highlightColor: Color(0x00ffffff),
         onPressed: onPress,
         padding: EdgeInsets.all(0),
         child: new Container(

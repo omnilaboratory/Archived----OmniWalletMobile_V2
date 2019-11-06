@@ -13,6 +13,8 @@ class TopMenu extends Dialog {
             left: 0,
             child: new Container(
               child: new FlatButton(
+                splashColor: Color(0x00ffffff),
+                highlightColor: Color(0x00ffffff),
                 padding: EdgeInsets.all(0),
                 onPressed: () {
                   Navigator.pop(context);
@@ -25,8 +27,8 @@ class TopMenu extends Dialog {
             ),
           ),
           new Positioned(
-            top: ScreenUtil().setHeight(22),
-            right: ScreenUtil().setWidth(24),
+            top: ScreenUtil().setHeight(30),
+            right: ScreenUtil().setWidth(20),
             child: new Container(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(15),
@@ -65,8 +67,8 @@ class TopMenu extends Dialog {
             ),
           ),
           Positioned(
-            top: ScreenUtil().setHeight(4),
-            right: ScreenUtil().setWidth(6),
+            top: ScreenUtil().setHeight(16),
+            right: ScreenUtil().setWidth(16),
             child: new Container(
               width: ScreenUtil().setWidth(40),
               height: ScreenUtil().setHeight(40),
@@ -89,6 +91,8 @@ class MenuItem extends StatelessWidget {
     return Container(
       height: ScreenUtil().setHeight(32),
       child: FlatButton(
+        splashColor: Color(0x00ffffff),
+        highlightColor: Color(0x00ffffff),
         onPressed: onPress,
         padding: EdgeInsets.all(0),
         child: new Container(

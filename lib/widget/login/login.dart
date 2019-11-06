@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/language/language.dart';
@@ -208,6 +207,8 @@ class _LoginState extends State<Login> {
                   ),
                   child: new Container(
                     child: new FlatButton(
+                      splashColor: Color(0x00ffffff),
+                      highlightColor: Color(0x00ffffff),
                       onPressed: () {
                         // Navigator.pushNamed(context, '/walletAndAddress');
                         Navigator.push(context, new MaterialPageRoute(

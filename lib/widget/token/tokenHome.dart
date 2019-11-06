@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/tokenInput.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/token/tokenDetail.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -89,13 +89,13 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
         return Scaffold(
           resizeToAvoidBottomPadding: false,
           floatingActionButton: new FloatButton(),
-          appBar: MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: Container(
             color: Color.fromRGBO(70, 116, 182, 0.02),
             child: new Stack(
               children: <Widget>[
+                Positioned(
+                  child: new AfterLoginHead(),
+                ),
                 Positioned(
                   bottom:
                       (tokenController.value - 1) * ScreenUtil().setHeight(702),
@@ -969,6 +969,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                                                         BorderRadius.circular(
                                                             4)),
                                                 child: new FlatButton(
+                                                  splashColor: Color(0x00ffffff),
+                                                  highlightColor: Color(0x00ffffff),
                                                   padding: EdgeInsets.all(0),
                                                   child: new Container(
                                                     padding:
@@ -1001,6 +1003,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                                                           BorderRadius.circular(
                                                               4)),
                                                   child: new FlatButton(
+                                                    splashColor: Color(0x00ffffff),
+                                                    highlightColor: Color(0x00ffffff),
                                                     onPressed: () {
                                                       timeType = 'pm';
                                                       setState(() {});
@@ -1043,8 +1047,8 @@ class _TokenHomeState extends State<TokenHome> with TickerProviderStateMixin {
                             bottomRight: Radius.circular(44),
                           )),
                       child: new FlatButton(
-                        splashColor: Color(0xFFf2f4f8),
-                        // highlightColor: Color(0xfff2f4f8),
+                        splashColor: Color(0x00ffffff),
+                        highlightColor: Color(0x00ffffff),
                         onPressed: (){
 
                         },

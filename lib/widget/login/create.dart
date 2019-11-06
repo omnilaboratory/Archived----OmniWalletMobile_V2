@@ -4,8 +4,9 @@ import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/common/utilFunction.dart';
 import 'package:omni/language/language.dart';
+import 'package:omni/tools/net_config.dart';
 import 'package:omni/widget/login/backupWallet.dart';
-import 'package:omni/widget/view_model/main_model.dart';
+import 'package:omni/widget/view_model/state_lib.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class Create extends StatefulWidget {
@@ -13,11 +14,11 @@ class Create extends StatefulWidget {
 }
 
 class _CreateState extends State<Create> {
-  //user input Controller 
+  //user input Controller
   TextEditingController userController = new TextEditingController();
   // user input focus
   FocusNode userFocus = new FocusNode();
-  //pinCode input Controller 
+  //pinCode input Controller
   TextEditingController controllerPin = new TextEditingController();
   // pinCode input focus
   FocusNode pinFocus = new FocusNode();
@@ -115,22 +116,10 @@ class _CreateState extends State<Create> {
                   ),
                   child: new Container(
                     child: new FlatButton(
+                      splashColor: Color(0x00ffffff),
+                      highlightColor: Color(0x00ffffff),
                       onPressed: () {
-                        /* showDialog<Null>(
-                          context: context, 
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return new Loading();
-                          }); */
                         submit();
-                        /* Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return BackupWalletIndex();
-                  }
-              ),
-                  (route) => route == null,
-            ); */
                       },
                       child: Center(
                         child: Text(Language.submit[model.language]),
@@ -181,12 +170,13 @@ class _CreateState extends State<Create> {
     pinErr = _validatePin(controllerPin.text);
     rePinErr = _validateRepeatPin(controllerPinRepeate.text);
     setState(() {});
-    if(nickNameErr==''&&pinErr==''&&rePinErr==''){
+    if (nickNameErr == '' && pinErr == '' && rePinErr == '') {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
+
   /*
    * author:Tong
    * time:2019/11/14
@@ -208,13 +198,47 @@ class _CreateState extends State<Create> {
     String mnemonicMd5 = UtilFunction.convertMD5Str(mnemonic);
     // step3 第三步
     String pinCodeMd5 = UtilFunction.convertMD5Str(controllerPin.text);
+    UtilFunction.showLoading(context);
     // step4 第四步
-    /* Navigator.push(context, 
-      new MaterialPageRoute(
-        builder: (BuildContext context){
-          return new BackupWalletHome();
-        }
-      )
-    ); */
+    Future data = NetConfig.post(context, NetConfig.createUser, {
+      'userId': mnemonicMd5,
+      'nickname': userController.text,
+      'password': pinCodeMd5
+    }, errorCallback: () {
+      Navigator.of(context).pop();
+    });
+    data.then((data) {
+      if (NetConfig.checkData(data)) {
+        GlobalInfo.userInfo.userId = mnemonicMd5;
+        GlobalInfo.userInfo.mnemonic = mnemonic;
+        GlobalInfo.userInfo.pinCode = pinCodeMd5;
+        GlobalInfo.userInfo.nickname = userController.text;
+        GlobalInfo.userInfo.loginToken = data['token'];
+
+        // Save data to locally.
+        // Login Token
+        // Mnemonic Phrase (AES Encrypt and MD5)
+        // Pin code (MD5)
+        Tools.saveStringKeyValue(
+            KeyConfig.userLoginToken, GlobalInfo.userInfo.loginToken);
+        Tools.saveStringKeyValue(
+            KeyConfig.userMnemonic, Tools.encryptAes(mnemonic));
+        Tools.saveStringKeyValue(KeyConfig.userMnemonicMd5, mnemonicMd5);
+        Tools.saveStringKeyValue(KeyConfig.userPinCodeMd5, pinCodeMd5);
+
+        GlobalInfo.userInfo.mnemonicSeed = null;
+
+        GlobalInfo.userInfo.init(context, () {
+          print('woyaokaishile');
+          Navigator.of(context).pop();
+          Navigator.of(context).pushAndRemoveUntil(
+            new MaterialPageRoute(builder: (BuildContext context) {
+              return new BackupWalletHome();
+            }),
+            (route) => route == null,
+          );
+        });
+      }
+    });
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -66,16 +66,16 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
       builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new FloatButton(),
-          appBar: MyBaseBar(
-            child: AfterLoginAppBar(),
-          ),
           body: new Container(
             color: Color.fromRGBO(70, 116, 182, 0.02),
-            height: ScreenUtil().setHeight(762),
+            height: ScreenUtil().setHeight(812),
             width: ScreenUtil().setWidth(376),
             child: new Container(
               child: new Stack(
                 children: <Widget>[
+                  new Positioned(
+                    child: new AfterLoginHead(),
+                  ),
                   new Positioned(
                     bottom: (wallletController.value - 1) *
                         ScreenUtil().setHeight(702),
@@ -90,7 +90,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                           ),
                           boxShadow: [
                             BoxShadow(
-                                color: Color.fromRGBO(70, 116, 182, 0.07),
+                                color: Color.fromRGBO(70, 116, 182, 0.1),
                                 offset: Offset(
                                   ScreenUtil().setSp(0),
                                   ScreenUtil().setSp(-24),

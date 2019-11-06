@@ -13,6 +13,8 @@ class AddressMenu extends Dialog {
             left: 0,
             child: new Container(
               child: new FlatButton(
+                splashColor: Color(0x00ffffff),
+                highlightColor: Color(0x00ffffff),
                 padding: EdgeInsets.all(0),
                 onPressed: () {
                   Navigator.pop(context);
@@ -83,6 +85,8 @@ class AddressMenu extends Dialog {
                                 color: Color.fromRGBO(74, 119, 183, 0.15)))),
                     height: ScreenUtil().setHeight(42),
                     child: new FlatButton(
+                      splashColor: Color(0x00ffffff),
+                      highlightColor: Color(0x00ffffff),
                       onPressed: () {
                         Navigator.popAndPushNamed(context, '/importAddress');
                       },

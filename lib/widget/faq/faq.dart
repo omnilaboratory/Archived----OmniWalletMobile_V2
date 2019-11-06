@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
-import 'package:omni/widget/compnent/myAppBar.dart';
+import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -119,17 +119,20 @@ class _FaqState extends State<Faq> {
       builder: (context, child, model) {
         return new Scaffold(
             floatingActionButton: new FloatButton(),
-            appBar: new MyBaseBar(
-              child: new AfterLoginFaqAppBar(),
-            ),
             body: new Container(
-                color: Color.fromRGBO(70, 116, 182, 0.07),
-                child: new Container(
-                    // padding: EdgeInsets.only(top: 60),
+                child: new Stack(
+                  children: <Widget>[
+                    Positioned(
+                      child: new AfterLoginHead(),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      child: new Container(
+                        height: ScreenUtil().setHeight(702),
                     decoration:
                         BoxDecoration(color: Color(0xf2f4f8), boxShadow: [
                       BoxShadow(
-                          color: Color.fromRGBO(70, 116, 182, 0.01),
+                          color: Color.fromRGBO(70, 116, 182, 0.1),
                           offset: Offset(0, -24),
                           blurRadius: 48)
                     ]),
@@ -140,7 +143,11 @@ class _FaqState extends State<Faq> {
                           children: buildFaqList(),
                         ),
                       ),
-                    ))));
+                    ))
+                    )
+                  ],
+                ),
+        ));
       },
     );
   }
@@ -192,6 +199,8 @@ class _FaqItemState extends State<FaqItem> {
             children: <Widget>[
               new Container(
                 child: new FlatButton(
+                  splashColor: Color(0x00ffffff),
+                  highlightColor: Color(0x00ffffff),
                   onPressed: () {
                     model.changeFaqOpenIdx(idx);
                   },
