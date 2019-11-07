@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
@@ -11,6 +12,8 @@ class MyInput extends StatefulWidget {
   final inputFocuse;
   final errorMsg;
   final hinText;
+  final maxLength;
+  final keyType;
 
   MyInput(
       {Key key,
@@ -20,7 +23,9 @@ class MyInput extends StatefulWidget {
       this.isPassword,
       this.inputFocuse,
       this.errorMsg,
-      this.hinText})
+      this.hinText,
+      this.maxLength,
+      this.keyType})
       : super(key: key);
   _MyInputState createState() => new _MyInputState();
 }
@@ -32,12 +37,14 @@ class _MyInputState extends State<MyInput> {
   var inputController;
   var inputFocuse;
   var errorMsg;
+  int maxLength;
   String hinText;
   bool showBorder = false;
   bool isShow = true;
   bool isTrue = false;
   bool isFocus = false;
   int passStrong = 3;
+  var keyType;
   @override
   void initState() {
     super.initState();
@@ -48,6 +55,8 @@ class _MyInputState extends State<MyInput> {
     inputFocuse = widget.inputFocuse;
     errorMsg = widget.errorMsg;
     hinText = widget.hinText;
+    maxLength = widget.maxLength;
+    keyType = widget.keyType;
     inputFocuse.addListener(() {
       if (inputFocuse.hasFocus) {
         isFocus = true;
@@ -82,7 +91,9 @@ class _MyInputState extends State<MyInput> {
                       controller: inputController,
                       focusNode: inputFocuse,
                       textAlign: TextAlign.center,
+                      keyboardType: keyType,
                       style: UtilStyle.inputStyle,
+                      inputFormatters: [LengthLimitingTextInputFormatter(6)],
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(
                             top: 0,

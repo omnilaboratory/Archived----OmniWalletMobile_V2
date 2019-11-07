@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:omni/common/utilFunction.dart';
 import 'package:omni/widget/view_model/state_lib.dart';
 
 class Unlock extends StatefulWidget{
+  final parentID; 
+  final Function callback;
+  Unlock({Key key,this.callback,this.parentID}):super(key:key);
   _UnlockState createState() => new _UnlockState();
 }
 
@@ -19,13 +23,31 @@ class _UnlockState extends State<Unlock>{
     if(pinCodeArr.length==6){
       UtilFunction.showLoading(context);
       String pinCodeArrStr = pinCodeArr.join('');
-      print(pinCodeArrStr);
-      isUnlock = false;
-      isError = true;
-      setState(() {
-        
-      });
-      Navigator.pop(context);
+      print(GlobalInfo.userInfo.pinCode);
+      if(Tools.convertMD5Str(pinCodeArrStr)!=GlobalInfo.userInfo.pinCode){
+        print(pinCodeArrStr);
+        isUnlock = false;
+        isError = true;
+        pinCodeArr = [];
+        setState(() {
+          
+        });
+        Navigator.pop(context);
+      }else{
+        isUnlock = true;
+        isError = false;
+        GlobalInfo.isUnlockSuccessfully = true;
+        if (widget.callback != null) { // from send or my page.
+          widget.callback();
+        } else { // from background
+          Navigator.of(context).pop();
+        }
+        setState(() {
+          
+        });
+        Navigator.popAndPushNamed(context, '/WalletAndAddress');
+      }
+      
     }
   }
   @override
@@ -37,15 +59,15 @@ class _UnlockState extends State<Unlock>{
             height: double.infinity,
             width: double.infinity,
             color: Color(0xfff2f4f8),
-            padding: EdgeInsets.only(left: 50,right: 50),
+            padding: EdgeInsets.only(left: ScreenUtil().setWidth(50),right: ScreenUtil().setWidth(50)),
             child: new Column(
               children: <Widget>[
                 new Container(
-                  margin: EdgeInsets.only(top: 90),
+                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(90)),
                   child: isUnlock?new SvgPicture.asset('svg/unlock.svg'):new SvgPicture.asset('svg/lock.svg'),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 40),
+                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(40)),
                   child: new Text(
                     'PIN Code',
                     style:new TextStyle(
@@ -54,61 +76,61 @@ class _UnlockState extends State<Unlock>{
                   ),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 36),
-                  padding: EdgeInsets.only(left: 42,right: 42),
+                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(36)),
+                  padding: EdgeInsets.only(left: ScreenUtil().setWidth(42),right: ScreenUtil().setWidth(42)),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       new Container(
-                        height: 12,
-                        width: 12,
+                        height: ScreenUtil().setWidth(12),
+                        width: ScreenUtil().setWidth(12),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                           border: Border.all(color: Color(0xffaaadb9),width: 1.0),
                           color: pinCodeArr.length>0?Color(0xff4a77b7):Color(0xfff2f4f8)
                         ),
                       ),
                       new Container(
-                        height: 12,
-                        width: 12,
+                        height: ScreenUtil().setWidth(12),
+                        width: ScreenUtil().setWidth(12),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                           border: Border.all(color: Color(0xffaaadb9),width: 1.0),
                           color: pinCodeArr.length>1?Color(0xff4a77b7):Color(0xfff2f4f8)
                         ),
                       ),
                       new Container(
-                        height: 12,
-                        width: 12,
+                        height: ScreenUtil().setWidth(12),
+                        width: ScreenUtil().setWidth(12),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                           border: Border.all(color: Color(0xffaaadb9),width: 1.0),
                           color: pinCodeArr.length>2?Color(0xff4a77b7):Color(0xfff2f4f8)
                         ),
                       ),
                       new Container(
-                        height: 12,
-                        width: 12,
+                        height: ScreenUtil().setWidth(12),
+                        width: ScreenUtil().setWidth(12),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                           border: Border.all(color: Color(0xffaaadb9),width: 1.0),
                           color: pinCodeArr.length>3?Color(0xff4a77b7):Color(0xfff2f4f8)
                         ),
                       ),
                       new Container(
-                        height: 12,
-                        width: 12,
+                        height: ScreenUtil().setWidth(12),
+                        width: ScreenUtil().setWidth(12),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                           border: Border.all(color: Color(0xffaaadb9),width: 1.0),
                           color: pinCodeArr.length>4?Color(0xff4a77b7):Color(0xfff2f4f8)
                         ),
                       ),
                       new Container(
-                        height: 12,
-                        width: 12,
+                        height: ScreenUtil().setWidth(12),
+                        width: ScreenUtil().setWidth(12),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(ScreenUtil().setWidth(12)),
                           border: Border.all(color: Color(0xffaaadb9),width: 1.0),
                           color: pinCodeArr.length>5?Color(0xff4a77b7):Color(0xfff2f4f8)
                         ),
@@ -117,9 +139,9 @@ class _UnlockState extends State<Unlock>{
                   ),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(10)),
                       child: new Text(
-                        isError?'The PIN code is wrong,please try again!':'',
+                        isError?'Your code is wrong,please try again!':'',
                         textAlign: TextAlign.center,
                         style:new TextStyle(
                           color:Colors.red,
@@ -128,14 +150,14 @@ class _UnlockState extends State<Unlock>{
                       ),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 50),
-                  width: 272,
+                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(50)),
+                  width: ScreenUtil().setWidth(272),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -163,8 +185,8 @@ class _UnlockState extends State<Unlock>{
                         ),
                       ),
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -192,8 +214,8 @@ class _UnlockState extends State<Unlock>{
                         ),
                       ),
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -224,14 +246,14 @@ class _UnlockState extends State<Unlock>{
                   ),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 30),
-                  width: 272,
+                  margin: EdgeInsets.only(top:ScreenUtil().setHeight(30),),
+                  width: ScreenUtil().setWidth(272),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -259,8 +281,8 @@ class _UnlockState extends State<Unlock>{
                         ),
                       ),
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -288,8 +310,8 @@ class _UnlockState extends State<Unlock>{
                         ),
                       ),
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -320,14 +342,14 @@ class _UnlockState extends State<Unlock>{
                   ),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 30),
-                  width: 272,
+                  margin: EdgeInsets.only(top:ScreenUtil().setHeight(30),),
+                  width: ScreenUtil().setWidth(272),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -355,8 +377,8 @@ class _UnlockState extends State<Unlock>{
                         ),
                       ),
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -384,8 +406,8 @@ class _UnlockState extends State<Unlock>{
                         ),
                       ),
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)
@@ -416,14 +438,14 @@ class _UnlockState extends State<Unlock>{
                   ),
                 ),
                 new Container(
-                  margin: EdgeInsets.only(top: 30),
-                  width: 272,
+                  margin: EdgeInsets.only(top:ScreenUtil().setHeight(30),),
+                  width: ScreenUtil().setWidth(272),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       new Container(
-                        width: 64,
-                        height: 64,
+                        width: ScreenUtil().setWidth(64),
+                        height: ScreenUtil().setWidth(64),
                         decoration: BoxDecoration(
                           color: Color(0xffd9dbe3),
                           borderRadius: new BorderRadius.circular(32)

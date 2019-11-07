@@ -3,9 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/language/language.dart';
+import 'package:omni/model/user_info.dart';
 import 'package:omni/widget/login/backupWallet.dart';
 import 'package:omni/widget/view_model/main_model.dart';
+import 'package:omni/widget/view_model/state_lib.dart';
+import 'package:omni/widget/wallet/walletAndAddress.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:bip39/bip39.dart' as bip39;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   _LoginState createState() => new _LoginState();
@@ -15,10 +20,12 @@ class _LoginState extends State<Login> {
   TextEditingController controllerOldPin = new TextEditingController();
   TextEditingController controllerNewPin = new TextEditingController();
   TextEditingController controllerConfirmPin = new TextEditingController();
+  TextEditingController controllerMnemonic = new TextEditingController();
 
   FocusNode oldPinFocus = new FocusNode();
   FocusNode newPinFocus = new FocusNode();
   FocusNode confirmPinFocus = new FocusNode();
+  FocusNode mnemonicNode = new FocusNode();
 
   @override
   void initState() {
@@ -57,6 +64,94 @@ class _LoginState extends State<Login> {
     }
   }
 
+  Function restore(BuildContext context) {
+    String text = this.controllerMnemonic.text;
+    var split = text.split(' ');
+    split.removeWhere((item) {
+      return item == ' ' || item.length == 0;
+    });
+
+    if (split.length == 12) {
+      return () {
+        var _mnemonic= split.join(' ');
+        if(bip39.validateMnemonic(_mnemonic)==false){
+          Tools.showToast(WalletLocalizations.of(context).restoreAccountTipError1);
+          return null;
+        }
+
+          FocusScope.of(context).requestFocus(new FocusNode());
+
+          String pin0 = this.controllerOldPin.text;
+          String pin = this.controllerNewPin.text;
+
+          String _pinCodeMd5 = Tools.convertMD5Str(pin0);
+          String _pinCodeNewMd5 =  Tools.convertMD5Str(pin);
+
+          var  userId = Tools.convertMD5Str(_mnemonic);
+          Tools.loadingAnimation(context);
+          Future result = NetConfig.post(context,
+              NetConfig.restoreUser,
+              {
+                'userId':userId,
+                'password':_pinCodeMd5,
+                'newPsw':_pinCodeNewMd5
+              },
+              errorCallback: (msg){
+                
+              }
+          );
+          result.then((data){
+            if(NetConfig.checkData(data)){
+              GlobalInfo.userInfo.userId = userId;
+              GlobalInfo.userInfo.faceUrl = data['faceUrl'];
+              GlobalInfo.userInfo.nickname = data['nickname'];
+              GlobalInfo.userInfo.loginToken = data['token'];
+              if(data["fpUserInfo"]!=null&&data["fpUserInfo"]["username"]!=null){
+                FPUserInfo fpUserInfo = FPUserInfo();
+                fpUserInfo.hyperUsername =data["fpUserInfo"]["username"];
+                List list = data["fpUserInfo"]["addresses"];
+                fpUserInfo.addresses = [];
+                for(int i=0;i<list.length;i++){
+                  fpUserInfo.addresses.add(list[i]);
+                }
+                GlobalInfo.userInfo.fpUserInfo = fpUserInfo;
+              }
+
+              Tools.saveStringKeyValue(KeyConfig.userLoginToken, GlobalInfo.userInfo.loginToken);
+
+              Tools.saveStringKeyValue(KeyConfig.userPinCodeMd5, _pinCodeNewMd5);
+              GlobalInfo.userInfo.pinCode = _pinCodeNewMd5;
+
+
+              Tools.saveStringKeyValue(KeyConfig.userMnemonic, Tools.encryptAes(_mnemonic));
+              GlobalInfo.userInfo.mnemonic = _mnemonic;
+
+              Tools.saveStringKeyValue(KeyConfig.userMnemonicMd5, userId);
+
+              Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+              prefs.then((share){
+                share.setBool(KeyConfig.isBackup, true);
+              });
+
+              GlobalInfo.bip39Seed = null;
+              GlobalInfo.userInfo.init(context,(){
+                Navigator.of(context).pop();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => WalletAndAddress()), (
+                    route) => route == null
+                );
+              });
+            }else{
+              Navigator.of(context).pop();
+            }
+          });
+        
+      };
+    }
+    return null;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return new ScopedModelDescendant<MainStateModel>(
@@ -72,7 +167,11 @@ class _LoginState extends State<Login> {
                   height: ScreenUtil().setHeight(605),
                   width: ScreenUtil().setWidth(376),
                   child: new Container(
-                    height: ScreenUtil().setHeight(200),
+                    height: ScreenUtil().setHeight(405),
+                    width: ScreenUtil().setWidth(376),
+                    child: new SingleChildScrollView(
+                      child: new Container(
+                    height: ScreenUtil().setHeight(405),
                     width: ScreenUtil().setWidth(376),
                     child: new SingleChildScrollView(
                       child: Column(
@@ -110,6 +209,8 @@ class _LoginState extends State<Login> {
                                           Border.all(color: Color(0xffcfd1d9)),
                                       borderRadius: BorderRadius.circular(50)),
                                   child: new TextField(
+                                    controller: controllerMnemonic,
+                                    focusNode: mnemonicNode,
                                     maxLines: 4,
                                     textAlign: TextAlign.center,
                                     style: UtilStyle.inputStyleM,
@@ -146,6 +247,8 @@ class _LoginState extends State<Login> {
                                   child: new MyInput(
                                     rules: _validateOldPin,
                                     inputController: controllerOldPin,
+                                    maxLength: 6,
+                                    keyType: TextInputType.number,
                                     placeholder: 'OLD PIN',
                                     hinText: 'INPUT OLD PIN',
                                     inputFocuse: oldPinFocus,
@@ -158,6 +261,8 @@ class _LoginState extends State<Login> {
                                   child: new MyInput(
                                     rules: _validateNewPin,
                                     inputController: controllerNewPin,
+                                    keyType: TextInputType.number,
+                                    maxLength: 6,
                                     placeholder: 'NEW PIN',
                                     hinText: 'INPUT NEW PIN',
                                     inputFocuse: newPinFocus,
@@ -170,6 +275,8 @@ class _LoginState extends State<Login> {
                                   child: new MyInput(
                                     rules: _validateConfirmPin,
                                     inputController: controllerConfirmPin,
+                                    keyType: TextInputType.number,
+                                    maxLength: 6,
                                     placeholder: 'CONFIRM PIN',
                                     hinText: 'INPUT CONFIRM PIN',
                                     inputFocuse: confirmPinFocus,
@@ -184,12 +291,14 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                ),
+                    ),
+                  ),
+                  ),
               ),
               new Positioned(
                 bottom: 0,
                 child: new Container(
-                  height: ScreenUtil().setHeight(150),
+                  height: ScreenUtil().setHeight(192),
                   width: ScreenUtil().setWidth(376),
                   decoration: new BoxDecoration(
                     color: Color.fromRGBO(242, 244, 248, 1),

@@ -70,6 +70,8 @@ class _CreateState extends State<Create> {
                         child: new MyInput(
                           rules: _validatePin,
                           inputController: controllerPin,
+                          keyType: TextInputType.number,
+                          maxLength: 6,
                           placeholder: 'PIN',
                           inputFocuse: pinFocus,
                           hinText: 'PIN CODE',
@@ -80,7 +82,9 @@ class _CreateState extends State<Create> {
                       new Container(
                         child: new MyInput(
                           rules: _validateRepeatPin,
+                          maxLength: 6,
                           inputController: controllerPinRepeate,
+                          keyType: TextInputType.number,
                           placeholder: 'PIN REAPTE',
                           hinText: 'PIN CONFIRM',
                           inputFocuse: pinRepeateFocus,
@@ -208,12 +212,15 @@ class _CreateState extends State<Create> {
       Navigator.of(context).pop();
     });
     data.then((data) {
+      print("create===============>"+data.toString());
       if (NetConfig.checkData(data)) {
         GlobalInfo.userInfo.userId = mnemonicMd5;
         GlobalInfo.userInfo.mnemonic = mnemonic;
         GlobalInfo.userInfo.pinCode = pinCodeMd5;
         GlobalInfo.userInfo.nickname = userController.text;
         GlobalInfo.userInfo.loginToken = data['token'];
+        print(pinCodeMd5);
+        print(GlobalInfo.userInfo.pinCode);
 
         // Save data to locally.
         // Login Token
