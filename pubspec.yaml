@@ -124,6 +124,8 @@ flutter:
    - svg/back.svg
    - svg/coin.svg
    - svg/arrowUp.svg
+   - svg/lock.svg
+   - svg/unlock.svg
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

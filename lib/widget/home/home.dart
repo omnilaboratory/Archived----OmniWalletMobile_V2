@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
 import 'package:omni/widget/compnent/head.dart';
+import 'package:omni/widget/home/unlock.dart';
 import 'package:omni/widget/login/LoginAndCreate.dart';
 import 'package:omni/widget/view_model/main_model.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -159,7 +160,15 @@ class Home extends StatelessWidget {
                                       letterSpacing: 4.5),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, 
+                                  new MaterialPageRoute(
+                                    builder: (BuildContext context){
+                                      return new Unlock();
+                                    }
+                                  )
+                                );
+                              },
                             ),
                           )
                         ],
