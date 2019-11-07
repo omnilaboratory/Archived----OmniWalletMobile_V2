@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/untilStyle.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
 import 'package:omni/widget/compnent/head.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:omni/widget/view_model/main_model.dart';
 import 'dart:async';
 import 'dart:io';
 
@@ -88,7 +85,7 @@ class _SettingState extends State<Setting> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new FloatButton(),
@@ -324,7 +321,7 @@ class _ProfileContentState extends State<ProfileContent> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Column(
           children: <Widget>[
@@ -579,7 +576,7 @@ class Security extends StatefulWidget {
 class _SecurityState extends State<Security> {
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Container(
           child: new Column(

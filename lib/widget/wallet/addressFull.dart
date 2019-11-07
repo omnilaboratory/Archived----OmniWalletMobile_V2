@@ -1,15 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/untilStyle.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/menu/addressFulMenu.dart';
-import 'package:omni/widget/view_model/main_model.dart';
 import 'package:omni/widget/wallet/addressSellDetail.dart';
 import 'package:omni/widget/wallet/addressSendDetail.dart';
 import 'package:omni/widget/wallet/sellPage.dart';
 import 'package:omni/widget/wallet/sendPage.dart';
-import 'package:scoped_model/scoped_model.dart';
-import 'package:omni/common/utilFunction.dart';
 
 class AddressFull extends StatefulWidget {
   @override
@@ -43,7 +37,7 @@ class _AddressFullState extends State<AddressFull>
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Positioned(
           bottom:
@@ -215,7 +209,7 @@ class AddressTypeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Container(
           child: new Column(
@@ -396,7 +390,7 @@ class _AddressItemState extends State<AddressItem> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<MainStateModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Container(
             child: new Column(
@@ -1009,7 +1003,7 @@ class _TransctionTable extends State<TransctionTable> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<MainStateModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return Container(
           padding: EdgeInsets.only(

@@ -1,10 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/untilStyle.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/menu/walletMenu.dart';
-import 'package:omni/widget/view_model/main_model.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 class Wallet extends StatefulWidget {
   @override
@@ -39,7 +34,7 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
     ScreenUtil.instance =
         ScreenUtil(width: 376, height: 812, allowFontScaling: true)
           ..init(context);
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Positioned(
           bottom: (controllerWallet.value - 1) * ScreenUtil().setHeight(702),

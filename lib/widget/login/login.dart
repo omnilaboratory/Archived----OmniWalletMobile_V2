@@ -1,16 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/myInput.dart';
-import 'package:omni/common/untilStyle.dart';
-import 'package:omni/language/language.dart';
-import 'package:omni/model/user_info.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/login/backupWallet.dart';
-import 'package:omni/widget/view_model/main_model.dart';
-import 'package:omni/widget/view_model/state_lib.dart';
 import 'package:omni/widget/wallet/walletAndAddress.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:bip39/bip39.dart' as bip39;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   _LoginState createState() => new _LoginState();
@@ -64,97 +56,9 @@ class _LoginState extends State<Login> {
     }
   }
 
-  Function restore(BuildContext context) {
-    String text = this.controllerMnemonic.text;
-    var split = text.split(' ');
-    split.removeWhere((item) {
-      return item == ' ' || item.length == 0;
-    });
-
-    if (split.length == 12) {
-      return () {
-        var _mnemonic= split.join(' ');
-        if(bip39.validateMnemonic(_mnemonic)==false){
-          Tools.showToast(WalletLocalizations.of(context).restoreAccountTipError1);
-          return null;
-        }
-
-          FocusScope.of(context).requestFocus(new FocusNode());
-
-          String pin0 = this.controllerOldPin.text;
-          String pin = this.controllerNewPin.text;
-
-          String _pinCodeMd5 = Tools.convertMD5Str(pin0);
-          String _pinCodeNewMd5 =  Tools.convertMD5Str(pin);
-
-          var  userId = Tools.convertMD5Str(_mnemonic);
-          Tools.loadingAnimation(context);
-          Future result = NetConfig.post(context,
-              NetConfig.restoreUser,
-              {
-                'userId':userId,
-                'password':_pinCodeMd5,
-                'newPsw':_pinCodeNewMd5
-              },
-              errorCallback: (msg){
-                
-              }
-          );
-          result.then((data){
-            if(NetConfig.checkData(data)){
-              GlobalInfo.userInfo.userId = userId;
-              GlobalInfo.userInfo.faceUrl = data['faceUrl'];
-              GlobalInfo.userInfo.nickname = data['nickname'];
-              GlobalInfo.userInfo.loginToken = data['token'];
-              if(data["fpUserInfo"]!=null&&data["fpUserInfo"]["username"]!=null){
-                FPUserInfo fpUserInfo = FPUserInfo();
-                fpUserInfo.hyperUsername =data["fpUserInfo"]["username"];
-                List list = data["fpUserInfo"]["addresses"];
-                fpUserInfo.addresses = [];
-                for(int i=0;i<list.length;i++){
-                  fpUserInfo.addresses.add(list[i]);
-                }
-                GlobalInfo.userInfo.fpUserInfo = fpUserInfo;
-              }
-
-              Tools.saveStringKeyValue(KeyConfig.userLoginToken, GlobalInfo.userInfo.loginToken);
-
-              Tools.saveStringKeyValue(KeyConfig.userPinCodeMd5, _pinCodeNewMd5);
-              GlobalInfo.userInfo.pinCode = _pinCodeNewMd5;
-
-
-              Tools.saveStringKeyValue(KeyConfig.userMnemonic, Tools.encryptAes(_mnemonic));
-              GlobalInfo.userInfo.mnemonic = _mnemonic;
-
-              Tools.saveStringKeyValue(KeyConfig.userMnemonicMd5, userId);
-
-              Future<SharedPreferences> prefs = SharedPreferences.getInstance();
-              prefs.then((share){
-                share.setBool(KeyConfig.isBackup, true);
-              });
-
-              GlobalInfo.bip39Seed = null;
-              GlobalInfo.userInfo.init(context,(){
-                Navigator.of(context).pop();
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => WalletAndAddress()), (
-                    route) => route == null
-                );
-              });
-            }else{
-              Navigator.of(context).pop();
-            }
-          });
-        
-      };
-    }
-    return null;
-  }
-
-
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<MainStateModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Container(
           height: ScreenUtil().setHeight(605),

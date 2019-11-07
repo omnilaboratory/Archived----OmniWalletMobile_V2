@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/untilStyle.dart';
-import 'package:omni/widget/view_model/main_model.dart';
-import 'package:scoped_model/scoped_model.dart';
+
+
+import 'package:omni/model/state_lib.dart';
 
 class MFAEnable extends StatefulWidget {
   _MFAEnableState createState() => new _MFAEnableState();
@@ -16,7 +14,7 @@ class _MFAEnableState extends State<MFAEnable> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
           body: new Container(

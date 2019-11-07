@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:omni/common/mnemonic.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserInfo{

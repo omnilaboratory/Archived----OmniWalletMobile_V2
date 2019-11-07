@@ -1,12 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:omni/common/untilStyle.dart';
+
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
 import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/exchange/marketBuy.dart';
 import 'package:omni/widget/exchange/offerPop.dart';
-import 'package:omni/widget/view_model/main_model.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 import 'newMarket.dart';
 
@@ -179,7 +176,7 @@ class _ExchangeState extends State<Exchange> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return Scaffold(
           floatingActionButton: new FloatButton(),

@@ -1,19 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/myInput.dart';
-import 'package:omni/common/utilFunction.dart';
-import 'package:omni/language/language.dart';
-import 'package:omni/tools/net_config.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/login/backupWallet.dart';
-import 'package:omni/widget/view_model/state_lib.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:omni/widget/wallet/walletAndAddress.dart';
 
 class Create extends StatefulWidget {
   _CreateState createState() => new _CreateState();
 }
 
 class _CreateState extends State<Create> {
+  // local data
+  Future <SharedPreferences> prefs = SharedPreferences.getInstance();
   //user input Controller
   TextEditingController userController = new TextEditingController();
   // user input focus
@@ -41,7 +38,7 @@ class _CreateState extends State<Create> {
 
   @override
   Widget build(BuildContext context) {
-    return new ScopedModelDescendant<MainStateModel>(
+    return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Container(
           height: ScreenUtil().setHeight(541),
@@ -204,48 +201,42 @@ class _CreateState extends State<Create> {
     String pinCodeMd5 = UtilFunction.convertMD5Str(controllerPin.text);
     UtilFunction.showLoading(context);
     // step4 第四步
-    Future data = NetConfig.post(context, NetConfig.createUser, {
-      'userId': mnemonicMd5,
-      'nickname': userController.text,
-      'password': pinCodeMd5
-    }, errorCallback: () {
-      Navigator.of(context).pop();
-    });
-    data.then((data) {
-      print("create===============>"+data.toString());
-      if (NetConfig.checkData(data)) {
-        GlobalInfo.userInfo.userId = mnemonicMd5;
-        GlobalInfo.userInfo.mnemonic = mnemonic;
-        GlobalInfo.userInfo.pinCode = pinCodeMd5;
-        GlobalInfo.userInfo.nickname = userController.text;
-        GlobalInfo.userInfo.loginToken = data['token'];
-        print(pinCodeMd5);
-        print(GlobalInfo.userInfo.pinCode);
-
-        // Save data to locally.
-        // Login Token
-        // Mnemonic Phrase (AES Encrypt and MD5)
-        // Pin code (MD5)
-        Tools.saveStringKeyValue(
-            KeyConfig.userLoginToken, GlobalInfo.userInfo.loginToken);
-        Tools.saveStringKeyValue(
-            KeyConfig.userMnemonic, Tools.encryptAes(mnemonic));
-        Tools.saveStringKeyValue(KeyConfig.userMnemonicMd5, mnemonicMd5);
-        Tools.saveStringKeyValue(KeyConfig.userPinCodeMd5, pinCodeMd5);
-
-        GlobalInfo.userInfo.mnemonicSeed = null;
-
-        GlobalInfo.userInfo.init(context, () {
-          print('woyaokaishile');
+    Future data = NetConfig.post(context,
+        HttpConst.createUser,
+        {
+          'userId':mnemonicMd5,
+          'nickname':userController.text,
+          'password':pinCodeMd5
+        },
+        errorCallback: (){
           Navigator.of(context).pop();
-          Navigator.of(context).pushAndRemoveUntil(
-            new MaterialPageRoute(builder: (BuildContext context) {
-              return new BackupWalletHome();
-            }),
-            (route) => route == null,
-          );
+        }
+      );
+    data.then((data){
+      prefs.then((share){
+        share.setString('userId', mnemonicMd5);
+        share.setString('mnemonic', mnemonic);
+        share.setString('pinCode', pinCodeMd5);
+        share.setString('nickname', userController.text);
+        share.setString('loginToken', data['token']);
+        LocalModel().of(context).userInfo.userId = mnemonicMd5;
+        LocalModel().of(context).userInfo.mnemonic = mnemonic;
+        LocalModel().of(context).userInfo.pinCode = pinCodeMd5;
+        LocalModel().of(context).userInfo.nickname = userController.text;
+        LocalModel().of(context).userInfo.loginToken = data['token'];
+        LocalModel().of(context).userInfo.mnemonicSeed = null;
+        LocalModel().of(context).userInfo.initUserInfo(context,(){
+            UtilFunction.stopLoading(context);
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return WalletAndAddress();
+                  }
+              ),
+                  (route) => route == null,
+            );
         });
-      }
+      });
     });
   }
 }

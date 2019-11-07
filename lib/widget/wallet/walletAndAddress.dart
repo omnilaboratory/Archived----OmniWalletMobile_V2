@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
 import 'package:omni/widget/compnent/head.dart';
-import 'package:omni/widget/view_model/main_model.dart';
 import 'package:omni/widget/wallet/address.dart';
 import 'package:omni/widget/wallet/wallert.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 import 'addressFull.dart';
 
@@ -27,7 +24,7 @@ class _WalletAndAddressState extends State<WalletAndAddress> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
           body: new Container(

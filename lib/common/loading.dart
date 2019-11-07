@@ -12,6 +12,9 @@ class Loading extends Dialog {
       ),
     );
   }
+  static void stopLoading(context){
+    _AnimatedLogoState.stopLoading(context);
+  }
 }
 
 class AnimatedLogo extends StatefulWidget {
@@ -20,8 +23,8 @@ class AnimatedLogo extends StatefulWidget {
 
 class _AnimatedLogoState extends State<AnimatedLogo>
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> animation;
+  static AnimationController controller;
+  static Animation<double> animation;
   @override
   void initState() {
     super.initState();
@@ -38,9 +41,12 @@ class _AnimatedLogoState extends State<AnimatedLogo>
 
   @override
   void dispose() {
-    super.dispose();
-    controller.stop();
     controller.dispose();
+    super.dispose();
+  }
+  static void stopLoading(context){
+    controller.stop();
+    Navigator.pop(context);
   }
 
   @override

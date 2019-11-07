@@ -1,3 +1,4 @@
+import 'package:omni/object/userInfo.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class LocalModel extends Model{
@@ -9,14 +10,14 @@ class LocalModel extends Model{
   int defaultOpenAddress;
   String address = '';
   int faqOpenIdx = 0;
-  Map<String,Object> userInfo = {
-    'userId':'',
-    'mnemonic':'',
-    'pinCode':'',
-    'nickname':'',
-    'loginToken':'',
-  };
   bool walletIsActive = false;
+  UserInfo userInfo = new UserInfo();
+  bool isLocked = false;
+  bool isNeedLock = true;
+  int fromParent = null;
+  int sleepTime = 5;
+  bool isUnlockSuccessfully = true;
+  String dataEncodeString= 'P@ssw)2d!UPRETSCLIENT';
 
   void changeLang (String lang){
     language = lang;
@@ -48,6 +49,18 @@ class LocalModel extends Model{
   }
   void changeFaqOpenIdx(int idx){
     faqOpenIdx = idx;
+    notifyListeners();
+  }
+  void changeIsLocked(bool type){
+    isLocked = type;
+    notifyListeners();
+  }
+  void changeIsNeedLock(bool type){
+    isNeedLock = type;
+    notifyListeners();
+  }
+  void changeIsUnlockSuccessfully(bool type){
+    isUnlockSuccessfully = type;
     notifyListeners();
   }
 }

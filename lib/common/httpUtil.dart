@@ -1,128 +1,178 @@
-
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
-import 'package:dio/dio.dart';
+import 'package:async/async.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:omni/common/httpConst.dart';
-import 'package:omni/common/utilFunction.dart';
+import 'package:omni/model/state_lib.dart';
+import 'package:omni/widget/home/home.dart';
+import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HttpUtil{
-  static HttpUtil instance;
-  static HttpUtil getInstance() {
-    if (instance == null) {
-      instance = new HttpUtil();
+class NetConfig{
+//  static String apiHost='http://192.168.0.103:8080/api/';
+//  static String apiHost='http://172.21.100.248:8080/api/';
+
+  static String apiHost= HttpConst.apiHost;
+
+  static String imageHost=HttpConst.imageHost;
+
+  static post(BuildContext context,String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
+    return _sendData(context,"post", url, data,errorCallback: errorCallback,timeOut: timeOut,showToast: showToast);
+  }
+
+  static get(BuildContext context,String url,{Function errorCallback,int timeOut=60,bool showToast =true}) async{
+    return _sendData(context,"get", url,null,errorCallback: errorCallback,timeOut: timeOut,showToast: showToast);
+  }
+
+  static bool checkData(data){
+    if(data!=null&&(data!=408&&data!=600&&data!=404)){
+      return true;
     }
-    return instance;
-  }
-  Dio dio;
-  BaseOptions options;
-  BuildContext contextTemp;
-  String url;
-  Future<SharedPreferences> prefs = SharedPreferences.getInstance();
-
-  HttpUtil(){
-    options = BaseOptions(
-      baseUrl: HttpConst.baseUrl,
-      //连接服务器超时时间，单位是毫秒.
-      connectTimeout: 10000,
-
-      ///  响应流上前后两次接受到数据的间隔，单位为毫秒。如果两次间隔超过[receiveTimeout]，
-      ///  [Dio] 将会抛出一个[DioErrorType.RECEIVE_TIMEOUT]的异常.
-      ///  注意: 这并不是接收数据的总时限.
-      receiveTimeout: 10000,
-      headers: {
-        'Authorization':'Bearer '
-      },
-    );
-    dio = new Dio(options);
-    _addInterceptors();
-  }
-  _addInterceptors(){
-    dio.interceptors.add(
-      InterceptorsWrapper(
-        onRequest: (RequestOptions options){
-          if(!url.startsWith('/common')){
-            prefs.then((share)async{
-              var token = share.getString('token');
-              if(token == null){
-                UtilFunction.showToast('Please login first');
-                return null;
-              }
-              options.headers['Authorization'] = options.headers['Authorization'] + token;
-            });
-          }
-        },
-        onResponse: (Response response){
-          if(response.statusCode == 200){
-            var result = json.decode(response.data);
-            int status = result['status'];
-            if(status == 1){
-              var data = result['data'];
-              return data;
-            }else if(status == 0){
-              var msg = result['msg'];
-              if(msg !=null&&msg.length>0){
-                UtilFunction.showToast(msg);
-              }
-            }
-          }
-        },
-        onError: (DioError e){
-          if(e.type == DioErrorType.RECEIVE_TIMEOUT){
-            UtilFunction.showToast('timeout, check your network');
-          }else if(e.response.statusCode == 403){
-            _removeInfos();
-          }else {
-            UtilFunction.showToast('Server is sleeping, please wait amount and try again!');
-          }
-          return e.response;
-        },
-      )
-    );
-  }
-  void _removeInfos(){
-    prefs.then((share){
-      share.remove('token');
-      share.remove('userInfo');
-      UtilFunction.showToast('User logout,please login!');
-    });
+    return false;
   }
 
-  get(url, {data, options, cancelToken,context}) async {
-    contextTemp = context;
-    Response response;
-    try {
-      response = await dio.get(
-        url,
-        queryParameters: data,
-        cancelToken: cancelToken,
-      );
-    } on DioError catch (e) {
-      if (CancelToken.isCancel(e)) {
-        print('cancel get request! ' + e.message);
+  static _sendData(BuildContext context,String reqType, String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
+
+    Map<String, String> header = new Map();
+    if(url.startsWith('common')==false){
+      if(LocalModel().of(context).userInfo.loginToken==null){
+        UtilFunction.showToast('user have not login');
+        return null;
       }
-      print('get request error：$e');
+      header['authorization']='Bearer '+LocalModel().of(context).userInfo.loginToken;
     }
-    return response.data;
-  }
 
-  post(url, {data, options, cancelToken,context}) async {
+    url = apiHost + url;
     print(url);
-    contextTemp = context;
-    Response response;
-    try {
-      response = await dio.post(
-        url,
-        data: data,
-        cancelToken: cancelToken,
-      );
-    } on DioError catch (e) {
-      if (CancelToken.isCancel(e)) {
-        print('cancel post request! ' + e.message);
+    print('seed to server data: $data');
+//    showToast('begin get data from server ',toastLength:Toast.LENGTH_LONG);
+    Response response = null;
+    try{
+      if(reqType=="get"){
+        response = await http.get(url,headers: header).timeout(Duration(seconds: timeOut));
+      }else{
+        var dataStr = json.encode(data);
+        var dataMD5 = UtilFunction.convertMD5Str(dataStr+LocalModel().of(context).dataEncodeString);
+        data['dataStr']=dataStr;
+        data['dataMD5']=dataMD5;
+        response =  await http.post(url,headers: header, body: data).timeout(Duration(seconds: timeOut));
       }
-      print('post request error：$e');
+    } on TimeoutException{
+      UtilFunction.showToast('timeout, check your network');
+      if(errorCallback!=null){
+        errorCallback();
+      }
+      return 408;
+    } on Exception {
+      UtilFunction.showToast('check your network');
+      if(errorCallback!=null){
+        errorCallback();
+      }
+      return 600;
     }
-    return response.data;
+
+//    Fluttertoast.cancel();
+    print(response.statusCode);
+    bool isError = true;
+    String msg;
+    if(response.statusCode==200){
+      var result = json.decode(response.body);
+      int status = result['status'];
+      print(result);
+      if(status==1){
+        var data = result['data'];
+        isError = false;
+        return data;
+      }
+      if(status==0){
+        msg = result['msg'];
+        if(msg!=null&&msg.length>0&&showToast){
+          UtilFunction.showToast(msg,toastLength:Toast.LENGTH_LONG);
+        }
+      }
+      if(status==403){
+
+      }
+    }else if(response.statusCode==403){
+      LocalModel().of(context).userInfo = new UserInfo();
+      Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+      prefs.then((share) {
+        share.clear();
+        if(context!=null){
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => Home()),
+                (route) => route == null,
+          );
+        }
+      });
+      UtilFunction.showToast('user logout, please login',toastLength: Toast.LENGTH_LONG);
+
+    } else{
+      UtilFunction.showToast('server is sleep, please wait');
+    }
+    if(errorCallback!=null&&isError){
+      errorCallback(msg);
+    }
+    if(response.statusCode==404){
+      return response.statusCode;
+    }
+    return null;
+  }
+
+  static uploadImageFunc(File imageFile,{@required Function callback,Function errorCallback}) async{
+    String url = apiHost + HttpConst.uploadImage;
+    var stream = http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
+    var length = await imageFile.length();
+    var uri = Uri.parse(url);
+    var request = http.MultipartRequest("POST", uri);
+    var multipartFile = new http.MultipartFile('file', stream, length,filename: basename(imageFile.path));
+    request.files.add(multipartFile);
+    var response = await request.send();
+    bool flag = true;
+
+    if(response.statusCode==200){
+      await response.stream.transform(utf8.decoder).listen((data){
+        var result = json.decode(data);
+        print(data);
+        callback(result['data']);
+        flag = false;
+      });
+    }
+    if(flag==true && errorCallback!=null){
+      errorCallback();
+    }
+  }
+
+  ///更新用户头像
+  static changeUserFace(File imageFile,{@required Function callback,Function errorCallback}) async{
+    String url = apiHost + HttpConst.updateUserFace;
+    var stream = http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
+    var length = await imageFile.length();
+    var uri = Uri.parse(url);
+    var request = http.MultipartRequest("POST", uri);
+    Map<String, String> header = new Map();
+    header['authorization']='Bearer '+ LocalModel().of(context).userInfo.loginToken;
+    request.headers.addAll(header);
+    var multipartFile = new http.MultipartFile('faceFile', stream, length,filename: basename(imageFile.path));
+    request.files.add(multipartFile);
+
+    var response = await request.send();
+
+    bool flag = true;
+    if(response.statusCode==200){
+      await response.stream.transform(utf8.decoder).listen((data){
+        var result = json.decode(data);
+        callback(result['data']['faceUrl']);
+        flag = false;
+      });
+    }
+    if(flag==true && errorCallback!=null){
+      errorCallback();
+    }
   }
 }

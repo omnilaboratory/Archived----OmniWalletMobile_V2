@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:omni/common/utilFunction.dart';
-import 'package:omni/widget/view_model/state_lib.dart';
+import 'package:omni/model/state_lib.dart';
 
 class Unlock extends StatefulWidget{
   final parentID; 
@@ -23,8 +23,7 @@ class _UnlockState extends State<Unlock>{
     if(pinCodeArr.length==6){
       UtilFunction.showLoading(context);
       String pinCodeArrStr = pinCodeArr.join('');
-      print(GlobalInfo.userInfo.pinCode);
-      if(Tools.convertMD5Str(pinCodeArrStr)!=GlobalInfo.userInfo.pinCode){
+      /* if(UtilFunction.convertMD5Str(pinCodeArrStr)!=GlobalInfo.userInfo.pinCode){
         print(pinCodeArrStr);
         isUnlock = false;
         isError = true;
@@ -46,13 +45,13 @@ class _UnlockState extends State<Unlock>{
           
         });
         Navigator.popAndPushNamed(context, '/WalletAndAddress');
-      }
+      } */
       
     }
   }
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context,child,model){
         return Scaffold(
           body: new Container(

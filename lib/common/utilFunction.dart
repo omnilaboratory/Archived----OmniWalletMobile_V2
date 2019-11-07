@@ -79,8 +79,8 @@ class UtilFunction {
   }
   encryptAes(String content) {
     prefs.then((share){
-      final key = encrypt.Key.fromUtf8(share.get('userInfo').pinCode);
-      final iv = encrypt.IV.fromUtf8(share.get('userInfo').userId.substring(0,16));
+      final key = encrypt.Key.fromUtf8(share.get('pinCode'));
+      final iv = encrypt.IV.fromUtf8(share.get('userId').substring(0,16));
       final encrypter = encrypt.Encrypter(encrypt.AES(key,mode:encrypt.AESMode.cbc));
       final encrypted = encrypter.encrypt(content, iv: iv);
       return encrypted.base64;
@@ -88,8 +88,8 @@ class UtilFunction {
   }
   decryptAes(String encryptedString) {
     prefs.then((share){
-      final key = encrypt.Key.fromUtf8(share.get('userInfo').pinCode);
-      final iv = encrypt.IV.fromUtf8(share.get('userInfo').userId.substring(0,16));
+      final key = encrypt.Key.fromUtf8(share.get('pinCode'));
+      final iv = encrypt.IV.fromUtf8(share.get('userId').substring(0,16));
       final encrypter = encrypt.Encrypter(encrypt.AES(key,mode:encrypt.AESMode.cbc));
       final decrypted = encrypter.decrypt64(encryptedString, iv: iv);
       return decrypted;
@@ -102,5 +102,8 @@ class UtilFunction {
       builder: (BuildContext context) {
         return new Loading();
       });
+  }
+  static stopLoading(context){
+    Loading.stopLoading(context);
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:omni/common/untilStyle.dart';
+import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/compnent/floatButton.dart';
 import 'package:omni/widget/compnent/head.dart';
-import 'package:omni/widget/view_model/main_model.dart';
-import 'package:scoped_model/scoped_model.dart';
+
 
 class Faq extends StatefulWidget {
   _FaqState createState() => new _FaqState();
@@ -115,7 +115,7 @@ class _FaqState extends State<Faq> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return new Scaffold(
             floatingActionButton: new FloatButton(),
@@ -175,7 +175,7 @@ class _FaqItemState extends State<FaqItem> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainStateModel>(
+    return ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
         return Container(
           width: ScreenUtil().setWidth(376),
