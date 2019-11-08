@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:omni/widget/home/unlock.dart';
+import 'package:omni/widget/login/backupWallet.dart';
 
 import 'model/state_lib.dart';
 import 'package:flutter/services.dart';
@@ -165,6 +166,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Future <SharedPreferences> prefs = SharedPreferences.getInstance();
+  bool isCreate = false;
+  bool isBackup = false;
+  @override
+  void initState() {
+    prefs.then((share){
+      var loginToken = share.getString('loginToken');
+      print(loginToken);
+      if(loginToken!=null){
+        isCreate = true;
+      }
+      bool shareIsBackup = share.getBool('isBuckup');
+      if(shareIsBackup!=null){
+        isBackup = shareIsBackup;
+      }
+      setState(() {
+        
+      });
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance =
@@ -173,7 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // return new Splash();
     return new ScopedModelDescendant<LocalModel>(
       builder: (context, child, model) {
-        return new Home();
+        return isCreate?(isBackup?new Unlock():new BackupWalletHome()):new Home();
       },
     );
   }

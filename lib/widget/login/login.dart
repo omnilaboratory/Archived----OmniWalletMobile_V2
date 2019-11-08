@@ -82,11 +82,11 @@ class _LoginState extends State<Login> {
                         children: <Widget>[
                           new Container(
                             margin:
-                                EdgeInsets.only(top: 20, left: 30, right: 30),
+                                EdgeInsets.only(top: ScreenUtil().setHeight(20), left: ScreenUtil().setWidth(30), right: ScreenUtil().setWidth(30)),
                             child: new Column(
                               children: <Widget>[
                                 new Container(
-                                  padding: EdgeInsets.only(top: 3, bottom: 3),
+                                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(3), bottom: ScreenUtil().setHeight(3)),
                                   child: new Text('Notice:',
                                       style: new TextStyle(
                                           color: Color(0xff4a77b7),
@@ -95,7 +95,7 @@ class _LoginState extends State<Login> {
                                           fontWeight: FontWeight.bold)),
                                 ),
                                 new Container(
-                                  padding: EdgeInsets.only(top: 3, bottom: 3),
+                                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(3), bottom: ScreenUtil().setHeight(3)),
                                   child: new Text(
                                       'After importing account by Mnemonic Phrase,you can reset password for safety concerns.',
                                       textAlign: TextAlign.center,
@@ -106,7 +106,7 @@ class _LoginState extends State<Login> {
                                       )),
                                 ),
                                 new Container(
-                                  margin: EdgeInsets.only(top: 17, bottom: 30),
+                                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(71), bottom: ScreenUtil().setHeight(30)),
                                   height: ScreenUtil().setHeight(65),
                                   decoration: BoxDecoration(
                                       border:
@@ -121,10 +121,10 @@ class _LoginState extends State<Login> {
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
                                         contentPadding: EdgeInsets.only(
-                                            left: 30,
-                                            right: 50,
-                                            top: 10,
-                                            bottom: 10),
+                                            left: ScreenUtil().setWidth(30),
+                                            right: ScreenUtil().setWidth(50),
+                                            top: ScreenUtil().setHeight(10),
+                                            bottom: ScreenUtil().setHeight(10)),
                                         hintText: 'Input mnemonic phrase',
                                         hintStyle: UtilStyle.hintTextFontM),
                                   ),
@@ -136,7 +136,7 @@ class _LoginState extends State<Login> {
                             child: new Column(
                               children: <Widget>[
                                 new Container(
-                                  margin: EdgeInsets.only(bottom: 20),
+                                  margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(20)),
                                   width: double.infinity,
                                   child: new Text('RESET PIN',
                                       textAlign: TextAlign.center,

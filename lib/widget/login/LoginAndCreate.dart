@@ -34,7 +34,7 @@ class _LoginAndCreateState extends State<LoginAndCreate> {
                 new Positioned(
                   bottom: 0,
                   child: new Container(
-                    height: ScreenUtil().setHeight(682),
+                    height: ScreenUtil().setHeight(702),
                     width: ScreenUtil().setWidth(376),
                     decoration: new BoxDecoration(
                       color: Color.fromRGBO(242, 244, 248, 1),

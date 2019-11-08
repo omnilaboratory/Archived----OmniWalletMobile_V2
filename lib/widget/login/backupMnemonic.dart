@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/untilStyle.dart';
+import 'package:omni/model/state_lib.dart';
+import 'package:omni/object/wordInfo.dart';
 import 'package:omni/widget/compnent/head.dart';
 import 'package:omni/widget/login/backupMnemonicOrder.dart';
 
@@ -10,16 +13,23 @@ class BackupMnemonic extends StatefulWidget{
 }
 
 class _BackupMnemonicState extends State<BackupMnemonic>{
-  List words = ["wordswordswordswordswordswords","words","words","words","words","words","words","words","words","words","words","words"];
-  List<Widget> createWords (){
+  Future <SharedPreferences> prefs = SharedPreferences.getInstance();
+  List <WordInfo> words = [];
+  List<Widget> createWords () {
     // this.words = BackupMnemonicPhrase().mnemonicPhrases;
     if (this.words == null) return [];
+    prefs.then((share){
+      words = Mnemonic().createNewWords(share.getString('mnemonic'));
+      setState(() {
+        
+      });
+    });
     List <Widget> list = [];
     for(int i =0;i<this.words.length;i++){
       list.add(
         Container(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(11,5,11,5),
+              child: new Padding(
+                padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(11),ScreenUtil().setHeight(5),ScreenUtil().setWidth(11),ScreenUtil().setHeight(5)),
                 child: RichText(
                   text: TextSpan(
                       text: '${i+1} ',
@@ -31,7 +41,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: '${this.words[i]}',
+                          text: '${this.words[i].content}',
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'GothamRnd',
@@ -60,7 +70,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
             Positioned(
               bottom: 0,
               child: new Container(
-                padding: EdgeInsets.only(top: 30, left: 30, right: 30),
+                padding: EdgeInsets.only(top: ScreenUtil().setHeight(30), left: ScreenUtil().setWidth(30), right: ScreenUtil().setWidth(30)),
                 height: ScreenUtil().setHeight(692),
                 width: ScreenUtil().setWidth(376),
                 decoration: new BoxDecoration(
@@ -78,7 +88,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                 child: new Column(
                   children: <Widget>[
                     new Container(
-                      height: 24,
+                      height: ScreenUtil().setHeight(24),
                       child: new FlatButton(
                         splashColor: Color(0x00ffffff),
                         highlightColor: Color(0x00ffffff),
@@ -87,7 +97,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                         },
                         padding: EdgeInsets.all(0),
                         child: new Container(
-                          height: 24,
+                          height: ScreenUtil().setHeight(24),
                         child: new Row(
                           children: <Widget>[
                             new Container(
@@ -109,7 +119,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 20,left: 25,right: 25),
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(20),left: ScreenUtil().setWidth(25),right: ScreenUtil().setWidth(25)),
                       child: new Text(
                         'Write down or copy these words in the right order and save them somewhere safe.',
                         textAlign: TextAlign.center,
@@ -121,8 +131,8 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top:18),
-                      padding: EdgeInsets.fromLTRB(7, 15, 7, 15),
+                      margin: EdgeInsets.only(top:ScreenUtil().setHeight(18)),
+                      padding: EdgeInsets.fromLTRB(ScreenUtil().setWidth(7), ScreenUtil().setHeight(15), ScreenUtil().setWidth(7), ScreenUtil().setHeight(15)),
                       decoration: BoxDecoration(
                         color: Color(0xffe0e4ed),
                         borderRadius: BorderRadius.circular(22)
@@ -132,18 +142,25 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(20)),
                       child: new FlatButton(
                         padding: EdgeInsets.all(0),
-                        onPressed: (){},
+                        onPressed: (){
+                          prefs.then((share){
+                            var str = share.getString('mnemonicPhraseString');
+                            UtilFunction.copyToClipboard(str);
+                            UtilFunction.showToast('Copy success');
+                          });
+                          
+                        },
                         splashColor: Color(0x00ffffff),
                         highlightColor: Color(0x00ffffff),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)
                         ),
                         child: new Container(
-                          width: 100,
-                          height: 40,
+                          width: ScreenUtil().setWidth(100),
+                          height: ScreenUtil().setHeight(40),
                           decoration: BoxDecoration(
                             color: Color(0xff4a77b7),
                             borderRadius: BorderRadius.circular(20)
@@ -163,8 +180,8 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 30),
-                      padding: EdgeInsets.fromLTRB(18, 5, 18, 11),
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(30)),
+                      padding: EdgeInsets.fromLTRB(18, ScreenUtil().setHeight(5), 18, ScreenUtil().setHeight(11)),
                       decoration: BoxDecoration(
                         color: Color(0xffe0f0ea),
                         borderRadius: BorderRadius.circular(22)
@@ -172,7 +189,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       child: new Column(
                         children: <Widget>[
                           new Container(
-                            width: 24,
+                            width: ScreenUtil().setWidth(24),
                             child: Image.asset('images/info.png'),
                           ),
                           new Container(
@@ -190,7 +207,7 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 96),
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(96)),
                       child: new FlatButton(
                         splashColor: Color(0x00ffffff),
                         highlightColor: Color(0x00ffffff),
@@ -207,11 +224,11 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                           child: new Column(
                             children: <Widget>[
                               new Container(
-                                width: 18,
-                                child: SvgPicture.asset('svg/arrowUp.svg',width: 18),
+                                width: ScreenUtil().setWidth(18),
+                                child: SvgPicture.asset('svg/arrowUp.svg',width: ScreenUtil().setWidth(18)),
                               ),
                               new Container(
-                                margin: EdgeInsets.only(top: 21),
+                                margin: EdgeInsets.only(top: ScreenUtil().setHeight(21)),
                                 child: new Text(
                                   'NEXT',
                                   style:TextStyle(

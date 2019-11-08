@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:omni/object/wordInfo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'loading.dart';
@@ -105,5 +107,17 @@ class UtilFunction {
   }
   static stopLoading(context){
     Loading.stopLoading(context);
+  }
+  static copyToClipboard(final String text) {
+    if (text == null) return;
+    Clipboard.setData(new ClipboardData(text: text));
+  }
+  static List<WordInfo> randomSortMnemonicPhrases(wordList){
+    var temp = wordList.sublist(0);
+    for(var item in temp){
+      item.visible=true;
+    }
+    temp.shuffle();
+    return temp;
   }
 }

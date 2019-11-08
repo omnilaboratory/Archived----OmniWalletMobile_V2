@@ -3,12 +3,14 @@ import 'dart:typed_data';
 
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:omni/common/utilFunction.dart';
+import 'package:omni/model/state_lib.dart';
+import 'package:omni/object/wordInfo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class Mnemonic{
+class Mnemonic extends Model{
   static Mnemonic _instance;
   static Uint8List bip39Seed;
   Future<SharedPreferences> prefs = SharedPreferences.getInstance();
-
+  List<WordInfo> wordList=null;
   static Mnemonic getInstance(){
     if(_instance == null){
       _instance = Mnemonic();
@@ -78,5 +80,29 @@ class Mnemonic{
       send.send(seed);
     });
   }
+  List<WordInfo> createNewWords(String mnemonic){
+    if(this.wordList!=null){
+      this.wordList.clear();
+    }else{
+      this.wordList = [];
+    }
 
+    List<String> list = mnemonic.split(' ');
+    for(int count=0;count<list.length;count++){
+      this.wordList.add(WordInfo(content: list[count],seqNum: count));
+    }
+    return this.wordList;
+  }
+  List<WordInfo> get mnemonicPhrases{
+    createNewWords(LocalModel().userInfo.mnemonic);
+    return this.wordList;
+  }
+  List<WordInfo>  get randomSortMnemonicPhrases{
+    var temp = this.wordList.sublist(0);
+    for(var item in temp){
+      item.visible=true;
+    }
+    temp.shuffle();
+    return temp;
+  }
 }

@@ -22,7 +22,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
             Positioned(
               bottom: 0,
               child: new Container(
-                padding: EdgeInsets.only(top: 30, left: 18, right: 18),
+                padding: EdgeInsets.only(top: ScreenUtil().setHeight(30), left: ScreenUtil().setWidth(18), right: ScreenUtil().setWidth(18)),
                 height: ScreenUtil().setHeight(692),
                 width: ScreenUtil().setWidth(376),
                 decoration: new BoxDecoration(
@@ -45,6 +45,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                           children: <Widget>[
                             new Expanded(
                               child: new Container(
+                                padding: EdgeInsets.only(left: ScreenUtil().setWidth(50)),
                                 alignment: Alignment.center,
                                 child: new Text(
                                   'BACK UP WALLET',
@@ -54,8 +55,8 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                               ),
                             ),
                             new Container(
-                              width: 50,
-                              height: 24,
+                              width: ScreenUtil().setWidth(50),
+                              height: ScreenUtil().setHeight(24),
                               child: new FlatButton(
                                 splashColor: Color(0x00ffffff),
                                 highlightColor: Color(0x00ffffff),
@@ -68,8 +69,8 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                                 padding: EdgeInsets.all(0),
                                 child: new Container(
                                   alignment: Alignment.center,
-                                  width: 50,
-                                  height: 24,
+                                  width: ScreenUtil().setWidth(50),
+                                  height: ScreenUtil().setHeight(24),
                                   decoration: BoxDecoration(
                                       border:
                                           Border.all(color: Color(0xff4a77b7)),
@@ -89,12 +90,12 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 86),
-                      width: 172,
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(86)),
+                      width: ScreenUtil().setWidth(172),
                       child: Image.asset('images/allWallet.png'),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(20)),
                       child: new Text(
                         'Back up your wallet now！',
                         style: TextStyle(
@@ -104,7 +105,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                       ),
                     ),
                     new Container(
-                      padding: EdgeInsets.only(top: 30, bottom: 3),
+                      padding: EdgeInsets.only(top: ScreenUtil().setHeight(30), bottom: ScreenUtil().setHeight(3)),
                       child: new Text('Notice:',
                           style: new TextStyle(
                               color: Color(0xff4a77b7),
@@ -114,7 +115,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                     ),
                     new Container(
                       padding: EdgeInsets.only(
-                          top: 3, bottom: 3, left: 30, right: 30),
+                          top: ScreenUtil().setHeight(3), bottom: ScreenUtil().setHeight(3), left: ScreenUtil().setWidth(30), right: ScreenUtil().setWidth(30)),
                       child: new Text(
                           "Please back up your wallet, Omni will never visit your account, can not restore your never visit your account, can not restore your manage your wallet on your own, and make sure the safety of your asset.",
                           textAlign: TextAlign.center,
@@ -125,7 +126,7 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                           )),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(top: 76),
+                      margin: EdgeInsets.only(top: ScreenUtil().setHeight(76)),
                       child: new FlatButton(
                         splashColor: Color(0x00ffffff),
                         highlightColor: Color(0x00ffffff),
@@ -143,10 +144,10 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                           child: new Column(
                             children: <Widget>[
                               new Container(
-                                child: SvgPicture.asset('svg/arrowUp.svg',width: 18,)
+                                child: SvgPicture.asset('svg/arrowUp.svg',width: ScreenUtil().setWidth(18),)
                               ),
                               new Container(
-                                margin: EdgeInsets.only(top: 21),
+                                margin: EdgeInsets.only(top: ScreenUtil().setHeight(21)),
                                 child: new Text(
                                   'BACK UP MNEMONIC PHRASE',
                                   style:TextStyle(
