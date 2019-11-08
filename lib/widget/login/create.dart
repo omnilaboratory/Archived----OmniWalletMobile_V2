@@ -2,7 +2,6 @@ import 'package:omni/common/mnemonic.dart';
 import 'package:omni/common/myInput.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/login/backupWallet.dart';
-import 'package:omni/widget/wallet/walletAndAddress.dart';
 
 class Create extends StatefulWidget {
   _CreateState createState() => new _CreateState();
@@ -230,7 +229,7 @@ class _CreateState extends State<Create> {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return WalletAndAddress();
+                    return BackupWalletHome();
                   }
               ),
                   (route) => route == null,
