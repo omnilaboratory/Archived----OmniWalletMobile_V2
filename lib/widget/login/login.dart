@@ -19,6 +19,8 @@ class _LoginState extends State<Login> {
   FocusNode confirmPinFocus = new FocusNode();
   FocusNode mnemonicNode = new FocusNode();
 
+  bool canSubmit = false;
+
   @override
   void initState() {
     super.initState();
@@ -75,129 +77,141 @@ class _LoginState extends State<Login> {
                     width: ScreenUtil().setWidth(376),
                     child: new SingleChildScrollView(
                       child: new Container(
-                    height: ScreenUtil().setHeight(405),
-                    width: ScreenUtil().setWidth(376),
-                    child: new SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          new Container(
-                            margin:
-                                EdgeInsets.only(top: ScreenUtil().setHeight(20), left: ScreenUtil().setWidth(30), right: ScreenUtil().setWidth(30)),
-                            child: new Column(
-                              children: <Widget>[
-                                new Container(
-                                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(3), bottom: ScreenUtil().setHeight(3)),
-                                  child: new Text('Notice:',
-                                      style: new TextStyle(
-                                          color: Color(0xff4a77b7),
-                                          fontSize: 13,
-                                          height: 1,
-                                          fontWeight: FontWeight.bold)),
+                        height: ScreenUtil().setHeight(405),
+                        width: ScreenUtil().setWidth(376),
+                        child: new SingleChildScrollView(
+                          child: Column(
+                            children: <Widget>[
+                              new Container(
+                                margin: EdgeInsets.only(
+                                    top: ScreenUtil().setHeight(20),
+                                    left: ScreenUtil().setWidth(30),
+                                    right: ScreenUtil().setWidth(30)),
+                                child: new Column(
+                                  children: <Widget>[
+                                    new Container(
+                                      padding: EdgeInsets.only(
+                                          top: ScreenUtil().setHeight(3),
+                                          bottom: ScreenUtil().setHeight(3)),
+                                      child: new Text('Notice:',
+                                          style: new TextStyle(
+                                              color: Color(0xff4a77b7),
+                                              fontSize: 13,
+                                              height: 1,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                    new Container(
+                                      padding: EdgeInsets.only(
+                                          top: ScreenUtil().setHeight(3),
+                                          bottom: ScreenUtil().setHeight(3)),
+                                      child: new Text(
+                                          'After importing account by Mnemonic Phrase,you can reset password for safety concerns.',
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            color: Color(0xff4a77b7),
+                                            fontSize: 13,
+                                            height: 1.4,
+                                          )),
+                                    ),
+                                    new Container(
+                                      margin: EdgeInsets.only(
+                                          top: ScreenUtil().setHeight(71),
+                                          bottom: ScreenUtil().setHeight(30)),
+                                      height: ScreenUtil().setHeight(65),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Color(0xffcfd1d9)),
+                                          borderRadius:
+                                              BorderRadius.circular(50)),
+                                      child: new TextField(
+                                        controller: controllerMnemonic,
+                                        focusNode: mnemonicNode,
+                                        maxLines: 4,
+                                        textAlign: TextAlign.center,
+                                        style: UtilStyle.inputStyleM,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            contentPadding: EdgeInsets.only(
+                                                left: ScreenUtil().setWidth(30),
+                                                right:
+                                                    ScreenUtil().setWidth(50),
+                                                top: ScreenUtil().setHeight(10),
+                                                bottom:
+                                                    ScreenUtil().setHeight(10)),
+                                            hintText: 'Input mnemonic phrase',
+                                            hintStyle: UtilStyle.hintTextFontM),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                new Container(
-                                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(3), bottom: ScreenUtil().setHeight(3)),
-                                  child: new Text(
-                                      'After importing account by Mnemonic Phrase,you can reset password for safety concerns.',
-                                      textAlign: TextAlign.center,
-                                      style: new TextStyle(
-                                        color: Color(0xff4a77b7),
-                                        fontSize: 13,
-                                        height: 1.4,
-                                      )),
+                              ),
+                              new Container(
+                                child: new Column(
+                                  children: <Widget>[
+                                    new Container(
+                                      margin: EdgeInsets.only(
+                                          bottom: ScreenUtil().setHeight(20)),
+                                      width: double.infinity,
+                                      child: new Text('RESET PIN',
+                                          textAlign: TextAlign.center,
+                                          style: new TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Color(0xff7a82a3),
+                                            fontSize: 10,
+                                          )),
+                                    ),
+                                    new Container(
+                                      width: double.infinity,
+                                      child: new MyInput(
+                                        rules: _validateOldPin,
+                                        inputController: controllerOldPin,
+                                        maxLength: 6,
+                                        keyType: TextInputType.number,
+                                        placeholder: 'OLD PIN',
+                                        hinText: 'INPUT OLD PIN',
+                                        inputFocuse: oldPinFocus,
+                                        isPassword: false,
+                                        errorMsg: '',
+                                      ),
+                                    ),
+                                    new Container(
+                                      width: double.infinity,
+                                      child: new MyInput(
+                                        rules: _validateNewPin,
+                                        inputController: controllerNewPin,
+                                        keyType: TextInputType.number,
+                                        maxLength: 6,
+                                        placeholder: 'NEW PIN',
+                                        hinText: 'INPUT NEW PIN',
+                                        inputFocuse: newPinFocus,
+                                        isPassword: false,
+                                        errorMsg: '',
+                                      ),
+                                    ),
+                                    new Container(
+                                      width: double.infinity,
+                                      child: new MyInput(
+                                        rules: _validateConfirmPin,
+                                        inputController: controllerConfirmPin,
+                                        keyType: TextInputType.number,
+                                        maxLength: 6,
+                                        placeholder: 'CONFIRM PIN',
+                                        hinText: 'INPUT CONFIRM PIN',
+                                        inputFocuse: confirmPinFocus,
+                                        isPassword: false,
+                                        errorMsg: '',
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                new Container(
-                                  margin: EdgeInsets.only(top: ScreenUtil().setHeight(71), bottom: ScreenUtil().setHeight(30)),
-                                  height: ScreenUtil().setHeight(65),
-                                  decoration: BoxDecoration(
-                                      border:
-                                          Border.all(color: Color(0xffcfd1d9)),
-                                      borderRadius: BorderRadius.circular(50)),
-                                  child: new TextField(
-                                    controller: controllerMnemonic,
-                                    focusNode: mnemonicNode,
-                                    maxLines: 4,
-                                    textAlign: TextAlign.center,
-                                    style: UtilStyle.inputStyleM,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        contentPadding: EdgeInsets.only(
-                                            left: ScreenUtil().setWidth(30),
-                                            right: ScreenUtil().setWidth(50),
-                                            top: ScreenUtil().setHeight(10),
-                                            bottom: ScreenUtil().setHeight(10)),
-                                        hintText: 'Input mnemonic phrase',
-                                        hintStyle: UtilStyle.hintTextFontM),
-                                  ),
-                                )
-                              ],
-                            ),
+                              )
+                            ],
                           ),
-                          new Container(
-                            child: new Column(
-                              children: <Widget>[
-                                new Container(
-                                  margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(20)),
-                                  width: double.infinity,
-                                  child: new Text('RESET PIN',
-                                      textAlign: TextAlign.center,
-                                      style: new TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff7a82a3),
-                                        fontSize: 10,
-                                      )),
-                                ),
-                                new Container(
-                                  width: double.infinity,
-                                  child: new MyInput(
-                                    rules: _validateOldPin,
-                                    inputController: controllerOldPin,
-                                    maxLength: 6,
-                                    keyType: TextInputType.number,
-                                    placeholder: 'OLD PIN',
-                                    hinText: 'INPUT OLD PIN',
-                                    inputFocuse: oldPinFocus,
-                                    isPassword: false,
-                                    errorMsg: '',
-                                  ),
-                                ),
-                                new Container(
-                                  width: double.infinity,
-                                  child: new MyInput(
-                                    rules: _validateNewPin,
-                                    inputController: controllerNewPin,
-                                    keyType: TextInputType.number,
-                                    maxLength: 6,
-                                    placeholder: 'NEW PIN',
-                                    hinText: 'INPUT NEW PIN',
-                                    inputFocuse: newPinFocus,
-                                    isPassword: false,
-                                    errorMsg: '',
-                                  ),
-                                ),
-                                new Container(
-                                  width: double.infinity,
-                                  child: new MyInput(
-                                    rules: _validateConfirmPin,
-                                    inputController: controllerConfirmPin,
-                                    keyType: TextInputType.number,
-                                    maxLength: 6,
-                                    placeholder: 'CONFIRM PIN',
-                                    hinText: 'INPUT CONFIRM PIN',
-                                    inputFocuse: confirmPinFocus,
-                                    isPassword: false,
-                                    errorMsg: '',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                    ),
-                  ),
-                  ),
+                ),
               ),
               new Positioned(
                 bottom: 0,
@@ -223,11 +237,37 @@ class _LoginState extends State<Login> {
                       splashColor: Color(0x00ffffff),
                       highlightColor: Color(0x00ffffff),
                       onPressed: () {
+                        String mnemonic = controllerMnemonic.text;
+                        var mnemonicArr = mnemonic.split(' ');
+                        mnemonicArr.removeWhere((item) {
+                          return item == ' ' || item.length == 0;
+                        });
+                        if (mnemonicArr.length == 12) {
+                          var _mnemonic = mnemonicArr.join(' ');
+                          if (bip39.validateMnemonic(_mnemonic) == false) {
+                            UtilFunction.showToast('Wrong Mnemonic!');
+                            return null;
+                          }
+                          String _oldPinMd5 = UtilFunction.convertMD5Str(controllerOldPin.text);
+                          String _newPinMd5 =  UtilFunction.convertMD5Str(controllerNewPin.text);
+                          var userId = UtilFunction.convertMD5Str(_mnemonic);
+                          UtilFunction.showLoading(context);
+                          Future result = NetConfig.post(context, HttpConst.restoreUser, {
+                            'userId':userId,
+                            'password':_oldPinMd5,
+                            'newPsw':_newPinMd5
+
+                          },
+                          errorCallback: (msg){});
+                          
+                        } else {
+                          // UtilFunction.stopLoading(context);
+                        }
                         // Navigator.pushNamed(context, '/walletAndAddress');
-                        Navigator.push(context, new MaterialPageRoute(
+                        /* Navigator.push(context, new MaterialPageRoute(
                             builder: (BuildContext context) {
                           return new BackupWalletHome();
-                        }));
+                        })); */
                       },
                       child: Center(
                         child: Text(
@@ -239,7 +279,6 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-            
             ],
           ),
         );
