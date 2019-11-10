@@ -14,6 +14,7 @@ class LocalModel extends Model{
   UserInfo userInfo = new UserInfo();
   bool isLocked = false;
   bool isNeedLock = true;
+  bool isBackUp = false;
   int fromParent = null;
   int sleepTime = 5;
   bool isUnlockSuccessfully = true;
@@ -61,6 +62,10 @@ class LocalModel extends Model{
   }
   void changeIsUnlockSuccessfully(bool type){
     isUnlockSuccessfully = type;
+    notifyListeners();
+  }
+  void changeIsBackUp(bool type){
+    isBackUp = type;
     notifyListeners();
   }
 }

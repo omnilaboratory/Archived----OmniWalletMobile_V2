@@ -46,12 +46,14 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
           share.remove('backParentId');
 
           // User have finished to back up mnimonic.
-          share.setBool('isBackup', true);
-        });
-        Navigator.of(context).pushAndRemoveUntil(
+          share.setBool('isBuckup', true);
+          LocalModel().of(context).changeIsBackUp(true);
+          Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => new WalletAndAddress()),
                 (route) => route == null
         );
+        });
+        
     }
     }
     
@@ -211,6 +213,12 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
                       ),
                     ),
                     new Container(
+                      height: ScreenUtil().setHeight(636),
+                      child: new SingleChildScrollView(
+                        child: new Container(
+                          child: new Column(
+                            children: <Widget>[
+                              new Container(
                       margin: EdgeInsets.only(top: ScreenUtil().setHeight(20)),
                       child: new Text(
                         'Click the following 12-word phrase in exact sequence, to make sure you have a correct backup.',
@@ -284,6 +292,11 @@ class _BackupMnemonicOrderState extends State<BackupMnemonicOrder>{
                       ),
                     ),
                     
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

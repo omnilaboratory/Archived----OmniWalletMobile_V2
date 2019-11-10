@@ -20,6 +20,7 @@ class NetConfig{
   static String apiHost= HttpConst.apiHost;
 
   static String imageHost=HttpConst.imageHost;
+  static Future<SharedPreferences> prefs = SharedPreferences.getInstance();
 
   static post(BuildContext context,String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
     return _sendData(context,"post", url, data,errorCallback: errorCallback,timeOut: timeOut,showToast: showToast);
@@ -37,14 +38,19 @@ class NetConfig{
   }
 
   static _sendData(BuildContext context,String reqType, String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
-
+    var loginToken = null;
+    var dataEncodeString;
+    await prefs.then((share){
+      loginToken = share.getString('loginToken');
+      dataEncodeString = share.getString('dataEncodeString');
+    });
     Map<String, String> header = new Map();
     if(url.startsWith('common')==false){
       if(LocalModel().of(context).userInfo.loginToken==null){
         UtilFunction.showToast('user have not login');
         return null;
       }
-      header['authorization']='Bearer '+LocalModel().of(context).userInfo.loginToken;
+      header['authorization']='Bearer '+ loginToken;
     }
 
     url = apiHost + url;
@@ -57,7 +63,7 @@ class NetConfig{
         response = await http.get(url,headers: header).timeout(Duration(seconds: timeOut));
       }else{
         var dataStr = json.encode(data);
-        var dataMD5 = UtilFunction.convertMD5Str(dataStr+LocalModel().of(context).dataEncodeString);
+        var dataMD5 = UtilFunction.convertMD5Str(dataStr+dataEncodeString);
         data['dataStr']=dataStr;
         data['dataMD5']=dataMD5;
         response =  await http.post(url,headers: header, body: data).timeout(Duration(seconds: timeOut));

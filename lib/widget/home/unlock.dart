@@ -12,6 +12,7 @@ class Unlock extends StatefulWidget{
 }
 
 class _UnlockState extends State<Unlock>{
+  Future <SharedPreferences> prefs = SharedPreferences.getInstance();
   List<int> pinCodeArr = [];
   bool isUnlock = false;
   bool isError = false;
@@ -23,7 +24,9 @@ class _UnlockState extends State<Unlock>{
     if(pinCodeArr.length==6){
       UtilFunction.showLoading(context);
       String pinCodeArrStr = pinCodeArr.join('');
-      /* if(UtilFunction.convertMD5Str(pinCodeArrStr)!=GlobalInfo.userInfo.pinCode){
+      print(LocalModel().of(context).userInfo.pinCode);
+      prefs.then((share){
+        if(UtilFunction.convertMD5Str(pinCodeArrStr)!=share.getString('pinCode')){
         print(pinCodeArrStr);
         isUnlock = false;
         isError = true;
@@ -35,7 +38,7 @@ class _UnlockState extends State<Unlock>{
       }else{
         isUnlock = true;
         isError = false;
-        GlobalInfo.isUnlockSuccessfully = true;
+        LocalModel().of(context).isUnlockSuccessfully = true;
         if (widget.callback != null) { // from send or my page.
           widget.callback();
         } else { // from background
@@ -44,8 +47,10 @@ class _UnlockState extends State<Unlock>{
         setState(() {
           
         });
-        Navigator.popAndPushNamed(context, '/WalletAndAddress');
-      } */
+        Navigator.pushNamed(context, '/walletAndAddress');
+      }
+      });
+      
       
     }
   }

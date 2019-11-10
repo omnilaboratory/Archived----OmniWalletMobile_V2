@@ -119,6 +119,11 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     new Container(
+                      height: ScreenUtil().setHeight(636),
+                      child: new SingleChildScrollView(
+                        child: new Column(
+                          children: <Widget>[
+                            new Container(
                       margin: EdgeInsets.only(top: ScreenUtil().setHeight(20),left: ScreenUtil().setWidth(25),right: ScreenUtil().setWidth(25)),
                       child: new Text(
                         'Write down or copy these words in the right order and save them somewhere safe.',
@@ -245,6 +250,10 @@ class _BackupMnemonicState extends State<BackupMnemonic>{
                       ),
                     ),
                     
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

@@ -1,7 +1,6 @@
 import 'package:omni/common/myInput.dart';
 import 'package:omni/model/state_lib.dart';
 import 'package:omni/widget/login/backupWallet.dart';
-import 'package:omni/widget/wallet/walletAndAddress.dart';
 import 'package:bip39/bip39.dart' as bip39;
 
 class Login extends StatefulWidget {
@@ -18,6 +17,7 @@ class _LoginState extends State<Login> {
   FocusNode newPinFocus = new FocusNode();
   FocusNode confirmPinFocus = new FocusNode();
   FocusNode mnemonicNode = new FocusNode();
+  Future <SharedPreferences> prefs = SharedPreferences.getInstance();
 
   bool canSubmit = false;
 
@@ -259,15 +259,36 @@ class _LoginState extends State<Login> {
 
                           },
                           errorCallback: (msg){});
+                          result.then((data){
+                            prefs.then((share){
+                              share.setString('userId', data['userId']);
+                              share.setString('mnemonic', mnemonic);
+                              share.setString('pinCode', _newPinMd5);
+                              share.setString('nickname', data['username']);
+                              share.setString('loginToken', data['token']);
+                              LocalModel().of(context).userInfo.userId = userId;
+                              LocalModel().of(context).userInfo.mnemonic = mnemonic;
+                              LocalModel().of(context).userInfo.pinCode = _newPinMd5;
+                              LocalModel().of(context).userInfo.nickname = data['username'];
+                              LocalModel().of(context).userInfo.loginToken = data['token'];
+                              LocalModel().of(context).userInfo.mnemonicSeed = null;
+                              LocalModel().of(context).userInfo.initUserInfo(context,(){
+                                  UtilFunction.stopLoading(context);
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                          return BackupWalletHome();
+                                        }
+                                    ),
+                                        (route) => route == null,
+                                  );
+                              });
+                            });
+                          });
                           
                         } else {
-                          // UtilFunction.stopLoading(context);
+                          UtilFunction.showToast('Wrong Mnemonic!');
                         }
-                        // Navigator.pushNamed(context, '/walletAndAddress');
-                        /* Navigator.push(context, new MaterialPageRoute(
-                            builder: (BuildContext context) {
-                          return new BackupWalletHome();
-                        })); */
                       },
                       child: Center(
                         child: Text(

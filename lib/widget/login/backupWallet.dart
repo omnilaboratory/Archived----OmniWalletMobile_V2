@@ -90,6 +90,13 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                       ),
                     ),
                     new Container(
+                      height: ScreenUtil().setHeight(636),
+                      child: new SingleChildScrollView(
+                        child: new Container(
+                          child: new SingleChildScrollView(
+                            child: new Column(
+                              children: <Widget>[
+                                new Container(
                       margin: EdgeInsets.only(top: ScreenUtil().setHeight(86)),
                       width: ScreenUtil().setWidth(172),
                       child: Image.asset('images/allWallet.png'),
@@ -159,6 +166,13 @@ class _BackupWalletHomeState extends State<BackupWalletHome> {
                                 ),
                               )
                             ],
+                          ),
+                        ),
+                      ),
+                    )
+                  
+                              ],
+                            ),
                           ),
                         ),
                       ),

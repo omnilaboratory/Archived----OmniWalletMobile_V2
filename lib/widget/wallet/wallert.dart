@@ -11,7 +11,14 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
   AnimationController controllerWallet;
   @override
   void initState() {
+    
     super.initState();
+    Future.delayed(
+      Duration(milliseconds: 10),
+      (){
+        getWalletList();
+      }
+    );
     controllerWallet = new AnimationController(
         duration: const Duration(milliseconds: 800), vsync: this);
     animationWallet = new Tween(begin: 0.0, end: 1.0).animate(controllerWallet)
@@ -21,6 +28,17 @@ class _WalletState extends State<Wallet> with SingleTickerProviderStateMixin {
         });
       });
     controllerWallet.forward();
+  }
+
+  void getWalletList(){
+    UtilFunction.showLoading(context);
+    Future list = NetConfig.get(context, HttpConst.getDefautAssetList);
+    list.then((data){
+      print(data);
+      Navigator.pop(context);
+    });
+    
+    
   }
 
   @override

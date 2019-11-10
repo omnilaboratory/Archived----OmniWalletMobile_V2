@@ -7,6 +7,7 @@ import 'model/state_lib.dart';
 import 'package:flutter/services.dart';
 
 import 'package:omni/widget/faq/faq.dart';
+import 'package:omni/model/localModel.dart';
 import 'package:omni/widget/setting/mfaEnable.dart';
 import 'package:omni/widget/token/tokenHome.dart';
 import 'package:omni/widget/setting/setting.dart';
@@ -55,67 +56,61 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    print("==> lifeChanged = $state");
-    print("==> lifeChanged -> isLocked = ${LocalModel().of(context).isLocked}");
-
-
     // Enter background.
     if (state == AppLifecycleState.paused) {
-      // print("==> paused -> loginToken = ${GlobalInfo.userInfo.loginToken}");
-       print("==> paused -> GlobalInfo.isLocked = ${LocalModel().of(context).isNeedLock}");
-
-      if (LocalModel().of(context).userInfo.loginToken != null&&LocalModel().of(context).isNeedLock==true) { // User has logged in.
-        LocalModel().of(context).isLocked = false;
-        print("==> paused -> isLocked = ${LocalModel().of(context).isLocked}");
-
-        // if (GlobalInfo.fromParent > 10) {
-        //   routeObserver.navigator.pop();
-        // }
-
-        _timer = Timer(
-          Duration(minutes: LocalModel().of(context).sleepTime), // Default is 5 mins.
+      
+      prefs.then((share){
+        print("==> paused -> loginToken = ${share.getString('loginToken')}");
+        var loginToken = share.getString('loginToken');
+        var isNeedLock = share.getBool('isNeedLock');
+        if(isNeedLock==null){
+          share.setBool('isNeedLock', true);
+        }
+        if(loginToken!=null&&isNeedLock==true){
+          share.setBool('isLocked', false);
+          _timer = Timer(
+          Duration(minutes: 5), // Default is 5 mins.
           () {
-            LocalModel().of(context).isLocked = true; // will be locked.
+            print('locked');
+            share.setBool('isLocked', true); // will be locked.
             _timer.cancel();
           }
         );
-      }
+        }
+      });
     }
 
     // Back from background.
     if (state == AppLifecycleState.resumed) {
-
       // print("==> resumed -> loginToken = ${GlobalInfo.userInfo.loginToken}");
-
-      if (LocalModel().of(context).userInfo.loginToken != null) { // User has logged in.
-        print("==> resumed -> isLocked = ${LocalModel().of(context).isLocked}");
-
-        if (LocalModel().of(context).isLocked==true) { // Will be locked.
-          print("==> resumed -> isUnlockSuccessfully = ${LocalModel().of(context).isUnlockSuccessfully}");
-          // Tools.showToast('isUnlockSuccessfully = ${GlobalInfo.isUnlockSuccessfully}');
-          if (LocalModel().of(context).isUnlockSuccessfully) {
-            routeObserver.navigator.push(
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return Unlock(parentID: 2);
-                }
-              ),
-            );
-          } else {
-            print("==> fromParent = ${LocalModel().of(context).fromParent}");
-            if (LocalModel().of(context).fromParent > 10) { // from Back up page or Send page.
-              // routeObserver.navigator.pop();
-              routeObserver.navigator.pushReplacement(
+      prefs.then((share){
+        var loginToken = share.getString('loginToken');
+        var isLocked = share.getBool('isLocked');
+        var isUnlockSuccessfully = share.getBool('isUnlockSuccessfully');
+        if(loginToken!=null){
+          if(isLocked){
+            if(isUnlockSuccessfully!=null&&isUnlockSuccessfully!=false){
+              routeObserver.navigator.push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return Unlock(parentID: 2);
+                    return Unlock();
                   }
                 ),
               );
+            }else{// from Back up page or Send page.
+              // routeObserver.navigator.pop();
+              routeObserver.navigator.push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return Unlock();
+                  }
+                ),
+              );
+            
             }
           }
         }
-      }
+      });
     }
 
     super.didChangeAppLifecycleState(state);
@@ -181,6 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if(shareIsBackup!=null){
         isBackup = shareIsBackup;
       }
+      print(shareIsBackup);
       setState(() {
         
       });
