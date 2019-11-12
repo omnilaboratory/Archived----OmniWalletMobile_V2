@@ -47,7 +47,8 @@ class _UnlockState extends State<Unlock>{
         setState(() {
           
         });
-        Navigator.pushNamed(context, '/walletAndAddress');
+        // Navigator.pushNamed(context, '/walletAndAddress');
+        Navigator.pop(context);
       }
       });
       

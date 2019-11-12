@@ -39,11 +39,7 @@ class NetConfig{
 
   static _sendData(BuildContext context,String reqType, String url,Map<String, String> data,{Function errorCallback=null,int timeOut=60,bool showToast =true}) async{
     var loginToken = null;
-    var dataEncodeString;
-    await prefs.then((share){
-      loginToken = share.getString('loginToken');
-      dataEncodeString = share.getString('dataEncodeString');
-    });
+    var dataEncodeString = 'P@ssw)2d!UPRETSCLIENT';
     Map<String, String> header = new Map();
     if(url.startsWith('common')==false){
       if(LocalModel().of(context).userInfo.loginToken==null){
@@ -66,6 +62,8 @@ class NetConfig{
         var dataMD5 = UtilFunction.convertMD5Str(dataStr+dataEncodeString);
         data['dataStr']=dataStr;
         data['dataMD5']=dataMD5;
+        print(dataStr);
+        print(dataMD5);
         response =  await http.post(url,headers: header, body: data).timeout(Duration(seconds: timeOut));
       }
     } on TimeoutException{

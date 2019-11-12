@@ -60,8 +60,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
     if (state == AppLifecycleState.paused) {
       
       prefs.then((share){
-        print("==> paused -> loginToken = ${share.getString('loginToken')}");
-        var loginToken = share.getString('loginToken');
+        print("==> paused -> loginToken = ${localModel.userInfo.loginToken}");
+        var loginToken = localModel.userInfo.loginToken;
+        if(localModel.userInfo.loginToken==null){
+          loginToken = share.getString('loginToken');
+        }
+        
         var isNeedLock = share.getBool('isNeedLock');
         if(isNeedLock==null){
           share.setBool('isNeedLock', true);
@@ -84,12 +88,19 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
     if (state == AppLifecycleState.resumed) {
       // print("==> resumed -> loginToken = ${GlobalInfo.userInfo.loginToken}");
       prefs.then((share){
-        var loginToken = share.getString('loginToken');
+        var loginToken = localModel.userInfo.loginToken;
+        if(loginToken == null){
+          loginToken = share.getString('loginToken');
+        }
         var isLocked = share.getBool('isLocked');
+        print(isLocked);
         var isUnlockSuccessfully = share.getBool('isUnlockSuccessfully');
         if(loginToken!=null){
+          print(loginToken);
           if(isLocked){
+            print('woyaotiao');
             if(isUnlockSuccessfully!=null&&isUnlockSuccessfully!=false){
+              print('tiaodaozheli');
               routeObserver.navigator.push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
@@ -99,6 +110,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
               );
             }else{// from Back up page or Send page.
               // routeObserver.navigator.pop();
+              print('tiaodaoelse');
               routeObserver.navigator.push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
@@ -148,6 +160,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
           '/tokenHome': (BuildContext context) => new TokenHome(),
           '/mfa': (BuildContext context) => new MFAEnable(),
         },
+        navigatorObservers: [routeObserver],
       ),
     );
   }
