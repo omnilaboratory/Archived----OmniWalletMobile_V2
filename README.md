@@ -27,7 +27,7 @@ Server crashed, data loss
 Mobile phone lost(local data compromised)
 
 >mnemonic code and PIN code are stored in MD5, if screen of the device is locked, user's data is safe, hence his assets. In addition, single logon mechanism makes sure that if a user logon on his another device and change the pin code as soon as he find one lost, the missing device will be locked immediatly and will never be unlocked.
-
+ 
 mnemonic code backed up in plain text stolen
 
 >*Important*: there is no way in the world to protect your assets if your mnemonic code is known to others. Anyone including yourself can restore your account using the code on any other third party wallets. So write down the code on a paper, and lock the paper at a safe place, which is known to yourself only. 
